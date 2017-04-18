@@ -1,0 +1,235 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{97292720-7420-45E0-84AF-D5714FE0862C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Hack1Draw</RootNamespace>
+    <AssemblyName>Hack1Draw</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="LeapCSharp.NET4.0">
+      <HintPath>..\..\..\..\..\My Projects\Leap\PerfectPidgeon_Motion_Test\PerfectPidgeon_Motion_Test\bin\Debug\LeapCSharp.NET4.0.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenTK, Version=1.1.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\OpenTK.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenTK.GLControl, Version=1.1.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\OpenTK.GLControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class1.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Leap.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\W.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Background21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fi1t1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fi2t1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fi3t1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fi4t1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fi5t1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\W1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tu1t1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tu2t1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tu3t1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tu4t1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tu5t1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tu6t1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tu7t1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ok0p1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ok1p1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ok2p1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ok3p1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ok4p1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ok5p1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ok6p1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ok7p1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ok8p1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fish0Y1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fish1Y1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fish2Y1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fish3Y1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Fish4Y1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Stikeri.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Background2s.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Stiker test.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ray1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ray2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ray3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Ray4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\zgrada 9 800x800.png" />
+    <None Include="Resources\zgrada 8 600x600.png" />
+    <None Include="Resources\zgrada 7 400x400.png" />
+    <None Include="Resources\zgrada 6 400x400.png" />
+    <None Include="Resources\zgrada 5 400x400.png" />
+    <None Include="Resources\zgrada 4 200x200.png" />
+    <None Include="Resources\zgrada 3 200x200.png" />
+    <None Include="Resources\zgrada 2 200x200.png" />
+    <None Include="Resources\zgrada 1 200x200.png" />
+    <None Include="Resources\z2.png" />
+    <None Include="Resources\z1.png" />
+    <None Include="Resources\z0.png" />
+    <None Include="Resources\z3.png" />
+    <None Include="Resources\gohlub1.png" />
+    <None Include="Resources\gohlub2.png" />
+    <None Include="Resources\gohlub3.png" />
+    <None Include="Resources\gohlub4.png" />
+    <None Include="Resources\metak 1 50x50.png" />
+    <None Include="Resources\bad 4 200x200.png" />
+    <None Include="Resources\aim 200x200.png" />
+    <None Include="Resources\bad 1 200x200.png" />
+    <None Include="Resources\bad 2 200x200.png" />
+    <None Include="Resources\bad 3 200x200.png" />
+    <None Include="Resources\bad 1.png" />
+    <None Include="Resources\bad 2.png" />
+    <None Include="Resources\bad 3.png" />
+    <None Include="Resources\bad 4.png" />
+    <None Include="Resources\bum.png" />
+    <None Include="Resources\pew1.png" />
+    <None Include="Resources\pew2.png" />
+    <None Include="Resources\pew3.png" />
+    <None Include="Resources\hit.png" />
+    <None Include="Resources\Plasma.png" />
+    <None Include="Resources\Speed.png" />
+    <None Include="Resources\Health.png" />
+    <None Include="Resources\Heavy.png" />
+    <None Include="Resources\Laser.png" />
+    <None Include="Resources\lazer.png" />
+    <None Include="Resources\boom.png" />
+    <Content Include="Resources\Tile0.png" />
+    <Content Include="Resources\Tile1.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
