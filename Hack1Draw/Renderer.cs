@@ -19,6 +19,18 @@ namespace PerfectPidgeon.Draw
         private GameData _Data;
         private Controls _Controls;
         private GLControl _GLD;
+        public bool GLLoaded
+        {
+            get
+            {
+                return _GLLoaded;
+            }
+
+            set
+            {
+                _GLLoaded = value;
+            }
+        }
         public Renderer(GLControl GLD, GameData Data, ArtData AData, Controls Controls_)
         {
             this._InDraw = false;
@@ -54,7 +66,7 @@ namespace PerfectPidgeon.Draw
         public void Init()
         {
             this._GLD.MakeCurrent();
-            this._GLLoaded = true;
+            this.GLLoaded = true;
             GL.ClearColor(Color.LightGray);
             GL.Enable(EnableCap.Blend);
             GL.BlendFunc(BlendingFactorSrc.SrcAlpha, BlendingFactorDest.OneMinusSrcAlpha);

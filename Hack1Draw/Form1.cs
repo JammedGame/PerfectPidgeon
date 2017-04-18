@@ -22,8 +22,6 @@ namespace PerfectPidgeon.Draw
 
         private int HealthIndex = 200;
         private string WeaponText = "Basic";
-
-        public bool Working = false;
         
         public event MouseEventHandler MouseMoved;
         public event MouseEventHandler MouseUpP;
@@ -35,8 +33,7 @@ namespace PerfectPidgeon.Draw
         private System.Timers.Timer UpdateLeap;
         private System.Timers.Timer Killemll;
         private Point BackGroundOffset = new Point(0, 0);
-        private int EffectOffset = 0;
-        private bool GLLoaded;  
+        private int EffectOffset = 0; 
 
         /*private const int numTileTries = 60;
         private const int tileSize = 200;
@@ -51,15 +48,40 @@ namespace PerfectPidgeon.Draw
         private bool LeapCheck = false;
         private bool LeftDown = false;
         private bool RightDown = false;
+        public ArtData ArtData
+        {
+            get
+            {
+                return _ArtData;
+            }
+
+            set
+            {
+                _ArtData = value;
+            }
+        }
+        public GameData Data
+        {
+            get
+            {
+                return _Data;
+            }
+
+            set
+            {
+                _Data = value;
+            }
+        }
 
         public DrawForm()
         {
             Cursor.Hide();
             InitializeComponent();
 
-            this._Data = new GameData();
-            this._ArtData = new ArtData();
+            this.Data = new GameData();
+            this.ArtData = new ArtData();
             this._Controls = new PerfectPidgeon.Draw.Controls();
+            this._Renderer = new Renderer(GLD, Data, ArtData, this._Controls);
             
             UpdateFrame = new System.Timers.Timer();
             UpdateFrame.Enabled = true;
@@ -103,8 +125,7 @@ namespace PerfectPidgeon.Draw
                 MouseMoved.Invoke(null, new MouseEventArgs(System.Windows.Forms.MouseButtons.Right, 1, Loc.X, Loc.Y, 0));
             }
             
-        }
-        
+        }     
         
         private void GLD_MouseDown(object sender, MouseEventArgs e)
         {
@@ -123,8 +144,8 @@ namespace PerfectPidgeon.Draw
         {
             Point p1 = new Point(GLD.Width / 2, GLD.Height / 2);
             Point p2 = new Point(e.X, e.Y);
-            MouseAngle = GetAngleDegree(p2, p1);
-            MouseLoc = new Point(e.X, e.Y);
+            this._Controls.MouseAngle = GetAngleDegree(p2, p1);
+            this._Controls.MouseLoc = new Point(e.X, e.Y);
         }
         private void OnMouseDown(object sender, MouseEventArgs e)
         {
@@ -138,13 +159,9 @@ namespace PerfectPidgeon.Draw
         }
         private void GLDLoad(object sender, EventArgs e)
         {
-            GLD.MakeCurrent();
-            GLLoaded = true;
-            GL.ClearColor(Color.LightGray);
-            GL.Enable(EnableCap.Blend);
-            GL.BlendFunc(BlendingFactorSrc.SrcAlpha, BlendingFactorDest.OneMinusSrcAlpha);
+            this._Renderer.Init();
 
-            tileList = GL.GenLists(4);
+            /*tileList = GL.GenLists(4);
             GL.NewList(tileList, ListMode.Compile);
 
             GL.Begin(BeginMode.Polygon);
@@ -187,36 +204,16 @@ namespace PerfectPidgeon.Draw
             GL.TexCoord2(1f, 0f); GL.Vertex2(tileSize * 4, 0);
             GL.End();
 
-            GL.EndList();
+            GL.EndList();*/
         }
         private void GLDPaint(object sender, PaintEventArgs e)
         {
-            if (!GLLoaded) return;
+            if (!this._Renderer.GLLoaded) return;
             if (this.WindowState == FormWindowState.Minimized || this.Height == 0 || this.Width == 0) return;
-            Draw();
-        }
-        private bool IsInDraw = false;
-        private void Draw()
-        {
             HealthPanel.Size = new System.Drawing.Size(HealthIndex, HealthPanel.Height);
             WeaponLabel.Text = WeaponText;
-            EnemyLabel.Text = "Enemies Remaining: " + NPCs.Count;
-
-            _Renderer.Draw();
-        }
-        private void SetTexture(ref Bitmap NewTexture)
-        {
-            GL.DeleteTextures(1, ref Texture);
-            GL.GenTextures(1, out Texture);
-            GL.BindTexture(TextureTarget.Texture2D, Texture);
-            BitmapData data = NewTexture.LockBits(new System.Drawing.Rectangle(0, 0, NewTexture.Width, NewTexture.Height),
-                ImageLockMode.ReadOnly, System.Drawing.Imaging.PixelFormat.Format32bppArgb);
-            GL.TexImage2D(TextureTarget.Texture2D, 0, PixelInternalFormat.Rgba, data.Width, data.Height, 0,
-                OpenTK.Graphics.OpenGL.PixelFormat.Bgra, PixelType.UnsignedByte, data.Scan0);
-            NewTexture.UnlockBits(data);
-            GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMinFilter, (int)TextureMinFilter.Linear);
-            //GL.TexParameter(TextureTarget.Texture2D, TextureParameterName.TextureMagFilter, (int)TextureMagFilter.Linear);
-            GL.BindTexture(TextureTarget.Texture2D, Texture);
+            EnemyLabel.Text = "Enemies Remaining: " + this.Data.NPCs.Count;
+            this._Renderer.Draw();
         }
         private void Time_Tick(object sender, EventArgs e)
         {
@@ -232,363 +229,25 @@ namespace PerfectPidgeon.Draw
             WeaponText = Weapon;
         }
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
-        {/*
-            if (keyData == Keys.Left)
-            {
-                BackGroundOffset.X += 10;
-                EfectOffset += 10;
-                if (BackGroundOffset.X > 0) BackGroundOffset.X -= BackX;
-                if (BackGroundOffset.Y > 0) BackGroundOffset.Y -= BackY;
-                if (BackGroundOffset.X < -BackX) BackGroundOffset.X += BackX;
-                if (BackGroundOffset.Y < -BackY) BackGroundOffset.Y += BackY;
-                return true;
-            }
-            if (keyData == Keys.Right)
-            {
-                BackGroundOffset.X -= 10;
-                EfectOffset -= 10;
-                if (BackGroundOffset.X > 0) BackGroundOffset.X -= BackX;
-                if (BackGroundOffset.Y > 0) BackGroundOffset.Y -= BackY;
-                if (BackGroundOffset.X < -BackX) BackGroundOffset.X += BackX;
-                if (BackGroundOffset.Y < -BackY) BackGroundOffset.Y += BackY;
-                return true;
-            }
-            if (keyData == Keys.Up)
-            {
-                BackGroundOffset.Y += 10;
-                if (BackGroundOffset.X > 0) BackGroundOffset.X -= BackX;
-                if (BackGroundOffset.Y > 0) BackGroundOffset.Y -= BackY;
-                if (BackGroundOffset.X < -BackX) BackGroundOffset.X += BackX;
-                if (BackGroundOffset.Y < -BackY) BackGroundOffset.Y += BackY;
-                return true;
-            }
-            if (keyData == Keys.Down)
-            {
-                BackGroundOffset.Y -= 10;
-                if (BackGroundOffset.X > 0) BackGroundOffset.X -= BackX;
-                if (BackGroundOffset.Y > 0) BackGroundOffset.Y -= BackY;
-                if (BackGroundOffset.X < -BackX) BackGroundOffset.X += BackX;
-                if (BackGroundOffset.Y < -BackY) BackGroundOffset.Y += BackY;
-                return true;
-            }*/
-
-            if (KeyPressed != null)
-                KeyPressed(ref msg, keyData);
-
-            if (keyData == Keys.Tab)
-            {
-                //Score.Visible = !Score.Visible;
-            }
+        {
             if (keyData == Keys.Escape)
             {
                 Application.Exit();
                 return true;
             }
-
             return base.ProcessCmdKey(ref msg, keyData);
         }
         private void ImgSwitch_Tick(object sender, System.Timers.ElapsedEventArgs e)
         {
-            for (int i = 0; i < Players.Count; i++)
-            {
-                if (SpriteSets[0].Images.Length > 1)
-                {
-                    Players[i].ImageIndex += Players[i].ImageIndexIncrement;
-                    if (Players[i].ImageIndex == SpriteSets[0].Images.Length - 1) Players[i].ImageIndexIncrement = -1;
-                    if (Players[i].ImageIndex == 0) Players[i].ImageIndexIncrement = 1;
-                }
-                if (SpriteSets[0].AngleOffset != 0)
-                {
-                    Players[i].AngleOffsetIndex += Players[i].AngleOffsetIndexIncrement;
-                    if (Players[i].AngleOffsetIndex == SpriteSets[0].AngleOffset - 1) Players[i].AngleOffsetIndexIncrement = -1;
-                    if (Players[i].AngleOffsetIndex == 0) Players[i].AngleOffsetIndexIncrement = 1;
-                }
-            }
-            for (int i = 0; i < NPCs.Count; i++)
-            {
-                if (SpriteSets[NPCs[i].ArtIndex].Images.Length > 1)
-                {
-                    NPCs[i].ImageIndex += NPCs[i].ImageIndexIncrement;
-                    if (NPCs[i].ImageIndex == SpriteSets[NPCs[i].ArtIndex].Images.Length - 1) NPCs[i].ImageIndexIncrement = -1;
-                    if (NPCs[i].ImageIndex == 0) NPCs[i].ImageIndexIncrement = 1;
-                }
-                if (SpriteSets[NPCs[i].ArtIndex].AngleOffset != 0)
-                {
-                    NPCs[i].AngleOffsetIndex += NPCs[i].AngleOffsetIndexIncrement;
-                    if (NPCs[i].AngleOffsetIndex == SpriteSets[NPCs[i].ArtIndex].AngleOffset - 1) NPCs[i].AngleOffsetIndexIncrement = -1;
-                    if (NPCs[i].AngleOffsetIndex == 0) NPCs[i].AngleOffsetIndexIncrement = 1;
-                }
-            }
+            this.Data.ImageSwitch(this.ArtData.SpriteSets);
         }
         private void Killemll_Tick(object sender, System.Timers.ElapsedEventArgs e)
         {
             Killemll.Interval = 10;
-            if (Environment.G > 0)
+            if (this.ArtData.Environment.G > 0)
             {
-                Environment = Color.FromArgb(Environment.R, Environment.G - 1, Environment.B - 1);
+                this.ArtData.Environment = Color.FromArgb(this.ArtData.Environment.R, this.ArtData.Environment.G - 1, this.ArtData.Environment.B - 1);
             }
-        }
-        public void ResetBuffers()
-        {
-            PlayersBuffer = new List<Item>();
-            NPCsBuffer = new List<Item>();
-            ProjectilesBuffer = new List<Item>();
-            EffectsBuffer = new List<Item>();
-            PowerUpsBuffer = new List<Item>();
-        }
-        public void UpdateItem(int Type, int Index, int ArtIndex, Point Location, double Facing, double Size)
-        {
-            if (Type == 0)
-            {
-                if (PlayersBuffer.Count > Index)
-                {
-                    if (Index == CurrentPlayer)
-                    {
-                    }
-                    PlayersBuffer[Index].ArtIndex = ArtIndex;
-                    PlayersBuffer[Index].Location = Location;
-                    PlayersBuffer[Index].Size = Size;
-                }
-                else PlayersBuffer.Add(new Item(ArtIndex, Location, Facing, Size));
-            }
-            if (Type == 1)
-            {
-                if (NPCsBuffer.Count > Index)
-                {
-                    NPCsBuffer[Index].ArtIndex = ArtIndex;
-                    NPCsBuffer[Index].Location = Location;
-                    NPCsBuffer[Index].Facing = Facing;
-                    NPCsBuffer[Index].Size = Size;
-                }
-                else NPCsBuffer.Add(new Item(ArtIndex, Location, Facing, Size));
-            }
-            if (Type == 2)
-            {
-                if (ProjectilesBuffer.Count > Index)
-                {
-                    ProjectilesBuffer[Index].ArtIndex = ArtIndex;
-                    ProjectilesBuffer[Index].Location = Location;
-                    ProjectilesBuffer[Index].Facing = Facing;
-                    ProjectilesBuffer[Index].Size = Size;
-                }
-                else ProjectilesBuffer.Add(new Item(ArtIndex, Location, Facing, Size));
-            }
-            if (Type == 3)
-            {
-                if (EffectsBuffer.Count > Index)
-                {
-                    EffectsBuffer[Index].ArtIndex = ArtIndex;
-                    EffectsBuffer[Index].Location = Location;
-                    EffectsBuffer[Index].Facing = Facing;
-                    EffectsBuffer[Index].Size = Size;
-                }
-                else EffectsBuffer.Add(new Item(ArtIndex, Location, Facing, Size));
-            }
-            if (Type == 4)
-            {
-                if (PowerUpsBuffer.Count > Index)
-                {
-                    PowerUpsBuffer[Index].ArtIndex = ArtIndex;
-                    PowerUpsBuffer[Index].Location = Location;
-                    PowerUpsBuffer[Index].Facing = Facing;
-                    PowerUpsBuffer[Index].Size = Size;
-                }
-                else PowerUpsBuffer.Add(new Item(ArtIndex, Location, Facing, Size));
-            }
-        }
-        public void UpdateItems(int Type, int[] Index, int[] ArtIndex, Point[] Location, double[] Facing, double[] Size)
-        {
-            if (Working) return;
-                Working = true;
-                for (int i = 0; i < Index.Length; i++)
-                {
-                    UpdateItem(Type, Index[i], ArtIndex[i], Location[i], Facing[i], Size[i]);
-                }
-                Working = false;
-        }
-        public void SwapBuffers()
-        {
-            Players = PlayersBuffer;
-            NPCs = NPCsBuffer;
-            Projectiles = ProjectilesBuffer;
-            Effects = EffectsBuffer;
-            PowerUps = PowerUpsBuffer;
-        }
-        
-        public void GenerateTiles(int numTilesH, int numTilesV)
-        {
-            /*this.numTilesH = numTilesH;
-            this.numTilesV = numTilesV;
-
-            int numTiles = numTilesH * numTilesV;
-
-            tiles = new List<Tile>();
-
-            t = new int[numTiles];
-
-            for (int i = 0; i < numTiles; ++i)
-                t[i] = 0;
-
-            int numQuadTiles = numTiles / 3 / 16;
-            int numTriTiles = (numTiles - numQuadTiles * 16) / 2 / 9;
-            int numDuoTiles = (numTiles - numQuadTiles * 16 - numTriTiles * 9) / 2 / 4;
-
-            Random random = new Random();
-            int numQuads = 0, numTris = 0, numDuos = 0;
-
-            while (true)
-            {
-                int index;
-
-                if (numQuads != -1)
-                {
-                    index = FindEmptyTile(4, numTiles);
-
-                    if (index != -1)
-                    {
-                        Tile tajlo = new Tile();
-                        tajlo.position = index;
-                        tajlo.size = 4;
-                        tajlo.ArtIndex = random.Next(0, Tile4.Count);
-                        tiles.Add(tajlo);
-
-                        for (int i = index; i < index + 4; ++i)
-                            for (int j = 0; j < 4; ++j)
-                                t[i + numTilesH * j] = 1;
-
-                        numQuads++;
-
-                        if (numQuads >= numQuadTiles)
-                            numQuads = -1;
-                    }
-                    else
-                        numQuads = -1;
-                }
-
-                if (numTris != -1)
-                {
-                    index = FindEmptyTile(3, numTiles);
-
-                    if (index != -1)
-                    {
-                        Tile tajlo = new Tile();
-                        tajlo.position = index;
-                        tajlo.size = 3;
-                        tajlo.ArtIndex = random.Next(0, Tile3.Count);
-                        tiles.Add(tajlo);
-
-                        for (int i = index; i < index + 3; ++i)
-                            for (int j = 0; j < 3; ++j)
-                                t[i + numTilesH * j] = 1;
-
-                        numTris++;
-
-                        if (numTris >= numTriTiles)
-                            numTris = -1;
-                    }
-                    else
-                        numTris = -1;
-                }
-
-
-                if (numDuos != -1)
-                {
-                    index = FindEmptyTile(2, numTiles);
-
-                    if (index != -1)
-                    {
-                        Tile tajlo = new Tile();
-                        tajlo.position = index;
-                        tajlo.size = 2;
-                        tajlo.ArtIndex = random.Next(0, Tile2.Count);
-                        tiles.Add(tajlo);
-
-                        for (int i = index; i < index + 2; ++i)
-                            for (int j = 0; j < 2; ++j)
-                                t[i + numTilesH * j] = 1;
-
-                        numDuos++;
-
-                        if (numDuos >= numDuoTiles)
-                            numDuos = -1;
-                    }
-                    else
-                        numDuos = -1;
-                }
-
-                if (numQuads == -1 && numTris == -1 && numDuos == -1)
-                    break;
-            }
-
-            for (int i = 0; i < numTiles; ++i)
-            {
-                if (t[i] == 0)
-                {
-                    Tile tajlo = new Tile();
-                    tajlo.position = i;
-                    tajlo.size = 1;
-                    tajlo.ArtIndex = random.Next(0, Tile1.Count);
-                    tiles.Add(tajlo);
-                    t[i] = 1;
-                }
-            }*/
-        }
-
-        public int FindEmptyTile(int size, int numTiles)
-        {
-            Random random = new Random();
-
-            int index = random.Next(numTiles);
-            int newIndex = index;
-
-            bool occupied;
-
-            while (true)
-            {
-                occupied = false;
-
-                if (newIndex + size >= (newIndex / numTilesH) * numTilesH + numTilesH)
-                    newIndex = (newIndex / numTilesH) * numTilesH + numTilesH;
-
-                for (int i = newIndex; i < newIndex + size; ++i)
-                {
-                    bool impossibru = false;
-
-                    for (int j = 0; j < size; ++j)
-                    {
-                        int ind = i + numTilesH * j;
-
-                        if (ind >= numTiles)
-                        {
-                            occupied = true;
-                            impossibru = true;
-                            break;
-                        }
-
-                        if (t[ind] == 1)
-                        {
-                            occupied = true;
-                            break;
-                        }
-                    }
-
-                    if (impossibru)
-                        break;
-                }
-
-                if (!occupied)
-                    return newIndex;
-
-                newIndex++;
-
-                if (newIndex >= numTiles)
-                    newIndex = 0;
-
-                if (newIndex == index)
-                    break;
-            }
-
-            return -1;
         }
         public void DeathCall()
         {

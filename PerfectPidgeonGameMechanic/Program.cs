@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using System.Drawing;
-using Hackaton_Trening_1;
+using PerfectPidgeon.Draw;
 
 namespace PerfectPidgeonGameMechanic
 {

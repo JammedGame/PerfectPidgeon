@@ -28,11 +28,11 @@ C:\Users\DeinVenteD\Projects\ShadySolutions\PerfectPidgeon\PerfectPidgeonGameMec
 C:\Users\DeinVenteD\Projects\ShadySolutions\PerfectPidgeon\PerfectPidgeonGameMechanic\obj\Debug\PerfectPidgeonGameMechanic.pdb
 C:\Users\DeinVenteD\Projects\ShadySolutions\PerfectPidgeon\PerfectPidgeonGameMechanic\bin\Debug\PerfectPidgeonGameMechanic.exe
 C:\Users\DeinVenteD\Projects\ShadySolutions\PerfectPidgeon\PerfectPidgeonGameMechanic\bin\Debug\PerfectPidgeonGameMechanic.pdb
-C:\Users\DeinVenteD\Projects\ShadySolutions\PerfectPidgeon\PerfectPidgeonGameMechanic\bin\Debug\Hack1Draw.dll
 C:\Users\DeinVenteD\Projects\ShadySolutions\PerfectPidgeon\PerfectPidgeonGameMechanic\bin\Debug\LeapCSharp.NET4.0.dll
 C:\Users\DeinVenteD\Projects\ShadySolutions\PerfectPidgeon\PerfectPidgeonGameMechanic\bin\Debug\OpenTK.GLControl.dll
 C:\Users\DeinVenteD\Projects\ShadySolutions\PerfectPidgeon\PerfectPidgeonGameMechanic\bin\Debug\OpenTK.dll
-C:\Users\DeinVenteD\Projects\ShadySolutions\PerfectPidgeon\PerfectPidgeonGameMechanic\bin\Debug\Hack1Draw.pdb
 C:\Users\DeinVenteD\Projects\ShadySolutions\PerfectPidgeon\PerfectPidgeonGameMechanic\obj\Debug\PerfectPidgeonGameMechanic.csprojResolveAssemblyReference.cache
 C:\Users\DeinVenteD\Projects\ShadySolutions\PerfectPidgeon\PerfectPidgeonGameMechanic\obj\Debug\PerfectPidgeonGameMechanic.Properties.Resources.resources
 C:\Users\DeinVenteD\Projects\ShadySolutions\PerfectPidgeon\PerfectPidgeonGameMechanic\obj\Debug\PerfectPidgeonGameMechanic.csproj.GenerateResource.Cache
+C:\Users\DeinVenteD\Projects\ShadySolutions\PerfectPidgeon\PerfectPidgeonGameMechanic\bin\Debug\PerfectPidgeon.Draw.dll
+C:\Users\DeinVenteD\Projects\ShadySolutions\PerfectPidgeon\PerfectPidgeonGameMechanic\bin\Debug\PerfectPidgeon.Draw.pdb
