@@ -90,6 +90,7 @@ namespace PerfectPidgeon.Draw
             //Drawing
             GL.Enable(EnableCap.Texture2D);
 
+            DrawImage(0, 0, _GLD.Width, _GLD.Height, this._ArtData.Earth);
 
             /*#region tiles
 

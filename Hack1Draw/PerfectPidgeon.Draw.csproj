@@ -228,6 +228,7 @@
     <None Include="Resources\Laser.png" />
     <None Include="Resources\lazer.png" />
     <None Include="Resources\boom.png" />
+    <None Include="Resources\earth.png" />
     <Content Include="Resources\Tile0.png" />
     <Content Include="Resources\Tile1.png" />
   </ItemGroup>

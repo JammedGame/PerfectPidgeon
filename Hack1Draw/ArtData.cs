@@ -15,6 +15,7 @@ namespace PerfectPidgeon.Draw
         }
         public Color Environment = Color.White;
         public Bitmap Aim = global::PerfectPidgeon.Draw.Properties.Resources.aim;
+        public Bitmap Earth = global::PerfectPidgeon.Draw.Properties.Resources.earth;
         public List<SpriteSet> SpriteSets;
         public List<Bitmap> Tile1;
         public List<Bitmap> Tile2;
