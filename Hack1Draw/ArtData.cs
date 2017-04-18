@@ -33,16 +33,18 @@ namespace PerfectPidgeon.Draw
             SpriteSetImages[0] = global::PerfectPidgeon.Draw.Properties.Resources.pig1;
             SpriteSetImages[1] = global::PerfectPidgeon.Draw.Properties.Resources.pig2;
             SpriteSetImages[2] = global::PerfectPidgeon.Draw.Properties.Resources.pig3;
-            //SpriteSetImages[3] = global::PerfectPidgeon.Draw.Properties.Resources.gohlub4;
-            //SpriteSetImages[4] = global::PerfectPidgeon.Draw.Properties.Resources.gohlub3;
-            //SpriteSetImages[5] = global::PerfectPidgeon.Draw.Properties.Resources.gohlub2;
-            SpriteSets.Add(new SpriteSet(SpriteSetImages, 6));
+            SpriteSets.Add(new SpriteSet(SpriteSetImages, 3));
             SpriteSetImages = new Bitmap[4];
-            SpriteSetImages[0] = global::PerfectPidgeon.Draw.Properties.Resources.bad1;
-            SpriteSetImages[1] = global::PerfectPidgeon.Draw.Properties.Resources.bad2;
-            SpriteSetImages[2] = global::PerfectPidgeon.Draw.Properties.Resources.bad3;
-            SpriteSetImages[3] = global::PerfectPidgeon.Draw.Properties.Resources.bad4;
+            SpriteSetImages[0] = global::PerfectPidgeon.Draw.Properties.Resources.gun_def;
+            SpriteSetImages[1] = global::PerfectPidgeon.Draw.Properties.Resources.gun_def;
+            SpriteSetImages[2] = global::PerfectPidgeon.Draw.Properties.Resources.gun_def;
+            SpriteSetImages[3] = global::PerfectPidgeon.Draw.Properties.Resources.gun_def;
             SpriteSets.Add(new SpriteSet(SpriteSetImages, 4));
+            SpriteSetImages = new Bitmap[3];
+            SpriteSetImages[0] = global::PerfectPidgeon.Draw.Properties.Resources.enm1_1;
+            SpriteSetImages[1] = global::PerfectPidgeon.Draw.Properties.Resources.enm1_2;
+            SpriteSetImages[2] = global::PerfectPidgeon.Draw.Properties.Resources.enm1_3;
+            SpriteSets.Add(new SpriteSet(SpriteSetImages, 3));
 
             Bullets = new List<SpriteSet>();
             SpriteSetImages = new Bitmap[1];

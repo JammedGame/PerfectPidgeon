@@ -96,7 +96,6 @@ namespace PerfectPidgeon.Draw
             GL.MatrixMode(MatrixMode.Modelview);
             GL.LoadIdentity();
             GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
-            //Drawing
             GL.Enable(EnableCap.Texture2D);
 
             if (this._ArtData.BackType == 0)
@@ -121,40 +120,6 @@ namespace PerfectPidgeon.Draw
                 DrawImageNTexture(-XOffset + _GLD.Width,    -YOffset + _GLD.Height, _GLD.Width, _GLD.Height);
                 DrawImageNTexture(-XOffset - _GLD.Width,    -YOffset + _GLD.Height, _GLD.Width, _GLD.Height);
             }
-
-            /*#region tiles
-
-            int left = Players[CurrentPlayer].Location.X - _GLD.Width / 2;
-            int right = Players[CurrentPlayer].Location.X + _GLD.Width / 2;
-            int top = Players[CurrentPlayer].Location.Y - _GLD.Height / 2;
-            int bottom = Players[CurrentPlayer].Location.Y + _GLD.Height / 2;
-
-            int xm = _GLD.Width / 2 - Players[CurrentPlayer].Location.X;
-            int ym = _GLD.Height / 2 - Players[CurrentPlayer].Location.Y;
-            Bitmap B = null;
-            for (int i = 0; i < tiles.Count; ++i)
-            {
-                int xk = tiles[i].position % numTilesH;
-                int yk = tiles[i].position / numTilesH;
-
-                int x = xm - (xk - numTilesH / 2 + 1) * tileSize - tileSize * tiles[i].size - 1;
-                int y = ym - (yk - numTilesV / 2 + 1) * tileSize - tileSize * tiles[i].size - 1;
-
-                if (x + tiles[i].size * tileSize < 0 || x > _GLD.Width || y + tiles[i].size * tileSize < 0 || y > _GLD.Height)
-                    continue;
-
-                if (tiles[i].size == 1) B = Tile1[tiles[i].ArtIndex];
-                if (tiles[i].size == 2) B = Tile2[tiles[i].ArtIndex];
-                if (tiles[i].size == 3) B = Tile3[tiles[i].ArtIndex];
-                if (tiles[i].size == 4) B = Tile4[tiles[i].ArtIndex];
-                SetTexture(ref B);
-
-                GL.PushMatrix();
-                GL.Translate(x, y, 0);
-                GL.CallList(tileList + tiles[i].size - 1);
-                GL.PopMatrix();
-            }
-            #endregion*/
 
             GL.Color3(Color.Black);
             for (int i = 0; i < this._Data.Projectiles.Count; i++)
@@ -226,7 +191,7 @@ namespace PerfectPidgeon.Draw
                         GL.Translate(this._Data.NPCs[i].Location.X - this._Data.Players[this._Data.CurrentPlayer].Location.X, this._Data.NPCs[i].Location.Y - this._Data.Players[this._Data.CurrentPlayer].Location.Y, 0);
                         GL.Translate(_GLD.Width / 2, _GLD.Height / 2, 0);
                         GL.Rotate(this._Data.NPCs[i].Facing, 0, 0, -1);
-                        DrawImage((int)(-this._ArtData.SpriteSets[this._Data.NPCs[i].ArtIndex].Images[this._Data.NPCs[i].ImageIndex].Width / 2), (int)(-this._ArtData.SpriteSets[this._Data.NPCs[i].ArtIndex].Images[this._Data.NPCs[i].ImageIndex].Height / 2), this._ArtData.SpriteSets[this._Data.NPCs[i].ArtIndex].Images[this._Data.NPCs[i].ImageIndex].Width, this._ArtData.SpriteSets[this._Data.NPCs[i].ArtIndex].Images[this._Data.NPCs[i].ImageIndex].Height, this._ArtData.SpriteSets[this._Data.NPCs[i].ArtIndex].Images[this._Data.NPCs[i].ImageIndex]);
+                        DrawImage((int)(-this._ArtData.SpriteSets[this._Data.NPCs[i].ArtIndex].Images[this._Data.NPCs[i].ImageIndex].Width / 4), (int)(-this._ArtData.SpriteSets[this._Data.NPCs[i].ArtIndex].Images[this._Data.NPCs[i].ImageIndex].Height / 4), this._ArtData.SpriteSets[this._Data.NPCs[i].ArtIndex].Images[this._Data.NPCs[i].ImageIndex].Width / 2, this._ArtData.SpriteSets[this._Data.NPCs[i].ArtIndex].Images[this._Data.NPCs[i].ImageIndex].Height / 2, this._ArtData.SpriteSets[this._Data.NPCs[i].ArtIndex].Images[this._Data.NPCs[i].ImageIndex]);
                         GL.LoadIdentity();
                     }
                 }
@@ -252,16 +217,11 @@ namespace PerfectPidgeon.Draw
             DrawImage(this._Controls.MouseLoc.X - 50, this._Controls.MouseLoc.Y - 50, 100, 100, this._ArtData.Aim);
 
             GL.LoadIdentity();
-
-            if(this._Data.Players[0].ImageIndex != 0)
-            {
-                int d = 3;
-            }
-
             GL.Color3(this._ArtData.Environment);
             GL.Translate(_GLD.Width / 2, _GLD.Height / 2, 0);
             GL.Rotate(this._Controls.MouseAngle + this._Data.Players[0].AngleOffsetIndex, 0, 0, -1);
             DrawImage(-this._ArtData.SpriteSets[0].Images[this._Data.Players[0].ImageIndex].Width / 4, -this._ArtData.SpriteSets[0].Images[this._Data.Players[0].ImageIndex].Height / 4, this._ArtData.SpriteSets[0].Images[this._Data.Players[0].ImageIndex].Width / 2, this._ArtData.SpriteSets[0].Images[this._Data.Players[0].ImageIndex].Height / 2, this._ArtData.SpriteSets[0].Images[this._Data.Players[0].ImageIndex]);
+            DrawImage(-this._ArtData.SpriteSets[1].Images[this._Data.Players[0].ArtIndex].Width / 4, -this._ArtData.SpriteSets[1].Images[this._Data.Players[0].ArtIndex].Height / 4, this._ArtData.SpriteSets[1].Images[this._Data.Players[0].ArtIndex].Width / 2, this._ArtData.SpriteSets[1].Images[this._Data.Players[0].ArtIndex].Height / 2, this._ArtData.SpriteSets[1].Images[this._Data.Players[0].ArtIndex]);
             GL.LoadIdentity();
 
             GL.Disable(EnableCap.Texture2D);

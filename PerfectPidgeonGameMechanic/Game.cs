@@ -100,7 +100,7 @@ namespace PerfectPidgeonGameMechanic
                 NewNPC.ProjectileType = 0;
                 NewNPC.Health = Rand.Next(100, 200);
                 NewNPC.Speed = 2;
-                NewNPC.ArtIndex = 1;
+                NewNPC.ArtIndex = 2;
                 NewNPC.Sight = DForm.Width;
                 NewNPC.Range = DForm.Width / 2;
                 Enemies.Add(NewNPC);
@@ -218,8 +218,8 @@ namespace PerfectPidgeonGameMechanic
             }
             if (PlayerOnFire && CurrentPlayer.ProjectileType == 0 && TimeStamp%10 == 0)
             {
-                Vertex Offset1 = new Vertex(33, 75, 0);
-                Vertex Offset2 = new Vertex(-33, 75, 0);
+                Vertex Offset1 = new Vertex(38, 75, 0);
+                Vertex Offset2 = new Vertex(-38, 75, 0);
                 Offset1 = Offset1.RotateZ(CurrentPlayer.Facing);
                 Offset2 = Offset2.RotateZ(CurrentPlayer.Facing);
 
