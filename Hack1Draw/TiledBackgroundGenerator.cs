@@ -5,8 +5,9 @@ using System.Text;
 
 namespace PerfectPidgeon.Draw
 {
-    public class TileBackGenerator
+    public class TiledBackgroundGenerator
     {
+
 
     }
 }

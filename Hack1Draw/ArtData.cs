@@ -13,9 +13,10 @@ namespace PerfectPidgeon.Draw
             InitializeSpriteSets();
             InitializeTileSets();
         }
+        public int BackType = 0;
         public Color Environment = Color.White;
         public Bitmap Aim = global::PerfectPidgeon.Draw.Properties.Resources.aim;
-        public Bitmap Earth = global::PerfectPidgeon.Draw.Properties.Resources.earth;
+        public Bitmap Back = global::PerfectPidgeon.Draw.Properties.Resources.earth;
         public List<SpriteSet> SpriteSets;
         public List<Bitmap> Tile1;
         public List<Bitmap> Tile2;
@@ -28,13 +29,13 @@ namespace PerfectPidgeon.Draw
         {
             Bitmap[] SpriteSetImages;
             SpriteSets = new List<SpriteSet>();
-            SpriteSetImages = new Bitmap[6];
-            SpriteSetImages[0] = global::PerfectPidgeon.Draw.Properties.Resources.gohlub1;
-            SpriteSetImages[1] = global::PerfectPidgeon.Draw.Properties.Resources.gohlub2;
-            SpriteSetImages[2] = global::PerfectPidgeon.Draw.Properties.Resources.gohlub3;
-            SpriteSetImages[3] = global::PerfectPidgeon.Draw.Properties.Resources.gohlub4;
-            SpriteSetImages[4] = global::PerfectPidgeon.Draw.Properties.Resources.gohlub3;
-            SpriteSetImages[5] = global::PerfectPidgeon.Draw.Properties.Resources.gohlub2;
+            SpriteSetImages = new Bitmap[3];
+            SpriteSetImages[0] = global::PerfectPidgeon.Draw.Properties.Resources.pig1;
+            SpriteSetImages[1] = global::PerfectPidgeon.Draw.Properties.Resources.pig2;
+            SpriteSetImages[2] = global::PerfectPidgeon.Draw.Properties.Resources.pig3;
+            //SpriteSetImages[3] = global::PerfectPidgeon.Draw.Properties.Resources.gohlub4;
+            //SpriteSetImages[4] = global::PerfectPidgeon.Draw.Properties.Resources.gohlub3;
+            //SpriteSetImages[5] = global::PerfectPidgeon.Draw.Properties.Resources.gohlub2;
             SpriteSets.Add(new SpriteSet(SpriteSetImages, 6));
             SpriteSetImages = new Bitmap[4];
             SpriteSetImages[0] = global::PerfectPidgeon.Draw.Properties.Resources.bad1;
@@ -74,7 +75,7 @@ namespace PerfectPidgeon.Draw
             Tile4.Add(global::PerfectPidgeon.Draw.Properties.Resources.z___0);
             EffectArt = new List<Bitmap>();
             EffectArt.Add(global::PerfectPidgeon.Draw.Properties.Resources.bum);
-            EffectArt.Add(global::PerfectPidgeon.Draw.Properties.Resources.boom);
+            EffectArt.Add(global::PerfectPidgeon.Draw.Properties.Resources.boom1);
             PowerUpArt = new List<Bitmap>();
             PowerUpArt.Add(global::PerfectPidgeon.Draw.Properties.Resources.Health);
             PowerUpArt.Add(global::PerfectPidgeon.Draw.Properties.Resources.Speed);

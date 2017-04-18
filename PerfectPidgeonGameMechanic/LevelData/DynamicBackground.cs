@@ -7,9 +7,10 @@ namespace PerfectPidgeonGameMechanic.LevelData
 {
     public class DynamicBackground : Background
     {
-        public DynamicBackground()
+        public DynamicBackground(string Path)
         {
             this.Type = BackgroundType.Dynamic;
+            this.Path = Path;
         }
     }
 }

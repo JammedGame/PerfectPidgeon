@@ -32,7 +32,7 @@ namespace PerfectPidgeon.Draw
         private System.Timers.Timer UpdateFrame;
         private System.Timers.Timer UpdateLeap;
         private System.Timers.Timer Killemll;
-        private Point BackGroundOffset = new Point(0, 0);
+        
         private int EffectOffset = 0; 
 
         /*private const int numTileTries = 60;

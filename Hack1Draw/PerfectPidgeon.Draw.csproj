@@ -69,7 +69,7 @@
     <Compile Include="Renderer.cs" />
     <Compile Include="SpriteSet.cs" />
     <Compile Include="Tile.cs" />
-    <Compile Include="TileBackGenerator.cs" />
+    <Compile Include="TiledBackgroundGenerator.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Form1.resx">
@@ -121,6 +121,21 @@
     <None Include="Resources\lazer.png" />
     <None Include="Resources\boom.png" />
     <None Include="Resources\earth.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pig1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pig2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pig3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Image1.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\boom1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
