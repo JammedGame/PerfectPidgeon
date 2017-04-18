@@ -5,7 +5,7 @@ using System.Text;
 
 namespace PerfectPidgeonGameMechanic
 {
-    public class Projectile : NPC
+    public class Projectile : Object
     {
         private int _Damage;
         private int _Owner;

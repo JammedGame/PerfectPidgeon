@@ -46,7 +46,7 @@
   <ItemGroup>
     <Compile Include="Effect.cs" />
     <Compile Include="Game.cs" />
-    <Compile Include="NPC.cs" />
+    <Compile Include="Object.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="PowerUp.cs" />
     <Compile Include="Program.cs" />

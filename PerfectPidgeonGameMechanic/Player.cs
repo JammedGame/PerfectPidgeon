@@ -5,7 +5,7 @@ using System.Text;
 
 namespace PerfectPidgeonGameMechanic
 {
-    public class Player : NPC
+    public class Player : Object
     {
         private int _SpecialAmmo;
         private int _SpeedBoostTimer;

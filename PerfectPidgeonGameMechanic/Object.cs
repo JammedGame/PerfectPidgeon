@@ -5,7 +5,7 @@ using System.Text;
 
 namespace PerfectPidgeonGameMechanic
 {
-    public class NPC
+    public class Object
     {
         private int _Health;
         private int _MaxHealth;

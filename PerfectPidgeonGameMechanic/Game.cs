@@ -18,7 +18,7 @@ namespace PerfectPidgeonGameMechanic
         private Point _Size;
         private System.Timers.Timer _Time;
         private Player _CurrentPlayer;
-        private List<NPC> _Enemies;
+        private List<Object> _Enemies;
         private List<Projectile> _Projectiles;
         private List<Effect> _Effects;
         private List<PowerUp> _PowerUps;
@@ -37,7 +37,7 @@ namespace PerfectPidgeonGameMechanic
             get { return _CurrentPlayer; }
             set { _CurrentPlayer = value; }
         }
-        public List<NPC> Enemies
+        public List<Object> Enemies
         {
             get { return _Enemies; }
             set { _Enemies = value; }
@@ -91,10 +91,10 @@ namespace PerfectPidgeonGameMechanic
             //Defining NPCs
             int NumberOfNPC = (int)(Math.Sqrt(Size.X * Size.Y) * 2);
             Random Rand = new Random();
-            Enemies = new List<NPC>();
+            Enemies = new List<Object>();
             for (int i = 0; i < NumberOfNPC; i++)
             {
-                NPC NewNPC = new NPC();
+                Object NewNPC = new Object();
                 NewNPC.Location = new Vertex(Rand.NextDouble() * Size.X * FieldSize, Rand.NextDouble() * Size.Y * FieldSize);
                 NewNPC.Facing = 0;
                 NewNPC.ProjectileType = 0;
