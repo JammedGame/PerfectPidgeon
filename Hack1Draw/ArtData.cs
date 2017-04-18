@@ -36,9 +36,9 @@ namespace PerfectPidgeon.Draw
             SpriteSets.Add(new SpriteSet(SpriteSetImages, 3));
             SpriteSetImages = new Bitmap[4];
             SpriteSetImages[0] = global::PerfectPidgeon.Draw.Properties.Resources.gun_def;
-            SpriteSetImages[1] = global::PerfectPidgeon.Draw.Properties.Resources.gun_def;
-            SpriteSetImages[2] = global::PerfectPidgeon.Draw.Properties.Resources.gun_def;
-            SpriteSetImages[3] = global::PerfectPidgeon.Draw.Properties.Resources.gun_def;
+            SpriteSetImages[1] = global::PerfectPidgeon.Draw.Properties.Resources.gun_hev;
+            SpriteSetImages[2] = global::PerfectPidgeon.Draw.Properties.Resources.gun_las;
+            SpriteSetImages[3] = global::PerfectPidgeon.Draw.Properties.Resources.gun_pla;
             SpriteSets.Add(new SpriteSet(SpriteSetImages, 4));
             SpriteSetImages = new Bitmap[3];
             SpriteSetImages[0] = global::PerfectPidgeon.Draw.Properties.Resources.enm1_1;

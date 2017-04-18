@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="ArtData.cs" />
     <Compile Include="BackgroundGenerator\TileGroup.cs" />
+    <Compile Include="BackgroundGenerator\TileGroupLoader.cs" />
     <Compile Include="Controls.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -149,6 +150,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\gun_def.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gun_hev.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gun_las.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gun_pla.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

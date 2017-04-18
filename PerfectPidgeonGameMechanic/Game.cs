@@ -5,6 +5,7 @@ using System.Text;
 using System.Drawing;
 using System.Windows.Forms;
 using PerfectPidgeon.Draw;
+using PerfectPidgeon.Draw.BackgroundGenerator;
 
 namespace PerfectPidgeonGameMechanic
 {
@@ -74,6 +75,10 @@ namespace PerfectPidgeonGameMechanic
         }
         public void StartLevel(Point Size, int Difficulty)
         {
+            List<TileGroup> Groups = TileGroupLoader.Load("Data\\Town");
+
+            //DForm.ArtData.Back = TiledBackgroundGenerator.Generate(Groups, 100, new Point(20, 20), new Point(2000, 2000));
+
             DForm.ArtData.GenerateTiles(Size.X, Size.Y);
             //Defining Player
             CurrentPlayer = new Player();
@@ -248,8 +253,8 @@ namespace PerfectPidgeonGameMechanic
             }
             if (PlayerOnFire && CurrentPlayer.ProjectileType == 1 && TimeStamp % 5 == 0)
             {
-                Vertex Offset1 = new Vertex(33, 75, 0);
-                Vertex Offset2 = new Vertex(-33, 75, 0);
+                Vertex Offset1 = new Vertex(38, 75, 0);
+                Vertex Offset2 = new Vertex(-38, 75, 0);
                 Offset1 = Offset1.RotateZ(CurrentPlayer.Facing);
                 Offset2 = Offset2.RotateZ(CurrentPlayer.Facing);
 
@@ -283,8 +288,8 @@ namespace PerfectPidgeonGameMechanic
             }
             if (PlayerOnFire && CurrentPlayer.ProjectileType == 2 && TimeStamp % 10 == 0)
             {
-                Vertex Offset1 = new Vertex(33, 75, 0);
-                Vertex Offset2 = new Vertex(-33, 75, 0);
+                Vertex Offset1 = new Vertex(38, 75, 0);
+                Vertex Offset2 = new Vertex(-38, 75, 0);
                 Vertex Offset1R = Offset1.RotateZ(CurrentPlayer.Facing);
                 Vertex Offset2R = Offset2.RotateZ(CurrentPlayer.Facing);
                 Projectile Proj1;
@@ -326,8 +331,8 @@ namespace PerfectPidgeonGameMechanic
             }
             if (PlayerOnFire && CurrentPlayer.ProjectileType == 3 && TimeStamp % 20 == 0)
             {
-                Vertex Offset1 = new Vertex(33, 75, 0);
-                Vertex Offset2 = new Vertex(-33, 75, 0);
+                Vertex Offset1 = new Vertex(38, 75, 0);
+                Vertex Offset2 = new Vertex(-38, 75, 0);
                 Offset1 = Offset1.RotateZ(CurrentPlayer.Facing);
                 Offset2 = Offset2.RotateZ(CurrentPlayer.Facing);
 
@@ -568,7 +573,7 @@ namespace PerfectPidgeonGameMechanic
         public void dropPowerUp(Vertex DropLocation)
         {
             Random rnd = new Random();
-            int chance = rnd.Next(1, 15);
+            int chance = rnd.Next(1, 1);
             if (chance == 1)
             {
                 int type = rnd.Next(1, 6);
