@@ -75,9 +75,8 @@ namespace PerfectPidgeonGameMechanic
         }
         public void StartLevel(Point Size, int Difficulty)
         {
-            List<TileGroup> Groups = TileGroupLoader.Load("Data\\Town");
-
-            //DForm.ArtData.Back = TiledBackgroundGenerator.Generate(Groups, 100, new Point(20, 20), new Point(2000, 2000));
+            DForm.ArtData.BackType = 2;
+            DForm.ArtData.Back = TiledBackgroundGenerator.Create("Data\\Town", 100, 40, 2);
 
             DForm.ArtData.GenerateTiles(Size.X, Size.Y);
             //Defining Player

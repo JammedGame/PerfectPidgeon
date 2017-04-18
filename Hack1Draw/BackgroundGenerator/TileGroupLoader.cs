@@ -24,7 +24,7 @@ namespace PerfectPidgeon.Draw.BackgroundGenerator
                     if (!File.Exists(FileName)) break;
                     Images.Add((Bitmap)Bitmap.FromFile(FileName));
                 }
-                if (Images.Count > 0) Groups.Add(new TileGroup(i+1, Images.Count, Images));
+                if (Images.Count > 0) Groups.Add(new TileGroup(i+1, 0, Images));
             }
 
             return Groups;

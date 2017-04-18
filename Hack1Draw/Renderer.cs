@@ -100,7 +100,7 @@ namespace PerfectPidgeon.Draw
 
             if (this._ArtData.BackType == 0)
             {
-                DrawImage(0, 0, _GLD.Width, _GLD.Height, this._ArtData.Back);
+                DrawImage(0, 0, this._ArtData.Back.Width, this._ArtData.Back.Height, this._ArtData.Back);
             }
             else if (this._ArtData.BackType == 1)
             {
@@ -119,6 +119,15 @@ namespace PerfectPidgeon.Draw
                 DrawImageNTexture(-XOffset,                 -YOffset + _GLD.Height, _GLD.Width, _GLD.Height);
                 DrawImageNTexture(-XOffset + _GLD.Width,    -YOffset + _GLD.Height, _GLD.Width, _GLD.Height);
                 DrawImageNTexture(-XOffset - _GLD.Width,    -YOffset + _GLD.Height, _GLD.Width, _GLD.Height);
+            }
+            else if (this._ArtData.BackType == 2)
+            {
+                int XOffset = this._Data.Players[this._Data.CurrentPlayer].Location.X;
+                int YOffset = this._Data.Players[this._Data.CurrentPlayer].Location.Y;
+                XOffset %= _GLD.Width;
+                YOffset %= _GLD.Height;
+
+                DrawImage(-XOffset, -YOffset, this._ArtData.Back.Width, this._ArtData.Back.Height, this._ArtData.Back);
             }
 
             GL.Color3(Color.Black);
