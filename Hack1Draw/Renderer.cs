@@ -200,7 +200,6 @@ namespace PerfectPidgeon.Draw
                     {
                         GL.Translate(this._Data.Effects[i].Location.X - this._Data.Players[this._Data.CurrentPlayer].Location.X, this._Data.Effects[i].Location.Y - this._Data.Players[this._Data.CurrentPlayer].Location.Y, 0);
                         GL.Translate(_GLD.Width / 2, _GLD.Height / 2, 0);
-                        //GL.Rotate(-this._Data.Effects[i].Facing + 180, 0, 0, -1);
 
                         if (this._Data.Effects[i].ArtIndex == 0)
                         {

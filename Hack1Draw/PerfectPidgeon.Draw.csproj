@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ArtData.cs" />
+    <Compile Include="BackgroundGenerator\TileGroup.cs" />
     <Compile Include="Controls.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -69,7 +70,7 @@
     <Compile Include="Renderer.cs" />
     <Compile Include="SpriteSet.cs" />
     <Compile Include="Tile.cs" />
-    <Compile Include="TiledBackgroundGenerator.cs" />
+    <Compile Include="BackgroundGenerator\TiledBackgroundGenerator.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Form1.resx">
