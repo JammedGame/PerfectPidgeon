@@ -103,7 +103,7 @@ namespace PerfectPidgeon.Draw
                     if (Index == CurrentPlayer)
                     {
                     }
-                    //PlayersBuffer[Index].ArtIndex = ArtIndex;
+                    PlayersBuffer[Index].ArtIndex = ArtIndex;
                     PlayersBuffer[Index].Location = Location;
                     PlayersBuffer[Index].Size = Size;
                 }
@@ -114,12 +114,16 @@ namespace PerfectPidgeon.Draw
                 if (NPCsBuffer.Count > Index)
                 {
                     NPCsBuffer[Index].ArtIndex = ArtIndex;
-                    if (NPCs[Index] != null) NPCsBuffer[Index].ImageIndex = NPCs[Index].ImageIndex;
+                    NPCsBuffer[Index].ImageIndex = NPCs[Index].ImageIndex;
                     NPCsBuffer[Index].Location = Location;
                     NPCsBuffer[Index].Facing = Facing;
                     NPCsBuffer[Index].Size = Size;
                 }
-                else NPCsBuffer.Add(new Item(ArtIndex, Location, Facing, Size));
+                else
+                {
+                    if (NPCs.Count > Index && NPCs[Index] != null) NPCsBuffer.Add(new Item(ArtIndex, Location, Facing, Size, NPCs[Index].ImageIndex));
+                    else NPCsBuffer.Add(new Item(ArtIndex, Location, Facing, Size));
+                }
             }
             if (Type == 2)
             {

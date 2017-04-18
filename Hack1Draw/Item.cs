@@ -67,5 +67,16 @@ namespace PerfectPidgeon.Draw
             this._Location = Location;
             this._Facing = Facing;
         }
+        public Item(int ArtIndex, Point Location, double Facing, double Size, int ImageIndex)
+        {
+            this._ArtIndex = ArtIndex;
+            this._ImageIndex = ImageIndex;
+            this._ImageIndexIncrement = 1;
+            this._AngleOffsetIndex = 0;
+            this._AngleOffsetIndexIncrement = 1;
+            this._Size = Size;
+            this._Location = Location;
+            this._Facing = Facing;
+        }
     }
 }
