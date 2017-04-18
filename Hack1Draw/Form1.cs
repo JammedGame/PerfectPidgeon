@@ -86,7 +86,7 @@ namespace PerfectPidgeon.Draw
             UpdateFrame = new System.Timers.Timer();
             UpdateFrame.Enabled = true;
             UpdateFrame.Elapsed += new System.Timers.ElapsedEventHandler(ImgSwitch_Tick);
-            UpdateFrame.Interval = 100;
+            UpdateFrame.Interval = 50;
             UpdateFrame.Start();
             MouseMoved = new MouseEventHandler(OnMouseMoved);
             MouseUpP = new MouseEventHandler(OnMouseUp);

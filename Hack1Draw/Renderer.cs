@@ -224,6 +224,11 @@ namespace PerfectPidgeon.Draw
 
             GL.LoadIdentity();
 
+            if(this._Data.Players[0].ImageIndex != 0)
+            {
+                int d = 3;
+            }
+
             GL.Color3(this._ArtData.Environment);
             GL.Translate(_GLD.Width / 2, _GLD.Height / 2, 0);
             GL.Rotate(this._Controls.MouseAngle + this._Data.Players[0].AngleOffsetIndex, 0, 0, -1);

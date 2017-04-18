@@ -46,6 +46,10 @@
   <ItemGroup>
     <Compile Include="Effect.cs" />
     <Compile Include="Game.cs" />
+    <Compile Include="LevelData\Background.cs" />
+    <Compile Include="LevelData\DynamicBackground.cs" />
+    <Compile Include="LevelData\Level.cs" />
+    <Compile Include="LevelData\StaticBackground.cs" />
     <Compile Include="Object.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="PowerUp.cs" />

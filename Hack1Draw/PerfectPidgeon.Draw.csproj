@@ -81,114 +81,6 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\W.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Background21.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Fi1t1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Fi2t1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Fi3t1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Fi4t1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Fi5t1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\W1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Tu1t1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Tu2t1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Tu3t1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Tu4t1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Tu5t1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Tu6t1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Tu7t1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Ok0p1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Ok1p1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Ok2p1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Ok3p1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Ok4p1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Ok5p1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Ok6p1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Ok7p1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Ok8p1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Fish0Y1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Fish1Y1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Fish2Y1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Fish3Y1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Fish4Y1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Stikeri.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Background2s.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Stiker test.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Ray1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Ray2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Ray3.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\Ray4.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\zgrada 9 800x800.png" />
     <None Include="Resources\zgrada 8 600x600.png" />
     <None Include="Resources\zgrada 7 400x400.png" />
@@ -229,8 +121,6 @@
     <None Include="Resources\lazer.png" />
     <None Include="Resources\boom.png" />
     <None Include="Resources\earth.png" />
-    <Content Include="Resources\Tile0.png" />
-    <Content Include="Resources\Tile1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
