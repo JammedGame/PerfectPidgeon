@@ -1,4 +1,4 @@
-﻿namespace Hackaton_Trening_1
+﻿namespace PerfectPidgeon.Draw
 {
     partial class DrawForm
     {

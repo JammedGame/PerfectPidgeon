@@ -5,7 +5,7 @@ using System.Text;
 using System.Drawing;
 using Leap;
 
-namespace Hackaton_Trening_1
+namespace PerfectPidgeon.Draw
 {
     class PidgeonLeapListener : Listener
     {

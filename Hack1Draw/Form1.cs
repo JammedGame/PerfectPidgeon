@@ -11,10 +11,13 @@ using OpenTK.Graphics;
 using OpenTK.Graphics.OpenGL;
 using Leap;
 
-namespace Hackaton_Trening_1
+namespace PerfectPidgeon.Draw
 {
     public partial class DrawForm : Form
     {
+        private GameData _Data;
+        private Renderer _Renderer;
+
         private int HealthIndex = 200;
         private string WeaponText = "Basic";
 
@@ -22,16 +25,7 @@ namespace Hackaton_Trening_1
         private Color Environment = Color.White;
         private int CurrentPlayer = 0;
         private double MouseAngle;
-        private List<Item> Players;
-        private List<Item> NPCs;
-        private List<Item> Projectiles;
-        private List<Item> Effects;
-        private List<Item> PowerUps;
-        private List<Item> PlayersBuffer;
-        private List<Item> NPCsBuffer;
-        private List<Item> ProjectilesBuffer;
-        private List<Item> EffectsBuffer;
-        private List<Item> PowerUpsBuffer;
+        
         private Point MouseLoc;
         public event MouseEventHandler MouseMoved;
         public event MouseEventHandler MouseUpP;
@@ -46,14 +40,14 @@ namespace Hackaton_Trening_1
         private List<Bitmap> EffectArt;
         private List<Bitmap> PowerUpArt;
         private List<SpriteSet> Bullets;
-        private Bitmap Aim = global::Hack1Draw.Properties.Resources.aim;
+        private Bitmap Aim = global::PerfectPidgeon.Draw.Properties.Resources.aim;
         private System.Timers.Timer UpdateFrame;
         private System.Timers.Timer UpdateLeap;
         private System.Timers.Timer Killemll;
         private Point BackGroundOffset = new Point(0, 0);
         private int EfectOffset = 0;
         private bool GLLoaded;
-        private int Texture;
+        
 
         private const int numTileTries = 60;
         private const int tileSize = 200;
@@ -270,185 +264,14 @@ namespace Hackaton_Trening_1
             if (this.WindowState == FormWindowState.Minimized || this.Height == 0 || this.Width == 0) return;
             Draw();
         }
-        private void DrawImage(int X, int Y, int XSize, int YSize, Bitmap ToDraw)
-        {
-            if (ToDraw == null) return;
-            SetTexture(ref ToDraw);
-            GL.Begin(BeginMode.Polygon);
-            GL.TexCoord2(0f, 0f); GL.Vertex2(X, Y);
-            GL.TexCoord2(0f, 1f); GL.Vertex2(X, Y + YSize);
-            GL.TexCoord2(1f, 1f); GL.Vertex2(X + XSize, Y + YSize);
-            GL.TexCoord2(1f, 0f); GL.Vertex2(X + XSize, Y);
-            GL.End();
-        }
-        private void DrawShit(int X, int Y, float XSize, float YSize)
-        {
-            GL.Color3(Color.Red);
-            GL.Begin(BeginMode.Polygon);
-            GL.Vertex2(X, Y);
-            GL.Vertex2(X, Y + YSize);
-            GL.Vertex2(X + XSize, Y + YSize);
-            GL.Vertex2(X + XSize, Y);
-            GL.End();
-            GL.Color3(Color.White);
-        }
         private bool IsInDraw = false;
         private void Draw()
         {
-            if (IsInDraw) return;
-            IsInDraw = true;
             HealthPanel.Size = new System.Drawing.Size(HealthIndex, HealthPanel.Height);
             WeaponLabel.Text = WeaponText;
             EnemyLabel.Text = "Enemies Remaining: " + NPCs.Count;
 
-            GLD_Resize(null, null);
-            GL.MatrixMode(MatrixMode.Modelview);
-            GL.LoadIdentity();
-            GL.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
-            //Drawing
-            GL.Enable(EnableCap.Texture2D);
-            
-            #region tiles
-
-            int left = Players[CurrentPlayer].Location.X - GLD.Width / 2;
-            int right = Players[CurrentPlayer].Location.X + GLD.Width / 2;
-            int top = Players[CurrentPlayer].Location.Y - GLD.Height / 2;
-            int bottom = Players[CurrentPlayer].Location.Y + GLD.Height / 2;
-
-            int xm = GLD.Width / 2 - Players[CurrentPlayer].Location.X;
-            int ym = GLD.Height / 2 - Players[CurrentPlayer].Location.Y;
-            Bitmap B = null;
-            for (int i = 0; i < tiles.Count; ++i)
-            {
-                int xk = tiles[i].position % numTilesH;
-                int yk = tiles[i].position / numTilesH;
-
-                int x = xm - (xk - numTilesH / 2 + 1) * tileSize - tileSize * tiles[i].size - 1;
-                int y = ym - (yk - numTilesV / 2 + 1) * tileSize - tileSize * tiles[i].size - 1;
-
-                if (x + tiles[i].size * tileSize < 0 || x > GLD.Width || y + tiles[i].size * tileSize < 0 || y > GLD.Height)
-                    continue;
-
-                if (tiles[i].size == 1) B = Tile1[tiles[i].ArtIndex];
-                if (tiles[i].size == 2) B = Tile2[tiles[i].ArtIndex];
-                if (tiles[i].size == 3) B = Tile3[tiles[i].ArtIndex];
-                if (tiles[i].size == 4) B = Tile4[tiles[i].ArtIndex];
-                SetTexture(ref B);
-
-                GL.PushMatrix();
-                GL.Translate(x, y, 0);
-                GL.CallList(tileList + tiles[i].size - 1);
-                GL.PopMatrix();
-            }
-            #endregion
-            GL.Color3(Color.Black);
-            for (int i = 0; i < Projectiles.Count; i++)
-            {
-                if (Projectiles[i].Location.X - Players[CurrentPlayer].Location.X < GLD.Width * 1.5)
-                {
-                    if (Projectiles[i].Location.Y - Players[CurrentPlayer].Location.Y < GLD.Height * 1.5)
-                    {
-                        GL.Translate(Projectiles[i].Location.X - Players[CurrentPlayer].Location.X, Projectiles[i].Location.Y - Players[CurrentPlayer].Location.Y, 0);
-                        GL.Translate(GLD.Width / 2, GLD.Height / 2, 0);
-                        GL.Rotate(-Projectiles[i].Facing + 180, 0, 0, -1);
-                        if (Projectiles[i].ArtIndex == 0)
-                        {
-                            GL.Color3(Color.Black);
-                            DrawImage((int)(-Bullets[Projectiles[i].ArtIndex].Images[0].Width / 6), (int)(-Bullets[Projectiles[i].ArtIndex].Images[0].Height / 6), Bullets[Projectiles[i].ArtIndex].Images[0].Width /3, Bullets[Projectiles[i].ArtIndex].Images[0].Height / 3, Bullets[Projectiles[i].ArtIndex].Images[0]);
-                        }
-                        else if (Projectiles[i].ArtIndex == 1)
-                        {
-                            GL.Color3(Environment);
-                            DrawImage((int)(-Bullets[Projectiles[i].ArtIndex].Images[0].Width / 4), (int)(-Bullets[Projectiles[i].ArtIndex].Images[0].Height / 4), Bullets[Projectiles[i].ArtIndex].Images[0].Width / 2, Bullets[Projectiles[i].ArtIndex].Images[0].Height / 2, Bullets[Projectiles[i].ArtIndex].Images[0]);
-                        }
-                        else if (Projectiles[i].ArtIndex == 2)
-                        {
-                            GL.Color3(Environment);
-                            DrawImage((int)(-Bullets[Projectiles[i].ArtIndex].Images[0].Width / 2), (int)(-Bullets[Projectiles[i].ArtIndex].Images[0].Height / 2), Bullets[Projectiles[i].ArtIndex].Images[0].Width, Bullets[Projectiles[i].ArtIndex].Images[0].Height, Bullets[Projectiles[i].ArtIndex].Images[0]);
-                        }
-                        else if (Projectiles[i].ArtIndex == 3)
-                        {
-                            GL.Color3(Environment);
-                            DrawImage((int)(-Bullets[Projectiles[i].ArtIndex].Images[0].Width / 2), (int)(-Bullets[Projectiles[i].ArtIndex].Images[0].Height / 2), Bullets[Projectiles[i].ArtIndex].Images[0].Width, Bullets[Projectiles[i].ArtIndex].Images[0].Height, Bullets[Projectiles[i].ArtIndex].Images[0]);
-                        }
-                        GL.LoadIdentity();
-                    }
-                }
-            }
-
-            GL.Color3(Environment);
-            for (int i = 0; i < Effects.Count; i++)
-            {
-                if (Effects[i].Location.X - Players[CurrentPlayer].Location.X < GLD.Width * 1.5)
-                {
-                    if (Effects[i].Location.Y - Players[CurrentPlayer].Location.Y < GLD.Height * 1.5)
-                    {
-                        GL.Translate(Effects[i].Location.X - Players[CurrentPlayer].Location.X, Effects[i].Location.Y - Players[CurrentPlayer].Location.Y, 0);
-                        GL.Translate(GLD.Width / 2, GLD.Height / 2, 0);
-                        GL.Rotate(-Effects[i].Facing + 180, 0, 0, -1);
-
-                        if (Effects[i].ArtIndex == 0)
-                        {
-                            DrawImage(-EffectArt[Effects[i].ArtIndex].Width / 8, -EffectArt[Effects[i].ArtIndex].Height / 8, EffectArt[Effects[i].ArtIndex].Width / 4, EffectArt[Effects[i].ArtIndex].Height / 4, EffectArt[Effects[i].ArtIndex]);
-                        }
-                        else if (Effects[i].ArtIndex == 1)
-                        {
-                            GL.Color3(Environment);
-                            DrawImage(-EffectArt[Effects[i].ArtIndex].Width / 2, -EffectArt[Effects[i].ArtIndex].Height / 2, EffectArt[Effects[i].ArtIndex].Width, EffectArt[Effects[i].ArtIndex].Height, EffectArt[Effects[i].ArtIndex]);
-                        }
-                        
-                        GL.LoadIdentity();
-                    }
-                }
-            }
-
-            GL.Color3(Environment);
-            for (int i = 0; i < NPCs.Count; i++)
-            {
-                if (NPCs[i].Location.X - Players[CurrentPlayer].Location.X < GLD.Width * 1.5)
-                {
-                    if (NPCs[i].Location.Y - Players[CurrentPlayer].Location.Y < GLD.Height * 1.5)
-                    {
-                        GL.Translate(NPCs[i].Location.X - Players[CurrentPlayer].Location.X, NPCs[i].Location.Y - Players[CurrentPlayer].Location.Y, 0);
-                        GL.Translate(GLD.Width / 2, GLD.Height / 2, 0);
-                        GL.Rotate(NPCs[i].Facing, 0, 0, -1);
-                        DrawImage((int)(-SpriteSets[NPCs[i].ArtIndex].Images[NPCs[i].ImageIndex].Width / 2), (int)(-SpriteSets[NPCs[i].ArtIndex].Images[NPCs[i].ImageIndex].Height / 2), SpriteSets[NPCs[i].ArtIndex].Images[NPCs[i].ImageIndex].Width, SpriteSets[NPCs[i].ArtIndex].Images[NPCs[i].ImageIndex].Height, SpriteSets[NPCs[i].ArtIndex].Images[NPCs[i].ImageIndex]);
-                        GL.LoadIdentity();
-                    }
-                }
-            }
-            
-            GL.Color3(Environment);
-            if(PowerUps != null)
-            for (int i = 0; i < PowerUps.Count; i++)
-            {
-                if (PowerUps[i].Location.X - Players[CurrentPlayer].Location.X < GLD.Width * 1.5)
-                {
-                    if (PowerUps[i].Location.Y - Players[CurrentPlayer].Location.Y < GLD.Height * 1.5)
-                    {
-                        GL.Translate(PowerUps[i].Location.X - Players[CurrentPlayer].Location.X, PowerUps[i].Location.Y - Players[CurrentPlayer].Location.Y, 0);
-                        GL.Translate(GLD.Width / 2, GLD.Height / 2, 0);
-                        GL.Rotate(PowerUps[i].Facing, 0, 0, -1);
-                        DrawImage(-PowerUpArt[PowerUps[i].ArtIndex].Width / 2, -PowerUpArt[PowerUps[i].ArtIndex].Height / 2, PowerUpArt[PowerUps[i].ArtIndex].Width, PowerUpArt[PowerUps[i].ArtIndex].Height, PowerUpArt[PowerUps[i].ArtIndex]);
-                        GL.LoadIdentity();
-                    }
-                }
-            }
-
-            DrawImage(MouseLoc.X - 50, MouseLoc.Y - 50, 100, 100, Aim);
-
-            GL.LoadIdentity();
-
-            GL.Color3(Environment);
-            GL.Translate(GLD.Width / 2, GLD.Height / 2, 0);
-            GL.Rotate(MouseAngle + Players[0].AngleOffsetIndex, 0, 0, -1);
-            DrawImage(-SpriteSets[0].Images[Players[0].ImageIndex].Width / 2, -SpriteSets[0].Images[Players[0].ImageIndex].Height / 2, SpriteSets[0].Images[Players[0].ImageIndex].Width, SpriteSets[0].Images[Players[0].ImageIndex].Height, SpriteSets[0].Images[Players[0].ImageIndex]);
-            GL.LoadIdentity();
-
-            GL.Disable(EnableCap.Texture2D);
-            GLD.SwapBuffers();
-            GLD.Invalidate();
-            IsInDraw = false;
+            _Renderer.Draw();
         }
         private void SetTexture(ref Bitmap NewTexture)
         {
@@ -470,10 +293,7 @@ namespace Hackaton_Trening_1
         }
         private void GLD_Resize(object sender, EventArgs e)
         {
-            GL.Viewport(0, 0, GLD.Width, GLD.Height);
-            GL.MatrixMode(MatrixMode.Projection);
-            GL.LoadIdentity();
-            GL.Ortho(0, GLD.Width, GLD.Height, 0, -1, 1);
+            
         }
         public void RefreshData(int Health, string Weapon)
         {
@@ -851,88 +671,6 @@ namespace Hackaton_Trening_1
             Killemll.Elapsed += new System.Timers.ElapsedEventHandler(Killemll_Tick);
             Killemll.Interval = 10;
             Killemll.Start();
-        }
-    }
-    class Item
-    {
-        private int _ArtIndex;
-        private int _ImageIndex;
-        private int _ImageIndexIncrement;
-        private int _AngleOffsetIndex;
-        private int _AngleOffsetIndexIncrement;
-        private double _Size;
-        private double _Facing;
-        private Point _Location;
-        public int ArtIndex
-        {
-            get { return _ArtIndex; }
-            set { _ArtIndex = value; }
-        }
-        public int ImageIndex
-        {
-            get { return _ImageIndex; }
-            set { _ImageIndex = value; }
-        }
-        public int ImageIndexIncrement
-        {
-            get { return _ImageIndexIncrement; }
-            set { _ImageIndexIncrement = value; }
-        }
-        public int AngleOffsetIndex
-        {
-            get { return _AngleOffsetIndex; }
-            set { _AngleOffsetIndex = value; }
-        }
-        public int AngleOffsetIndexIncrement
-        {
-            get { return _AngleOffsetIndexIncrement; }
-            set { _AngleOffsetIndexIncrement = value; }
-        }
-        public double Size
-        {
-            get { return _Size; }
-            set { _Size = value; }
-        }
-        public double Facing
-        {
-            get { return _Facing; }
-            set { _Facing = value; }
-        }
-        public Point Location
-        {
-            get { return _Location; }
-            set { _Location = value; }
-        }
-        public Item(int ArtIndex, Point Location, double Facing, double Size)
-        {
-            this._ArtIndex = ArtIndex;
-            this._ImageIndex = 0;
-            this._ImageIndexIncrement = 1;
-            this._AngleOffsetIndex = 0;
-            this._AngleOffsetIndexIncrement = 1;
-            this._Size = Size;
-            this._Location = Location;
-            this._Facing = Facing;
-        }
-    }
-    class SpriteSet
-    {
-        private Bitmap[] _Images;
-        private int _AngleOffset;
-        public Bitmap[] Images
-        {
-            get { return _Images; }
-            set { _Images = value; }
-        }
-        public int AngleOffset
-        {
-            get { return _AngleOffset; }
-            set { _AngleOffset = value; }
-        }
-        public SpriteSet(Bitmap[] Images, int AngleOffset)
-        {
-            this.Images = Images;
-            this.AngleOffset = AngleOffset;
         }
     }
 }
