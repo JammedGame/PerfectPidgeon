@@ -73,6 +73,8 @@ namespace PerfectPidgeon.Draw
             }
         }
 
+        private int counter = 0;
+
         public DrawForm()
         {
             Cursor.Hide();
@@ -83,11 +85,6 @@ namespace PerfectPidgeon.Draw
             this._Controls = new PerfectPidgeon.Draw.Controls();
             this._Renderer = new Renderer(GLD, Data, ArtData, this._Controls);
             
-            UpdateFrame = new System.Timers.Timer();
-            UpdateFrame.Enabled = true;
-            UpdateFrame.Elapsed += new System.Timers.ElapsedEventHandler(ImgSwitch_Tick);
-            UpdateFrame.Interval = 50;
-            UpdateFrame.Start();
             MouseMoved = new MouseEventHandler(OnMouseMoved);
             MouseUpP = new MouseEventHandler(OnMouseUp);
             MouseDownP = new MouseEventHandler(OnMouseDown);
@@ -237,7 +234,7 @@ namespace PerfectPidgeon.Draw
             }
             return base.ProcessCmdKey(ref msg, keyData);
         }
-        private void ImgSwitch_Tick(object sender, System.Timers.ElapsedEventArgs e)
+        public void ImgSwitch_Tick()
         {
             this.Data.ImageSwitch(this.ArtData.SpriteSets);
         }

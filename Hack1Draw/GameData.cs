@@ -17,6 +17,7 @@ namespace PerfectPidgeon.Draw
             this.PowerUps = new List<Item>();
         }
         private bool _Working = false;
+        private bool _ImageSwitchWorking = false;       
         public int CurrentPlayer = 0;
         public List<Item> Players;
         public List<Item> NPCs;
@@ -40,21 +41,31 @@ namespace PerfectPidgeon.Draw
                 _Working = value;
             }
         }
+        public bool ImageSwitchWorking
+        {
+            get
+            {
+                return _ImageSwitchWorking;
+            }
+
+            set
+            {
+                _ImageSwitchWorking = value;
+            }
+        }
         public void ImageSwitch(List<SpriteSet> SpriteSets)
         {
+            if (this._ImageSwitchWorking) return;
+            this._ImageSwitchWorking = true;
             for (int i = 0; i < Players.Count; i++)
             {
                 if (SpriteSets[0].Images.Length > 1)
                 {
                     Players[i].ImageIndex += Players[i].ImageIndexIncrement;
-                    if (Players[i].ImageIndex == SpriteSets[0].Images.Length - 1) Players[i].ImageIndexIncrement = -1;
-                    if (Players[i].ImageIndex == 0) Players[i].ImageIndexIncrement = 1;
-                }
-                if (SpriteSets[0].AngleOffset != 0)
-                {
-                    Players[i].AngleOffsetIndex += Players[i].AngleOffsetIndexIncrement;
-                    if (Players[i].AngleOffsetIndex == SpriteSets[0].AngleOffset - 1) Players[i].AngleOffsetIndexIncrement = -1;
-                    if (Players[i].AngleOffsetIndex == 0) Players[i].AngleOffsetIndexIncrement = 1;
+                    if (Players[i].ImageIndex == SpriteSets[0].Images.Length)
+                    {
+                        Players[i].ImageIndex = 0;
+                    }
                 }
             }
             for (int i = 0; i < NPCs.Count; i++)
@@ -62,20 +73,14 @@ namespace PerfectPidgeon.Draw
                 if (SpriteSets[NPCs[i].ArtIndex].Images.Length > 1)
                 {
                     NPCs[i].ImageIndex += NPCs[i].ImageIndexIncrement;
-                    if (NPCs[i].ImageIndex == SpriteSets[NPCs[i].ArtIndex].Images.Length - 1) NPCs[i].ImageIndexIncrement = -1;
-                    if (NPCs[i].ImageIndex == 0) NPCs[i].ImageIndexIncrement = 1;
-                }
-                if (SpriteSets[NPCs[i].ArtIndex].AngleOffset != 0)
-                {
-                    NPCs[i].AngleOffsetIndex += NPCs[i].AngleOffsetIndexIncrement;
-                    if (NPCs[i].AngleOffsetIndex == SpriteSets[NPCs[i].ArtIndex].AngleOffset - 1) NPCs[i].AngleOffsetIndexIncrement = -1;
-                    if (NPCs[i].AngleOffsetIndex == 0) NPCs[i].AngleOffsetIndexIncrement = 1;
+                    if (NPCs[i].ImageIndex == SpriteSets[NPCs[i].ArtIndex].Images.Length) NPCs[i].ImageIndex = 0;
                 }
             }
+            this._ImageSwitchWorking = false;
         }
         public void ResetBuffers()
         {
-            PlayersBuffer = new List<Item>();
+            PlayersBuffer = Players;
             NPCsBuffer = new List<Item>();
             ProjectilesBuffer = new List<Item>();
             EffectsBuffer = new List<Item>();
@@ -98,7 +103,7 @@ namespace PerfectPidgeon.Draw
                     if (Index == CurrentPlayer)
                     {
                     }
-                    PlayersBuffer[Index].ArtIndex = ArtIndex;
+                    //PlayersBuffer[Index].ArtIndex = ArtIndex;
                     PlayersBuffer[Index].Location = Location;
                     PlayersBuffer[Index].Size = Size;
                 }
@@ -109,6 +114,7 @@ namespace PerfectPidgeon.Draw
                 if (NPCsBuffer.Count > Index)
                 {
                     NPCsBuffer[Index].ArtIndex = ArtIndex;
+                    if (NPCs[Index] != null) NPCsBuffer[Index].ImageIndex = NPCs[Index].ImageIndex;
                     NPCsBuffer[Index].Location = Location;
                     NPCsBuffer[Index].Facing = Facing;
                     NPCsBuffer[Index].Size = Size;

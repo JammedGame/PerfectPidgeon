@@ -198,6 +198,7 @@ namespace PerfectPidgeonGameMechanic
             TimeStamp++;
             if (CurrentTick) return;
             CurrentTick = true;
+            if(TimeStamp%3 == 0) DForm.ImgSwitch_Tick();
             if (PlayerOnMove)
             {
                 //Vertex UnitVector = Vertex.Norm(DrawForm.GetAngleDegree(CurrentPlayer.Location.ToPoint(), CurrentPlayer.NextLocation.ToPoint())) * CurrentPlayer.Speed;
