@@ -15,47 +15,36 @@ namespace PerfectPidgeon.Draw
 {
     public partial class DrawForm : Form
     {
+        private ArtData _ArtData;
         private GameData _Data;
+        private Controls _Controls;
         private Renderer _Renderer;
 
         private int HealthIndex = 200;
         private string WeaponText = "Basic";
 
         public bool Working = false;
-        private Color Environment = Color.White;
-        private int CurrentPlayer = 0;
-        private double MouseAngle;
         
-        private Point MouseLoc;
         public event MouseEventHandler MouseMoved;
         public event MouseEventHandler MouseUpP;
         public event MouseEventHandler MouseDownP;
         public delegate void KeyPressedDelegate(ref Message msg, Keys keyData);
-        public event KeyPressedDelegate KeyPressed;
-        private List<SpriteSet> SpriteSets;
-        private List<Bitmap> Tile1;
-        private List<Bitmap> Tile2;
-        private List<Bitmap> Tile3;
-        private List<Bitmap> Tile4;
-        private List<Bitmap> EffectArt;
-        private List<Bitmap> PowerUpArt;
-        private List<SpriteSet> Bullets;
-        private Bitmap Aim = global::PerfectPidgeon.Draw.Properties.Resources.aim;
+        public event KeyPressedDelegate KeyPressed;  
+        
         private System.Timers.Timer UpdateFrame;
         private System.Timers.Timer UpdateLeap;
         private System.Timers.Timer Killemll;
         private Point BackGroundOffset = new Point(0, 0);
-        private int EfectOffset = 0;
-        private bool GLLoaded;
-        
+        private int EffectOffset = 0;
+        private bool GLLoaded;  
 
-        private const int numTileTries = 60;
+        /*private const int numTileTries = 60;
         private const int tileSize = 200;
         private int numTilesH;
         private int numTilesV;
         private List<Tile> tiles;
         private int tileList;
-        private int[] t;
+        private int[] t;*/
 
         private PidgeonLeapListener Listen;
         private Controller Control;
@@ -67,13 +56,11 @@ namespace PerfectPidgeon.Draw
         {
             Cursor.Hide();
             InitializeComponent();
-            InitializeSpriteSets();
-            InitializeTileSets();
-            Players = new List<Item>();
-            NPCs = new List<Item>();
-            Projectiles = new List<Item>();;
-            Effects = new List<Item>();
-            PowerUps = new List<Item>();
+
+            this._Data = new GameData();
+            this._ArtData = new ArtData();
+            this._Controls = new PerfectPidgeon.Draw.Controls();
+            
             UpdateFrame = new System.Timers.Timer();
             UpdateFrame.Enabled = true;
             UpdateFrame.Elapsed += new System.Timers.ElapsedEventHandler(ImgSwitch_Tick);
@@ -117,64 +104,8 @@ namespace PerfectPidgeon.Draw
             }
             
         }
-        private void InitializeSpriteSets()
-        {
-            Bitmap[] SpriteSetImages;
-            SpriteSets = new List<SpriteSet>();
-            SpriteSetImages = new Bitmap[6];
-            SpriteSetImages[0] = global::Hack1Draw.Properties.Resources.gohlub1;
-            SpriteSetImages[1] = global::Hack1Draw.Properties.Resources.gohlub2;
-            SpriteSetImages[2] = global::Hack1Draw.Properties.Resources.gohlub3;
-            SpriteSetImages[3] = global::Hack1Draw.Properties.Resources.gohlub4;
-            SpriteSetImages[4] = global::Hack1Draw.Properties.Resources.gohlub3;
-            SpriteSetImages[5] = global::Hack1Draw.Properties.Resources.gohlub2;
-            SpriteSets.Add(new SpriteSet(SpriteSetImages, 6));
-            SpriteSetImages = new Bitmap[4];
-            SpriteSetImages[0] = global::Hack1Draw.Properties.Resources.bad1;
-            SpriteSetImages[1] = global::Hack1Draw.Properties.Resources.bad2;
-            SpriteSetImages[2] = global::Hack1Draw.Properties.Resources.bad3;
-            SpriteSetImages[3] = global::Hack1Draw.Properties.Resources.bad4;
-            SpriteSets.Add(new SpriteSet(SpriteSetImages, 4));
-
-            Bullets = new List<SpriteSet>();
-            SpriteSetImages = new Bitmap[1];
-            SpriteSetImages[0] = global::Hack1Draw.Properties.Resources.met1;
-            Bullets.Add(new SpriteSet(SpriteSetImages, 1));
-            SpriteSetImages = new Bitmap[1];
-            SpriteSetImages[0] = global::Hack1Draw.Properties.Resources.met1;
-            Bullets.Add(new SpriteSet(SpriteSetImages, 1));
-            SpriteSetImages = new Bitmap[1];
-            SpriteSetImages[0] = global::Hack1Draw.Properties.Resources.lazer;
-            Bullets.Add(new SpriteSet(SpriteSetImages, 1));
-            SpriteSetImages = new Bitmap[1];
-            SpriteSetImages[0] = global::Hack1Draw.Properties.Resources.pew1;
-            Bullets.Add(new SpriteSet(SpriteSetImages, 1));
-        }
-        private void InitializeTileSets()
-        {
-            Tile1 = new List<Bitmap>();
-            Tile1.Add(global::Hack1Draw.Properties.Resources.z0);
-            Tile1.Add(global::Hack1Draw.Properties.Resources.z1);
-            Tile1.Add(global::Hack1Draw.Properties.Resources.z2);
-            Tile1.Add(global::Hack1Draw.Properties.Resources.z3);
-            Tile2 = new List<Bitmap>();
-            Tile2.Add(global::Hack1Draw.Properties.Resources.z_0);
-            Tile2.Add(global::Hack1Draw.Properties.Resources.z_1);
-            Tile2.Add(global::Hack1Draw.Properties.Resources.z_2);
-            Tile3 = new List<Bitmap>();
-            Tile3.Add(global::Hack1Draw.Properties.Resources.z__0);
-            Tile4 = new List<Bitmap>();
-            Tile4.Add(global::Hack1Draw.Properties.Resources.z___0);
-            EffectArt = new List<Bitmap>();
-            EffectArt.Add(global::Hack1Draw.Properties.Resources.bum);
-            EffectArt.Add(global::Hack1Draw.Properties.Resources.boom);
-            PowerUpArt = new List<Bitmap>();
-            PowerUpArt.Add(global::Hack1Draw.Properties.Resources.Health);
-            PowerUpArt.Add(global::Hack1Draw.Properties.Resources.Speed);
-            PowerUpArt.Add(global::Hack1Draw.Properties.Resources.Plasma);
-            PowerUpArt.Add(global::Hack1Draw.Properties.Resources.Laser);
-            PowerUpArt.Add(global::Hack1Draw.Properties.Resources.Heavy);
-        }
+        
+        
         private void GLD_MouseDown(object sender, MouseEventArgs e)
         {
             MouseDownP.Invoke(sender, e);
@@ -483,15 +414,10 @@ namespace PerfectPidgeon.Draw
             Effects = EffectsBuffer;
             PowerUps = PowerUpsBuffer;
         }
-        struct Tile
-        {
-            public int position;
-            public int size;
-            public int ArtIndex;
-        }
+        
         public void GenerateTiles(int numTilesH, int numTilesV)
         {
-            this.numTilesH = numTilesH;
+            /*this.numTilesH = numTilesH;
             this.numTilesV = numTilesV;
 
             int numTiles = numTilesH * numTilesV;
@@ -605,7 +531,7 @@ namespace PerfectPidgeon.Draw
                     tiles.Add(tajlo);
                     t[i] = 1;
                 }
-            }
+            }*/
         }
 
         public int FindEmptyTile(int size, int numTiles)

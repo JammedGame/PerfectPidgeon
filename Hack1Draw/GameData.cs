@@ -7,15 +7,24 @@ namespace PerfectPidgeon.Draw
 {
     public class GameData
     {
-        private List<Item> Players;
-        private List<Item> NPCs;
-        private List<Item> Projectiles;
-        private List<Item> Effects;
-        private List<Item> PowerUps;
-        private List<Item> PlayersBuffer;
-        private List<Item> NPCsBuffer;
-        private List<Item> ProjectilesBuffer;
-        private List<Item> EffectsBuffer;
-        private List<Item> PowerUpsBuffer;
+        public GameData()
+        {
+            this.Players = new List<Item>();
+            this.NPCs = new List<Item>();
+            this.Projectiles = new List<Item>(); ;
+            this.Effects = new List<Item>();
+            this.PowerUps = new List<Item>();
+        }
+        public int CurrentPlayer = 0;
+        public List<Item> Players;
+        public List<Item> NPCs;
+        public List<Item> Projectiles;
+        public List<Item> Effects;
+        public List<Item> PowerUps;
+        public List<Item> PlayersBuffer;
+        public List<Item> NPCsBuffer;
+        public List<Item> ProjectilesBuffer;
+        public List<Item> EffectsBuffer;
+        public List<Item> PowerUpsBuffer;
     }
 }

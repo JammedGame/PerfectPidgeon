@@ -1,0 +1,4 @@
+C:\Users\DeinVenteD\Projects\ShadySolutions\PerfectPidgeon\Hack1Draw\obj\Debug\PerfectPidgeon.Draw.csprojResolveAssemblyReference.cache
+C:\Users\DeinVenteD\Projects\ShadySolutions\PerfectPidgeon\Hack1Draw\obj\Debug\PerfectPidgeon.Draw.DrawForm.resources
+C:\Users\DeinVenteD\Projects\ShadySolutions\PerfectPidgeon\Hack1Draw\obj\Debug\PerfectPidgeon.Draw.Properties.Resources.resources
+C:\Users\DeinVenteD\Projects\ShadySolutions\PerfectPidgeon\Hack1Draw\obj\Debug\PerfectPidgeon.Draw.csproj.GenerateResource.Cache

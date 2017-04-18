@@ -73,9 +73,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Hack1Draw\Hack1Draw.csproj">
+    <ProjectReference Include="..\Hack1Draw\PerfectPidgeon.Draw.csproj">
       <Project>{97292720-7420-45e0-84af-d5714fe0862c}</Project>
-      <Name>Hack1Draw</Name>
+      <Name>PerfectPidgeon.Draw</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
