@@ -80,7 +80,7 @@ namespace PerfectPidgeon.Draw
             Tile4.Add(global::PerfectPidgeon.Draw.Properties.Resources.z___0);
             EffectArt = new List<Bitmap>();
             EffectArt.Add(global::PerfectPidgeon.Draw.Properties.Resources.bum);
-            EffectArt.Add(global::PerfectPidgeon.Draw.Properties.Resources.boom1);
+            EffectArt.Add(global::PerfectPidgeon.Draw.Properties.Resources.boom4);
             PowerUpArt = new List<Bitmap>();
             PowerUpArt.Add(global::PerfectPidgeon.Draw.Properties.Resources.Health);
             PowerUpArt.Add(global::PerfectPidgeon.Draw.Properties.Resources.Speed);

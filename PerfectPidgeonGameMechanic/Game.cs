@@ -75,8 +75,8 @@ namespace PerfectPidgeonGameMechanic
         }
         public void StartLevel(Point Size, int Difficulty)
         {
-            DForm.ArtData.BackType = 2;
-            DForm.ArtData.Back = TiledBackgroundGenerator.Create("Data\\Town", 100, 40, 2);
+            //DForm.ArtData.BackType = 2;
+            //DForm.ArtData.Back = TiledBackgroundGenerator.Create("Data\\Town", 100, 40, 2);
 
             DForm.ArtData.GenerateTiles(Size.X, Size.Y);
             //Defining Player
@@ -593,7 +593,7 @@ namespace PerfectPidgeonGameMechanic
         public void dropPowerUp(Vertex DropLocation)
         {
             Random rnd = new Random();
-            int chance = rnd.Next(1, 1);
+            int chance = rnd.Next(1, 15);
             if (chance == 1)
             {
                 int type = rnd.Next(1, 6);
