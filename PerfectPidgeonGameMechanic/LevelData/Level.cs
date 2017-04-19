@@ -9,6 +9,7 @@ namespace PerfectPidgeonGameMechanic
     public class Level
     {
         private Background _Back;
+        private List<Object> _Enemies;
         public Background Back
         {
             get
@@ -19,6 +20,18 @@ namespace PerfectPidgeonGameMechanic
             set
             {
                 _Back = value;
+            }
+        }
+        public List<Object> Enemies
+        {
+            get
+            {
+                return _Enemies;
+            }
+
+            set
+            {
+                _Enemies = value;
             }
         }
     }

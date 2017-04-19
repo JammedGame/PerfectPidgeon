@@ -75,10 +75,10 @@ namespace PerfectPidgeonGameMechanic
         }
         public void StartLevel(Point Size, int Difficulty)
         {
-            //DForm.ArtData.BackType = 2;
-            //DForm.ArtData.Back = TiledBackgroundGenerator.Create("Data\\Town", 100, 40, 2);
+            DForm.ArtData.BackType = 2;
+            DForm.ArtData.Back = TiledBackgroundGenerator.Create("Data\\Town", 100, 40, 2);
 
-            DForm.ArtData.GenerateTiles(Size.X, Size.Y);
+            //DForm.ArtData.GenerateTiles(Size.X, Size.Y);
             //Defining Player
             CurrentPlayer = new Player();
             CurrentPlayer.Location = new Vertex(0,0);

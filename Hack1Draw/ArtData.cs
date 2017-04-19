@@ -16,7 +16,7 @@ namespace PerfectPidgeon.Draw
         public int BackType = 0;
         public Color Environment = Color.White;
         public Bitmap Aim = global::PerfectPidgeon.Draw.Properties.Resources.aim;
-        public Bitmap Back = global::PerfectPidgeon.Draw.Properties.Resources.earth;
+        public Bitmap Back = global::PerfectPidgeon.Draw.Properties.Resources.earth1;
         public List<SpriteSet> SpriteSets;
         public List<Bitmap> Tile1;
         public List<Bitmap> Tile2;
@@ -60,7 +60,7 @@ namespace PerfectPidgeon.Draw
             SpriteSetImages[0] = global::PerfectPidgeon.Draw.Properties.Resources.bul_pla;
             Bullets.Add(new SpriteSet(SpriteSetImages, 1));
             SpriteSetImages = new Bitmap[1];
-            SpriteSetImages[0] = global::PerfectPidgeon.Draw.Properties.Resources.bul_pla;
+            SpriteSetImages[0] = global::PerfectPidgeon.Draw.Properties.Resources.pewf;
             Bullets.Add(new SpriteSet(SpriteSetImages, 1));
         }
         private void InitializeTileSets()

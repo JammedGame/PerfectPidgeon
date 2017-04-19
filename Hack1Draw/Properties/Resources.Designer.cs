@@ -183,6 +183,16 @@ namespace PerfectPidgeon.Draw.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap earth1 {
+            get {
+                object obj = ResourceManager.GetObject("earth1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap enm1_1 {
             get {
                 object obj = ResourceManager.GetObject("enm1_1", resourceCulture);
@@ -366,6 +376,16 @@ namespace PerfectPidgeon.Draw.Properties {
         internal static System.Drawing.Bitmap pew3 {
             get {
                 object obj = ResourceManager.GetObject("pew3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pewf {
+            get {
+                object obj = ResourceManager.GetObject("pewf", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

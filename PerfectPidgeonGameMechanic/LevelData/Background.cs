@@ -13,6 +13,11 @@ namespace PerfectPidgeonGameMechanic.LevelData
     }
     public class Background
     {
+        public Background(string Path, BackgroundType Type)
+        {
+            this.Type = Type;
+            this.Path = Path;
+        }
         private string _Path;
         public string Path
         {

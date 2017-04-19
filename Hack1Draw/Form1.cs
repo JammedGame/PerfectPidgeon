@@ -206,7 +206,10 @@ namespace PerfectPidgeon.Draw
         private void GLDPaint(object sender, PaintEventArgs e)
         {
             if (!this._Renderer.GLLoaded) return;
-            if (this._Data.Working) return;
+            if (this._Data.Working)
+            {
+                //return;
+            }
             if (this.WindowState == FormWindowState.Minimized || this.Height == 0 || this.Width == 0) return;
             HealthPanel.Size = new System.Drawing.Size(HealthIndex, HealthPanel.Height);
             WeaponLabel.Text = WeaponText;
