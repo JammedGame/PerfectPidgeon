@@ -105,8 +105,8 @@ namespace PerfectPidgeonGameMechanic
                 NewNPC.Health = Rand.Next(100, 200);
                 NewNPC.Speed = 2;
                 NewNPC.ArtIndex = 2;
-                NewNPC.Sight = DForm.Width;
-                NewNPC.Range = DForm.Width / 2;
+                NewNPC.Sight = 1000;
+                NewNPC.Range = 500;
                 Enemies.Add(NewNPC);
             }
 
@@ -117,12 +117,13 @@ namespace PerfectPidgeonGameMechanic
         public void RefreshDrawing()
         {
             DForm.Data.ResetBuffers();
-            DForm.Data.UpdateItem(0, 0, CurrentPlayer.ProjectileType, CurrentPlayer.Location.ToPoint(), CurrentPlayer.Facing, 3);
+            DForm.Data.UpdateItem(0, 0, CurrentPlayer.ProjectileType, CurrentPlayer.Location.ToPoint(), CurrentPlayer.Facing, 3, 0);
             List<int> Indices = new List<int>();
             List<int> ArtIndices = new List<int>();
             List<double> Angles = new List<double>();
             List<double> Sizes = new List<double>();
             List<Point> Locations = new List<Point>();
+            List<int> Other = new List<int>();
             for (int i = 0; i < Enemies.Count; i++)
             {
                 if (Enemies[i].Location != null)
@@ -131,36 +132,49 @@ namespace PerfectPidgeonGameMechanic
                     ArtIndices.Add(Enemies[i].ArtIndex);
                     Angles.Add(DrawForm.GetAngleDegree((CurrentPlayer.Location).ToPoint(), Enemies[i].Location.ToPoint()));
                     Sizes.Add(1);
+                    Other.Add(0);
                     Locations.Add(Enemies[i].Location.ToPoint());
                 }
             }
             for (int i = Enemies.Count - 1; i >= 0; i--) if (!(Enemies[i].Location != null)) Enemies.RemoveAt(i);
             while (DForm.Data.Working) ;
-            DForm.Data.UpdateItems(1, Indices.ToArray(), ArtIndices.ToArray(), Locations.ToArray(), Angles.ToArray(), Sizes.ToArray());
+            DForm.Data.UpdateItems(1, Indices.ToArray(), ArtIndices.ToArray(), Locations.ToArray(), Angles.ToArray(), Sizes.ToArray(), Other.ToArray());
             Indices = new List<int>();
             ArtIndices = new List<int>();
             Angles = new List<double>();
             Sizes = new List<double>();
             Locations = new List<Point>();
+            Other = new List<int>();
             for (int i = 0; i < Projectiles.Count; i++)
             {
+                Projectiles[i].Health -= 10;
+                if (Projectiles[i].Health == 0)
+                {
+                    Projectiles[i].Location = null;
+                }
                 if (Projectiles[i].Location != null)
                 {
                     Indices.Add(i);
                     ArtIndices.Add(Projectiles[i].ProjectileType);
                     Angles.Add(Projectiles[i].Facing);
                     Sizes.Add(1);
+                    if(Projectiles[i].Spin > 0)
+                    {
+                        int r = 3;
+                    }
+                    Other.Add(Projectiles[i].Spin);
                     Locations.Add(Projectiles[i].Location.ToPoint());
                 }
             }
             for (int i = Projectiles.Count - 1; i >= 0; i--) if (!(Projectiles[i].Location != null)) Projectiles.RemoveAt(i);
             while (DForm.Data.Working) ;
-            DForm.Data.UpdateItems(2, Indices.ToArray(), ArtIndices.ToArray(), Locations.ToArray(), Angles.ToArray(), Sizes.ToArray());
+            DForm.Data.UpdateItems(2, Indices.ToArray(), ArtIndices.ToArray(), Locations.ToArray(), Angles.ToArray(), Sizes.ToArray(), Other.ToArray());
             Indices = new List<int>();
             ArtIndices = new List<int>();
             Angles = new List<double>();
             Sizes = new List<double>();
             Locations = new List<Point>();
+            Other = new List<int>();
             for (int i = 0; i < Effects.Count; i++)
             {
                 if (Effects[i].Location != null)
@@ -169,17 +183,19 @@ namespace PerfectPidgeonGameMechanic
                     ArtIndices.Add(Effects[i].ArtIndex);
                     Angles.Add(0);
                     Sizes.Add(1);
+                    Other.Add(0);
                     Locations.Add(Effects[i].Location.ToPoint());
                 }
             }
             for (int i = Effects.Count - 1; i >= 0; i--) if (!(Effects[i].Location != null)) Effects.RemoveAt(i);
             while (DForm.Data.Working) ;
-            DForm.Data.UpdateItems(3, Indices.ToArray(), ArtIndices.ToArray(), Locations.ToArray(), Angles.ToArray(), Sizes.ToArray());
+            DForm.Data.UpdateItems(3, Indices.ToArray(), ArtIndices.ToArray(), Locations.ToArray(), Angles.ToArray(), Sizes.ToArray(), Other.ToArray());
             Indices = new List<int>();
             ArtIndices = new List<int>();
             Angles = new List<double>();
             Sizes = new List<double>();
             Locations = new List<Point>();
+            Other = new List<int>();
             for (int i = 0; i < PowerUps.Count; i++)
             {
                 if (PowerUps[i].Location != null)
@@ -188,12 +204,13 @@ namespace PerfectPidgeonGameMechanic
                     ArtIndices.Add(PowerUps[i].Type - 1);
                     Angles.Add(0);
                     Sizes.Add(1);
+                    Other.Add(0);
                     Locations.Add(PowerUps[i].Location.ToPoint());
                 }
             }
             for (int i = PowerUps.Count - 1; i >= 0; i--) if (!(PowerUps[i].Location != null)) PowerUps.RemoveAt(i);
             while (DForm.Data.Working) ;
-            DForm.Data.UpdateItems(4, Indices.ToArray(), ArtIndices.ToArray(), Locations.ToArray(), Angles.ToArray(), Sizes.ToArray());
+            DForm.Data.UpdateItems(4, Indices.ToArray(), ArtIndices.ToArray(), Locations.ToArray(), Angles.ToArray(), Sizes.ToArray(), Other.ToArray());
             DForm.Data.SwapBuffers();
         }
         private bool CurrentTick = false;
@@ -203,6 +220,10 @@ namespace PerfectPidgeonGameMechanic
             if (CurrentTick) return;
             CurrentTick = true;
             if(TimeStamp%3 == 0) DForm.ImgSwitch_Tick();
+            for (int i = 0; i < Projectiles.Count; i++)
+            {
+                Projectiles[i].Spin += 5;
+            }
             if (PlayerOnMove)
             {
                 //Vertex UnitVector = Vertex.Norm(DrawForm.GetAngleDegree(CurrentPlayer.Location.ToPoint(), CurrentPlayer.NextLocation.ToPoint())) * CurrentPlayer.Speed;
@@ -293,10 +314,10 @@ namespace PerfectPidgeonGameMechanic
                 Vertex Offset2R = Offset2.RotateZ(CurrentPlayer.Facing);
                 Projectile Proj1;
                 Projectile Proj2;
-                for (int i = 0; i < 20; i++)
+                for (int i = 0; i < 30; i++)
                 {
-                    Offset1 = new Vertex(33, 75 + i * 50, 0);
-                    Offset2 = new Vertex(-33, 75 + i * 50, 0);
+                    Offset1 = new Vertex(35, 75 + i * 50, 0);
+                    Offset2 = new Vertex(-35, 75 + i * 50, 0);
                     Offset1R = Offset1.RotateZ(CurrentPlayer.Facing);
                     Offset2R = Offset2.RotateZ(CurrentPlayer.Facing);
                     Proj1 = new Projectile();
@@ -304,18 +325,18 @@ namespace PerfectPidgeonGameMechanic
                     Proj1.Location = CurrentPlayer.Location + Offset1R;
                     Proj1.Facing = CurrentPlayer.Facing;
                     Proj1.ProjectileType = 2;
-                    Proj1.Speed = 5;
+                    Proj1.Speed = 10;
                     Proj1.Damage = 5;
-                    Proj1.Health = 100;
-                    Proj1.MaxHealth = 100;
+                    Proj1.Health = 50;
+                    Proj1.MaxHealth = 50;
                     Proj1.Owner = 0;
                     Proj2.Location = CurrentPlayer.Location + Offset2R;
                     Proj2.Facing = CurrentPlayer.Facing;
                     Proj2.ProjectileType = 2;
-                    Proj2.Speed = 5;
+                    Proj2.Speed = 10;
                     Proj2.Damage = 5;
-                    Proj2.Health = 100;
-                    Proj2.MaxHealth = 100;
+                    Proj2.Health = 50;
+                    Proj2.MaxHealth = 50;
                     Proj2.Owner = 0;
                     Projectiles.Add(Proj1);
                     Projectiles.Add(Proj2);
@@ -339,7 +360,7 @@ namespace PerfectPidgeonGameMechanic
                 Proj1.Location = CurrentPlayer.Location + Offset1;
                 Proj1.Facing = CurrentPlayer.Facing;
                 Proj1.ProjectileType = 3;
-                Proj1.Speed = 3;
+                Proj1.Speed = 6;
                 Proj1.Damage = 30;
                 Proj1.Health = 2000;
                 Proj1.MaxHealth = 2000;
@@ -349,7 +370,7 @@ namespace PerfectPidgeonGameMechanic
                 Proj2.Location = CurrentPlayer.Location + Offset2;
                 Proj2.Facing = CurrentPlayer.Facing;
                 Proj2.ProjectileType = 3;
-                Proj2.Speed = 3;
+                Proj2.Speed = 6;
                 Proj2.Damage = 30;
                 Proj2.Health = 2000;
                 Proj2.MaxHealth = 2000;
@@ -397,8 +418,8 @@ namespace PerfectPidgeonGameMechanic
                         Projectile Proj = new Projectile();
                         Proj.Location = Enemies[i].Location + Offset;
                         Proj.Facing = -Angle;
-                        Proj.ProjectileType = 3;
-                        Proj.Speed = 2;
+                        Proj.ProjectileType = 4;
+                        Proj.Speed = 5;
                         Proj.Damage = 10;
                         Proj.Health = 2000;
                         Proj.MaxHealth = 2000;

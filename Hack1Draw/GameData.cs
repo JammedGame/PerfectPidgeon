@@ -94,8 +94,12 @@ namespace PerfectPidgeon.Draw
             Effects = EffectsBuffer;
             PowerUps = PowerUpsBuffer;
         }
-        public void UpdateItem(int Type, int Index, int ArtIndex, Point Location, double Facing, double Size)
+        public void UpdateItem(int Type, int Index, int ArtIndex, Point Location, double Facing, double Size, int Other)
         {
+            if(Other > 0)
+            {
+                int r = 4;
+            }
             if (Type == 0)
             {
                 if (PlayersBuffer.Count > Index)
@@ -133,8 +137,14 @@ namespace PerfectPidgeon.Draw
                     ProjectilesBuffer[Index].Location = Location;
                     ProjectilesBuffer[Index].Facing = Facing;
                     ProjectilesBuffer[Index].Size = Size;
+                    ProjectilesBuffer[Index].ImageIndex = Other;
                 }
-                else ProjectilesBuffer.Add(new Item(ArtIndex, Location, Facing, Size));
+                else
+                {
+                    Item NewItem = new Item(ArtIndex, Location, Facing, Size);
+                    NewItem.ImageIndex = Other;
+                    ProjectilesBuffer.Add(NewItem);
+                }
             }
             if (Type == 3)
             {
@@ -159,13 +169,13 @@ namespace PerfectPidgeon.Draw
                 else PowerUpsBuffer.Add(new Item(ArtIndex, Location, Facing, Size));
             }
         }
-        public void UpdateItems(int Type, int[] Index, int[] ArtIndex, Point[] Location, double[] Facing, double[] Size)
+        public void UpdateItems(int Type, int[] Index, int[] ArtIndex, Point[] Location, double[] Facing, double[] Size, int[] Other)
         {
             if (this.Working) return;
             this.Working = true;
             for (int i = 0; i < Index.Length; i++)
             {
-                UpdateItem(Type, Index[i], ArtIndex[i], Location[i], Facing[i], Size[i]);
+                UpdateItem(Type, Index[i], ArtIndex[i], Location[i], Facing[i], Size[i], Other[i]);
             }
             this.Working = false;
         }

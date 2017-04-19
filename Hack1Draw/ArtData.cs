@@ -54,10 +54,13 @@ namespace PerfectPidgeon.Draw
             SpriteSetImages[0] = global::PerfectPidgeon.Draw.Properties.Resources.met1;
             Bullets.Add(new SpriteSet(SpriteSetImages, 1));
             SpriteSetImages = new Bitmap[1];
-            SpriteSetImages[0] = global::PerfectPidgeon.Draw.Properties.Resources.lazer;
+            SpriteSetImages[0] = global::PerfectPidgeon.Draw.Properties.Resources.bul_las;
             Bullets.Add(new SpriteSet(SpriteSetImages, 1));
             SpriteSetImages = new Bitmap[1];
-            SpriteSetImages[0] = global::PerfectPidgeon.Draw.Properties.Resources.pew1;
+            SpriteSetImages[0] = global::PerfectPidgeon.Draw.Properties.Resources.bul_pla;
+            Bullets.Add(new SpriteSet(SpriteSetImages, 1));
+            SpriteSetImages = new Bitmap[1];
+            SpriteSetImages[0] = global::PerfectPidgeon.Draw.Properties.Resources.bul_pla;
             Bullets.Add(new SpriteSet(SpriteSetImages, 1));
         }
         private void InitializeTileSets()

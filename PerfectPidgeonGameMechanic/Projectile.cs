@@ -9,6 +9,7 @@ namespace PerfectPidgeonGameMechanic
     {
         private int _Damage;
         private int _Owner;
+        private int _Spin;
         public int Damage
         {
             get { return _Damage; }
@@ -18,6 +19,18 @@ namespace PerfectPidgeonGameMechanic
         {
             get { return _Owner; }
             set { _Owner = value; }
+        }
+        public int Spin
+        {
+            get
+            {
+                return _Spin;
+            }
+
+            set
+            {
+                _Spin = value;
+            }
         }
     }
 }
