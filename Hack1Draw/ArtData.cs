@@ -55,12 +55,12 @@ namespace PerfectPidgeon.Draw
             SpriteSetImages[1] = global::PerfectPidgeon.Draw.Properties.Resources.enm3_2;
             SpriteSetImages[2] = global::PerfectPidgeon.Draw.Properties.Resources.enm3_3;
             SpriteSets.Add(new SpriteSet(SpriteSetImages, 3));
-            SpriteSetImages = new Bitmap[4];
+            SpriteSetImages = new Bitmap[3];
             SpriteSetImages[0] = global::PerfectPidgeon.Draw.Properties.Resources.enm4_1;
             SpriteSetImages[1] = global::PerfectPidgeon.Draw.Properties.Resources.enm4_2;
             SpriteSetImages[2] = global::PerfectPidgeon.Draw.Properties.Resources.enm4_3;
-            SpriteSetImages[3] = global::PerfectPidgeon.Draw.Properties.Resources.enm4_4;
-            SpriteSets.Add(new SpriteSet(SpriteSetImages, 4));
+            //SpriteSetImages[3] = global::PerfectPidgeon.Draw.Properties.Resources.enm4_4;
+            SpriteSets.Add(new SpriteSet(SpriteSetImages, 3));
             SpriteSetImages = new Bitmap[3];
             SpriteSetImages[0] = global::PerfectPidgeon.Draw.Properties.Resources.enm5_1;
             SpriteSetImages[1] = global::PerfectPidgeon.Draw.Properties.Resources.enm5_2;

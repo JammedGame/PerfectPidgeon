@@ -10,7 +10,7 @@ namespace PerfectPidgeon.Draw.BackgroundGenerator
     {
         public static Bitmap Create(string Path, int TileSize, int Size, int Step)
         {
-            List<TileGroup> Groups = TileGroupLoader.Load("Data\\Town");
+            List<TileGroup> Groups = TileGroupLoader.Load(Path);
 
             int Amount = Size/8;
             for (int i = Groups.Count - 1; i >= 0; i--)

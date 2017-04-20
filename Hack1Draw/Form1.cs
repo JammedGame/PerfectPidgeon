@@ -48,6 +48,7 @@ namespace PerfectPidgeon.Draw
         private bool LeapCheck = false;
         private bool LeftDown = false;
         private bool RightDown = false;
+        private string Title = "TST";
         public ArtData ArtData
         {
             get
@@ -169,6 +170,7 @@ namespace PerfectPidgeon.Draw
             HealthPanel.Size = new System.Drawing.Size(HealthIndex, HealthPanel.Height);
             WeaponLabel.Text = WeaponText;
             EnemyLabel.Text = "Enemies Remaining: " + this.Data.NPCs.Count;
+            LevelTitle.Text = Title;
             this._Renderer.Draw();
         }
         private void Time_Tick(object sender, EventArgs e)
@@ -215,7 +217,7 @@ namespace PerfectPidgeon.Draw
         }
         public void SetTitle(string Title)
         {
-            this.LevelTitle.Text = Title;
+            this.Title = Title;
         }
     }
 }

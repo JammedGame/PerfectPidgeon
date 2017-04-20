@@ -18,7 +18,7 @@ namespace PerfectPidgeon.Draw.BackgroundGenerator
             for (int i = 0; i < 10; i++)
             {
                 List<Bitmap> Images = new List<Bitmap>();
-                for(int j = 0; j < 10; j++)
+                for(int j = 0; j < 16; j++)
                 {
                     string FileName = Path + "\\" + (i+1) + "_" + (j+1) + ".png";
                     if (!File.Exists(FileName)) break;

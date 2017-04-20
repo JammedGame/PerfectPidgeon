@@ -10,6 +10,7 @@ namespace PerfectPidgeonGameMechanic
     {
         private int _MaxSpawns;
         private string _Title;
+        private string _Next;
         private Background _Back;
         private List<Enemy> _Enemies;
         public int MaxSpawns
@@ -36,6 +37,18 @@ namespace PerfectPidgeonGameMechanic
                 _Title = value;
             }
         }
+        public string Next
+        {
+            get
+            {
+                return _Next;
+            }
+
+            set
+            {
+                _Next = value;
+            }
+        }
         public Background Back
         {
             get
@@ -47,7 +60,7 @@ namespace PerfectPidgeonGameMechanic
             {
                 _Back = value;
             }
-        }
+        } 
         public List<Enemy> Enemies
         {
             get
@@ -64,6 +77,7 @@ namespace PerfectPidgeonGameMechanic
         {
             this._MaxSpawns = 10;
             this._Title = "TST";
+            this._Next = "";
             this._Back = new Background("", BackgroundType.Static);
             this._Enemies = new List<Enemy>();
         }

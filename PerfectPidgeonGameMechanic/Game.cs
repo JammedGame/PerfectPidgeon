@@ -62,7 +62,7 @@ namespace PerfectPidgeonGameMechanic
             DForm.MouseUpP += new MouseEventHandler(this.MouseEvent_Up);
             DForm.MouseDownP += new MouseEventHandler(this.MouseEvent_Down);
             this._DataPool = new BaseDataPool();
-            StartLevel(this._DataPool.Levels["LVL01"]);
+            StartLevel(this._DataPool.Levels["LVL06"]);
             Time = new System.Timers.Timer(10);
             Time.Elapsed += new System.Timers.ElapsedEventHandler(TimerEvent_Tick);
             Time.Start();
@@ -399,7 +399,8 @@ namespace PerfectPidgeonGameMechanic
             {
                 CurrentTick = true;
                 CurrentPlayer.Location = new Vertex();
-                StartLevel(this._DataPool.Levels["LVL01"]);
+                if(this._CurrentLevel.Next != "") StartLevel(this._DataPool.Levels[this._CurrentLevel.Next]);
+                else StartLevel(this._DataPool.Levels["LVL01"]);
                 CurrentTick = false;
             }
         }
@@ -446,7 +447,7 @@ namespace PerfectPidgeonGameMechanic
         public void dropPowerUp(Vertex DropLocation)
         {
             Random rnd = new Random();
-            int chance = rnd.Next(1, 1);
+            int chance = rnd.Next(1, 10);
             if (chance == 1)
             {
                 int type = rnd.Next(1, 6);

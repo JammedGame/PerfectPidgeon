@@ -305,6 +305,8 @@ namespace PerfectPidgeonGameMechanic.Content
         private void InitLevels()
         {
             this._Levels = new Dictionary<string, Level>();
+
+            //Tests
             Level L = new Level();
             L.Back = new Background("Data\\Town", BackgroundType.Tiled);
             L.Enemies.Add(new Enemy(this._Enemies["AlienBasic"]));
@@ -329,11 +331,101 @@ namespace PerfectPidgeonGameMechanic.Content
             L.Enemies.Add(new Enemy(this._Enemies["AlienSpeeder"]));
             L.Enemies.Add(new Enemy(this._Enemies["AlienBeamer"]));
             this._Levels.Add("Alien-Test", L);
+            
+            //Alien Levels
             L = new Level();
+            L.MaxSpawns = 10;
             L.Title = "1-1";
-            L.Back = new Background("Data\\Town", BackgroundType.Tiled);
-            for(int i = 0; i < 10; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienBasic"]));
+            L.Next = "LVL02";
+            L.Back = new Background("Data\\Town1", BackgroundType.Tiled);
+            for(int i = 0; i < 20; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienBasic"]));
             this._Levels.Add("LVL01", L);
+            L = new Level();
+            L.MaxSpawns = 12;
+            L.Title = "1-2";
+            L.Next = "LVL03";
+            L.Back = new Background("Data\\Town", BackgroundType.Tiled);
+            for (int i = 0; i < 5; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienBasic"]));
+            for (int i = 0; i < 1; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienCaptain"]));
+            for (int i = 0; i < 5; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienBasic"]));
+            for (int i = 0; i < 1; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienCaptain"]));
+            for (int i = 0; i < 5; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienBasic"]));
+            for (int i = 0; i < 1; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienCaptain"]));
+            for (int i = 0; i < 5; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienBasic"]));
+            for (int i = 0; i < 1; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienCaptain"]));
+            this._Levels.Add("LVL02", L);
+            L = new Level();
+            L.MaxSpawns = 15;
+            L.Title = "1-3";
+            L.Next = "LVL04";
+            L.Back = new Background("Data\\Town", BackgroundType.Tiled);
+            for (int i = 0; i < 6; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienBasic"]));
+            for (int i = 0; i < 1; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienCaptain"]));
+            for (int i = 0; i < 6; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienBasic"]));
+            for (int i = 0; i < 1; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienCaptain"]));
+            for (int i = 0; i < 1; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienSpeeder"]));
+            for (int i = 0; i < 6; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienBasic"]));
+            for (int i = 0; i < 1; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienCaptain"]));
+            for (int i = 0; i < 6; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienBasic"]));
+            for (int i = 0; i < 1; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienCaptain"]));
+            for (int i = 0; i < 1; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienSpeeder"]));
+            this._Levels.Add("LVL03", L);
+            L = new Level();
+            L.MaxSpawns = 15;
+            L.Title = "1-4";
+            L.Next = "LVL05";
+            L.Back = new Background("Data\\Town", BackgroundType.Tiled);
+            for (int i = 0; i < 4; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienBasic"]));
+            for (int i = 0; i < 2; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienCaptain"]));
+            for (int i = 0; i < 1; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienSpeeder"]));
+            for (int i = 0; i < 4; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienBasic"]));
+            for (int i = 0; i < 2; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienCaptain"]));
+            for (int i = 0; i < 1; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienSpeeder"]));
+            for (int i = 0; i < 4; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienBasic"]));
+            for (int i = 0; i < 2; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienCaptain"]));
+            for (int i = 0; i < 1; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienSpeeder"]));
+            for (int i = 0; i < 4; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienBasic"]));
+            for (int i = 0; i < 2; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienCaptain"]));
+            for (int i = 0; i < 1; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienSpeeder"]));
+            this._Levels.Add("LVL04", L);
+            L = new Level();
+            L.MaxSpawns = 20;
+            L.Title = "1-5";
+            L.Next = "LVL06";
+            L.Back = new Background("Data\\Town", BackgroundType.Tiled);
+            for (int i = 0; i < 6; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienBasic"]));
+            for (int i = 0; i < 3; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienCaptain"]));
+            for (int i = 0; i < 2; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienSpeeder"]));
+            for (int i = 0; i < 6; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienBasic"]));
+            for (int i = 0; i < 3; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienCaptain"]));
+            for (int i = 0; i < 2; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienSpeeder"]));
+            for (int i = 0; i < 6; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienBasic"]));
+            for (int i = 0; i < 3; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienCaptain"]));
+            for (int i = 0; i < 2; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienSpeeder"]));
+            for (int i = 0; i < 6; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienBasic"]));
+            for (int i = 0; i < 3; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienCaptain"]));
+            for (int i = 0; i < 2; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienSpeeder"]));
+            this._Levels.Add("LVL05", L);
+            L = new Level();
+            L.MaxSpawns = 22;
+            L.Title = "1-6";
+            L.Next = "";
+            L.Back = new Background("Data\\Town1", BackgroundType.Tiled);
+            for (int i = 0; i < 6; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienBasic"]));
+            for (int i = 0; i < 3; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienCaptain"]));
+            for (int i = 0; i < 2; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienSpeeder"]));
+            for (int i = 0; i < 6; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienBasic"]));
+            for (int i = 0; i < 3; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienCaptain"]));
+            for (int i = 0; i < 2; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienSpeeder"]));
+            for (int i = 0; i < 1; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienBeamer"]));
+            for (int i = 0; i < 6; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienBasic"]));
+            for (int i = 0; i < 3; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienCaptain"]));
+            for (int i = 0; i < 2; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienSpeeder"]));
+            for (int i = 0; i < 6; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienBasic"]));
+            for (int i = 0; i < 3; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienCaptain"]));
+            for (int i = 0; i < 2; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienSpeeder"]));
+            for (int i = 0; i < 1; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienBeamer"]));
+            this._Levels.Add("LVL06", L);
         }
     }
 }

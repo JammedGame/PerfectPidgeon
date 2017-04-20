@@ -196,46 +196,54 @@ namespace PerfectPidgeon.Draw
             }
             catch { };
 
-            GL.Color3(this._ArtData.Environment);
-            for (int i = 0; i < this._Data.Effects.Count; i++)
+            try
             {
-                if (this._Data.Effects[i].Location.X - this._Data.Players[this._Data.CurrentPlayer].Location.X < _GLD.Width * 1.5)
+                GL.Color3(this._ArtData.Environment);
+                for (int i = 0; i < this._Data.Effects.Count; i++)
                 {
-                    if (this._Data.Effects[i].Location.Y - this._Data.Players[this._Data.CurrentPlayer].Location.Y < _GLD.Height * 1.5)
+                    if (this._Data.Effects[i].Location.X - this._Data.Players[this._Data.CurrentPlayer].Location.X < _GLD.Width * 1.5)
                     {
-                        GL.Translate(this._Data.Effects[i].Location.X - this._Data.Players[this._Data.CurrentPlayer].Location.X, this._Data.Effects[i].Location.Y - this._Data.Players[this._Data.CurrentPlayer].Location.Y, 0);
-                        GL.Translate(_GLD.Width / 2, _GLD.Height / 2, 0);
-
-                        if (this._Data.Effects[i].ArtIndex == 0)
+                        if (this._Data.Effects[i].Location.Y - this._Data.Players[this._Data.CurrentPlayer].Location.Y < _GLD.Height * 1.5)
                         {
-                            DrawImage(-this._ArtData.EffectArt[this._Data.Effects[i].ArtIndex].Width / 8, -this._ArtData.EffectArt[this._Data.Effects[i].ArtIndex].Height / 8, this._ArtData.EffectArt[this._Data.Effects[i].ArtIndex].Width / 4, this._ArtData.EffectArt[this._Data.Effects[i].ArtIndex].Height / 4, this._ArtData.EffectArt[this._Data.Effects[i].ArtIndex]);
-                        }
-                        else if (this._Data.Effects[i].ArtIndex == 1)
-                        {
-                            GL.Color3(this._ArtData.Environment);
-                            DrawImage(-this._ArtData.EffectArt[this._Data.Effects[i].ArtIndex].Width / 4, -this._ArtData.EffectArt[this._Data.Effects[i].ArtIndex].Height / 4, this._ArtData.EffectArt[this._Data.Effects[i].ArtIndex].Width / 2, this._ArtData.EffectArt[this._Data.Effects[i].ArtIndex].Height / 2, this._ArtData.EffectArt[this._Data.Effects[i].ArtIndex]);
-                        }
+                            GL.Translate(this._Data.Effects[i].Location.X - this._Data.Players[this._Data.CurrentPlayer].Location.X, this._Data.Effects[i].Location.Y - this._Data.Players[this._Data.CurrentPlayer].Location.Y, 0);
+                            GL.Translate(_GLD.Width / 2, _GLD.Height / 2, 0);
 
-                        GL.LoadIdentity();
+                            if (this._Data.Effects[i].ArtIndex == 0)
+                            {
+                                DrawImage(-this._ArtData.EffectArt[this._Data.Effects[i].ArtIndex].Width / 8, -this._ArtData.EffectArt[this._Data.Effects[i].ArtIndex].Height / 8, this._ArtData.EffectArt[this._Data.Effects[i].ArtIndex].Width / 4, this._ArtData.EffectArt[this._Data.Effects[i].ArtIndex].Height / 4, this._ArtData.EffectArt[this._Data.Effects[i].ArtIndex]);
+                            }
+                            else if (this._Data.Effects[i].ArtIndex == 1)
+                            {
+                                GL.Color3(this._ArtData.Environment);
+                                DrawImage(-this._ArtData.EffectArt[this._Data.Effects[i].ArtIndex].Width / 4, -this._ArtData.EffectArt[this._Data.Effects[i].ArtIndex].Height / 4, this._ArtData.EffectArt[this._Data.Effects[i].ArtIndex].Width / 2, this._ArtData.EffectArt[this._Data.Effects[i].ArtIndex].Height / 2, this._ArtData.EffectArt[this._Data.Effects[i].ArtIndex]);
+                            }
+
+                            GL.LoadIdentity();
+                        }
                     }
                 }
             }
+            catch { }
 
-            GL.Color3(this._ArtData.Environment);
-            for (int i = 0; i < this._Data.NPCs.Count; i++)
+            
             {
-                if (this._Data.NPCs[i].Location.X - this._Data.Players[this._Data.CurrentPlayer].Location.X < _GLD.Width * 1.5)
+                GL.Color3(this._ArtData.Environment);
+                for (int i = 0; i < this._Data.NPCs.Count; i++)
                 {
-                    if (this._Data.NPCs[i].Location.Y - this._Data.Players[this._Data.CurrentPlayer].Location.Y < _GLD.Height * 1.5)
+                    if (this._Data.NPCs[i].Location.X - this._Data.Players[this._Data.CurrentPlayer].Location.X < _GLD.Width * 1.5)
                     {
-                        GL.Translate(this._Data.NPCs[i].Location.X - this._Data.Players[this._Data.CurrentPlayer].Location.X, this._Data.NPCs[i].Location.Y - this._Data.Players[this._Data.CurrentPlayer].Location.Y, 0);
-                        GL.Translate(_GLD.Width / 2, _GLD.Height / 2, 0);
-                        GL.Rotate(this._Data.NPCs[i].Facing, 0, 0, -1);
-                        DrawImage((int)(-this._ArtData.SpriteSets[this._Data.NPCs[i].ArtIndex].Images[this._Data.NPCs[i].ImageIndex].Width * this._Data.NPCs[i].Size / 4), (int)(-this._ArtData.SpriteSets[this._Data.NPCs[i].ArtIndex].Images[this._Data.NPCs[i].ImageIndex].Height * this._Data.NPCs[i].Size / 4), (int)(this._ArtData.SpriteSets[this._Data.NPCs[i].ArtIndex].Images[this._Data.NPCs[i].ImageIndex].Width * this._Data.NPCs[i].Size) / 2, (int)(this._ArtData.SpriteSets[this._Data.NPCs[i].ArtIndex].Images[this._Data.NPCs[i].ImageIndex].Height * this._Data.NPCs[i].Size) / 2, this._ArtData.SpriteSets[this._Data.NPCs[i].ArtIndex].Images[this._Data.NPCs[i].ImageIndex]);
-                        GL.LoadIdentity();
+                        if (this._Data.NPCs[i].Location.Y - this._Data.Players[this._Data.CurrentPlayer].Location.Y < _GLD.Height * 1.5)
+                        {
+                            GL.Translate(this._Data.NPCs[i].Location.X - this._Data.Players[this._Data.CurrentPlayer].Location.X, this._Data.NPCs[i].Location.Y - this._Data.Players[this._Data.CurrentPlayer].Location.Y, 0);
+                            GL.Translate(_GLD.Width / 2, _GLD.Height / 2, 0);
+                            GL.Rotate(this._Data.NPCs[i].Facing, 0, 0, -1);
+                            DrawImage((int)(-this._ArtData.SpriteSets[this._Data.NPCs[i].ArtIndex].Images[this._Data.NPCs[i].ImageIndex].Width * this._Data.NPCs[i].Size / 4), (int)(-this._ArtData.SpriteSets[this._Data.NPCs[i].ArtIndex].Images[this._Data.NPCs[i].ImageIndex].Height * this._Data.NPCs[i].Size / 4), (int)(this._ArtData.SpriteSets[this._Data.NPCs[i].ArtIndex].Images[this._Data.NPCs[i].ImageIndex].Width * this._Data.NPCs[i].Size) / 2, (int)(this._ArtData.SpriteSets[this._Data.NPCs[i].ArtIndex].Images[this._Data.NPCs[i].ImageIndex].Height * this._Data.NPCs[i].Size) / 2, this._ArtData.SpriteSets[this._Data.NPCs[i].ArtIndex].Images[this._Data.NPCs[i].ImageIndex]);
+                            GL.LoadIdentity();
+                        }
                     }
                 }
             }
+            
 
             GL.Color3(this._ArtData.Environment);
             if (this._Data.PowerUps != null)
