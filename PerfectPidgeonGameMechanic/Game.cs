@@ -161,14 +161,7 @@ namespace PerfectPidgeonGameMechanic
                     }
                     else if (TimeStamp % 5 == 0)
                     {
-                        /*Vertex UnitVectorBase = new Vertex(1, 0);
-                        double Angle = DrawForm.GetAngleDegree(Enemies[i].Location.ToPoint(), CurrentPlayer.Location.ToPoint());
-                        Vertex UnitVector = UnitVectorBase.RotateZ(Angle);
-                        UnitVector.Y *= -1;
-                        Enemies[i].Location -= UnitVector * Enemies[i].Speed;
-
-                        Vertex Offset = new Vertex(0, -100, 0);
-                        Offset = Offset.RotateZ(-Angle + 180);*/
+                        Enemies[i].Facing = -DrawForm.GetAngleDegree(Enemies[i].Location.ToPoint(), CurrentPlayer.Location.ToPoint());
 
                         for (int j = 0; j < Enemies[i].Guns.Count; j++)
                         {
