@@ -67,7 +67,7 @@ namespace PerfectPidgeonGameMechanic
             DForm.MouseUpP += new MouseEventHandler(this.MouseEvent_Up);
             DForm.MouseDownP += new MouseEventHandler(this.MouseEvent_Down);
             this._DataPool = new BaseDataPool();
-            StartLevel(this._DataPool.Levels["AlienBasic-Test"]);
+            StartLevel(this._DataPool.Levels["AlienBeamer-Test"]);
             Time = new System.Timers.Timer(10);
             Time.Elapsed += new System.Timers.ElapsedEventHandler(TimerEvent_Tick);
             Time.Start();
@@ -93,8 +93,14 @@ namespace PerfectPidgeonGameMechanic
                 CurrentPlayer = this._DataPool.Pidgeon;
             }
 
+            Random Rand = new Random();
             this.Enemies = new List<Enemy>();
-            for (int i = 0; i < CLevel.Enemies.Count; i++) this.Enemies.Add(new Enemy(CLevel.Enemies[i]));
+            for (int i = 0; i < CLevel.Enemies.Count; i++)
+            {
+                Enemy E = new Enemy(CLevel.Enemies[i]);
+                E.Location = new Vertex(Rand.NextDouble() * 3 * FieldSize, Rand.NextDouble() * 3 * FieldSize);
+                this.Enemies.Add(E);
+            }
 
             this.Projectiles = new List<Projectile>();
             this.Effects = new List<Effect>();

@@ -175,6 +175,45 @@
   <ItemGroup>
     <None Include="Resources\earth1.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enm2-1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enm2-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enm2-3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enm3-1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enm3-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enm3-3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enm4-1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enm4-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enm4-3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enm4-4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enm5-1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enm5-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enm5-3.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

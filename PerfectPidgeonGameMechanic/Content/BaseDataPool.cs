@@ -106,7 +106,7 @@ namespace PerfectPidgeonGameMechanic.Content
             this._Pidgeon.Health = 100;
             this._Pidgeon.MaxHealth = 100;
             this._Pidgeon.Facing = 0;
-            this._Pidgeon.Speed = 4;
+            this._Pidgeon.Speed = 6;
             this._Pidgeon.SpeedBoost = 1;
             this._Pidgeon.SpeedBoostTimer = 0;
             this._Pidgeon.Guns.Add(new Weapon(this._Weapons["Left-Basic"]));
@@ -247,7 +247,7 @@ namespace PerfectPidgeonGameMechanic.Content
             W = new Weapon();
             W.FireRate = 5;
             W.Type = this._Projectiles["AlienBeamer"];
-            W.Location = new Vertex(0, 150, 0);
+            W.Location = new Vertex(0, 100, 0);
             W.Ammo = -1;
             this._Weapons.Add("AlienBeamer", W);
         }
@@ -295,6 +295,7 @@ namespace PerfectPidgeonGameMechanic.Content
             E.Speed = 2;
             E.Owner = 1;
             B = new Behaviour();
+            B.Radius = 800;
             E.Behave = B;
             E.Guns.Add(new Weapon(this._Weapons["AlienBeamer"]));
             this._Enemies.Add("AlienBeamer", E);
