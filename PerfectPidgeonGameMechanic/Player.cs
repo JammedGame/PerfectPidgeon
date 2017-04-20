@@ -66,6 +66,16 @@ namespace PerfectPidgeonGameMechanic
             this._Guns = new List<Weapon>();
             for (int i = 0; i < Old._Guns.Count; i++) this._Guns.Add(new Weapon(Old._Guns[i]));
         }
-
+        public void SelectWeapon(int Index)
+        {
+            this._CurrentWeapons = Index;
+            for (int i = 0; i < this._Guns.Count; i++) this._Guns[i].Active = false;
+            this._Guns[Index].Active = true;
+            this._Guns[Index + 1].Active = true;
+        }
+        public void AddAmmo(int Ammount, ProjectileType Type)
+        {
+            for (int i = 0; i < this._Guns.Count; i++) if (this._Guns[i].Type.Type == Type) this._Guns[i].Ammo += Ammount;
+        }
     }
 }

@@ -74,7 +74,7 @@ namespace PerfectPidgeonGameMechanic
         }
         public void StartLevel(Level CLevel)
         {
-            if(CLevel.Back.Type == LevelData.BackgroundType.Static)
+            if (CLevel.Back.Type == LevelData.BackgroundType.Static)
             {
 
             }
@@ -88,27 +88,120 @@ namespace PerfectPidgeonGameMechanic
                 DForm.ArtData.Back = TiledBackgroundGenerator.Create(CLevel.Back.Path, 100, 40, 2);
             }
 
-            if(CurrentPlayer == null)
+            if (CurrentPlayer == null)
             {
                 CurrentPlayer = this._DataPool.Pidgeon;
             }
 
+            this.Enemies = new List<Enemy>();
             for (int i = 0; i < CLevel.Enemies.Count; i++) this.Enemies.Add(new Enemy(CLevel.Enemies[i]));
 
-            Projectiles = new List<Projectile>();
-            Effects = new List<Effect>();
-            PowerUps = new List<PowerUp>();
+            this.Projectiles = new List<Projectile>();
+            this.Effects = new List<Effect>();
+            this.PowerUps = new List<PowerUp>();
+        }
+        private bool CurrentTick = false;
+        public void TimerEvent_Tick(object sender, System.Timers.ElapsedEventArgs e)
+        {
+            TimeStamp++;
+            if (CurrentTick) return;
+            CurrentTick = true;
+            RefreshGame();
+            CurrentTick = false;
+        }
+        public void RefreshGame()
+        {
+            if (TimeStamp % 3 == 0) DForm.ImgSwitch_Tick();
+            for (int i = 0; i < Projectiles.Count; i++)
+            {
+                Projectiles[i].Spin += 5;
+            }
+            if (PlayerOnMove)
+            {
+                //Vertex UnitVector = Vertex.Norm(DrawForm.GetAngleDegree(CurrentPlayer.Location.ToPoint(), CurrentPlayer.NextLocation.ToPoint())) * CurrentPlayer.Speed;
+                Vertex UnitVectorBase = new Vertex(1, 0);
+                double Angle = CurrentPlayer.Facing + 90;
+                Vertex UnitVector = UnitVectorBase.RotateZ(Angle);
+                CurrentPlayer.Location += UnitVector * CurrentPlayer.Speed * CurrentPlayer.SpeedBoost;
+            }
+            for (int i = 0; i < Projectiles.Count; i++)
+            {
+                Vertex UnitVectorBase = new Vertex(1, 0);
+                double Angle = Projectiles[i].Facing + 90;
+                Vertex UnitVector = UnitVectorBase.RotateZ(Angle);
+                Projectiles[i].Location += UnitVector * Projectiles[i].Speed;
+                /*Projectiles[i].Health -= 5;
+                if (Projectiles[i].Health <= 0) Projectiles[i].Location = null;*/
+            }
+            if (PlayerOnFire && TimeStamp % 5 == 0)
+            {
+                for (int i = 0; i < CurrentPlayer.Guns.Count; i++)
+                {
+                    if (!CurrentPlayer.Guns[i].Active) continue;
+                    this._Projectiles.AddRange(CurrentPlayer.Guns[i].Shoot(CurrentPlayer, TimeStamp));
+                }
+            }
+            for (int i = 0; i < Effects.Count; i++)
+            {
+                Effects[i].Lifetime--;
+                if (Effects[i].Lifetime == 0) Effects[i].Location = null;
+            }
+            for (int i = 0; i < Enemies.Count; i++)
+            {
+                if (Enemies[i].Location == null) continue;
+                if (Vertex.Distance(Enemies[i].Location, CurrentPlayer.Location) < Enemies[i].Behave.Sight)
+                {
+                    if (Vertex.Distance(Enemies[i].Location, CurrentPlayer.Location) > Enemies[i].Behave.Radius)
+                    {
+                        Vertex UnitVectorBase = new Vertex(1, 0);
+                        double Angle = DrawForm.GetAngleDegree(Enemies[i].Location.ToPoint(), CurrentPlayer.Location.ToPoint());
+                        Vertex UnitVector = UnitVectorBase.RotateZ(Angle + 90);
+                        UnitVector.Y *= -1;
+                        Enemies[i].Location -= UnitVector * Enemies[i].Speed;
+                    }
+                    else if (TimeStamp % 5 == 0)
+                    {
+                        /*Vertex UnitVectorBase = new Vertex(1, 0);
+                        double Angle = DrawForm.GetAngleDegree(Enemies[i].Location.ToPoint(), CurrentPlayer.Location.ToPoint());
+                        Vertex UnitVector = UnitVectorBase.RotateZ(Angle);
+                        UnitVector.Y *= -1;
+                        Enemies[i].Location -= UnitVector * Enemies[i].Speed;
+
+                        Vertex Offset = new Vertex(0, -100, 0);
+                        Offset = Offset.RotateZ(-Angle + 180);*/
+
+                        for (int j = 0; j < Enemies[i].Guns.Count; j++)
+                        {
+                            if (!Enemies[i].Guns[j].Active) continue;
+                            this._Projectiles.AddRange(Enemies[i].Guns[j].Shoot(Enemies[i], TimeStamp));
+                        }
+                    }
+                }
+            }
+            isHit();
+            isPlayerHit();
+            if (PowerUps.Count > 0) tookPowerUp();
+            if (CurrentPlayer.SpeedBoostTimer > 0)
+                CurrentPlayer.SpeedBoostTimer -= 40;
+            else
+                CurrentPlayer.SpeedBoost = 1;
+            if (CurrentPlayer.CurrentWeapons == 0) DForm.RefreshData((int)(200 * CurrentPlayer.Health * 1.0 / CurrentPlayer.MaxHealth), "Basic");
+            else if (CurrentPlayer.CurrentWeapons == 1) DForm.RefreshData((int)(200 * CurrentPlayer.Health * 1.0 / CurrentPlayer.MaxHealth), "Heavy");
+            else if (CurrentPlayer.CurrentWeapons == 2) DForm.RefreshData((int)(200 * CurrentPlayer.Health * 1.0 / CurrentPlayer.MaxHealth), "Laser");
+            else if (CurrentPlayer.CurrentWeapons == 3) DForm.RefreshData((int)(200 * CurrentPlayer.Health * 1.0 / CurrentPlayer.MaxHealth), "Plasma");
+            RefreshDrawing();
         }
         public void RefreshDrawing()
         {
             DForm.Data.ResetBuffers();
-            DForm.Data.UpdateItem(0, 0, CurrentPlayer.ProjectileType, CurrentPlayer.Location.ToPoint(), CurrentPlayer.Facing, 3, 0);
+            DForm.Data.UpdateItem(0, 0, CurrentPlayer.CurrentWeapons, CurrentPlayer.Location.ToPoint(), CurrentPlayer.Facing, 3, 0);
             List<int> Indices = new List<int>();
             List<int> ArtIndices = new List<int>();
+            List<int> ImageIndices = new List<int>();
+            List<int> Other = new List<int>();
             List<double> Angles = new List<double>();
             List<double> Sizes = new List<double>();
             List<Point> Locations = new List<Point>();
-            List<int> Other = new List<int>();
             for (int i = 0; i < Enemies.Count; i++)
             {
                 if (Enemies[i].Location != null)
@@ -140,10 +233,10 @@ namespace PerfectPidgeonGameMechanic
                 if (Projectiles[i].Location != null)
                 {
                     Indices.Add(i);
-                    ArtIndices.Add(Projectiles[i].ProjectileType);
+                    ArtIndices.Add(Projectiles[i].ArtIndex);
                     Angles.Add(Projectiles[i].Facing);
                     Sizes.Add(1);
-                    if(Projectiles[i].Spin > 0)
+                    if (Projectiles[i].Spin > 0)
                     {
                         int r = 3;
                     }
@@ -198,235 +291,6 @@ namespace PerfectPidgeonGameMechanic
             DForm.Data.UpdateItems(4, Indices.ToArray(), ArtIndices.ToArray(), Locations.ToArray(), Angles.ToArray(), Sizes.ToArray(), Other.ToArray());
             DForm.Data.SwapBuffers();
         }
-        private bool CurrentTick = false;
-        public void TimerEvent_Tick(object sender, System.Timers.ElapsedEventArgs e)
-        {
-            TimeStamp++;
-            if (CurrentTick) return;
-            CurrentTick = true;
-            if(TimeStamp%3 == 0) DForm.ImgSwitch_Tick();
-            for (int i = 0; i < Projectiles.Count; i++)
-            {
-                Projectiles[i].Spin += 5;
-            }
-            if (PlayerOnMove)
-            {
-                //Vertex UnitVector = Vertex.Norm(DrawForm.GetAngleDegree(CurrentPlayer.Location.ToPoint(), CurrentPlayer.NextLocation.ToPoint())) * CurrentPlayer.Speed;
-                Vertex UnitVectorBase = new Vertex(1, 0);
-                double Angle = CurrentPlayer.Facing + 90;
-                Vertex UnitVector = UnitVectorBase.RotateZ(Angle);
-                CurrentPlayer.Location += UnitVector * CurrentPlayer.Speed * CurrentPlayer.SpeedBoost;
-            }
-            for (int i = 0; i < Projectiles.Count; i++)
-            {
-                Vertex UnitVectorBase = new Vertex(1, 0);
-                double Angle = Projectiles[i].Facing + 90;
-                Vertex UnitVector = UnitVectorBase.RotateZ(Angle);
-                Projectiles[i].Location += UnitVector * Projectiles[i].Speed;
-                /*Projectiles[i].Health -= 5;
-                if (Projectiles[i].Health <= 0) Projectiles[i].Location = null;*/
-            }
-            if (PlayerOnFire && CurrentPlayer.ProjectileType == 0 && TimeStamp%10 == 0)
-            {
-                Vertex Offset1 = new Vertex(38, 75, 0);
-                Vertex Offset2 = new Vertex(-38, 75, 0);
-                Offset1 = Offset1.RotateZ(CurrentPlayer.Facing);
-                Offset2 = Offset2.RotateZ(CurrentPlayer.Facing);
-
-                Projectile Proj1 = new Projectile();
-                Proj1.Location = CurrentPlayer.Location + Offset1;
-                Proj1.Facing = CurrentPlayer.Facing;
-                Proj1.ProjectileType = 0;
-                Proj1.Speed = 10;
-                Proj1.Damage = 10;
-                Proj1.Health = 5000;
-                Proj1.MaxHealth = 5000;
-                Proj1.Owner = 0;
-
-                Projectile Proj2 = new Projectile();
-                Proj2.Location = CurrentPlayer.Location + Offset2;
-                Proj2.Facing = CurrentPlayer.Facing;
-                Proj2.ProjectileType = 0;
-                Proj2.Speed = 10;
-                Proj2.Damage = 10;
-                Proj2.Health = 5000;
-                Proj2.MaxHealth = 5000;
-                Proj2.Owner = 0;
-
-                Projectiles.Add(Proj1);
-                Projectiles.Add(Proj2);
-            }
-            if (PlayerOnFire && CurrentPlayer.ProjectileType == 1 && TimeStamp % 5 == 0)
-            {
-                Vertex Offset1 = new Vertex(38, 75, 0);
-                Vertex Offset2 = new Vertex(-38, 75, 0);
-                Offset1 = Offset1.RotateZ(CurrentPlayer.Facing);
-                Offset2 = Offset2.RotateZ(CurrentPlayer.Facing);
-
-                Projectile Proj1 = new Projectile();
-                Proj1.Location = CurrentPlayer.Location + Offset1;
-                Proj1.Facing = CurrentPlayer.Facing;
-                Proj1.ProjectileType = 1;
-                Proj1.Speed = 15;
-                Proj1.Damage = 10;
-                Proj1.Health = 5000;
-                Proj1.MaxHealth = 5000;
-                Proj1.Owner = 0;
-
-                Projectile Proj2 = new Projectile();
-                Proj2.Location = CurrentPlayer.Location + Offset2;
-                Proj2.Facing = CurrentPlayer.Facing;
-                Proj2.ProjectileType = 1;
-                Proj2.Speed = 15;
-                Proj2.Damage = 10;
-                Proj2.Health = 5000;
-                Proj2.MaxHealth = 5000;
-                Proj2.Owner = 0;
-
-                Projectiles.Add(Proj1);
-                Projectiles.Add(Proj2);
-
-                if (CurrentPlayer.SpecialAmmo == 0)
-                    CurrentPlayer.ProjectileType = 0;
-                else
-                    CurrentPlayer.SpecialAmmo -= 5;
-            }
-            if (PlayerOnFire && CurrentPlayer.ProjectileType == 2 && TimeStamp % 10 == 0)
-            {
-                Vertex Offset1 = new Vertex(38, 75, 0);
-                Vertex Offset2 = new Vertex(-38, 75, 0);
-                Vertex Offset1R = Offset1.RotateZ(CurrentPlayer.Facing);
-                Vertex Offset2R = Offset2.RotateZ(CurrentPlayer.Facing);
-                Projectile Proj1;
-                Projectile Proj2;
-                for (int i = 0; i < 30; i++)
-                {
-                    Offset1 = new Vertex(35, 75 + i * 50, 0);
-                    Offset2 = new Vertex(-35, 75 + i * 50, 0);
-                    Offset1R = Offset1.RotateZ(CurrentPlayer.Facing);
-                    Offset2R = Offset2.RotateZ(CurrentPlayer.Facing);
-                    Proj1 = new Projectile();
-                    Proj2 = new Projectile();
-                    Proj1.Location = CurrentPlayer.Location + Offset1R;
-                    Proj1.Facing = CurrentPlayer.Facing;
-                    Proj1.ProjectileType = 2;
-                    Proj1.Speed = 10;
-                    Proj1.Damage = 5;
-                    Proj1.Health = 50;
-                    Proj1.MaxHealth = 50;
-                    Proj1.Owner = 0;
-                    Proj2.Location = CurrentPlayer.Location + Offset2R;
-                    Proj2.Facing = CurrentPlayer.Facing;
-                    Proj2.ProjectileType = 2;
-                    Proj2.Speed = 10;
-                    Proj2.Damage = 5;
-                    Proj2.Health = 50;
-                    Proj2.MaxHealth = 50;
-                    Proj2.Owner = 0;
-                    Projectiles.Add(Proj1);
-                    Projectiles.Add(Proj2);
-                }
-
-                if (CurrentPlayer.SpecialAmmo == 0)
-                {
-                    CurrentPlayer.ProjectileType = 0;
-                }
-                else
-                    CurrentPlayer.SpecialAmmo -= 10;
-            }
-            if (PlayerOnFire && CurrentPlayer.ProjectileType == 3 && TimeStamp % 20 == 0)
-            {
-                Vertex Offset1 = new Vertex(38, 75, 0);
-                Vertex Offset2 = new Vertex(-38, 75, 0);
-                Offset1 = Offset1.RotateZ(CurrentPlayer.Facing);
-                Offset2 = Offset2.RotateZ(CurrentPlayer.Facing);
-
-                Projectile Proj1 = new Projectile();
-                Proj1.Location = CurrentPlayer.Location + Offset1;
-                Proj1.Facing = CurrentPlayer.Facing;
-                Proj1.ProjectileType = 3;
-                Proj1.Speed = 6;
-                Proj1.Damage = 30;
-                Proj1.Health = 2000;
-                Proj1.MaxHealth = 2000;
-                Proj1.Owner = 0;
-
-                Projectile Proj2 = new Projectile();
-                Proj2.Location = CurrentPlayer.Location + Offset2;
-                Proj2.Facing = CurrentPlayer.Facing;
-                Proj2.ProjectileType = 3;
-                Proj2.Speed = 6;
-                Proj2.Damage = 30;
-                Proj2.Health = 2000;
-                Proj2.MaxHealth = 2000;
-                Proj2.Owner = 0;
-
-                Projectiles.Add(Proj1);
-                Projectiles.Add(Proj2);
-
-                if (CurrentPlayer.SpecialAmmo == 0)
-                {
-                    CurrentPlayer.ProjectileType = 0;
-                }
-                else
-                    CurrentPlayer.SpecialAmmo -= 2;
-            }
-            for (int i = 0; i < Effects.Count; i++)
-            {
-                Effects[i].Lifetime --;
-                if (Effects[i].Lifetime == 0) Effects[i].Location = null;
-            }
-            for (int i = 0; i < Enemies.Count; i++)
-            {
-                if (Enemies[i].Location == null) continue;
-                if (Vertex.Distance(Enemies[i].Location, CurrentPlayer.Location) < Enemies[i].Sight)
-                {
-                    if (Vertex.Distance(Enemies[i].Location, CurrentPlayer.Location) > Enemies[i].Range)
-                    {
-                        Vertex UnitVectorBase = new Vertex(1, 0);
-                        double Angle = DrawForm.GetAngleDegree(Enemies[i].Location.ToPoint(), CurrentPlayer.Location.ToPoint());
-                        Vertex UnitVector = UnitVectorBase.RotateZ(Angle + 90);
-                        UnitVector.Y *= -1;
-                        Enemies[i].Location -= UnitVector * Enemies[i].Speed;
-                    }
-                    else if (TimeStamp%10 == 0)
-                    {
-                        Vertex UnitVectorBase = new Vertex(1, 0);
-                        double Angle = DrawForm.GetAngleDegree(Enemies[i].Location.ToPoint(), CurrentPlayer.Location.ToPoint());
-                        Vertex UnitVector = UnitVectorBase.RotateZ(Angle);
-                        UnitVector.Y *= -1;
-                        Enemies[i].Location -= UnitVector * Enemies[i].Speed;
-
-                        Vertex Offset = new Vertex(0, -100, 0);
-                        Offset = Offset.RotateZ(-Angle + 180);
-
-                        Projectile Proj = new Projectile();
-                        Proj.Location = Enemies[i].Location + Offset;
-                        Proj.Facing = -Angle;
-                        Proj.ProjectileType = 4;
-                        Proj.Speed = 5;
-                        Proj.Damage = 10;
-                        Proj.Health = 2000;
-                        Proj.MaxHealth = 2000;
-                        Proj.Owner = 1;
-                        Projectiles.Add(Proj);
-                    }
-                }
-            }
-            isHit();
-            isPlayerHit();
-            if (PowerUps.Count > 0) tookPowerUp();
-            if (CurrentPlayer.SpeedBoostTimer > 0)
-                CurrentPlayer.SpeedBoostTimer -= 40;
-            else
-                CurrentPlayer.SpeedBoost = 1;
-            if (CurrentPlayer.ProjectileType == 0) DForm.RefreshData((int)(200 * CurrentPlayer.Health * 1.0 / CurrentPlayer.MaxHealth), "Basic");
-            else if (CurrentPlayer.ProjectileType == 1) DForm.RefreshData((int)(200 * CurrentPlayer.Health * 1.0 / CurrentPlayer.MaxHealth), "Heavy - " + CurrentPlayer.SpecialAmmo);
-            else if (CurrentPlayer.ProjectileType == 2) DForm.RefreshData((int)(200 * CurrentPlayer.Health * 1.0 / CurrentPlayer.MaxHealth), "Laser - " + CurrentPlayer.SpecialAmmo);
-            else if (CurrentPlayer.ProjectileType == 3) DForm.RefreshData((int)(200 * CurrentPlayer.Health * 1.0 / CurrentPlayer.MaxHealth), "Plasma - " + CurrentPlayer.SpecialAmmo);
-            RefreshDrawing();
-            CurrentTick = false;
-        }
         public void MouseEvent_Move(object sender, MouseEventArgs e)
         {
             if (_CurrentPlayer != null)
@@ -462,33 +326,33 @@ namespace PerfectPidgeonGameMechanic
         public void isPlayerHit()
         {
             double distance;
-                for (int j = Projectiles.Count - 1; j >= 0; j--)
+            for (int j = Projectiles.Count - 1; j >= 0; j--)
+            {
+                if (!(CurrentPlayer.Location != null)) continue;
+                if (!(Projectiles[j].Location != null)) continue;
+                if (Projectiles[j].Owner == 0) continue;
+                distance = Math.Sqrt((CurrentPlayer.Location.X - Projectiles[j].Location.X) * (CurrentPlayer.Location.X - Projectiles[j].Location.X) +
+                    (CurrentPlayer.Location.Y - Projectiles[j].Location.Y) * (CurrentPlayer.Location.Y - Projectiles[j].Location.Y));
+                if (distance < 80)
                 {
-                    if (!(CurrentPlayer.Location != null)) continue;
-                    if (!(Projectiles[j].Location != null)) continue;
-                    if (Projectiles[j].Owner == 0) continue;
-                    distance = Math.Sqrt((CurrentPlayer.Location.X - Projectiles[j].Location.X) * (CurrentPlayer.Location.X - Projectiles[j].Location.X) +
-                        (CurrentPlayer.Location.Y - Projectiles[j].Location.Y) * (CurrentPlayer.Location.Y - Projectiles[j].Location.Y));
-                    if (distance < 80)
+                    CurrentPlayer.Health -= Projectiles[j].Damage;
+                    if (!(CurrentPlayer.Health > 0))
                     {
-                        CurrentPlayer.Health -= Projectiles[j].Damage;
-                        if (!(CurrentPlayer.Health > 0))
-                        {
-                            Time.Stop();
-                            DForm.DeathCall();
-                        }
-                        if (CurrentPlayer.Location != null)
-                        {
-                            Effect NewEffect = new Effect();
-                            NewEffect.ArtIndex = 0;
-                            NewEffect.Lifetime = 25;
-                            NewEffect.Location = Projectiles[j].Location;
-                            Effects.Add(NewEffect);
-                        }
-                        Projectiles[j].Location = null;
+                        Time.Stop();
+                        DForm.DeathCall();
                     }
-
+                    if (CurrentPlayer.Location != null)
+                    {
+                        Effect NewEffect = new Effect();
+                        NewEffect.ArtIndex = 0;
+                        NewEffect.Lifetime = 25;
+                        NewEffect.Location = Projectiles[j].Location;
+                        Effects.Add(NewEffect);
+                    }
+                    Projectiles[j].Location = null;
                 }
+
+            }
         }
         public void isHit()
         {
@@ -531,7 +395,7 @@ namespace PerfectPidgeonGameMechanic
             if (Enemies.Count == 0)
             {
                 CurrentTick = true;
-                StartLevel(new Point(10, 10), 1);
+                StartLevel(this._DataPool.Levels["AlienBasic-Test"]);
                 CurrentTick = false;
             }
         }
@@ -558,18 +422,15 @@ namespace PerfectPidgeonGameMechanic
                     }
                     if (PowerUps[i].Type == 3)
                     {
-                        CurrentPlayer.ProjectileType = 3;
-                        CurrentPlayer.SpecialAmmo = PowerUps[i].Duration_Ammo;
+                        CurrentPlayer.AddAmmo(PowerUps[i].Duration_Ammo, ProjectileType.PidgeonHeavy);
                     }
                     if (PowerUps[i].Type == 4)
                     {
-                        CurrentPlayer.ProjectileType = 2;
-                        CurrentPlayer.SpecialAmmo = PowerUps[i].Duration_Ammo;
+                        CurrentPlayer.AddAmmo(PowerUps[i].Duration_Ammo, ProjectileType.PidgeonLaser);
                     }
                     if (PowerUps[i].Type == 5)
                     {
-                        CurrentPlayer.ProjectileType = 1;
-                        CurrentPlayer.SpecialAmmo = PowerUps[i].Duration_Ammo;
+                        CurrentPlayer.AddAmmo(PowerUps[i].Duration_Ammo, ProjectileType.PidgeonPlazma);
                     }
                     PowerUps.RemoveAt(i);
                 }

@@ -101,9 +101,10 @@ namespace PerfectPidgeonGameMechanic
         {
             double OX = X;
             double OY = Y;
-            X = (double)(Math.Cos((A / 180) * Math.PI) * OX - Math.Sin((A / 180) * Math.PI) * OY);
-            Y = (double)(Math.Cos((A / 180) * Math.PI) * OY + Math.Sin((A / 180) * Math.PI) * OX);
-            return this;
+            Vertex V = new Vertex();
+            V.X = (double)(Math.Cos((A / 180) * Math.PI) * OX - Math.Sin((A / 180) * Math.PI) * OY);
+            V.Y = (double)(Math.Cos((A / 180) * Math.PI) * OY + Math.Sin((A / 180) * Math.PI) * OX);
+            return V;
         }
     }
 }
