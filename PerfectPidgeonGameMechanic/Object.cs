@@ -12,6 +12,8 @@ namespace PerfectPidgeonGameMechanic
         private int _ArtIndex;
         private int _ImageIndex;
         private int _Owner;
+        private int _HitRadius;
+        private double _Scale;
         private double _Speed;
         private double _Facing;
         private Vertex _Location;
@@ -47,6 +49,30 @@ namespace PerfectPidgeonGameMechanic
             get { return _Owner; }
             set { _Owner = value; }
         }
+        public int HitRadius
+        {
+            get
+            {
+                return _HitRadius;
+            }
+
+            set
+            {
+                _HitRadius = value;
+            }
+        }
+        public double Scale
+        {
+            get
+            {
+                return _Scale;
+            }
+
+            set
+            {
+                _Scale = value;
+            }
+        }
         public double Speed
         {
             get { return _Speed; }
@@ -68,7 +94,9 @@ namespace PerfectPidgeonGameMechanic
             this._MaxHealth = 100;
             this._ArtIndex = 0;
             this._ImageIndex = 0;
+            this._HitRadius = 50;
             this._Owner = 0;
+            this._Scale = 1;
             this._Speed = 0;
             this._Facing = 0;
             this._Location = new Vertex();
@@ -79,7 +107,9 @@ namespace PerfectPidgeonGameMechanic
             this._MaxHealth = Old._MaxHealth;
             this._ArtIndex = Old._ArtIndex;
             this._ImageIndex = Old._ImageIndex;
+            this._HitRadius = Old._HitRadius;
             this._Owner = Old._Owner;
+            this._Scale = Old._Scale;
             this._Speed = Old._Speed;
             this._Facing = Old._Facing;
             this._Location = new Vertex(Old._Location);

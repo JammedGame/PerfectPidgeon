@@ -21,7 +21,6 @@ namespace PerfectPidgeonGameMechanic
     {
         private int _Damage;
         private int _Spin;
-        private int _CollisionRadius;
         private ProjectileType _Type;
         public int Damage
         {
@@ -38,18 +37,6 @@ namespace PerfectPidgeonGameMechanic
             set
             {
                 _Spin = value;
-            }
-        }
-        public int CollisionRadius
-        {
-            get
-            {
-                return _CollisionRadius;
-            }
-
-            set
-            {
-                _CollisionRadius = value;
             }
         }
         public ProjectileType Type
@@ -69,14 +56,13 @@ namespace PerfectPidgeonGameMechanic
             this._Damage = 0;
             this._Spin = 0;
             this._Type = ProjectileType.PidgeonGun;
-            this._CollisionRadius = 80;
+            this.HitRadius = 30;
         }
         public Projectile(Projectile Old) : base(Old)
         {
             this._Damage = Old._Damage;
             this._Spin = Old._Spin;
             this._Type = Old._Type;
-            this._CollisionRadius = Old._CollisionRadius;
         }
     }
 }

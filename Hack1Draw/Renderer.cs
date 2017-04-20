@@ -124,8 +124,8 @@ namespace PerfectPidgeon.Draw
             {
                 int XOffset = this._Data.Players[this._Data.CurrentPlayer].Location.X;
                 int YOffset = this._Data.Players[this._Data.CurrentPlayer].Location.Y;
-                XOffset %= _GLD.Width;
-                YOffset %= _GLD.Height;
+                XOffset %= _ArtData.Back.Width;
+                YOffset %= _ArtData.Back.Height;
 
                 DrawImage(-XOffset, -YOffset, _ArtData.Back.Width, _ArtData.Back.Height, _ArtData.Back);
                 DrawImageNTexture(-XOffset + _ArtData.Back.Width, -YOffset, _ArtData.Back.Width, _ArtData.Back.Height);
@@ -227,7 +227,7 @@ namespace PerfectPidgeon.Draw
                         GL.Translate(this._Data.NPCs[i].Location.X - this._Data.Players[this._Data.CurrentPlayer].Location.X, this._Data.NPCs[i].Location.Y - this._Data.Players[this._Data.CurrentPlayer].Location.Y, 0);
                         GL.Translate(_GLD.Width / 2, _GLD.Height / 2, 0);
                         GL.Rotate(this._Data.NPCs[i].Facing, 0, 0, -1);
-                        DrawImage((int)(-this._ArtData.SpriteSets[this._Data.NPCs[i].ArtIndex].Images[this._Data.NPCs[i].ImageIndex].Width / 4), (int)(-this._ArtData.SpriteSets[this._Data.NPCs[i].ArtIndex].Images[this._Data.NPCs[i].ImageIndex].Height / 4), this._ArtData.SpriteSets[this._Data.NPCs[i].ArtIndex].Images[this._Data.NPCs[i].ImageIndex].Width / 2, this._ArtData.SpriteSets[this._Data.NPCs[i].ArtIndex].Images[this._Data.NPCs[i].ImageIndex].Height / 2, this._ArtData.SpriteSets[this._Data.NPCs[i].ArtIndex].Images[this._Data.NPCs[i].ImageIndex]);
+                        DrawImage((int)(-this._ArtData.SpriteSets[this._Data.NPCs[i].ArtIndex].Images[this._Data.NPCs[i].ImageIndex].Width * this._Data.NPCs[i].Size / 4), (int)(-this._ArtData.SpriteSets[this._Data.NPCs[i].ArtIndex].Images[this._Data.NPCs[i].ImageIndex].Height * this._Data.NPCs[i].Size / 4), (int)(this._ArtData.SpriteSets[this._Data.NPCs[i].ArtIndex].Images[this._Data.NPCs[i].ImageIndex].Width * this._Data.NPCs[i].Size) / 2, (int)(this._ArtData.SpriteSets[this._Data.NPCs[i].ArtIndex].Images[this._Data.NPCs[i].ImageIndex].Height * this._Data.NPCs[i].Size) / 2, this._ArtData.SpriteSets[this._Data.NPCs[i].ArtIndex].Images[this._Data.NPCs[i].ImageIndex]);
                         GL.LoadIdentity();
                     }
                 }

@@ -8,12 +8,25 @@ namespace PerfectPidgeonGameMechanic
     public class Effect
     {
         private int _ArtIndex;
+        private int _ImageIndex;
         private int _Lifetime;
         private Vertex _Location;
         public int ArtIndex
         {
             get { return _ArtIndex; }
             set { _ArtIndex = value; }
+        }
+        public int ImageIndex
+        {
+            get
+            {
+                return _ImageIndex;
+            }
+
+            set
+            {
+                _ImageIndex = value;
+            }
         }
         public int Lifetime
         {

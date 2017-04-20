@@ -13,6 +13,7 @@ namespace PerfectPidgeon.Draw
         private int _ImageIndexIncrement;
         private int _AngleOffsetIndex;
         private int _AngleOffsetIndexIncrement;
+        private int _Other;
         private double _Size;
         private double _Facing;
         private Point _Location;
@@ -55,6 +56,18 @@ namespace PerfectPidgeon.Draw
         {
             get { return _Location; }
             set { _Location = value; }
+        }
+        public int Other
+        {
+            get
+            {
+                return _Other;
+            }
+
+            set
+            {
+                _Other = value;
+            }
         }
         public Item(int ArtIndex, Point Location, double Facing, double Size)
         {

@@ -293,6 +293,8 @@ namespace PerfectPidgeonGameMechanic.Content
             E.Health = 500;
             E.MaxHealth = 500;
             E.Speed = 2;
+            E.Scale = 1.25;
+            E.HitRadius = 100;
             E.Owner = 1;
             B = new Behaviour();
             B.Radius = 800;
@@ -319,6 +321,14 @@ namespace PerfectPidgeonGameMechanic.Content
             L.Back = new Background("Data\\Town", BackgroundType.Tiled);
             L.Enemies.Add(new Enemy(this._Enemies["AlienBeamer"]));
             this._Levels.Add("AlienBeamer-Test", L);
+            L = new Level();
+            L = new Level();
+            L.Back = new Background("Data\\Town", BackgroundType.Tiled);
+            L.Enemies.Add(new Enemy(this._Enemies["AlienBasic"]));
+            L.Enemies.Add(new Enemy(this._Enemies["AlienCaptain"]));
+            L.Enemies.Add(new Enemy(this._Enemies["AlienSpeeder"]));
+            L.Enemies.Add(new Enemy(this._Enemies["AlienBeamer"]));
+            this._Levels.Add("Alien-Test", L);
             L = new Level();
             L.Back = new Background("Data\\Town", BackgroundType.Tiled);
             for(int i = 0; i < 10; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienBasic"]));
