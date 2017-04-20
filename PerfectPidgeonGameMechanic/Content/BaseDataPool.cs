@@ -260,6 +260,7 @@ namespace PerfectPidgeonGameMechanic.Content
             E.Health = 100;
             E.MaxHealth = 100;
             E.Speed = 3;
+            E.Owner = 1;
             Behaviour B = new Behaviour();
             E.Behave = B;
             E.Guns.Add(new Weapon(this._Weapons["AlienBasic"]));
@@ -270,6 +271,7 @@ namespace PerfectPidgeonGameMechanic.Content
             E.Health = 200;
             E.MaxHealth = 200;
             E.Speed = 2;
+            E.Owner = 1;
             B = new Behaviour();
             E.Behave = B;
             E.Guns.Add(new Weapon(this._Weapons["AlienBasic"]));
@@ -280,6 +282,7 @@ namespace PerfectPidgeonGameMechanic.Content
             E.Health = 100;
             E.MaxHealth = 100;
             E.Speed = 5;
+            E.Owner = 1;
             B = new Behaviour();
             E.Behave = B;
             E.Guns.Add(new Weapon(this._Weapons["AlienSpeeder"]));
@@ -290,6 +293,7 @@ namespace PerfectPidgeonGameMechanic.Content
             E.Health = 500;
             E.MaxHealth = 500;
             E.Speed = 2;
+            E.Owner = 1;
             B = new Behaviour();
             E.Behave = B;
             E.Guns.Add(new Weapon(this._Weapons["AlienBeamer"]));

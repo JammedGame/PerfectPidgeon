@@ -127,7 +127,15 @@ namespace PerfectPidgeon.Draw
                 XOffset %= _GLD.Width;
                 YOffset %= _GLD.Height;
 
-                DrawImage(-XOffset, -YOffset, this._ArtData.Back.Width, this._ArtData.Back.Height, this._ArtData.Back);
+                DrawImage(-XOffset, -YOffset, _ArtData.Back.Width, _ArtData.Back.Height, _ArtData.Back);
+                DrawImageNTexture(-XOffset + _ArtData.Back.Width, -YOffset, _ArtData.Back.Width, _ArtData.Back.Height);
+                DrawImageNTexture(-XOffset - _ArtData.Back.Width, -YOffset, _ArtData.Back.Width, _ArtData.Back.Height);
+                DrawImageNTexture(-XOffset, -YOffset - _ArtData.Back.Height, _ArtData.Back.Width, _ArtData.Back.Height);
+                DrawImageNTexture(-XOffset + _ArtData.Back.Width, -YOffset - _ArtData.Back.Height, _ArtData.Back.Width, _ArtData.Back.Height);
+                DrawImageNTexture(-XOffset - _ArtData.Back.Width, -YOffset - _ArtData.Back.Height, _ArtData.Back.Width, _ArtData.Back.Height);
+                DrawImageNTexture(-XOffset, -YOffset + _ArtData.Back.Height, _ArtData.Back.Width, _ArtData.Back.Height);
+                DrawImageNTexture(-XOffset + _ArtData.Back.Width, -YOffset + _ArtData.Back.Height, _ArtData.Back.Width, _ArtData.Back.Height);
+                DrawImageNTexture(-XOffset - _ArtData.Back.Width, -YOffset + _ArtData.Back.Height, _ArtData.Back.Width, _ArtData.Back.Height);
             }
 
             GL.Color3(Color.Black);
@@ -161,7 +169,7 @@ namespace PerfectPidgeon.Draw
                             GL.Rotate(-this._Data.Projectiles[i].ImageIndex, 0, 0, -1);
                             DrawImage((int)(-this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Width / 4), (int)(-this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Height / 4), this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Width / 2, this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Height / 2, this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0]);
                         }
-                        else if (this._Data.Projectiles[i].ArtIndex == 4)
+                        else if (this._Data.Projectiles[i].ArtIndex == 10)
                         {
                             GL.Color3(this._ArtData.Environment);
                             //GL.Color3(Color.FromArgb(100,100,100));
