@@ -13,7 +13,9 @@ namespace PerfectPidgeonGameMechanic
         PidgeonPlazma,
         AlienBasic,
         AlienSpeeder,
-        AlienMineSeter,
+        AlienMine,
+        AlienMineField,
+        AlienField,
         AlienBeamer,
         AlienMothershipLaser
     }

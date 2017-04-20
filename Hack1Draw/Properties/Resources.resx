@@ -259,6 +259,9 @@
   <data name="pewf" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pewf.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="beam" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\beam.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="enm2_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\enm2-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -297,5 +300,17 @@
   </data>
   <data name="enm5_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\enm5-3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mine" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mine.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="minef1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\minef1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="minef2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\minef2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="minef3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\minef3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

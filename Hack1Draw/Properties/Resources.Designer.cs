@@ -113,6 +113,16 @@ namespace PerfectPidgeon.Draw.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap beam {
+            get {
+                object obj = ResourceManager.GetObject("beam", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap boom {
             get {
                 object obj = ResourceManager.GetObject("boom", resourceCulture);
@@ -476,6 +486,46 @@ namespace PerfectPidgeon.Draw.Properties {
         internal static System.Drawing.Bitmap met1 {
             get {
                 object obj = ResourceManager.GetObject("met1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap mine {
+            get {
+                object obj = ResourceManager.GetObject("mine", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap minef1 {
+            get {
+                object obj = ResourceManager.GetObject("minef1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap minef2 {
+            get {
+                object obj = ResourceManager.GetObject("minef2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap minef3 {
+            get {
+                object obj = ResourceManager.GetObject("minef3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

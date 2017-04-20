@@ -62,7 +62,7 @@ namespace PerfectPidgeonGameMechanic
             DForm.MouseUpP += new MouseEventHandler(this.MouseEvent_Up);
             DForm.MouseDownP += new MouseEventHandler(this.MouseEvent_Down);
             this._DataPool = new BaseDataPool();
-            StartLevel(this._DataPool.Levels["LVL06"]);
+            StartLevel(this._DataPool.Levels["AlienBeamer-Test"]);
             Time = new System.Timers.Timer(10);
             Time.Elapsed += new System.Timers.ElapsedEventHandler(TimerEvent_Tick);
             Time.Start();
@@ -227,10 +227,13 @@ namespace PerfectPidgeonGameMechanic
             Other = new List<int>();
             for (int i = 0; i < Projectiles.Count; i++)
             {
-                Projectiles[i].Health -= 10;
-                if (Projectiles[i].Health == 0)
+                if (Projectiles[i].Type != ProjectileType.AlienMineField)
                 {
-                    Projectiles[i].Location = null;
+                    Projectiles[i].Health -= 10;
+                    if (Projectiles[i].Health == 0)
+                    {
+                        Projectiles[i].Location = null;
+                    }
                 }
                 if (Projectiles[i].Location != null)
                 {
@@ -331,6 +334,12 @@ namespace PerfectPidgeonGameMechanic
             double distance;
             for (int j = Projectiles.Count - 1; j >= 0; j--)
             {
+
+                if (Projectiles[j].Type == ProjectileType.AlienMineField)
+                {
+                    int e = 23;
+                }
+
                 if (!(CurrentPlayer.Location != null)) continue;
                 if (!(Projectiles[j].Location != null)) continue;
                 if (Projectiles[j].Owner == 0) continue;
@@ -352,7 +361,23 @@ namespace PerfectPidgeonGameMechanic
                         NewEffect.Location = Projectiles[j].Location;
                         Effects.Add(NewEffect);
                     }
-                    Projectiles[j].Location = null;
+                    if(Projectiles[j].Type == ProjectileType.AlienMine)
+                    {
+                        Projectile P = new Projectile(this._DataPool.Projectiles["AlienMineField"]);
+                        P.Location = Projectiles[j].Location;
+                        P.Owner = 1;
+                        Projectiles.Add(P);
+                        Projectiles[j].Location = null;
+                    }
+                    else if (Projectiles[j].Type == ProjectileType.AlienMineField)
+                    {
+                        Projectiles[j].Health -= Projectiles[j].Damage;
+                        if(Projectiles[j].Health <= 0) Projectiles[j].Location = null;
+                    }
+                    else
+                    {
+                        Projectiles[j].Location = null;
+                    }
                 }
 
             }
@@ -400,7 +425,7 @@ namespace PerfectPidgeonGameMechanic
                 CurrentTick = true;
                 CurrentPlayer.Location = new Vertex();
                 if(this._CurrentLevel.Next != "") StartLevel(this._DataPool.Levels[this._CurrentLevel.Next]);
-                else StartLevel(this._DataPool.Levels["LVL01"]);
+                else StartLevel(this._CurrentLevel);
                 CurrentTick = false;
             }
         }

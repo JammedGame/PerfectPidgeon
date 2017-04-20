@@ -189,6 +189,18 @@ namespace PerfectPidgeon.Draw
                                 //GL.Color3(Color.FromArgb(100, 100, 100));
                                 DrawImage((int)(-this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Width / 2), (int)(-this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Height / 2), (int)(this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Width * 1) / 1, (int)(this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Height * 1) / 1, this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0]);
                             }
+                            else if (this._Data.Projectiles[i].ArtIndex == 13)
+                            {
+                                GL.Color3(this._ArtData.Environment);
+                                //GL.Color3(Color.FromArgb(100, 100, 100));
+                                DrawImage((int)(-this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Width / 4), (int)(-this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Height / 4), (int)(this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Width * 1) / 2, (int)(this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Height * 1) / 2, this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0]);
+                            }
+                            else if (this._Data.Projectiles[i].ArtIndex == 14)
+                            {
+                                GL.Color3(this._ArtData.Environment);
+                                //GL.Color3(Color.FromArgb(100, 100, 100));
+                                DrawImage((int)(-this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Width / 4), (int)(-this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Height / 4), (int)(this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Width * 1) / 2, (int)(this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Height * 1) / 2, this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0]);
+                            }
                             GL.LoadIdentity();
                         }
                     }
