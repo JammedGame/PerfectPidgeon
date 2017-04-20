@@ -330,6 +330,7 @@ namespace PerfectPidgeonGameMechanic.Content
             L.Enemies.Add(new Enemy(this._Enemies["AlienBeamer"]));
             this._Levels.Add("Alien-Test", L);
             L = new Level();
+            L.Title = "1-1";
             L.Back = new Background("Data\\Town", BackgroundType.Tiled);
             for(int i = 0; i < 10; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienBasic"]));
             this._Levels.Add("LVL01", L);

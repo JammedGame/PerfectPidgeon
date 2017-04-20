@@ -84,6 +84,8 @@ namespace PerfectPidgeonGameMechanic
                 DForm.ArtData.Back = TiledBackgroundGenerator.Create(CLevel.Back.Path, 100, 40, 2);
             }
 
+            DForm.SetTitle(CLevel.Title);
+
             if (CurrentPlayer == null)
             {
                 CurrentPlayer = this._DataPool.Pidgeon;

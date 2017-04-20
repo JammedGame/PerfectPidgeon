@@ -157,51 +157,6 @@ namespace PerfectPidgeon.Draw
         private void GLDLoad(object sender, EventArgs e)
         {
             this._Renderer.Init();
-
-            /*tileList = GL.GenLists(4);
-            GL.NewList(tileList, ListMode.Compile);
-
-            GL.Begin(BeginMode.Polygon);
-            GL.TexCoord2(0f, 0f); GL.Vertex2(0, 0);
-            GL.TexCoord2(0f, 1f); GL.Vertex2(0, tileSize);
-            GL.TexCoord2(1f, 1f); GL.Vertex2(tileSize, tileSize);
-            GL.TexCoord2(1f, 0f); GL.Vertex2(tileSize, 0);
-            GL.End();
-
-            GL.EndList();
-
-            GL.NewList(tileList + 1, ListMode.Compile);
-
-            GL.Begin(BeginMode.Polygon);
-            GL.TexCoord2(0f, 0f); GL.Vertex2(0, 0);
-            GL.TexCoord2(0f, 1f); GL.Vertex2(0, tileSize * 2);
-            GL.TexCoord2(1f, 1f); GL.Vertex2(tileSize * 2, tileSize * 2);
-            GL.TexCoord2(1f, 0f); GL.Vertex2(tileSize * 2, 0);
-            GL.End();
-
-            GL.EndList();
-
-            GL.NewList(tileList + 2, ListMode.Compile);
-
-            GL.Begin(BeginMode.Polygon);
-            GL.TexCoord2(0f, 0f); GL.Vertex2(0, 0);
-            GL.TexCoord2(0f, 1f); GL.Vertex2(0, tileSize * 3);
-            GL.TexCoord2(1f, 1f); GL.Vertex2(tileSize * 3, tileSize * 3);
-            GL.TexCoord2(1f, 0f); GL.Vertex2(tileSize * 3, 0);
-            GL.End();
-
-            GL.EndList();
-
-            GL.NewList(tileList + 3, ListMode.Compile);
-
-            GL.Begin(BeginMode.Polygon);
-            GL.TexCoord2(0f, 0f); GL.Vertex2(0, 0);
-            GL.TexCoord2(0f, 1f); GL.Vertex2(0, tileSize * 4);
-            GL.TexCoord2(1f, 1f); GL.Vertex2(tileSize * 4, tileSize * 4);
-            GL.TexCoord2(1f, 0f); GL.Vertex2(tileSize * 4, 0);
-            GL.End();
-
-            GL.EndList();*/
         }
         private void GLDPaint(object sender, PaintEventArgs e)
         {
@@ -257,6 +212,10 @@ namespace PerfectPidgeon.Draw
             Killemll.Elapsed += new System.Timers.ElapsedEventHandler(Killemll_Tick);
             Killemll.Interval = 10;
             Killemll.Start();
+        }
+        public void SetTitle(string Title)
+        {
+            this.LevelTitle.Text = Title;
         }
     }
 }

@@ -36,7 +36,7 @@
             this.WeaponLabel = new System.Windows.Forms.Label();
             this.EnemyLabel = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.LevelTitle = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -108,7 +108,7 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.LevelTitle);
             this.panel2.Controls.Add(this.panel1);
             this.panel2.Controls.Add(this.EnemyLabel);
             this.panel2.Controls.Add(this.WeaponLabel);
@@ -117,18 +117,18 @@
             this.panel2.Size = new System.Drawing.Size(510, 116);
             this.panel2.TabIndex = 4;
             // 
-            // label1
+            // LevelTitle
             // 
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.label1.Font = new System.Drawing.Font("Consolas", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(243, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(265, 114);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "1-1";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LevelTitle.BackColor = System.Drawing.Color.Transparent;
+            this.LevelTitle.Dock = System.Windows.Forms.DockStyle.Right;
+            this.LevelTitle.Font = new System.Drawing.Font("Consolas", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LevelTitle.ForeColor = System.Drawing.Color.Black;
+            this.LevelTitle.Location = new System.Drawing.Point(243, 0);
+            this.LevelTitle.Name = "LevelTitle";
+            this.LevelTitle.Size = new System.Drawing.Size(265, 114);
+            this.LevelTitle.TabIndex = 4;
+            this.LevelTitle.Text = "TST";
+            this.LevelTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // DrawForm
             // 
@@ -157,7 +157,7 @@
         private System.Windows.Forms.Label WeaponLabel;
         private System.Windows.Forms.Label EnemyLabel;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label LevelTitle;
     }
 }
 
