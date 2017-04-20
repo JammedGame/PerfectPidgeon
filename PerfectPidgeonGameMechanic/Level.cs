@@ -8,8 +8,21 @@ namespace PerfectPidgeonGameMechanic
 {
     public class Level
     {
+        private int _MaxSpawns;
         private Background _Back;
         private List<Enemy> _Enemies;
+        public int MaxSpawns
+        {
+            get
+            {
+                return _MaxSpawns;
+            }
+
+            set
+            {
+                _MaxSpawns = value;
+            }
+        }
         public Background Back
         {
             get
@@ -33,9 +46,10 @@ namespace PerfectPidgeonGameMechanic
             {
                 _Enemies = value;
             }
-        }
+        }       
         public Level()
         {
+            this._MaxSpawns = 10;
             this._Back = new Background("", BackgroundType.Static);
             this._Enemies = new List<Enemy>();
         }

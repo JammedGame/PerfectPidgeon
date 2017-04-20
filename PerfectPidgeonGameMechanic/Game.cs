@@ -13,23 +13,18 @@ namespace PerfectPidgeonGameMechanic
     public class Game
     {
         private long TimeStamp = 0;
-        private const int FieldSize = 200;
         private bool PlayerOnMove = false;
         private bool PlayerOnFire = false;
         private DrawForm DForm;
-        private Point _Size;
         private System.Timers.Timer _Time;
         private Player _CurrentPlayer;
+        private Level _CurrentLevel;
         private BaseDataPool _DataPool;
+        private List<Enemy> _EnemyPool;
         private List<Enemy> _Enemies;
         private List<Projectile> _Projectiles;
         private List<Effect> _Effects;
         private List<PowerUp> _PowerUps;
-        public Point Size
-        {
-            get { return _Size; }
-            set { _Size = value; }
-        }
         public System.Timers.Timer Time
         {
             get { return _Time; }
@@ -74,6 +69,7 @@ namespace PerfectPidgeonGameMechanic
         }
         public void StartLevel(Level CLevel)
         {
+            this._CurrentLevel = CLevel;
             if (CLevel.Back.Type == LevelData.BackgroundType.Static)
             {
 
@@ -95,12 +91,13 @@ namespace PerfectPidgeonGameMechanic
 
             Random Rand = new Random();
             this.Enemies = new List<Enemy>();
+            this._EnemyPool = new List<Enemy>();
             for (int i = 0; i < CLevel.Enemies.Count; i++)
             {
                 Enemy E = new Enemy(CLevel.Enemies[i]);
-                E.Location = new Vertex(Rand.NextDouble() * 3 * FieldSize, Rand.NextDouble() * 3 * FieldSize);
-                this.Enemies.Add(E);
+                this._EnemyPool.Add(E);
             }
+            Spawn();
 
             this.Projectiles = new List<Projectile>();
             this.Effects = new List<Effect>();
@@ -118,6 +115,7 @@ namespace PerfectPidgeonGameMechanic
         public void RefreshGame()
         {
             if (TimeStamp % 3 == 0) DForm.ImgSwitch_Tick();
+            if (TimeStamp % 100 == 0) Spawn();
             for (int i = 0; i < Projectiles.Count; i++)
             {
                 Projectiles[i].Spin += 5;
@@ -217,7 +215,7 @@ namespace PerfectPidgeonGameMechanic
             }
             for (int i = Enemies.Count - 1; i >= 0; i--) if (!(Enemies[i].Location != null)) Enemies.RemoveAt(i);
             while (DForm.Data.Working) ;
-            DForm.Data.UpdateItems(GameDataType.Enemy, Indices.ToArray(), ArtIndices.ToArray(), ImageIndices.ToArray(), Other.ToArray(), Angles.ToArray(), Sizes.ToArray(),  Locations.ToArray());
+            DForm.Data.UpdateItems(GameDataType.Enemy, Indices.ToArray(), ArtIndices.ToArray(), ImageIndices.ToArray(), Other.ToArray(), Angles.ToArray(), Sizes.ToArray(), Locations.ToArray());
             Indices = new List<int>();
             ArtIndices = new List<int>();
             ImageIndices = new List<int>();
@@ -395,7 +393,7 @@ namespace PerfectPidgeonGameMechanic
 
                 }
             }
-            if (Enemies.Count == 0)
+            if (Enemies.Count == 0 && _EnemyPool.Count == 0)
             {
                 CurrentTick = true;
                 CurrentPlayer.Location = new Vertex();
@@ -460,6 +458,28 @@ namespace PerfectPidgeonGameMechanic
                     PowerUps.Add(new PowerUp(DropLocation, PowerUpType.PidgeonLaser, 50, 10)); // Laser gun
                 if (type == 5)
                     PowerUps.Add(new PowerUp(DropLocation, PowerUpType.PidgeonPlazma, 30, 70)); // Plasma gun
+            }
+        }
+        public void Spawn()
+        {
+            Random Rand = new Random();
+            for(int i = 0; i < this._Enemies.Count; i++)
+            {
+                if(Vertex.Distance(this._CurrentPlayer.Location, this._Enemies[i].Location) > 3000)
+                {
+                    this._EnemyPool.Insert(0, this._Enemies[i]);
+                    this._Enemies.Remove(this._Enemies[i]);
+                }
+            }
+            while(this._Enemies.Count < this._CurrentLevel.MaxSpawns && this._EnemyPool.Count > 0)
+            {
+                long X = Rand.Next(-1500, +1500);
+                X += (X / Math.Abs(X)) * 300;
+                long Y = Rand.Next(-1500, +1500);
+                Y += (Y / Math.Abs(X)) * 300;
+                this._EnemyPool[0].Location = this._CurrentPlayer.Location + new Vertex (X, Y);
+                this._Enemies.Add(this._EnemyPool[0]);
+                this._EnemyPool.RemoveAt(0);
             }
         }
     }

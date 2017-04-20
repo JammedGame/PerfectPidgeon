@@ -138,59 +138,63 @@ namespace PerfectPidgeon.Draw
                 DrawImageNTexture(-XOffset - _ArtData.Back.Width, -YOffset + _ArtData.Back.Height, _ArtData.Back.Width, _ArtData.Back.Height);
             }
 
-            GL.Color3(Color.Black);
-            for (int i = 0; i < this._Data.Projectiles.Count; i++)
+            try
             {
-                if (this._Data.Projectiles[i].Location.X - this._Data.Players[this._Data.CurrentPlayer].Location.X < _GLD.Width * 1.5)
+                GL.Color3(Color.Black);
+                for (int i = 0; i < this._Data.Projectiles.Count; i++)
                 {
-                    if (this._Data.Projectiles[i].Location.Y - this._Data.Players[this._Data.CurrentPlayer].Location.Y < _GLD.Height * 1.5)
+                    if (this._Data.Projectiles[i].Location.X - this._Data.Players[this._Data.CurrentPlayer].Location.X < _GLD.Width * 1.5)
                     {
-                        GL.Translate(this._Data.Projectiles[i].Location.X - this._Data.Players[this._Data.CurrentPlayer].Location.X, this._Data.Projectiles[i].Location.Y - this._Data.Players[this._Data.CurrentPlayer].Location.Y, 0);
-                        GL.Translate(_GLD.Width / 2, _GLD.Height / 2, 0);
-                        GL.Rotate(-this._Data.Projectiles[i].Facing + 180, 0, 0, -1);
-                        if (this._Data.Projectiles[i].ArtIndex == 0)
+                        if (this._Data.Projectiles[i].Location.Y - this._Data.Players[this._Data.CurrentPlayer].Location.Y < _GLD.Height * 1.5)
                         {
-                            GL.Color3(Color.Black);
-                            DrawImage((int)(-this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Width / 6), (int)(-this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Height / 6), this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Width / 3, this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Height / 3, this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0]);
+                            GL.Translate(this._Data.Projectiles[i].Location.X - this._Data.Players[this._Data.CurrentPlayer].Location.X, this._Data.Projectiles[i].Location.Y - this._Data.Players[this._Data.CurrentPlayer].Location.Y, 0);
+                            GL.Translate(_GLD.Width / 2, _GLD.Height / 2, 0);
+                            GL.Rotate(-this._Data.Projectiles[i].Facing + 180, 0, 0, -1);
+                            if (this._Data.Projectiles[i].ArtIndex == 0)
+                            {
+                                GL.Color3(Color.Black);
+                                DrawImage((int)(-this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Width / 6), (int)(-this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Height / 6), this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Width / 3, this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Height / 3, this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0]);
+                            }
+                            else if (this._Data.Projectiles[i].ArtIndex == 1)
+                            {
+                                GL.Color3(this._ArtData.Environment);
+                                DrawImage((int)(-this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Width / 4), (int)(-this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Height / 4), this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Width / 2, this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Height / 2, this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0]);
+                            }
+                            else if (this._Data.Projectiles[i].ArtIndex == 2)
+                            {
+                                GL.Color3(this._ArtData.Environment);
+                                DrawImage((int)(-this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Width / 2), (int)(-this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Height / 2), this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Width, this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Height, this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0]);
+                            }
+                            else if (this._Data.Projectiles[i].ArtIndex == 3)
+                            {
+                                GL.Color3(this._ArtData.Environment);
+                                GL.Rotate(-this._Data.Projectiles[i].ImageIndex, 0, 0, -1);
+                                DrawImage((int)(-this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Width / 4), (int)(-this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Height / 4), this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Width / 2, this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Height / 2, this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0]);
+                            }
+                            else if (this._Data.Projectiles[i].ArtIndex == 10)
+                            {
+                                GL.Color3(this._ArtData.Environment);
+                                //GL.Color3(Color.FromArgb(100,100,100));
+                                DrawImage((int)(-this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Width / 4), (int)(-this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Height / 4), (int)(this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Width * 1) / 2, (int)(this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Height * 1) / 2, this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0]);
+                            }
+                            else if (this._Data.Projectiles[i].ArtIndex == 11)
+                            {
+                                GL.Color3(this._ArtData.Environment);
+                                GL.Color3(Color.FromArgb(100, 100, 100));
+                                DrawImage((int)(-this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Width / 4), (int)(-this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Height / 4), (int)(this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Width * 1) / 2, (int)(this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Height * 1) / 2, this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0]);
+                            }
+                            else if (this._Data.Projectiles[i].ArtIndex == 12)
+                            {
+                                GL.Color3(this._ArtData.Environment);
+                                //GL.Color3(Color.FromArgb(100, 100, 100));
+                                DrawImage((int)(-this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Width / 2), (int)(-this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Height / 2), (int)(this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Width * 1) / 1, (int)(this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Height * 1) / 1, this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0]);
+                            }
+                            GL.LoadIdentity();
                         }
-                        else if (this._Data.Projectiles[i].ArtIndex == 1)
-                        {
-                            GL.Color3(this._ArtData.Environment);
-                            DrawImage((int)(-this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Width / 4), (int)(-this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Height / 4), this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Width / 2, this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Height / 2, this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0]);
-                        }
-                        else if (this._Data.Projectiles[i].ArtIndex == 2)
-                        {
-                            GL.Color3(this._ArtData.Environment);
-                            DrawImage((int)(-this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Width / 2), (int)(-this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Height / 2), this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Width, this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Height, this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0]);
-                        }
-                        else if (this._Data.Projectiles[i].ArtIndex == 3)
-                        {
-                            GL.Color3(this._ArtData.Environment);
-                            GL.Rotate(-this._Data.Projectiles[i].ImageIndex, 0, 0, -1);
-                            DrawImage((int)(-this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Width / 4), (int)(-this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Height / 4), this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Width / 2, this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Height / 2, this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0]);
-                        }
-                        else if (this._Data.Projectiles[i].ArtIndex == 10)
-                        {
-                            GL.Color3(this._ArtData.Environment);
-                            //GL.Color3(Color.FromArgb(100,100,100));
-                            DrawImage((int)(-this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Width / 4), (int)(-this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Height / 4), (int)(this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Width * 1) / 2, (int)(this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Height * 1) / 2, this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0]);
-                        }
-                        else if (this._Data.Projectiles[i].ArtIndex == 11)
-                        {
-                            GL.Color3(this._ArtData.Environment);
-                            GL.Color3(Color.FromArgb(100,100,100));
-                            DrawImage((int)(-this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Width / 4), (int)(-this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Height / 4), (int)(this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Width * 1) / 2, (int)(this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Height * 1) / 2, this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0]);
-                        }
-                        else if (this._Data.Projectiles[i].ArtIndex == 12)
-                        {
-                            GL.Color3(this._ArtData.Environment);
-                            //GL.Color3(Color.FromArgb(100, 100, 100));
-                            DrawImage((int)(-this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Width / 2), (int)(-this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Height / 2), (int)(this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Width * 1) / 1, (int)(this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Height * 1) / 1, this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0]);
-                        }
-                        GL.LoadIdentity();
                     }
                 }
             }
+            catch { };
 
             GL.Color3(this._ArtData.Environment);
             for (int i = 0; i < this._Data.Effects.Count; i++)
