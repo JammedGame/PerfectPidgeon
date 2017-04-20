@@ -10,12 +10,11 @@ namespace PerfectPidgeonGameMechanic
         private int _Health;
         private int _MaxHealth;
         private int _ArtIndex;
+        private int _ImageIndex;
+        private int _Owner;
         private double _Speed;
         private double _Facing;
-        private double _Range;
-        private double _Sight;
         private Vertex _Location;
-        private int _ProjectileType;
         public int Health
         {
             get { return _Health; }
@@ -31,10 +30,22 @@ namespace PerfectPidgeonGameMechanic
             get { return _ArtIndex; }
             set { _ArtIndex = value; }
         }
-        public int ProjectileType
+        public int ImageIndex
         {
-            get { return _ProjectileType; }
-            set { _ProjectileType = value; }
+            get
+            {
+                return _ImageIndex;
+            }
+
+            set
+            {
+                _ImageIndex = value;
+            }
+        }
+        public int Owner
+        {
+            get { return _Owner; }
+            set { _Owner = value; }
         }
         public double Speed
         {
@@ -46,20 +57,32 @@ namespace PerfectPidgeonGameMechanic
             get { return _Facing; }
             set { _Facing = value; }
         }
-        public double Range
-        {
-            get { return _Range; }
-            set { _Range = value; }
-        }
-        public double Sight
-        {
-            get { return _Sight; }
-            set { _Sight = value; }
-        }
         public Vertex Location
         {
             get { return _Location; }
             set { _Location = value; }
+        }
+        public Object()
+        {
+            this._Health = 100;
+            this._MaxHealth = 100;
+            this._ArtIndex = 0;
+            this._ImageIndex = 0;
+            this._Owner = 0;
+            this._Speed = 0;
+            this._Facing = 0;
+            this._Location = new Vertex();
+        }
+        public Object(Object Old)
+        {
+            this._Health = Old._Health;
+            this._MaxHealth = Old._MaxHealth;
+            this._ArtIndex = Old._ArtIndex;
+            this._ImageIndex = Old._ImageIndex;
+            this._Owner = Old._Owner;
+            this._Speed = Old._Speed;
+            this._Facing = Old._Facing;
+            this._Location = new Vertex(Old._Location);
         }
     }
 }

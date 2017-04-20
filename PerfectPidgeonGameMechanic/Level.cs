@@ -9,7 +9,7 @@ namespace PerfectPidgeonGameMechanic
     public class Level
     {
         private Background _Back;
-        private List<Object> _Enemies;
+        private List<Enemy> _Enemies;
         public Background Back
         {
             get
@@ -22,7 +22,7 @@ namespace PerfectPidgeonGameMechanic
                 _Back = value;
             }
         }
-        public List<Object> Enemies
+        public List<Enemy> Enemies
         {
             get
             {
@@ -33,6 +33,11 @@ namespace PerfectPidgeonGameMechanic
             {
                 _Enemies = value;
             }
+        }
+        public Level()
+        {
+            this._Back = new Background("", BackgroundType.Static);
+            this._Enemies = new List<Enemy>();
         }
     }
 }

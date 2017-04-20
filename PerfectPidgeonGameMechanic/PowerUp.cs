@@ -5,6 +5,14 @@ using System.Text;
 
 namespace PerfectPidgeonGameMechanic
 {
+    public enum PowerUpType
+    {
+        PidgeonHeavy,
+        PidgeonLaser,
+        PidgeonPlazma,
+        Health,
+        Speed
+    }
     public class PowerUp
     {
         private int _Type;

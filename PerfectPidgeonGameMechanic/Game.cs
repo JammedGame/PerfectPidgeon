@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using PerfectPidgeon.Draw;
 using PerfectPidgeon.Draw.BackgroundGenerator;
+using PerfectPidgeonGameMechanic.Content;
 
 namespace PerfectPidgeonGameMechanic
 {
@@ -19,7 +20,8 @@ namespace PerfectPidgeonGameMechanic
         private Point _Size;
         private System.Timers.Timer _Time;
         private Player _CurrentPlayer;
-        private List<Object> _Enemies;
+        private BaseDataPool _DataPool;
+        private List<Enemy> _Enemies;
         private List<Projectile> _Projectiles;
         private List<Effect> _Effects;
         private List<PowerUp> _PowerUps;
@@ -38,7 +40,7 @@ namespace PerfectPidgeonGameMechanic
             get { return _CurrentPlayer; }
             set { _CurrentPlayer = value; }
         }
-        public List<Object> Enemies
+        public List<Enemy> Enemies
         {
             get { return _Enemies; }
             set { _Enemies = value; }
@@ -64,51 +66,34 @@ namespace PerfectPidgeonGameMechanic
             DForm.MouseMoved += new MouseEventHandler(this.MouseEvent_Move);
             DForm.MouseUpP += new MouseEventHandler(this.MouseEvent_Up);
             DForm.MouseDownP += new MouseEventHandler(this.MouseEvent_Down);
-            StartLevel(new Point(10,10), 1);
+            this._DataPool = new BaseDataPool();
+            StartLevel(this._DataPool.Levels["AlienBasic-Test"]);
             Time = new System.Timers.Timer(10);
             Time.Elapsed += new System.Timers.ElapsedEventHandler(TimerEvent_Tick);
             Time.Start();
         }
-        public void GeneratePreset()
+        public void StartLevel(Level CLevel)
         {
-
-        }
-        public void StartLevel(Point Size, int Difficulty)
-        {
-            DForm.ArtData.BackType = 2;
-            DForm.ArtData.Back = TiledBackgroundGenerator.Create("Data\\Town", 100, 40, 2);
-
-            //DForm.ArtData.GenerateTiles(Size.X, Size.Y);
-            //Defining Player
-            CurrentPlayer = new Player();
-            CurrentPlayer.Location = new Vertex(0,0);
-            CurrentPlayer.Health = 100;
-            CurrentPlayer.MaxHealth = 100;
-            CurrentPlayer.ProjectileType = 0;
-            CurrentPlayer.NextLocation = null;
-            CurrentPlayer.Facing = 0;
-            CurrentPlayer.Speed = 4;
-            CurrentPlayer.SpecialAmmo = 0;
-            CurrentPlayer.SpeedBoost = 1;
-            CurrentPlayer.SpeedBoostTimer = 0;
-
-            //Defining NPCs
-            int NumberOfNPC = (int)(Math.Sqrt(Size.X * Size.Y) * 2);
-            Random Rand = new Random();
-            Enemies = new List<Object>();
-            for (int i = 0; i < NumberOfNPC; i++)
+            if(CLevel.Back.Type == LevelData.BackgroundType.Static)
             {
-                Object NewNPC = new Object();
-                NewNPC.Location = new Vertex(Rand.NextDouble() * Size.X * FieldSize, Rand.NextDouble() * Size.Y * FieldSize);
-                NewNPC.Facing = 0;
-                NewNPC.ProjectileType = 0;
-                NewNPC.Health = Rand.Next(100, 200);
-                NewNPC.Speed = 2;
-                NewNPC.ArtIndex = 2;
-                NewNPC.Sight = 1000;
-                NewNPC.Range = 500;
-                Enemies.Add(NewNPC);
+
             }
+            else if (CLevel.Back.Type == LevelData.BackgroundType.Dynamic)
+            {
+
+            }
+            else if (CLevel.Back.Type == LevelData.BackgroundType.Tiled)
+            {
+                DForm.ArtData.BackType = 2;
+                DForm.ArtData.Back = TiledBackgroundGenerator.Create(CLevel.Back.Path, 100, 40, 2);
+            }
+
+            if(CurrentPlayer == null)
+            {
+                CurrentPlayer = this._DataPool.Pidgeon;
+            }
+
+            for (int i = 0; i < CLevel.Enemies.Count; i++) this.Enemies.Add(new Enemy(CLevel.Enemies[i]));
 
             Projectiles = new List<Projectile>();
             Effects = new List<Effect>();

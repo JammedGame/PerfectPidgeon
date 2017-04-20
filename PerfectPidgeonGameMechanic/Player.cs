@@ -7,14 +7,22 @@ namespace PerfectPidgeonGameMechanic
 {
     public class Player : Object
     {
-        private int _SpecialAmmo;
+        private int _CurrentWeapons;
         private int _SpeedBoostTimer;
         private double _SpeedBoost;
         private Vertex _NextLocation;
-        public int SpecialAmmo
+        private List<Weapon> _Guns;
+        public int CurrentWeapons
         {
-            get { return _SpecialAmmo; }
-            set { _SpecialAmmo = value; }
+            get
+            {
+                return _CurrentWeapons;
+            }
+
+            set
+            {
+                _CurrentWeapons = value;
+            }
         }
         public int SpeedBoostTimer
         {
@@ -31,5 +39,33 @@ namespace PerfectPidgeonGameMechanic
             get { return _NextLocation; }
             set { _NextLocation = value; }
         }
+        public List<Weapon> Guns
+        {
+            get
+            {
+                return _Guns;
+            }
+
+            set
+            {
+                _Guns = value;
+            }
+        }
+        public Player() : base()
+        {
+            this._SpeedBoostTimer = 0;
+            this._SpeedBoost = 1;
+            this._NextLocation = null;
+            this._Guns = new List<Weapon>();
+        }
+        public Player(Player Old) : base(Old)
+        {
+            this._SpeedBoostTimer = Old._SpeedBoostTimer;
+            this._SpeedBoost = Old._SpeedBoost;
+            this._NextLocation = Old._NextLocation;
+            this._Guns = new List<Weapon>();
+            for (int i = 0; i < Old._Guns.Count; i++) this._Guns.Add(new Weapon(Old._Guns[i]));
+        }
+
     }
 }

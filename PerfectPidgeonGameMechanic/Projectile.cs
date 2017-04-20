@@ -5,20 +5,28 @@ using System.Text;
 
 namespace PerfectPidgeonGameMechanic
 {
+    public enum ProjectileType
+    {
+        PidgeonGun,
+        PidgeonHeavy,
+        PidgeonLaser,
+        PidgeonPlazma,
+        AlienBasic,
+        AlienSpeeder,
+        AlienMineSeter,
+        AlienBeamer,
+        AlienMothershipLaser
+    }
     public class Projectile : Object
     {
         private int _Damage;
-        private int _Owner;
         private int _Spin;
+        private int _CollisionRadius;
+        private ProjectileType _Type;
         public int Damage
         {
             get { return _Damage; }
             set { _Damage = value; }
-        }
-        public int Owner
-        {
-            get { return _Owner; }
-            set { _Owner = value; }
         }
         public int Spin
         {
@@ -31,6 +39,44 @@ namespace PerfectPidgeonGameMechanic
             {
                 _Spin = value;
             }
+        }
+        public int CollisionRadius
+        {
+            get
+            {
+                return _CollisionRadius;
+            }
+
+            set
+            {
+                _CollisionRadius = value;
+            }
+        }
+        public ProjectileType Type
+        {
+            get
+            {
+                return _Type;
+            }
+
+            set
+            {
+                _Type = value;
+            }
+        }
+        public Projectile() : base()
+        {
+            this._Damage = 0;
+            this._Spin = 0;
+            this._Type = ProjectileType.PidgeonGun;
+            this._CollisionRadius = 80;
+        }
+        public Projectile(Projectile Old) : base(Old)
+        {
+            this._Damage = Old._Damage;
+            this._Spin = Old._Spin;
+            this._Type = Old._Type;
+            this._CollisionRadius = Old._CollisionRadius;
         }
     }
 }

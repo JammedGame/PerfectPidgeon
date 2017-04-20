@@ -44,7 +44,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Behaviour.cs" />
+    <Compile Include="Content\BaseDataPool.cs" />
     <Compile Include="Effect.cs" />
+    <Compile Include="Enemy.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="LevelData\Background.cs" />
     <Compile Include="LevelData\Level.cs" />
@@ -55,6 +58,7 @@
     <Compile Include="Projectile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Vertex.cs" />
+    <Compile Include="Weapon.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
