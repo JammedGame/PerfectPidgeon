@@ -474,9 +474,11 @@ namespace PerfectPidgeonGameMechanic
             while(this._Enemies.Count < this._CurrentLevel.MaxSpawns && this._EnemyPool.Count > 0)
             {
                 long X = Rand.Next(-1500, +1500);
-                X += (X / Math.Abs(X)) * 300;
+                if (X != 0) X += (X / Math.Abs(X)) * 300;
+                else X = 300;
                 long Y = Rand.Next(-1500, +1500);
-                Y += (Y / Math.Abs(X)) * 300;
+                if (Y != 0) Y += (Y / Math.Abs(X)) * 300;
+                else Y = 300;
                 this._EnemyPool[0].Location = this._CurrentPlayer.Location + new Vertex (X, Y);
                 this._Enemies.Add(this._EnemyPool[0]);
                 this._EnemyPool.RemoveAt(0);
