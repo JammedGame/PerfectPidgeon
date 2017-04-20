@@ -106,7 +106,7 @@ namespace PerfectPidgeon.Draw
             SpriteSetImages[0] = global::PerfectPidgeon.Draw.Properties.Resources.pewf;
             Bullets.Add(new SpriteSet(SpriteSetImages, 1));
             SpriteSetImages = new Bitmap[1];
-            SpriteSetImages[0] = global::PerfectPidgeon.Draw.Properties.Resources.beam;
+            SpriteSetImages[0] = global::PerfectPidgeon.Draw.Properties.Resources.beam2;
             Bullets.Add(new SpriteSet(SpriteSetImages, 1));
             SpriteSetImages = new Bitmap[1];
             SpriteSetImages[0] = global::PerfectPidgeon.Draw.Properties.Resources.mine;

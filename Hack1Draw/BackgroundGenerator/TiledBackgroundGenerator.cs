@@ -12,12 +12,15 @@ namespace PerfectPidgeon.Draw.BackgroundGenerator
         {
             List<TileGroup> Groups = TileGroupLoader.Load(Path);
 
-            int Amount = Size/8;
+            int Amount = Size/16;
             for (int i = Groups.Count - 1; i >= 0; i--)
             {
                 Groups[i].Amount = Amount * Groups[i].Images.Count;
-                Amount *= 2;
+                Amount *= 4;
             }
+            //Groups[3].Amount = 4;
+            //Groups[2].Amount = 8;
+            //Groups[1].Amount = 16;
             Groups[0].Amount = 1000;
 
             return TiledBackgroundGenerator.Generate(Groups, TileSize, new Point(Size, Size), new Point(Size * TileSize / Step, Size * TileSize / Step), Step);
@@ -71,7 +74,7 @@ namespace PerfectPidgeon.Draw.BackgroundGenerator
                         Matrix[i, j] = 1;
                     }
                 }
-                int ChosenImg = Rand.Next(0, Group.Images.Count - 1);
+                int ChosenImg = Rand.Next(0, Group.Images.Count);
                 TiledBackgroundGenerator.DrawImage(ref B, Group.Images[ChosenImg], new Point(Available[Chosen].X * TileSize / Step, Available[Chosen].Y * TileSize / Step), TileSize * Group.TileSize / Step);
                 Group.Amount--;
             }

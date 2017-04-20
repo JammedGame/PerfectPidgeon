@@ -62,7 +62,7 @@ namespace PerfectPidgeonGameMechanic
             DForm.MouseUpP += new MouseEventHandler(this.MouseEvent_Up);
             DForm.MouseDownP += new MouseEventHandler(this.MouseEvent_Down);
             this._DataPool = new BaseDataPool();
-            StartLevel(this._DataPool.Levels["AlienBeamer-Test"]);
+            StartLevel(this._DataPool.Levels["LVL01"]);
             Time = new System.Timers.Timer(10);
             Time.Elapsed += new System.Timers.ElapsedEventHandler(TimerEvent_Tick);
             Time.Start();
@@ -72,7 +72,7 @@ namespace PerfectPidgeonGameMechanic
             this._CurrentLevel = CLevel;
             if (CLevel.Back.Type == LevelData.BackgroundType.Static)
             {
-
+                //DForm.ArtData.Back = 
             }
             else if (CLevel.Back.Type == LevelData.BackgroundType.Dynamic)
             {
