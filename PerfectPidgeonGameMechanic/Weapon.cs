@@ -90,6 +90,10 @@ namespace PerfectPidgeonGameMechanic
         }
         public List<Projectile> Shoot(Object Owner, long TimeStamp)
         {
+            if(Owner.Owner == 0 && this._Type.Type != ProjectileType.PidgeonGun)
+            {
+                int y = 4;
+            }
             List<Projectile> Projectiles = new List<Projectile>();
             if (!this._Active) return Projectiles;
             if (this._Ammo == 0) return Projectiles;
@@ -106,17 +110,17 @@ namespace PerfectPidgeonGameMechanic
             }
             else
             {
-                for (int i = 0; i < 30; i++)
+                for (int i = 0; i < 50; i++)
                 {
                     Projectile P = new Projectile(this._Type);
                     Vertex Offset = new Vertex(this._Location.X, this._Location.Y + i * 50);
-                    Offset = this._Location.RotateZ(Owner.Facing);
+                    Offset = Offset.RotateZ(Owner.Facing);
                     P.Location = Owner.Location + Offset;
                     P.Owner = Owner.Owner;
                     P.Facing = Owner.Facing;
-                    if (this._Ammo != -1) Ammo--;
                     Projectiles.Add(P);
                 }
+                if (this._Ammo != -1) Ammo--;
             }
             return Projectiles;
         }

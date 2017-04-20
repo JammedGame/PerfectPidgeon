@@ -70,12 +70,20 @@ namespace PerfectPidgeonGameMechanic
         {
             this._CurrentWeapons = Index;
             for (int i = 0; i < this._Guns.Count; i++) this._Guns[i].Active = false;
-            this._Guns[Index].Active = true;
-            this._Guns[Index + 1].Active = true;
+            this._Guns[Index*2].Active = true;
+            this._Guns[Index*2 + 1].Active = true;
         }
         public void AddAmmo(int Ammount, ProjectileType Type)
         {
             for (int i = 0; i < this._Guns.Count; i++) if (this._Guns[i].Type.Type == Type) this._Guns[i].Ammo += Ammount;
+        }
+        public void IsActiveEmpty()
+        {
+            if (this._Guns[this._CurrentWeapons * 2].Ammo == 0 && this._Guns[this._CurrentWeapons * 2 + 1].Ammo == 0) SelectWeapon(0);
+        }
+        public int CurrentAmmo()
+        {
+            return this._Guns[this._CurrentWeapons * 2].Ammo + this._Guns[this._CurrentWeapons * 2 + 1].Ammo;
         }
     }
 }

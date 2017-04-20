@@ -7,19 +7,19 @@ namespace PerfectPidgeonGameMechanic
 {
     public enum PowerUpType
     {
-        PidgeonHeavy,
-        PidgeonLaser,
-        PidgeonPlazma,
-        Health,
-        Speed
+        PidgeonHeavy = 2,
+        PidgeonLaser = 3,
+        PidgeonPlazma = 4,
+        Health = 0,
+        Speed = 1
     }
     public class PowerUp
     {
-        private int _Type;
         private int _Duration_Ammo;
         private double _Boost;
+        private PowerUpType _Type;
         private Vertex _Location;
-        public int Type
+        public PowerUpType Type
         {
             get { return _Type; }
             set { _Type = value; }
@@ -39,9 +39,9 @@ namespace PerfectPidgeonGameMechanic
             get { return _Location; }
             set { _Location = value; }
         }
-        public PowerUp(Vertex Location, int type, int duration, double boost)
+        public PowerUp(Vertex Location, PowerUpType Type, int duration, double boost)
         {
-            _Type = type;
+            _Type = Type;
             _Duration_Ammo = duration;
             _Boost = boost;
             _Location = Location;

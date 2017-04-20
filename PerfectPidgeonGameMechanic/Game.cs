@@ -67,7 +67,7 @@ namespace PerfectPidgeonGameMechanic
             DForm.MouseUpP += new MouseEventHandler(this.MouseEvent_Up);
             DForm.MouseDownP += new MouseEventHandler(this.MouseEvent_Down);
             this._DataPool = new BaseDataPool();
-            StartLevel(this._DataPool.Levels["Alien-Test"]);
+            StartLevel(this._DataPool.Levels["LVL01"]);
             Time = new System.Timers.Timer(10);
             Time.Elapsed += new System.Timers.ElapsedEventHandler(TimerEvent_Tick);
             Time.Start();
@@ -146,6 +146,7 @@ namespace PerfectPidgeonGameMechanic
                     if (!CurrentPlayer.Guns[i].Active) continue;
                     this._Projectiles.AddRange(CurrentPlayer.Guns[i].Shoot(CurrentPlayer, TimeStamp));
                 }
+                CurrentPlayer.IsActiveEmpty();
             }
             for (int i = 0; i < Effects.Count; i++)
             {
@@ -185,9 +186,9 @@ namespace PerfectPidgeonGameMechanic
             else
                 CurrentPlayer.SpeedBoost = 1;
             if (CurrentPlayer.CurrentWeapons == 0) DForm.RefreshData((int)(200 * CurrentPlayer.Health * 1.0 / CurrentPlayer.MaxHealth), "Basic");
-            else if (CurrentPlayer.CurrentWeapons == 1) DForm.RefreshData((int)(200 * CurrentPlayer.Health * 1.0 / CurrentPlayer.MaxHealth), "Heavy");
-            else if (CurrentPlayer.CurrentWeapons == 2) DForm.RefreshData((int)(200 * CurrentPlayer.Health * 1.0 / CurrentPlayer.MaxHealth), "Laser");
-            else if (CurrentPlayer.CurrentWeapons == 3) DForm.RefreshData((int)(200 * CurrentPlayer.Health * 1.0 / CurrentPlayer.MaxHealth), "Plasma");
+            else if (CurrentPlayer.CurrentWeapons == 1) DForm.RefreshData((int)(200 * CurrentPlayer.Health * 1.0 / CurrentPlayer.MaxHealth), "Heavy - " + CurrentPlayer.CurrentAmmo());
+            else if (CurrentPlayer.CurrentWeapons == 2) DForm.RefreshData((int)(200 * CurrentPlayer.Health * 1.0 / CurrentPlayer.MaxHealth), "Laser - " + CurrentPlayer.CurrentAmmo());
+            else if (CurrentPlayer.CurrentWeapons == 3) DForm.RefreshData((int)(200 * CurrentPlayer.Health * 1.0 / CurrentPlayer.MaxHealth), "Plasma - " + CurrentPlayer.CurrentAmmo());
             RefreshDrawing();
         }
         public void RefreshDrawing()
@@ -280,7 +281,7 @@ namespace PerfectPidgeonGameMechanic
                 if (PowerUps[i].Location != null)
                 {
                     Indices.Add(i);
-                    ArtIndices.Add(PowerUps[i].Type - 1);
+                    ArtIndices.Add((int)(PowerUps[i].Type));
                     ImageIndices.Add(0);
                     Angles.Add(0);
                     Sizes.Add(1);
@@ -397,7 +398,8 @@ namespace PerfectPidgeonGameMechanic
             if (Enemies.Count == 0)
             {
                 CurrentTick = true;
-                StartLevel(this._DataPool.Levels["AlienBasic-Test"]);
+                CurrentPlayer.Location = new Vertex();
+                StartLevel(this._DataPool.Levels["LVL01"]);
                 CurrentTick = false;
             }
         }
@@ -410,29 +412,32 @@ namespace PerfectPidgeonGameMechanic
                         (PowerUps[i].Location.Y - CurrentPlayer.Location.Y) * (PowerUps[i].Location.Y - CurrentPlayer.Location.Y));
                 if (distance < 100)
                 {
-                    if (PowerUps[i].Type == 1)
+                    if (PowerUps[i].Type == PowerUpType.Health)
                     {
                         if (CurrentPlayer.Health + PowerUps[i].Boost > CurrentPlayer.MaxHealth)
                             CurrentPlayer.Health = CurrentPlayer.MaxHealth;
                         else
                             CurrentPlayer.Health += (int)PowerUps[i].Boost;
                     }
-                    if (PowerUps[i].Type == 2)
+                    if (PowerUps[i].Type == PowerUpType.Speed)
                     {
                         CurrentPlayer.SpeedBoostTimer = PowerUps[i].Duration_Ammo;
                         CurrentPlayer.SpeedBoost = PowerUps[i].Boost;
                     }
-                    if (PowerUps[i].Type == 3)
+                    if (PowerUps[i].Type == PowerUpType.PidgeonHeavy)
                     {
                         CurrentPlayer.AddAmmo(PowerUps[i].Duration_Ammo, ProjectileType.PidgeonHeavy);
+                        CurrentPlayer.SelectWeapon(1);
                     }
-                    if (PowerUps[i].Type == 4)
+                    if (PowerUps[i].Type == PowerUpType.PidgeonLaser)
                     {
                         CurrentPlayer.AddAmmo(PowerUps[i].Duration_Ammo, ProjectileType.PidgeonLaser);
+                        CurrentPlayer.SelectWeapon(2);
                     }
-                    if (PowerUps[i].Type == 5)
+                    if (PowerUps[i].Type == PowerUpType.PidgeonPlazma)
                     {
                         CurrentPlayer.AddAmmo(PowerUps[i].Duration_Ammo, ProjectileType.PidgeonPlazma);
+                        CurrentPlayer.SelectWeapon(3);
                     }
                     PowerUps.RemoveAt(i);
                 }
@@ -441,20 +446,20 @@ namespace PerfectPidgeonGameMechanic
         public void dropPowerUp(Vertex DropLocation)
         {
             Random rnd = new Random();
-            int chance = rnd.Next(1, 15);
+            int chance = rnd.Next(1, 1);
             if (chance == 1)
             {
                 int type = rnd.Next(1, 6);
                 if (type == 1)
-                    PowerUps.Add(new PowerUp(DropLocation, type, 0, 50));//HP
+                    PowerUps.Add(new PowerUp(DropLocation, PowerUpType.Health, 0, 50));//HP
                 if (type == 2)
-                    PowerUps.Add(new PowerUp(DropLocation, type, 30000, 2)); //Speed
+                    PowerUps.Add(new PowerUp(DropLocation, PowerUpType.Speed, 30000, 2)); //Speed
                 if (type == 3)
-                    PowerUps.Add(new PowerUp(DropLocation, type, 100, 70)); // Plasma gun
+                    PowerUps.Add(new PowerUp(DropLocation, PowerUpType.PidgeonHeavy, 100, 50)); // Heavy ammo
                 if (type == 4)
-                    PowerUps.Add(new PowerUp(DropLocation, type, 1000, 10)); // Laser gun
+                    PowerUps.Add(new PowerUp(DropLocation, PowerUpType.PidgeonLaser, 50, 10)); // Laser gun
                 if (type == 5)
-                    PowerUps.Add(new PowerUp(DropLocation, type, 300, 50)); // Heavy ammo
+                    PowerUps.Add(new PowerUp(DropLocation, PowerUpType.PidgeonPlazma, 30, 70)); // Plasma gun
             }
         }
     }

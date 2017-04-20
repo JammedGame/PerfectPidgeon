@@ -113,7 +113,7 @@ namespace PerfectPidgeon.Draw
                 if (PlayersBuffer.Count > Index)
                 {
                     PlayersBuffer[Index].ArtIndex = ArtIndex;
-                    PlayersBuffer[Index].ImageIndex = ImageIndex;
+                    //PlayersBuffer[Index].ImageIndex = ImageIndex;
                     PlayersBuffer[Index].Location = Location;
                     PlayersBuffer[Index].Size = Size;
                 }
