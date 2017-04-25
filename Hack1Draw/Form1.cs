@@ -213,7 +213,7 @@ namespace PerfectPidgeon.Draw
         }
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
-            if (keyData == Keys.A || keyData == Keys.D || keyData == Keys.D1 || keyData == Keys.D2 || keyData == Keys.D3 || keyData == Keys.D4)
+            if (keyData == Keys.A || keyData == Keys.D || keyData == Keys.W || keyData == Keys.Q || keyData == Keys.E || keyData == Keys.S || keyData == Keys.D1 || keyData == Keys.D2 || keyData == Keys.D3 || keyData == Keys.D4)
             {
                 KeyPressed.Invoke(keyData);
                 return true;

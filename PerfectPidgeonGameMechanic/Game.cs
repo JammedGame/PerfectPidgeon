@@ -64,7 +64,7 @@ namespace PerfectPidgeonGameMechanic
             DForm.MouseDownP += new MouseEventHandler(this.MouseEvent_Down);
             DForm.KeyPressed += new DrawForm.KeyPressedDelegate(this.KeyPressed);
             this._DataPool = new BaseDataPool();
-            StartLevel(this._DataPool.Levels["LVL11"]);
+            StartLevel(this._DataPool.Levels["LVL01"]);
             Time = new System.Timers.Timer(10);
             Time.Elapsed += new System.Timers.ElapsedEventHandler(TimerEvent_Tick);
             Time.Start();
@@ -519,8 +519,16 @@ namespace PerfectPidgeonGameMechanic
         }
         public void KeyPressed(Keys Key)
         {
-            if (Key == Keys.A) this._CurrentPlayer.GunRotation++;
-            else if (Key == Keys.D) this._CurrentPlayer.GunRotation--;
+            if (Key == Keys.Q) this._CurrentPlayer.GunRotation-=10;
+            else if (Key == Keys.W) this._CurrentPlayer.GunRotation = 0;
+            else if (Key == Keys.E) this._CurrentPlayer.GunRotation+=10;
+            else if (Key == Keys.S) this._CurrentPlayer.GunRotation = 180;
+            else if (Key == Keys.D) this._CurrentPlayer.GunRotation = 90;
+            else if (Key == Keys.A) this._CurrentPlayer.GunRotation = 270;
+            else if (Key == Keys.D1) this._CurrentPlayer.SelectWeapon(0);
+            else if (Key == Keys.D2) this._CurrentPlayer.SelectWeapon(1);
+            else if (Key == Keys.D3) this._CurrentPlayer.SelectWeapon(2);
+            else if (Key == Keys.D4) this._CurrentPlayer.SelectWeapon(3);
         }
     }
 }
