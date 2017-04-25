@@ -65,8 +65,16 @@ namespace PerfectPidgeon.Draw
             AxisState State = new AxisState();
             if (Math.Abs(this._Joy.GetAxis(OpenTK.Input.JoystickAxis.Axis1)) > 0.004 || Math.Abs(this._Joy.GetAxis(OpenTK.Input.JoystickAxis.Axis0)) > 0.004)
             {
-                State.Status = AxisStateStatus.Angle;
-                State.Angle = (Math.Atan2(this._Joy.GetAxis(OpenTK.Input.JoystickAxis.Axis1), this._Joy.GetAxis(OpenTK.Input.JoystickAxis.Axis0)) * (360 / (Math.PI * 2)) + 90);
+                Vertex V = new Vertex(this._Joy.GetAxis(OpenTK.Input.JoystickAxis.Axis0), this._Joy.GetAxis(OpenTK.Input.JoystickAxis.Axis1));
+                if (Vertex.Distance(V, new Vertex()) < 0.25f)
+                {
+                    State.Status = AxisStateStatus.None;
+                }
+                else
+                {
+                    State.Status = AxisStateStatus.Angle;
+                    State.Angle = (Math.Atan2(this._Joy.GetAxis(OpenTK.Input.JoystickAxis.Axis1), this._Joy.GetAxis(OpenTK.Input.JoystickAxis.Axis0)) * (360 / (Math.PI * 2)) + 90);
+                }
             }
             else State.Status = AxisStateStatus.None;
             return State;
@@ -77,8 +85,16 @@ namespace PerfectPidgeon.Draw
             AxisState State = new AxisState();
             if (Math.Abs(this._Joy.GetAxis(OpenTK.Input.JoystickAxis.Axis3)) > 0.004 || Math.Abs(this._Joy.GetAxis(OpenTK.Input.JoystickAxis.Axis2)) > 0.004)
             {
-                State.Status = AxisStateStatus.Angle;
-                State.Angle = -(Math.Atan2(this._Joy.GetAxis(OpenTK.Input.JoystickAxis.Axis3), this._Joy.GetAxis(OpenTK.Input.JoystickAxis.Axis2)) * (360 / (Math.PI * 2)) - 180);
+                Vertex V = new Vertex(this._Joy.GetAxis(OpenTK.Input.JoystickAxis.Axis2), this._Joy.GetAxis(OpenTK.Input.JoystickAxis.Axis3));
+                if (Vertex.Distance(V, new Vertex()) < 0.25f)
+                {
+                    State.Status = AxisStateStatus.None;
+                }
+                else
+                {
+                    State.Status = AxisStateStatus.Angle;
+                    State.Angle = -(Math.Atan2(this._Joy.GetAxis(OpenTK.Input.JoystickAxis.Axis3), this._Joy.GetAxis(OpenTK.Input.JoystickAxis.Axis2)) * (360 / (Math.PI * 2)) - 180);
+                }
             }
             else State.Status = AxisStateStatus.None;
             return State;
