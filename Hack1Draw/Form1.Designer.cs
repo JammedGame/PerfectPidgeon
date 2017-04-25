@@ -137,7 +137,7 @@
             this.ClientSize = new System.Drawing.Size(581, 347);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.GLD);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "DrawForm";
             this.Text = "Form1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

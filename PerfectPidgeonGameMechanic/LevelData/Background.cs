@@ -17,8 +17,17 @@ namespace PerfectPidgeonGameMechanic.LevelData
         {
             this.Type = Type;
             this.Path = Path;
+            this.Other = 0;
         }
+        public Background(string Path, BackgroundType Type, int Other)
+        {
+            this.Type = Type;
+            this.Path = Path;
+            this.Other = Other;
+        }
+        private int _Other;
         private string _Path;
+        private BackgroundType _Type;
         public string Path
         {
             get
@@ -31,7 +40,18 @@ namespace PerfectPidgeonGameMechanic.LevelData
                 _Path = value;
             }
         }
-        private BackgroundType _Type;
+        public int Other
+        {
+            get
+            {
+                return _Other;
+            }
+
+            set
+            {
+                _Other = value;
+            }
+        }
         public BackgroundType Type
         {
             get
@@ -43,6 +63,6 @@ namespace PerfectPidgeonGameMechanic.LevelData
             {
                 _Type = value;
             }
-        }
+        }     
     }
 }

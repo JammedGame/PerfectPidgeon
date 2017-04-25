@@ -35,8 +35,6 @@ namespace PerfectPidgeon.Draw
         
         private int EffectOffset = 0;
 
-        OpenTK.Input.JoystickState _Joy;
-
         private Joystick _Joystick;
         private PidgeonLeapListener Listen;
         private Controller Control;
@@ -85,11 +83,10 @@ namespace PerfectPidgeon.Draw
             MouseUpP = new MouseEventHandler(OnMouseUp);
             MouseDownP = new MouseEventHandler(OnMouseDown);
 
-            this._Joy = OpenTK.Input.Joystick.GetState(0);
-
             this._Joystick = new Joystick();
             this._Joystick.LeftAxisChange += new AxisEvent(JoystickAxisLeft);
             this._Joystick.RightAxisChange += new AxisEvent(JoystickAxisRight);
+            this._Joystick.JoystickButtonPress += new ButtonPress(JoystickButtonPressed);
 
             Listen = new PidgeonLeapListener();
             Control = new Controller();
@@ -103,11 +100,6 @@ namespace PerfectPidgeon.Draw
         }
         private void Leap_Tick(object sender, System.Timers.ElapsedEventArgs e)
         {
-            if (Math.Abs(this._Joy.GetAxis(OpenTK.Input.JoystickAxis.Axis1)) > 0.004 || Math.Abs(this._Joy.GetAxis(OpenTK.Input.JoystickAxis.Axis0)) > 0.004)
-            {
-                int y = 4;
-            }
-
             if (!Listen.Connected) return;
             bool LeftPress = Listen.LeftCollected;
             bool RightPress = Listen.RightCollected;
@@ -129,16 +121,29 @@ namespace PerfectPidgeon.Draw
                 MouseMoved.Invoke(null, new MouseEventArgs(System.Windows.Forms.MouseButtons.Right, 1, Loc.X, Loc.Y, 0));
             }
         }     
+        private void JoystickButtonPressed(JoystickButton Button, bool Pressed)
+        {
+            if(Button == JoystickButton.Move)
+            {
+                if(Pressed) MouseDownP.Invoke(null, new MouseEventArgs(MouseButtons.Right, 0, 0, 0, 0));
+                else MouseUpP.Invoke(null, new MouseEventArgs(MouseButtons.Right, 0, 0, 0, 0));
+            }
+            if (Button == JoystickButton.Shoot)
+            {
+                if (Pressed) MouseDownP.Invoke(null, new MouseEventArgs(MouseButtons.Left, 0, 0, 0, 0));
+                else MouseUpP.Invoke(null, new MouseEventArgs(MouseButtons.Left, 0, 0, 0, 0));
+            }
+        }
         private void JoystickAxisLeft(double Angle)
         {
-
+            
         }
         private void JoystickAxisRight(double Angle)
         {
-            Vertex V = new Vertex(0, 200);
-            V.RotateZ(Angle);
+            Vertex V = new Vertex(0, 300);
+            V = V.RotateZ(Angle);
             Point P = V.ToPoint();
-            MouseMoved.Invoke(null, new MouseEventArgs(MouseButtons.None, 0, P.X, P.Y, 0));
+            MouseMoved.Invoke(null, new MouseEventArgs(MouseButtons.None, 0, -P.X + GLD.Width / 2, -P.Y + GLD.Height / 2, 0));
         }
         private void GLD_MouseDown(object sender, MouseEventArgs e)
         {

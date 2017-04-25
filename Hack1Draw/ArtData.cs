@@ -152,5 +152,9 @@ namespace PerfectPidgeon.Draw
             PowerUpArt.Add(global::PerfectPidgeon.Draw.Properties.Resources.Laser);
             PowerUpArt.Add(global::PerfectPidgeon.Draw.Properties.Resources.Plasma);
         }
+        public void SetBackground(string Path)
+        {
+            if(Path == "Earth") Back = global::PerfectPidgeon.Draw.Properties.Resources.earth1;
+        }
     }
 }
