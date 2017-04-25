@@ -102,10 +102,10 @@ namespace PerfectPidgeonGameMechanic
             if (this._Type.Type != ProjectileType.PidgeonLaser)
             {
                 Projectile P = new Projectile(this._Type);
-                Vertex Offset = this._Location.RotateZ(Owner.Facing);
+                Vertex Offset = this._Location.RotateZ(Owner.ShootDirection());
                 P.Location = Owner.Location + Offset;
                 P.Owner = Owner.Owner;
-                P.Facing = Owner.Facing;
+                P.Facing = Owner.ShootDirection();
                 if (this._Ammo != -1) Ammo--;
                 Projectiles.Add(P);
             }
@@ -115,10 +115,10 @@ namespace PerfectPidgeonGameMechanic
                 {
                     Projectile P = new Projectile(this._Type);
                     Vertex Offset = new Vertex(this._Location.X, this._Location.Y + i * 50);
-                    Offset = Offset.RotateZ(Owner.Facing);
+                    Offset = Offset.RotateZ(Owner.ShootDirection());
                     P.Location = Owner.Location + Offset;
                     P.Owner = Owner.Owner;
-                    P.Facing = Owner.Facing;
+                    P.Facing = Owner.ShootDirection();
                     Projectiles.Add(P);
                 }
                 if (this._Ammo != -1) Ammo--;

@@ -26,7 +26,7 @@ namespace PerfectPidgeon.Draw
         public event MouseEventHandler MouseMoved;
         public event MouseEventHandler MouseUpP;
         public event MouseEventHandler MouseDownP;
-        public delegate void KeyPressedDelegate(ref Message msg, Keys keyData);
+        public delegate void KeyPressedDelegate(Keys keyData);
         public event KeyPressedDelegate KeyPressed;  
         
         private System.Timers.Timer UpdateFrame;
@@ -82,6 +82,7 @@ namespace PerfectPidgeon.Draw
             MouseMoved = new MouseEventHandler(OnMouseMoved);
             MouseUpP = new MouseEventHandler(OnMouseUp);
             MouseDownP = new MouseEventHandler(OnMouseDown);
+            KeyPressed = new KeyPressedDelegate(OnKeyPress);
 
             this._Joystick = new Joystick();
             this._Joystick.LeftAxisChange += new AxisEvent(JoystickAxisLeft);
@@ -171,6 +172,10 @@ namespace PerfectPidgeon.Draw
         private void OnMouseUp(object sender, MouseEventArgs e)
         {
         }
+        private void OnKeyPress(Keys keyData)
+        {
+
+        }
         private void GLD_MouseUp(object sender, MouseEventArgs e)
         {
             MouseUpP.Invoke(sender, e);
@@ -208,6 +213,11 @@ namespace PerfectPidgeon.Draw
         }
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
+            if (keyData == Keys.A || keyData == Keys.D || keyData == Keys.D1 || keyData == Keys.D2 || keyData == Keys.D3 || keyData == Keys.D4)
+            {
+                KeyPressed.Invoke(keyData);
+                return true;
+            }
             if (keyData == Keys.Escape)
             {
                 Application.Exit();

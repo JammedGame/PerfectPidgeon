@@ -115,5 +115,9 @@ namespace PerfectPidgeonGameMechanic
             this._Facing = Old._Facing;
             this._Location = new Vertex(Old._Location);
         }
+        public virtual double ShootDirection()
+        {
+            return this._Facing;
+        }
     }
 }

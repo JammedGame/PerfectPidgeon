@@ -116,6 +116,7 @@ namespace PerfectPidgeon.Draw
                     //PlayersBuffer[Index].ImageIndex = ImageIndex;
                     PlayersBuffer[Index].Location = Location;
                     PlayersBuffer[Index].Size = Size;
+                    PlayersBuffer[Index].Other = Other;
                 }
                 else PlayersBuffer.Add(new Item(ArtIndex, Location, Facing, Size));
             }

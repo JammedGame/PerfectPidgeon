@@ -199,7 +199,7 @@ namespace PerfectPidgeonGameMechanic.Content
             P.Type = ProjectileType.ElvenArrow;
             P.ArtIndex = 16;
             P.Speed = 10;
-            P.Damage = 5;
+            P.Damage = 1;
             P.Health = 1000;
             P.MaxHealth = 1000;
             this._Projectiles.Add("ElvenArrow", P);
@@ -608,7 +608,7 @@ namespace PerfectPidgeonGameMechanic.Content
             L.Title = "2-1";
             L.Next = "";
             L.Back = new Background("Data\\Town2", BackgroundType.Tiled);
-            for (int i = 0; i < 30; i++) L.Enemies.Add(new Enemy(this._Enemies["ElvenArcher"]));
+            for (int i = 0; i < 40; i++) L.Enemies.Add(new Enemy(this._Enemies["ElvenArcher"]));
             this._Levels.Add("LVL11", L);
         }
     }

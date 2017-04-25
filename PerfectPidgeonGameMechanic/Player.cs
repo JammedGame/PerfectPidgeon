@@ -11,6 +11,7 @@ namespace PerfectPidgeonGameMechanic
         private int _CurrentWeapons;
         private int _SpeedBoostTimer;
         private double _SpeedBoost;
+        private double _GunRotation;
         private Vertex _NextLocation;
         private List<Weapon> _Guns;
         public int CurrentWeapons
@@ -34,6 +35,18 @@ namespace PerfectPidgeonGameMechanic
         {
             get { return _SpeedBoost; }
             set { _SpeedBoost = value; }
+        }
+        public double GunRotation
+        {
+            get
+            {
+                return _GunRotation;
+            }
+
+            set
+            {
+                _GunRotation = value;
+            }
         }
         public Vertex NextLocation
         {
@@ -85,6 +98,10 @@ namespace PerfectPidgeonGameMechanic
         public int CurrentAmmo()
         {
             return this._Guns[this._CurrentWeapons * 2].Ammo + this._Guns[this._CurrentWeapons * 2 + 1].Ammo;
+        }
+        public override double ShootDirection()
+        {
+            return this.Facing + this._GunRotation;
         }
     }
 }

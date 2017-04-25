@@ -583,6 +583,16 @@ namespace PerfectPidgeon.Draw.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap gun_stand {
+            get {
+                object obj = ResourceManager.GetObject("gun_stand", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Health {
             get {
                 object obj = ResourceManager.GetObject("Health", resourceCulture);
@@ -706,6 +716,36 @@ namespace PerfectPidgeon.Draw.Properties {
         internal static System.Drawing.Bitmap pewf {
             get {
                 object obj = ResourceManager.GetObject("pewf", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pig01 {
+            get {
+                object obj = ResourceManager.GetObject("pig01", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pig02 {
+            get {
+                object obj = ResourceManager.GetObject("pig02", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pig03 {
+            get {
+                object obj = ResourceManager.GetObject("pig03", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

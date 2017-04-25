@@ -62,8 +62,9 @@ namespace PerfectPidgeonGameMechanic
             DForm.MouseMoved += new MouseEventHandler(this.MouseEvent_Move);
             DForm.MouseUpP += new MouseEventHandler(this.MouseEvent_Up);
             DForm.MouseDownP += new MouseEventHandler(this.MouseEvent_Down);
+            DForm.KeyPressed += new DrawForm.KeyPressedDelegate(this.KeyPressed);
             this._DataPool = new BaseDataPool();
-            StartLevel(this._DataPool.Levels["LVL10"]);
+            StartLevel(this._DataPool.Levels["LVL11"]);
             Time = new System.Timers.Timer(10);
             Time.Elapsed += new System.Timers.ElapsedEventHandler(TimerEvent_Tick);
             Time.Start();
@@ -198,7 +199,7 @@ namespace PerfectPidgeonGameMechanic
         public void RefreshDrawing()
         {
             DForm.Data.ResetBuffers();
-            DForm.Data.UpdateItem(GameDataType.Player, 0, CurrentPlayer.CurrentWeapons, CurrentPlayer.ImageIndex, 0, CurrentPlayer.Facing, 3, CurrentPlayer.Location.ToPoint());
+            DForm.Data.UpdateItem(GameDataType.Player, 0, CurrentPlayer.CurrentWeapons, CurrentPlayer.ImageIndex, (int)CurrentPlayer.GunRotation, CurrentPlayer.Facing, 3, CurrentPlayer.Location.ToPoint());
             List<int> Indices = new List<int>();
             List<int> ArtIndices = new List<int>();
             List<int> ImageIndices = new List<int>();
@@ -515,6 +516,11 @@ namespace PerfectPidgeonGameMechanic
                 this._Enemies.Add(this._EnemyPool[0]);
                 this._EnemyPool.RemoveAt(0);
             }
+        }
+        public void KeyPressed(Keys Key)
+        {
+            if (Key == Keys.A) this._CurrentPlayer.GunRotation++;
+            else if (Key == Keys.D) this._CurrentPlayer.GunRotation--;
         }
     }
 }

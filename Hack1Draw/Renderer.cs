@@ -305,6 +305,8 @@ namespace PerfectPidgeon.Draw
             GL.Translate(_GLD.Width / 2, _GLD.Height / 2, 0);
             GL.Rotate(this._Controls.MouseAngle + this._Data.Players[0].AngleOffsetIndex, 0, 0, -1);
             DrawImage(-this._ArtData.SpriteSets[0].Images[this._Data.Players[0].ImageIndex].Width / 4, -this._ArtData.SpriteSets[0].Images[this._Data.Players[0].ImageIndex].Height / 4, this._ArtData.SpriteSets[0].Images[this._Data.Players[0].ImageIndex].Width / 2, this._ArtData.SpriteSets[0].Images[this._Data.Players[0].ImageIndex].Height / 2, this._ArtData.SpriteSets[0].Images[this._Data.Players[0].ImageIndex]);
+            GL.Rotate(-this._Data.Players[0].Other, 0, 0, -1);
+            DrawImage(-this._ArtData.SpriteSets[1].Images[4].Width / 4, -this._ArtData.SpriteSets[1].Images[4].Height / 4, this._ArtData.SpriteSets[1].Images[4].Width / 2, this._ArtData.SpriteSets[1].Images[4].Height / 2, this._ArtData.SpriteSets[1].Images[4]);
             DrawImage(-this._ArtData.SpriteSets[1].Images[this._Data.Players[0].ArtIndex].Width / 4, -this._ArtData.SpriteSets[1].Images[this._Data.Players[0].ArtIndex].Height / 4, this._ArtData.SpriteSets[1].Images[this._Data.Players[0].ArtIndex].Width / 2, this._ArtData.SpriteSets[1].Images[this._Data.Players[0].ArtIndex].Height / 2, this._ArtData.SpriteSets[1].Images[this._Data.Players[0].ArtIndex]);
             GL.LoadIdentity();
 
