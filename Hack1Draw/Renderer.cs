@@ -138,6 +138,24 @@ namespace PerfectPidgeon.Draw
                 DrawImageNTexture(-XOffset - _ArtData.Back.Width, -YOffset + _ArtData.Back.Height, _ArtData.Back.Width, _ArtData.Back.Height);
             }
 
+            /*if (this._ArtData.BackType == 2)
+            {
+                int XOffset = this._Data.Players[this._Data.CurrentPlayer].Location.X;
+                int YOffset = this._Data.Players[this._Data.CurrentPlayer].Location.Y;
+                XOffset %= _ArtData.Clouds.Width;
+                YOffset %= _ArtData.Clouds.Height;
+
+                DrawImage(-XOffset, -YOffset, _ArtData.Clouds.Width, _ArtData.Clouds.Height, _ArtData.Clouds);
+                DrawImageNTexture(-XOffset + _ArtData.Clouds.Width, -YOffset, _ArtData.Clouds.Width, _ArtData.Clouds.Height);
+                DrawImageNTexture(-XOffset - _ArtData.Clouds.Width, -YOffset, _ArtData.Clouds.Width, _ArtData.Clouds.Height);
+                DrawImageNTexture(-XOffset, -YOffset - _ArtData.Clouds.Height, _ArtData.Clouds.Width, _ArtData.Clouds.Height);
+                DrawImageNTexture(-XOffset + _ArtData.Clouds.Width, -YOffset - _ArtData.Clouds.Height, _ArtData.Clouds.Width, _ArtData.Clouds.Height);
+                DrawImageNTexture(-XOffset - _ArtData.Clouds.Width, -YOffset - _ArtData.Clouds.Height, _ArtData.Clouds.Width, _ArtData.Clouds.Height);
+                DrawImageNTexture(-XOffset, -YOffset + _ArtData.Clouds.Height, _ArtData.Clouds.Width, _ArtData.Clouds.Height);
+                DrawImageNTexture(-XOffset + _ArtData.Clouds.Width, -YOffset + _ArtData.Clouds.Height, _ArtData.Clouds.Width, _ArtData.Clouds.Height);
+                DrawImageNTexture(-XOffset - _ArtData.Clouds.Width, -YOffset + _ArtData.Clouds.Height, _ArtData.Clouds.Width, _ArtData.Clouds.Height);
+            }*/
+
             try
             {
                 GL.Color3(Color.Black);
@@ -196,6 +214,12 @@ namespace PerfectPidgeon.Draw
                                 DrawImage((int)(-this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Width / 4), (int)(-this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Height / 4), (int)(this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Width * 1) / 2, (int)(this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Height * 1) / 2, this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0]);
                             }
                             else if (this._Data.Projectiles[i].ArtIndex == 14)
+                            {
+                                GL.Color3(this._ArtData.Environment);
+                                //GL.Color3(Color.FromArgb(100, 100, 100));
+                                DrawImage((int)(-this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Width / 4), (int)(-this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Height / 4), (int)(this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Width * 1) / 2, (int)(this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Height * 1) / 2, this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0]);
+                            }
+                            else if (this._Data.Projectiles[i].ArtIndex == 16)
                             {
                                 GL.Color3(this._ArtData.Environment);
                                 //GL.Color3(Color.FromArgb(100, 100, 100));

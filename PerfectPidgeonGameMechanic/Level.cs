@@ -9,6 +9,7 @@ namespace PerfectPidgeonGameMechanic
     public class Level
     {
         private int _MaxSpawns;
+        private int _FinishCondition;
         private int _Accessory;
         private string _Title;
         private string _Next;
@@ -24,6 +25,18 @@ namespace PerfectPidgeonGameMechanic
             set
             {
                 _MaxSpawns = value;
+            }
+        }
+        public int FinishCondition
+        {
+            get
+            {
+                return _FinishCondition;
+            }
+
+            set
+            {
+                _FinishCondition = value;
             }
         }
         public int Accessory
@@ -89,6 +102,7 @@ namespace PerfectPidgeonGameMechanic
         public Level()
         {
             this._MaxSpawns = 10;
+            this._FinishCondition = 0;
             this._Accessory = 0;
             this._Title = "TST";
             this._Next = "";

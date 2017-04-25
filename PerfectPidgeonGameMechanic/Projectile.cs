@@ -17,7 +17,8 @@ namespace PerfectPidgeonGameMechanic
         AlienMineField,
         AlienField,
         AlienBeamer,
-        AlienMothershipLaser
+        AlienMothershipLaser,
+        ElvenArrow
     }
     public class Projectile : Object
     {

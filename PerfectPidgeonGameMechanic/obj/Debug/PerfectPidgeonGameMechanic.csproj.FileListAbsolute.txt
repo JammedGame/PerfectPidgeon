@@ -36,3 +36,6 @@ C:\Users\DeinVenteD\Projects\ShadySolutions\PerfectPidgeon\PerfectPidgeonGameMec
 C:\Users\DeinVenteD\Projects\ShadySolutions\PerfectPidgeon\PerfectPidgeonGameMechanic\obj\Debug\PerfectPidgeonGameMechanic.csproj.GenerateResource.Cache
 C:\Users\DeinVenteD\Projects\ShadySolutions\PerfectPidgeon\PerfectPidgeonGameMechanic\bin\Debug\PerfectPidgeon.Draw.dll
 C:\Users\DeinVenteD\Projects\ShadySolutions\PerfectPidgeon\PerfectPidgeonGameMechanic\bin\Debug\PerfectPidgeon.Draw.pdb
+C:\Users\DeinVenteD\Projects\ShadySolutions\PerfectPidgeon\PerfectPidgeonGameMechanic\bin\Debug\PerfectPidgeonGameMechanic.exe.config
+C:\Users\DeinVenteD\Projects\ShadySolutions\PerfectPidgeon\PerfectPidgeonGameMechanic\bin\Debug\OpenTK.xml
+C:\Users\DeinVenteD\Projects\ShadySolutions\PerfectPidgeon\PerfectPidgeonGameMechanic\bin\Debug\OpenTK.GLControl.xml

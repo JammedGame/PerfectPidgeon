@@ -62,7 +62,7 @@ namespace PerfectPidgeonGameMechanic
             DForm.MouseUpP += new MouseEventHandler(this.MouseEvent_Up);
             DForm.MouseDownP += new MouseEventHandler(this.MouseEvent_Down);
             this._DataPool = new BaseDataPool();
-            StartLevel(this._DataPool.Levels["LVL01"]);
+            StartLevel(this._DataPool.Levels["LVL11"]);
             Time = new System.Timers.Timer(10);
             Time.Elapsed += new System.Timers.ElapsedEventHandler(TimerEvent_Tick);
             Time.Start();
@@ -81,7 +81,7 @@ namespace PerfectPidgeonGameMechanic
             else if (CLevel.Back.Type == LevelData.BackgroundType.Tiled)
             {
                 DForm.ArtData.BackType = 2;
-                DForm.ArtData.Back = TiledBackgroundGenerator.Create(CLevel.Back.Path, 100, 40, 2);
+                DForm.ArtData.Back = TiledBackgroundGenerator.Create(CLevel.Back.Path, 20, 2, 1);
             }
 
             DForm.SetTitle(CLevel.Title);
@@ -420,7 +420,7 @@ namespace PerfectPidgeonGameMechanic
 
                 }
             }
-            if (Enemies.Count == 0 && _EnemyPool.Count == 0)
+            if (Enemies.Count + _EnemyPool.Count <= this._CurrentLevel.FinishCondition)
             {
                 CurrentTick = true;
                 CurrentPlayer.Location = new Vertex();
