@@ -63,8 +63,9 @@ namespace PerfectPidgeonGameMechanic
             DForm.MouseUpP += new MouseEventHandler(this.MouseEvent_Up);
             DForm.MouseDownP += new MouseEventHandler(this.MouseEvent_Down);
             DForm.KeyPressed += new DrawForm.KeyPressedDelegate(this.KeyPressed);
+            DForm.LeftRotate += new DrawForm.AxisRotate(this.LeftRotate);
             this._DataPool = new BaseDataPool();
-            StartLevel(this._DataPool.Levels["LVL01"]);
+            StartLevel(this._DataPool.Levels["LVL09"]);
             Time = new System.Timers.Timer(10);
             Time.Elapsed += new System.Timers.ElapsedEventHandler(TimerEvent_Tick);
             Time.Start();
@@ -428,6 +429,7 @@ namespace PerfectPidgeonGameMechanic
             if (Enemies.Count + _EnemyPool.Count <= this._CurrentLevel.FinishCondition)
             {
                 CurrentTick = true;
+                CurrentPlayer.Health = CurrentPlayer.MaxHealth;
                 CurrentPlayer.Location = new Vertex();
                 if(this._CurrentLevel.Next != "") StartLevel(this._DataPool.Levels[this._CurrentLevel.Next]);
                 else StartLevel(this._CurrentLevel);
@@ -529,6 +531,10 @@ namespace PerfectPidgeonGameMechanic
             else if (Key == Keys.D2) this._CurrentPlayer.SelectWeapon(1);
             else if (Key == Keys.D3) this._CurrentPlayer.SelectWeapon(2);
             else if (Key == Keys.D4) this._CurrentPlayer.SelectWeapon(3);
+        }
+        private void LeftRotate(double Angle)
+        {
+            this._CurrentPlayer.GunRotation = Angle + 180 - this._CurrentPlayer.Facing;
         }
     }
 }
