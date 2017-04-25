@@ -291,15 +291,21 @@ namespace PerfectPidgeonGameMechanic.Content
         }
         private void InitEnemies()
         {
+            //Aliens
+
+            Enemy E;
+            Behaviour B;
+            Weapon W;
+
             this._Enemies = new Dictionary<string, Enemy>();
-            Enemy E = new Enemy();
+            E = new Enemy();
             E.ArtIndex = 2;
             E.Facing = 0;
             E.Health = 100;
             E.MaxHealth = 100;
             E.Speed = 3;
             E.Owner = 1;
-            Behaviour B = new Behaviour();
+            B = new Behaviour();
             E.Behave = B;
             E.Guns.Add(new Weapon(this._Weapons["AlienBasic"]));
             this._Enemies.Add("AlienBasic", E);
@@ -350,6 +356,28 @@ namespace PerfectPidgeonGameMechanic.Content
             E.Behave = B;
             E.Guns.Add(new Weapon(this._Weapons["AlienMine"]));
             this._Enemies.Add("AlienMiner", E);
+            //BOSS
+            E = new Enemy();
+            E.ArtIndex = 8;
+            E.Facing = 0;
+            E.Health = 5000;
+            E.MaxHealth = 5000;
+            E.Scale = 2.5;
+            E.Speed = 5;
+            E.Owner = 1;
+            E.HitRadius = 140;
+            B = new Behaviour();
+            E.Behave = B;
+            W = new Weapon(this._Weapons["AlienBeamer"]);
+            W.Location = new Vertex(500, 0);
+            E.Guns.Add(new Weapon(W));
+            W = new Weapon(this._Weapons["AlienSpeeder"]);
+            W.Location = new Vertex(50, 0);
+            E.Guns.Add(new Weapon(W));
+            this._Enemies.Add("AlienMothership", E);
+
+            //Elves
+
             E = new Enemy();
             E.ArtIndex = 7;
             E.Facing = 0;
@@ -369,15 +397,15 @@ namespace PerfectPidgeonGameMechanic.Content
 
             //Tests
             Level L = new Level();
-            L.Back = new Background("Data\\Town1", BackgroundType.Tiled);
+            L.Back = new Background("Data\\Town1", BackgroundType.Tiled, 2);
             L.Enemies.Add(new Enemy(this._Enemies["AlienBasic"]));
             this._Levels.Add("AlienBasic-Test", L);
             L = new Level();
-            L.Back = new Background("Data\\Town1", BackgroundType.Tiled);
+            L.Back = new Background("Data\\Town1", BackgroundType.Tiled, 2);
             L.Enemies.Add(new Enemy(this._Enemies["AlienCaptain"]));
             this._Levels.Add("AlienCaptain-Test", L);
             L = new Level();
-            L.Back = new Background("Data\\Town1", BackgroundType.Tiled);
+            L.Back = new Background("Data\\Town1", BackgroundType.Tiled, 2);
             L.Enemies.Add(new Enemy(this._Enemies["AlienSpeeder"]));
             this._Levels.Add("AlienSpeeder-Test", L);
             L = new Level();
@@ -385,15 +413,15 @@ namespace PerfectPidgeonGameMechanic.Content
             L.Enemies.Add(new Enemy(this._Enemies["AlienBeamer"]));
             this._Levels.Add("AlienBeamer-Test", L);
             L = new Level();
-            L.Back = new Background("Data\\Town1", BackgroundType.Tiled);
+            L.Back = new Background("Data\\Town1", BackgroundType.Tiled, 2);
             L.Enemies.Add(new Enemy(this._Enemies["AlienMiner"]));
             this._Levels.Add("AlienMiner-Test", L);
             L = new Level();
-            L.Back = new Background("Data\\Town1", BackgroundType.Tiled);
+            L.Back = new Background("Data\\Town1", BackgroundType.Tiled, 2);
             L.Enemies.Add(new Enemy(this._Enemies["ElvenArcher"]));
             this._Levels.Add("ElvenArcher-Test", L);
             L = new Level();
-            L.Back = new Background("Data\\Town1", BackgroundType.Tiled);
+            L.Back = new Background("Data\\Town1", BackgroundType.Tiled, 2);
             L.Enemies.Add(new Enemy(this._Enemies["AlienBasic"]));
             L.Enemies.Add(new Enemy(this._Enemies["AlienCaptain"]));
             L.Enemies.Add(new Enemy(this._Enemies["AlienSpeeder"]));
@@ -406,15 +434,15 @@ namespace PerfectPidgeonGameMechanic.Content
             L.FinishCondition = 5;
             L.Title = "1-1";
             L.Next = "LVL02";
-            L.Back = new Background("Data\\Town1", BackgroundType.Tiled);
-            for(int i = 0; i < 20; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienBasic"]));
+            L.Back = new Background("Data\\Town1", BackgroundType.Tiled, 2);
+            for (int i = 0; i < 20; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienBasic"]));
             this._Levels.Add("LVL01", L);
             L = new Level();
             L.MaxSpawns = 12;
             L.FinishCondition = 6;
             L.Title = "1-2";
             L.Next = "LVL03";
-            L.Back = new Background("Data\\Town1", BackgroundType.Tiled);
+            L.Back = new Background("Data\\Town1", BackgroundType.Tiled, 2);
             for (int i = 0; i < 5; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienBasic"]));
             for (int i = 0; i < 1; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienCaptain"]));
             for (int i = 0; i < 5; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienBasic"]));
@@ -429,7 +457,7 @@ namespace PerfectPidgeonGameMechanic.Content
             L.FinishCondition = 7;
             L.Title = "1-3";
             L.Next = "LVL04";
-            L.Back = new Background("Data\\Town1", BackgroundType.Tiled);
+            L.Back = new Background("Data\\Town1", BackgroundType.Tiled, 2);
             for (int i = 0; i < 6; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienBasic"]));
             for (int i = 0; i < 1; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienCaptain"]));
             for (int i = 0; i < 6; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienBasic"]));
@@ -446,7 +474,7 @@ namespace PerfectPidgeonGameMechanic.Content
             L.FinishCondition = 8;
             L.Title = "1-4";
             L.Next = "LVL05";
-            L.Back = new Background("Data\\Town1", BackgroundType.Tiled);
+            L.Back = new Background("Data\\Town1", BackgroundType.Tiled, 2);
             for (int i = 0; i < 4; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienBasic"]));
             for (int i = 0; i < 2; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienCaptain"]));
             for (int i = 0; i < 1; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienSpeeder"]));
@@ -465,7 +493,7 @@ namespace PerfectPidgeonGameMechanic.Content
             L.FinishCondition = 9;
             L.Title = "1-5";
             L.Next = "LVL06";
-            L.Back = new Background("Data\\Town1", BackgroundType.Tiled);
+            L.Back = new Background("Data\\Town1", BackgroundType.Tiled, 2);
             for (int i = 0; i < 4; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienBasic"]));
             for (int i = 0; i < 3; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienCaptain"]));
             for (int i = 0; i < 2; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienSpeeder"]));
@@ -484,7 +512,7 @@ namespace PerfectPidgeonGameMechanic.Content
             L.FinishCondition = 10;
             L.Title = "1-6";
             L.Next = "LVL07";
-            L.Back = new Background("Data\\Town1", BackgroundType.Tiled);
+            L.Back = new Background("Data\\Town1", BackgroundType.Tiled, 2);
             for (int i = 0; i < 4; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienBasic"]));
             for (int i = 0; i < 4; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienCaptain"]));
             for (int i = 0; i < 2; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienSpeeder"]));
@@ -546,7 +574,7 @@ namespace PerfectPidgeonGameMechanic.Content
             L.MaxSpawns = 25;
             L.FinishCondition = 15;
             L.Title = "1-9";
-            L.Next = "";
+            L.Next = "LVL11";
             L.Back = new Background("Earth", BackgroundType.Static);
             for (int i = 0; i < 8; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienCaptain"]));
             for (int i = 0; i < 5; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienSpeeder"]));
@@ -566,8 +594,21 @@ namespace PerfectPidgeonGameMechanic.Content
             for (int i = 0; i < 2; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienBeamer"]));
             this._Levels.Add("LVL09", L);
             L = new Level();
+            L.MaxSpawns = 4;
+            L.FinishCondition = 0;
+            L.Title = "1-X";
+            L.Next = "LVL11";
+            L.Back = new Background("Earth", BackgroundType.Static);
+            L.Enemies.Add(new Enemy(this._Enemies["AlienMothership"]));
+            for (int i = 0; i < 20; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienCaptain"]));
+            this._Levels.Add("LVL10", L);
+            L = new Level();
+            L.MaxSpawns = 20;
+            L.FinishCondition = 15;
+            L.Title = "2-1";
+            L.Next = "";
             L.Back = new Background("Data\\Town2", BackgroundType.Tiled);
-            L.Enemies.Add(new Enemy(this._Enemies["ElvenArcher"]));
+            for (int i = 0; i < 30; i++) L.Enemies.Add(new Enemy(this._Enemies["ElvenArcher"]));
             this._Levels.Add("LVL11", L);
         }
     }

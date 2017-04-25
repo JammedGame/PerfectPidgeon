@@ -13,6 +13,7 @@ namespace PerfectPidgeonGameMechanic
     public class Game
     {
         private long TimeStamp = 0;
+        private long Sanctuary = 1000;
         private bool PlayerOnMove = false;
         private bool PlayerOnFire = false;
         private DrawForm DForm;
@@ -62,13 +63,14 @@ namespace PerfectPidgeonGameMechanic
             DForm.MouseUpP += new MouseEventHandler(this.MouseEvent_Up);
             DForm.MouseDownP += new MouseEventHandler(this.MouseEvent_Down);
             this._DataPool = new BaseDataPool();
-            StartLevel(this._DataPool.Levels["LVL01"]);
+            StartLevel(this._DataPool.Levels["LVL10"]);
             Time = new System.Timers.Timer(10);
             Time.Elapsed += new System.Timers.ElapsedEventHandler(TimerEvent_Tick);
             Time.Start();
         }
         public void StartLevel(Level CLevel)
         {
+            this.Sanctuary = 100;
             this._CurrentLevel = CLevel;
             if (CLevel.Back.Type == LevelData.BackgroundType.Static)
             {
@@ -81,7 +83,7 @@ namespace PerfectPidgeonGameMechanic
             else if (CLevel.Back.Type == LevelData.BackgroundType.Tiled)
             {
                 DForm.ArtData.BackType = 2;
-                DForm.ArtData.Back = TiledBackgroundGenerator.Create(CLevel.Back.Path, 20, 2, CLevel.Back.Other);
+                DForm.ArtData.Back = TiledBackgroundGenerator.Create(CLevel.Back.Path, CLevel.Back.Other * 20, 2, CLevel.Back.Other);
             }
 
             DForm.SetTitle(CLevel.Title);
@@ -109,6 +111,7 @@ namespace PerfectPidgeonGameMechanic
         public void TimerEvent_Tick(object sender, System.Timers.ElapsedEventArgs e)
         {
             TimeStamp++;
+            if (Sanctuary != 0) Sanctuary--;
             if (CurrentTick) return;
             CurrentTick = true;
             RefreshGame();
@@ -155,6 +158,7 @@ namespace PerfectPidgeonGameMechanic
             }
             for (int i = 0; i < Enemies.Count; i++)
             {
+                if (Sanctuary > 0) break;
                 if (Enemies[i].Location == null) continue;
                 if (Vertex.Distance(Enemies[i].Location, CurrentPlayer.Location) < Enemies[i].Behave.Sight)
                 {
@@ -503,10 +507,10 @@ namespace PerfectPidgeonGameMechanic
             {
                 long X = Rand.Next(-1500, +1500);
                 if (X != 0) X += (X / Math.Abs(X)) * 300;
-                else X = 300;
+                else X = 600;
                 long Y = Rand.Next(-1500, +1500);
                 if (Y != 0) Y += (Y / Math.Abs(X)) * 300;
-                else Y = 300;
+                else Y = 600;
                 this._EnemyPool[0].Location = this._CurrentPlayer.Location + new Vertex (X, Y);
                 this._Enemies.Add(this._EnemyPool[0]);
                 this._EnemyPool.RemoveAt(0);
