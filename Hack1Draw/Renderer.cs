@@ -15,6 +15,8 @@ namespace PerfectPidgeon.Draw
         private bool _InDraw;
         private bool _GLLoaded;
         private int _TexturePointer;
+        private double _Aspect;
+        private Bitmap _CurrentTexture;
         private ArtData _ArtData;
         private GameData _Data;
         private Controls _Controls;
@@ -42,7 +44,7 @@ namespace PerfectPidgeon.Draw
         private void DrawImage(int X, int Y, int XSize, int YSize, Bitmap ToDraw)
         {
             if (ToDraw == null) return;
-            SetTexture(ref ToDraw);
+            if (ToDraw != _CurrentTexture) SetTexture(ref ToDraw);
             GL.Begin(BeginMode.Polygon);
             GL.TexCoord2(0f, 0f); GL.Vertex2(X, Y);
             GL.TexCoord2(0f, 1f); GL.Vertex2(X, Y + YSize);
@@ -50,14 +52,11 @@ namespace PerfectPidgeon.Draw
             GL.TexCoord2(1f, 0f); GL.Vertex2(X + XSize, Y);
             GL.End();
         }
-        private void DrawImageNTexture(int X, int Y, int XSize, int YSize)
+        private void DrawImageCentered(int XSize, int YSize, Bitmap ToDraw)
         {
-            GL.Begin(BeginMode.Polygon);
-            GL.TexCoord2(0f, 0f); GL.Vertex2(X, Y);
-            GL.TexCoord2(0f, 1f); GL.Vertex2(X, Y + YSize);
-            GL.TexCoord2(1f, 1f); GL.Vertex2(X + XSize, Y + YSize);
-            GL.TexCoord2(1f, 0f); GL.Vertex2(X + XSize, Y);
-            GL.End();
+            int X = (int)(-XSize / 2.0);
+            int Y = (int)(-YSize / 2.0);
+            DrawImage(X, Y, XSize, YSize, ToDraw);
         }
         private void SetTexture(ref Bitmap NewTexture)
         {
@@ -86,6 +85,7 @@ namespace PerfectPidgeon.Draw
             GL.MatrixMode(MatrixMode.Projection);
             GL.LoadIdentity();
             GL.Ortho(0, _GLD.Width, _GLD.Height, 0, -1, 1);
+            this._Aspect = _GLD.Height / 1080.0;
         }
         public void Draw()
         {
@@ -111,14 +111,14 @@ namespace PerfectPidgeon.Draw
                 
 
                 DrawImage(-XOffset, -YOffset, _GLD.Width, _GLD.Height, this._ArtData.Back);
-                DrawImageNTexture(-XOffset + _GLD.Width,    -YOffset,               _GLD.Width, _GLD.Height);
-                DrawImageNTexture(-XOffset - _GLD.Width,    -YOffset,               _GLD.Width, _GLD.Height);
-                DrawImageNTexture(-XOffset,                 -YOffset - _GLD.Height, _GLD.Width, _GLD.Height);
-                DrawImageNTexture(-XOffset + _GLD.Width,    -YOffset - _GLD.Height, _GLD.Width, _GLD.Height);
-                DrawImageNTexture(-XOffset - _GLD.Width,    -YOffset - _GLD.Height, _GLD.Width, _GLD.Height);
-                DrawImageNTexture(-XOffset,                 -YOffset + _GLD.Height, _GLD.Width, _GLD.Height);
-                DrawImageNTexture(-XOffset + _GLD.Width,    -YOffset + _GLD.Height, _GLD.Width, _GLD.Height);
-                DrawImageNTexture(-XOffset - _GLD.Width,    -YOffset + _GLD.Height, _GLD.Width, _GLD.Height);
+                DrawImage(-XOffset + _GLD.Width,    -YOffset,               _GLD.Width, _GLD.Height, this._ArtData.Back);
+                DrawImage(-XOffset - _GLD.Width,    -YOffset,               _GLD.Width, _GLD.Height, this._ArtData.Back);
+                DrawImage(-XOffset,                 -YOffset - _GLD.Height, _GLD.Width, _GLD.Height, this._ArtData.Back);
+                DrawImage(-XOffset + _GLD.Width,    -YOffset - _GLD.Height, _GLD.Width, _GLD.Height, this._ArtData.Back);
+                DrawImage(-XOffset - _GLD.Width,    -YOffset - _GLD.Height, _GLD.Width, _GLD.Height, this._ArtData.Back);
+                DrawImage(-XOffset,                 -YOffset + _GLD.Height, _GLD.Width, _GLD.Height, this._ArtData.Back);
+                DrawImage(-XOffset + _GLD.Width,    -YOffset + _GLD.Height, _GLD.Width, _GLD.Height, this._ArtData.Back);
+                DrawImage(-XOffset - _GLD.Width,    -YOffset + _GLD.Height, _GLD.Width, _GLD.Height, this._ArtData.Back);
             }
             else if (this._ArtData.BackType == 2)
             {
@@ -128,33 +128,15 @@ namespace PerfectPidgeon.Draw
                 YOffset %= _ArtData.Back.Height;
 
                 DrawImage(-XOffset, -YOffset, _ArtData.Back.Width, _ArtData.Back.Height, _ArtData.Back);
-                DrawImageNTexture(-XOffset + _ArtData.Back.Width, -YOffset, _ArtData.Back.Width, _ArtData.Back.Height);
-                DrawImageNTexture(-XOffset - _ArtData.Back.Width, -YOffset, _ArtData.Back.Width, _ArtData.Back.Height);
-                DrawImageNTexture(-XOffset, -YOffset - _ArtData.Back.Height, _ArtData.Back.Width, _ArtData.Back.Height);
-                DrawImageNTexture(-XOffset + _ArtData.Back.Width, -YOffset - _ArtData.Back.Height, _ArtData.Back.Width, _ArtData.Back.Height);
-                DrawImageNTexture(-XOffset - _ArtData.Back.Width, -YOffset - _ArtData.Back.Height, _ArtData.Back.Width, _ArtData.Back.Height);
-                DrawImageNTexture(-XOffset, -YOffset + _ArtData.Back.Height, _ArtData.Back.Width, _ArtData.Back.Height);
-                DrawImageNTexture(-XOffset + _ArtData.Back.Width, -YOffset + _ArtData.Back.Height, _ArtData.Back.Width, _ArtData.Back.Height);
-                DrawImageNTexture(-XOffset - _ArtData.Back.Width, -YOffset + _ArtData.Back.Height, _ArtData.Back.Width, _ArtData.Back.Height);
+                DrawImage(-XOffset + _ArtData.Back.Width, -YOffset, _ArtData.Back.Width, _ArtData.Back.Height, this._ArtData.Back);
+                DrawImage(-XOffset - _ArtData.Back.Width, -YOffset, _ArtData.Back.Width, _ArtData.Back.Height, this._ArtData.Back);
+                DrawImage(-XOffset, -YOffset - _ArtData.Back.Height, _ArtData.Back.Width, _ArtData.Back.Height, this._ArtData.Back);
+                DrawImage(-XOffset + _ArtData.Back.Width, -YOffset - _ArtData.Back.Height, _ArtData.Back.Width, _ArtData.Back.Height, this._ArtData.Back);
+                DrawImage(-XOffset - _ArtData.Back.Width, -YOffset - _ArtData.Back.Height, _ArtData.Back.Width, _ArtData.Back.Height, this._ArtData.Back);
+                DrawImage(-XOffset, -YOffset + _ArtData.Back.Height, _ArtData.Back.Width, _ArtData.Back.Height, this._ArtData.Back);
+                DrawImage(-XOffset + _ArtData.Back.Width, -YOffset + _ArtData.Back.Height, _ArtData.Back.Width, _ArtData.Back.Height, this._ArtData.Back);
+                DrawImage(-XOffset - _ArtData.Back.Width, -YOffset + _ArtData.Back.Height, _ArtData.Back.Width, _ArtData.Back.Height, this._ArtData.Back);
             }
-
-            /*if (this._ArtData.BackType == 2)
-            {
-                int XOffset = this._Data.Players[this._Data.CurrentPlayer].Location.X;
-                int YOffset = this._Data.Players[this._Data.CurrentPlayer].Location.Y;
-                XOffset %= _ArtData.Clouds.Width;
-                YOffset %= _ArtData.Clouds.Height;
-
-                DrawImage(-XOffset, -YOffset, _ArtData.Clouds.Width, _ArtData.Clouds.Height, _ArtData.Clouds);
-                DrawImageNTexture(-XOffset + _ArtData.Clouds.Width, -YOffset, _ArtData.Clouds.Width, _ArtData.Clouds.Height);
-                DrawImageNTexture(-XOffset - _ArtData.Clouds.Width, -YOffset, _ArtData.Clouds.Width, _ArtData.Clouds.Height);
-                DrawImageNTexture(-XOffset, -YOffset - _ArtData.Clouds.Height, _ArtData.Clouds.Width, _ArtData.Clouds.Height);
-                DrawImageNTexture(-XOffset + _ArtData.Clouds.Width, -YOffset - _ArtData.Clouds.Height, _ArtData.Clouds.Width, _ArtData.Clouds.Height);
-                DrawImageNTexture(-XOffset - _ArtData.Clouds.Width, -YOffset - _ArtData.Clouds.Height, _ArtData.Clouds.Width, _ArtData.Clouds.Height);
-                DrawImageNTexture(-XOffset, -YOffset + _ArtData.Clouds.Height, _ArtData.Clouds.Width, _ArtData.Clouds.Height);
-                DrawImageNTexture(-XOffset + _ArtData.Clouds.Width, -YOffset + _ArtData.Clouds.Height, _ArtData.Clouds.Width, _ArtData.Clouds.Height);
-                DrawImageNTexture(-XOffset - _ArtData.Clouds.Width, -YOffset + _ArtData.Clouds.Height, _ArtData.Clouds.Width, _ArtData.Clouds.Height);
-            }*/
 
             try
             {
@@ -165,11 +147,11 @@ namespace PerfectPidgeon.Draw
                     {
                         if (this._Data.Projectiles[i].Location.Y - this._Data.Players[this._Data.CurrentPlayer].Location.Y < _GLD.Height * 1.5)
                         {
-                            GL.Translate(this._Data.Projectiles[i].Location.X - this._Data.Players[this._Data.CurrentPlayer].Location.X, this._Data.Projectiles[i].Location.Y - this._Data.Players[this._Data.CurrentPlayer].Location.Y, 0);
+                            GL.Translate((this._Data.Projectiles[i].Location.X - this._Data.Players[this._Data.CurrentPlayer].Location.X)*_Aspect, (this._Data.Projectiles[i].Location.Y - this._Data.Players[this._Data.CurrentPlayer].Location.Y)*_Aspect, 0);
                             GL.Translate(_GLD.Width / 2, _GLD.Height / 2, 0);
                             GL.Rotate(-this._Data.Projectiles[i].Facing + 180, 0, 0, -1);
                             GL.Color3(this._Data.Projectiles[i].Paint);
-                            DrawImage((int)(-this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Width * this._Data.Projectiles[i].Size / 4), (int)(-this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Height * this._Data.Projectiles[i].Size / 4), (int)(this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Width * this._Data.Projectiles[i].Size * 1) / 2, (int)(this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Height * this._Data.Projectiles[i].Size * 1) / 2, this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0]);
+                            DrawImageCentered((int)(this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Width * this._Data.Projectiles[i].Size * _Aspect) / 2, (int)(this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0].Height * this._Data.Projectiles[i].Size * _Aspect) / 2, this._ArtData.Bullets[this._Data.Projectiles[i].ArtIndex].Images[0]);
                             GL.LoadIdentity();
                         }
                     }
@@ -186,17 +168,17 @@ namespace PerfectPidgeon.Draw
                     {
                         if (this._Data.Effects[i].Location.Y - this._Data.Players[this._Data.CurrentPlayer].Location.Y < _GLD.Height * 1.5)
                         {
-                            GL.Translate(this._Data.Effects[i].Location.X - this._Data.Players[this._Data.CurrentPlayer].Location.X, this._Data.Effects[i].Location.Y - this._Data.Players[this._Data.CurrentPlayer].Location.Y, 0);
+                            GL.Translate((this._Data.Effects[i].Location.X - this._Data.Players[this._Data.CurrentPlayer].Location.X) * _Aspect, (this._Data.Effects[i].Location.Y - this._Data.Players[this._Data.CurrentPlayer].Location.Y) * _Aspect, 0);
                             GL.Translate(_GLD.Width / 2, _GLD.Height / 2, 0);
 
                             if (this._Data.Effects[i].ArtIndex == 0)
                             {
-                                DrawImage(-this._ArtData.EffectArt[this._Data.Effects[i].ArtIndex].Width / 8, -this._ArtData.EffectArt[this._Data.Effects[i].ArtIndex].Height / 8, this._ArtData.EffectArt[this._Data.Effects[i].ArtIndex].Width / 4, this._ArtData.EffectArt[this._Data.Effects[i].ArtIndex].Height / 4, this._ArtData.EffectArt[this._Data.Effects[i].ArtIndex]);
+                                DrawImageCentered((int)(this._ArtData.EffectArt[this._Data.Effects[i].ArtIndex].Width*_Aspect) / 4, (int)(this._ArtData.EffectArt[this._Data.Effects[i].ArtIndex].Height*_Aspect) / 4, this._ArtData.EffectArt[this._Data.Effects[i].ArtIndex]);
                             }
                             else if (this._Data.Effects[i].ArtIndex == 1)
                             {
                                 GL.Color3(this._ArtData.Environment);
-                                DrawImage(-this._ArtData.EffectArt[this._Data.Effects[i].ArtIndex].Width / 4, -this._ArtData.EffectArt[this._Data.Effects[i].ArtIndex].Height / 4, this._ArtData.EffectArt[this._Data.Effects[i].ArtIndex].Width / 2, this._ArtData.EffectArt[this._Data.Effects[i].ArtIndex].Height / 2, this._ArtData.EffectArt[this._Data.Effects[i].ArtIndex]);
+                                DrawImageCentered((int)(this._ArtData.EffectArt[this._Data.Effects[i].ArtIndex].Width*_Aspect) / 2, (int)(this._ArtData.EffectArt[this._Data.Effects[i].ArtIndex].Height*_Aspect) / 2, this._ArtData.EffectArt[this._Data.Effects[i].ArtIndex]);
                             }
 
                             GL.LoadIdentity();
@@ -215,10 +197,10 @@ namespace PerfectPidgeon.Draw
                     {
                         if (this._Data.NPCs[i].Location.Y - this._Data.Players[this._Data.CurrentPlayer].Location.Y < _GLD.Height * 1.5)
                         {
-                            GL.Translate(this._Data.NPCs[i].Location.X - this._Data.Players[this._Data.CurrentPlayer].Location.X, this._Data.NPCs[i].Location.Y - this._Data.Players[this._Data.CurrentPlayer].Location.Y, 0);
+                            GL.Translate((this._Data.NPCs[i].Location.X - this._Data.Players[this._Data.CurrentPlayer].Location.X) * _Aspect, (this._Data.NPCs[i].Location.Y - this._Data.Players[this._Data.CurrentPlayer].Location.Y)*_Aspect, 0);
                             GL.Translate(_GLD.Width / 2, _GLD.Height / 2, 0);
                             GL.Rotate(this._Data.NPCs[i].Facing, 0, 0, -1);
-                            DrawImage((int)(-this._ArtData.SpriteSets[this._Data.NPCs[i].ArtIndex].Images[this._Data.NPCs[i].ImageIndex].Width * this._Data.NPCs[i].Size / 4), (int)(-this._ArtData.SpriteSets[this._Data.NPCs[i].ArtIndex].Images[this._Data.NPCs[i].ImageIndex].Height * this._Data.NPCs[i].Size / 4), (int)(this._ArtData.SpriteSets[this._Data.NPCs[i].ArtIndex].Images[this._Data.NPCs[i].ImageIndex].Width * this._Data.NPCs[i].Size) / 2, (int)(this._ArtData.SpriteSets[this._Data.NPCs[i].ArtIndex].Images[this._Data.NPCs[i].ImageIndex].Height * this._Data.NPCs[i].Size) / 2, this._ArtData.SpriteSets[this._Data.NPCs[i].ArtIndex].Images[this._Data.NPCs[i].ImageIndex]);
+                            DrawImageCentered((int)(this._ArtData.SpriteSets[this._Data.NPCs[i].ArtIndex].Images[this._Data.NPCs[i].ImageIndex].Width * this._Data.NPCs[i].Size * _Aspect) / 2, (int)(this._ArtData.SpriteSets[this._Data.NPCs[i].ArtIndex].Images[this._Data.NPCs[i].ImageIndex].Height * this._Data.NPCs[i].Size * _Aspect) / 2, this._ArtData.SpriteSets[this._Data.NPCs[i].ArtIndex].Images[this._Data.NPCs[i].ImageIndex]);
                             GL.LoadIdentity();
                         }
                     }
@@ -234,10 +216,10 @@ namespace PerfectPidgeon.Draw
                     {
                         if (this._Data.PowerUps[i].Location.Y - this._Data.Players[this._Data.CurrentPlayer].Location.Y < _GLD.Height * 1.5)
                         {
-                            GL.Translate(this._Data.PowerUps[i].Location.X - this._Data.Players[this._Data.CurrentPlayer].Location.X, this._Data.PowerUps[i].Location.Y - this._Data.Players[this._Data.CurrentPlayer].Location.Y, 0);
+                            GL.Translate((this._Data.PowerUps[i].Location.X - this._Data.Players[this._Data.CurrentPlayer].Location.X)*_Aspect, (this._Data.PowerUps[i].Location.Y - this._Data.Players[this._Data.CurrentPlayer].Location.Y) *_Aspect, 0);
                             GL.Translate(_GLD.Width / 2, _GLD.Height / 2, 0);
                             GL.Rotate(this._Data.PowerUps[i].Facing, 0, 0, -1);
-                            DrawImage((int)(-this._ArtData.PowerUpArt[this._Data.PowerUps[i].ArtIndex].Width / 2), (int)(-this._ArtData.PowerUpArt[this._Data.PowerUps[i].ArtIndex].Height / 2), this._ArtData.PowerUpArt[this._Data.PowerUps[i].ArtIndex].Width, this._ArtData.PowerUpArt[this._Data.PowerUps[i].ArtIndex].Height, this._ArtData.PowerUpArt[this._Data.PowerUps[i].ArtIndex]);
+                            DrawImageCentered((int)(this._ArtData.PowerUpArt[this._Data.PowerUps[i].ArtIndex].Width * _Aspect), (int)(this._ArtData.PowerUpArt[this._Data.PowerUps[i].ArtIndex].Height*_Aspect), this._ArtData.PowerUpArt[this._Data.PowerUps[i].ArtIndex]);
                             GL.LoadIdentity();
                         }
                     }
@@ -249,10 +231,11 @@ namespace PerfectPidgeon.Draw
             GL.Color3(this._ArtData.Environment);
             GL.Translate(_GLD.Width / 2, _GLD.Height / 2, 0);
             GL.Rotate(this._Controls.MouseAngle + this._Data.Players[0].AngleOffsetIndex, 0, 0, -1);
-            DrawImage(-this._ArtData.SpriteSets[0].Images[this._Data.Players[0].ImageIndex].Width / 4, -this._ArtData.SpriteSets[0].Images[this._Data.Players[0].ImageIndex].Height / 4, this._ArtData.SpriteSets[0].Images[this._Data.Players[0].ImageIndex].Width / 2, this._ArtData.SpriteSets[0].Images[this._Data.Players[0].ImageIndex].Height / 2, this._ArtData.SpriteSets[0].Images[this._Data.Players[0].ImageIndex]);
+            DrawImageCentered((int)(this._ArtData.SpriteSets[0].Images[this._Data.Players[0].ImageIndex].Width * _Aspect) / 2, (int)(this._ArtData.SpriteSets[0].Images[this._Data.Players[0].ImageIndex].Height * _Aspect) / 2, this._ArtData.SpriteSets[0].Images[this._Data.Players[0].ImageIndex]);
             GL.Rotate(-this._Data.Players[0].Other, 0, 0, -1);
-            DrawImage(-this._ArtData.SpriteSets[1].Images[4].Width / 4, -this._ArtData.SpriteSets[1].Images[4].Height / 4, this._ArtData.SpriteSets[1].Images[4].Width / 2, this._ArtData.SpriteSets[1].Images[4].Height / 2, this._ArtData.SpriteSets[1].Images[4]);
-            DrawImage(-this._ArtData.SpriteSets[1].Images[this._Data.Players[0].ArtIndex].Width / 4, -this._ArtData.SpriteSets[1].Images[this._Data.Players[0].ArtIndex].Height / 4, this._ArtData.SpriteSets[1].Images[this._Data.Players[0].ArtIndex].Width / 2, this._ArtData.SpriteSets[1].Images[this._Data.Players[0].ArtIndex].Height / 2, this._ArtData.SpriteSets[1].Images[this._Data.Players[0].ArtIndex]);
+            DrawImageCentered((int)(this._ArtData.SpriteSets[1].Images[4].Width * _Aspect) / 2, (int)(this._ArtData.SpriteSets[1].Images[4].Height * _Aspect) / 2, this._ArtData.SpriteSets[1].Images[4]);
+            DrawImageCentered((int)(_ArtData.SpriteSets[1].Images[_Data.Players[0].ArtIndex].Height * _Aspect) / 2, (int)(_ArtData.SpriteSets[1].Images[_Data.Players[0].ArtIndex].Height * _Aspect) / 2, this._ArtData.SpriteSets[1].Images[this._Data.Players[0].ArtIndex]);
+            //DrawImage(-this._ArtData.SpriteSets[1].Images[this._Data.Players[0].ArtIndex].Width / 4, -this._ArtData.SpriteSets[1].Images[this._Data.Players[0].ArtIndex].Height / 4, this._ArtData.SpriteSets[1].Images[this._Data.Players[0].ArtIndex].Width / 2, this._ArtData.SpriteSets[1].Images[this._Data.Players[0].ArtIndex].Height / 2, this._ArtData.SpriteSets[1].Images[this._Data.Players[0].ArtIndex]);
             GL.LoadIdentity();
 
             GL.Disable(EnableCap.Texture2D);

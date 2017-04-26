@@ -202,7 +202,6 @@ namespace PerfectPidgeon.Draw
             if (this.WindowState == FormWindowState.Minimized || this.Height == 0 || this.Width == 0) return;
             HealthPanel.Size = new System.Drawing.Size(HealthIndex, HealthPanel.Height);
             WeaponLabel.Text = WeaponText;
-            EnemyLabel.Text = "Enemies Remaining: " + this.Data.NPCs.Count;
             LevelTitle.Text = Title;
             this._Renderer.Draw();
         }

@@ -34,7 +34,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.HealthPanel = new System.Windows.Forms.Panel();
             this.WeaponLabel = new System.Windows.Forms.Label();
-            this.EnemyLabel = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.LevelTitle = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
@@ -47,7 +46,7 @@
             this.GLD.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GLD.Location = new System.Drawing.Point(0, 0);
             this.GLD.Name = "GLD";
-            this.GLD.Size = new System.Drawing.Size(581, 347);
+            this.GLD.Size = new System.Drawing.Size(1366, 768);
             this.GLD.TabIndex = 0;
             this.GLD.VSync = false;
             this.GLD.Load += new System.EventHandler(this.GLDLoad);
@@ -66,7 +65,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.Black;
             this.panel1.Controls.Add(this.HealthPanel);
-            this.panel1.Location = new System.Drawing.Point(19, 71);
+            this.panel1.Location = new System.Drawing.Point(15, 18);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(200, 30);
             this.panel1.TabIndex = 1;
@@ -84,25 +83,13 @@
             // 
             this.WeaponLabel.AutoSize = true;
             this.WeaponLabel.BackColor = System.Drawing.Color.Transparent;
-            this.WeaponLabel.Font = new System.Drawing.Font("Consolas", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.WeaponLabel.Font = new System.Drawing.Font("Consolas", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.WeaponLabel.ForeColor = System.Drawing.Color.Black;
-            this.WeaponLabel.Location = new System.Drawing.Point(12, 11);
+            this.WeaponLabel.Location = new System.Drawing.Point(313, 20);
             this.WeaponLabel.Name = "WeaponLabel";
-            this.WeaponLabel.Size = new System.Drawing.Size(125, 37);
+            this.WeaponLabel.Size = new System.Drawing.Size(90, 28);
             this.WeaponLabel.TabIndex = 2;
             this.WeaponLabel.Text = "label1";
-            // 
-            // EnemyLabel
-            // 
-            this.EnemyLabel.AutoSize = true;
-            this.EnemyLabel.BackColor = System.Drawing.Color.Transparent;
-            this.EnemyLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.EnemyLabel.ForeColor = System.Drawing.Color.Black;
-            this.EnemyLabel.Location = new System.Drawing.Point(15, 48);
-            this.EnemyLabel.Name = "EnemyLabel";
-            this.EnemyLabel.Size = new System.Drawing.Size(88, 20);
-            this.EnemyLabel.TabIndex = 3;
-            this.EnemyLabel.Text = "Enemies: ";
             // 
             // panel2
             // 
@@ -110,22 +97,20 @@
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.LevelTitle);
             this.panel2.Controls.Add(this.panel1);
-            this.panel2.Controls.Add(this.EnemyLabel);
             this.panel2.Controls.Add(this.WeaponLabel);
             this.panel2.Location = new System.Drawing.Point(12, 12);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(510, 116);
+            this.panel2.Size = new System.Drawing.Size(502, 66);
             this.panel2.TabIndex = 4;
             // 
             // LevelTitle
             // 
             this.LevelTitle.BackColor = System.Drawing.Color.Transparent;
-            this.LevelTitle.Dock = System.Windows.Forms.DockStyle.Right;
-            this.LevelTitle.Font = new System.Drawing.Font("Consolas", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LevelTitle.Font = new System.Drawing.Font("Consolas", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LevelTitle.ForeColor = System.Drawing.Color.Black;
-            this.LevelTitle.Location = new System.Drawing.Point(243, 0);
+            this.LevelTitle.Location = new System.Drawing.Point(233, 18);
             this.LevelTitle.Name = "LevelTitle";
-            this.LevelTitle.Size = new System.Drawing.Size(265, 114);
+            this.LevelTitle.Size = new System.Drawing.Size(74, 30);
             this.LevelTitle.TabIndex = 4;
             this.LevelTitle.Text = "TST";
             this.LevelTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -134,11 +119,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(581, 347);
+            this.ClientSize = new System.Drawing.Size(1366, 768);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.GLD);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "DrawForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.panel1.ResumeLayout(false);
@@ -155,7 +141,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel HealthPanel;
         private System.Windows.Forms.Label WeaponLabel;
-        private System.Windows.Forms.Label EnemyLabel;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label LevelTitle;
     }
