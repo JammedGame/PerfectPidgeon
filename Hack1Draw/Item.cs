@@ -17,6 +17,7 @@ namespace PerfectPidgeon.Draw
         private double _Size;
         private double _Facing;
         private Point _Location;
+        private Color _Paint;
         public int ArtIndex
         {
             get { return _ArtIndex; }
@@ -69,6 +70,18 @@ namespace PerfectPidgeon.Draw
                 _Other = value;
             }
         }
+        public Color Paint
+        {
+            get
+            {
+                return _Paint;
+            }
+
+            set
+            {
+                _Paint = value;
+            }
+        }
         public Item(int ArtIndex, Point Location, double Facing, double Size)
         {
             this._ArtIndex = ArtIndex;
@@ -79,6 +92,7 @@ namespace PerfectPidgeon.Draw
             this._Size = Size;
             this._Location = Location;
             this._Facing = Facing;
+            this._Paint = Color.White;
         }
         public Item(int ArtIndex, Point Location, double Facing, double Size, int ImageIndex)
         {
@@ -90,6 +104,7 @@ namespace PerfectPidgeon.Draw
             this._Size = Size;
             this._Location = Location;
             this._Facing = Facing;
+            this._Paint = Color.White;
         }
     }
 }

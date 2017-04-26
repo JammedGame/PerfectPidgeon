@@ -5,6 +5,7 @@ using System.Text;
 using PerfectPidgeonGameMechanic;
 using PerfectPidgeonGameMechanic.LevelData;
 using PerfectPidgeon.Draw;
+using System.Drawing;
 
 namespace PerfectPidgeonGameMechanic.Content
 {
@@ -129,6 +130,8 @@ namespace PerfectPidgeonGameMechanic.Content
             P.Damage = 10;
             P.Health = 5000;
             P.MaxHealth = 5000;
+            P.Paint = Color.Black;
+            P.Scale = 0.5;
             this._Projectiles.Add("Basic", P);
             P = new Projectile();
             P.Type = ProjectileType.PidgeonHeavy;
@@ -169,6 +172,7 @@ namespace PerfectPidgeonGameMechanic.Content
             P.Damage = 10;
             P.Health = 5000;
             P.MaxHealth = 5000;
+            P.Paint = Color.FromArgb(100,100,100);
             this._Projectiles.Add("AlienSpeeder", P);
             P = new Projectile();
             P.Type = ProjectileType.AlienBeamer;

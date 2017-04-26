@@ -102,12 +102,8 @@ namespace PerfectPidgeon.Draw
             Effects = EffectsBuffer;
             PowerUps = PowerUpsBuffer;
         }
-        public void UpdateItem(GameDataType Type, int Index, int ArtIndex, int ImageIndex, int Other, double Facing, double Size, Point Location)
+        public void UpdateItem(GameDataType Type, int Index, int ArtIndex, int ImageIndex, int Other, double Facing, double Size, Point Location, Color Paint)
         {
-            if(Other > 0)
-            {
-                int r = 4;
-            }
             if (Type == GameDataType.Player)
             {
                 if (PlayersBuffer.Count > Index)
@@ -117,6 +113,7 @@ namespace PerfectPidgeon.Draw
                     PlayersBuffer[Index].Location = Location;
                     PlayersBuffer[Index].Size = Size;
                     PlayersBuffer[Index].Other = Other;
+                    PlayersBuffer[Index].Paint = Paint;
                 }
                 else PlayersBuffer.Add(new Item(ArtIndex, Location, Facing, Size));
             }
@@ -129,6 +126,7 @@ namespace PerfectPidgeon.Draw
                     NPCsBuffer[Index].Location = Location;
                     NPCsBuffer[Index].Facing = Facing;
                     NPCsBuffer[Index].Size = Size;
+                    NPCsBuffer[Index].Paint = Paint;
                 }
                 else
                 {
@@ -146,11 +144,13 @@ namespace PerfectPidgeon.Draw
                     ProjectilesBuffer[Index].Facing = Facing;
                     ProjectilesBuffer[Index].Size = Size;
                     ProjectilesBuffer[Index].Other = Other;
+                    ProjectilesBuffer[Index].Paint = Paint;
                 }
                 else
                 {
                     Item NewItem = new Item(ArtIndex, Location, Facing, Size);
                     NewItem.ImageIndex = Other;
+                    NewItem.Paint = Paint;
                     ProjectilesBuffer.Add(NewItem);
                 }
             }
@@ -163,6 +163,7 @@ namespace PerfectPidgeon.Draw
                     EffectsBuffer[Index].Location = Location;
                     EffectsBuffer[Index].Facing = Facing;
                     EffectsBuffer[Index].Size = Size;
+                    EffectsBuffer[Index].Paint = Paint;
                 }
                 else EffectsBuffer.Add(new Item(ArtIndex, Location, Facing, Size));
             }
@@ -175,17 +176,18 @@ namespace PerfectPidgeon.Draw
                     PowerUpsBuffer[Index].Location = Location;
                     PowerUpsBuffer[Index].Facing = Facing;
                     PowerUpsBuffer[Index].Size = Size;
+                    PowerUpsBuffer[Index].Paint = Paint;
                 }
                 else PowerUpsBuffer.Add(new Item(ArtIndex, Location, Facing, Size));
             }
         }
-        public void UpdateItems(GameDataType Type, int[] Index, int[] ArtIndex, int[] ImageIndex, int[] Other, double[] Facing, double[] Size, Point[] Location)
+        public void UpdateItems(GameDataType Type, int[] Index, int[] ArtIndex, int[] ImageIndex, int[] Other, double[] Facing, double[] Size, Point[] Location, Color[] Paints)
         {
             if (this.Working) return;
             this.Working = true;
             for (int i = 0; i < Index.Length; i++)
             {
-                this.UpdateItem(Type, Index[i], ArtIndex[i], ImageIndex[i], Other[i], Facing[i], Size[i], Location[i]);
+                this.UpdateItem(Type, Index[i], ArtIndex[i], ImageIndex[i], Other[i], Facing[i], Size[i], Location[i], Paints[i]);
             }
             this.Working = false;
         }

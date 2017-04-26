@@ -24,7 +24,7 @@ namespace PerfectPidgeonGameMechanic
     {
         private int _Damage;
         private int _Spin;
-        private ProjectileType _Type;
+        private ProjectileType _Type;    
         public int Damage
         {
             get { return _Damage; }

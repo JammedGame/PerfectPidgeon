@@ -1,6 +1,7 @@
 ﻿using PerfectPidgeon.Draw;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 
@@ -18,6 +19,7 @@ namespace PerfectPidgeonGameMechanic
         private double _Speed;
         private double _Facing;
         private Vertex _Location;
+        private Color _Paint;
         public int Health
         {
             get { return _Health; }
@@ -89,6 +91,18 @@ namespace PerfectPidgeonGameMechanic
             get { return _Location; }
             set { _Location = value; }
         }
+        public Color Paint
+        {
+            get
+            {
+                return _Paint;
+            }
+
+            set
+            {
+                _Paint = value;
+            }
+        }
         public Object()
         {
             this._Health = 100;
@@ -101,6 +115,7 @@ namespace PerfectPidgeonGameMechanic
             this._Speed = 0;
             this._Facing = 0;
             this._Location = new Vertex();
+            this._Paint = Color.White;
         }
         public Object(Object Old)
         {
@@ -114,6 +129,7 @@ namespace PerfectPidgeonGameMechanic
             this._Speed = Old._Speed;
             this._Facing = Old._Facing;
             this._Location = new Vertex(Old._Location);
+            this._Paint = Old._Paint;
         }
         public virtual double ShootDirection()
         {

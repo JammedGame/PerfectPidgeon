@@ -65,7 +65,7 @@ namespace PerfectPidgeonGameMechanic
             DForm.KeyPressed += new DrawForm.KeyPressedDelegate(this.KeyPressed);
             DForm.LeftRotate += new DrawForm.AxisRotate(this.LeftRotate);
             this._DataPool = new BaseDataPool();
-            StartLevel(this._DataPool.Levels["LVL01"]);
+            StartLevel(this._DataPool.Levels["LVL03"]);
             Time = new System.Timers.Timer(10);
             Time.Elapsed += new System.Timers.ElapsedEventHandler(TimerEvent_Tick);
             Time.Start();
@@ -200,13 +200,14 @@ namespace PerfectPidgeonGameMechanic
         public void RefreshDrawing()
         {
             DForm.Data.ResetBuffers();
-            DForm.Data.UpdateItem(GameDataType.Player, 0, CurrentPlayer.CurrentWeapons, CurrentPlayer.ImageIndex, (int)CurrentPlayer.GunRotation, CurrentPlayer.Facing, 3, CurrentPlayer.Location.ToPoint());
+            DForm.Data.UpdateItem(GameDataType.Player, 0, CurrentPlayer.CurrentWeapons, CurrentPlayer.ImageIndex, (int)CurrentPlayer.GunRotation, CurrentPlayer.Facing, 3, CurrentPlayer.Location.ToPoint(), CurrentPlayer.Paint);
             List<int> Indices = new List<int>();
             List<int> ArtIndices = new List<int>();
             List<int> ImageIndices = new List<int>();
             List<int> Other = new List<int>();
             List<double> Angles = new List<double>();
             List<double> Sizes = new List<double>();
+            List<Color> Colors = new List<Color>();
             List<Point> Locations = new List<Point>();
             for (int i = 0; i < Enemies.Count; i++)
             {
@@ -216,6 +217,7 @@ namespace PerfectPidgeonGameMechanic
                     ArtIndices.Add(Enemies[i].ArtIndex);
                     ImageIndices.Add(Enemies[i].ImageIndex);
                     Other.Add(0);
+                    Colors.Add(Enemies[i].Paint);
                     Angles.Add(DrawForm.GetAngleDegree((CurrentPlayer.Location).ToPoint(), Enemies[i].Location.ToPoint()));
                     Sizes.Add(Enemies[i].Scale);
                     Locations.Add(Enemies[i].Location.ToPoint());
@@ -223,13 +225,14 @@ namespace PerfectPidgeonGameMechanic
             }
             for (int i = Enemies.Count - 1; i >= 0; i--) if (!(Enemies[i].Location != null)) Enemies.RemoveAt(i);
             while (DForm.Data.Working) ;
-            DForm.Data.UpdateItems(GameDataType.Enemy, Indices.ToArray(), ArtIndices.ToArray(), ImageIndices.ToArray(), Other.ToArray(), Angles.ToArray(), Sizes.ToArray(), Locations.ToArray());
+            DForm.Data.UpdateItems(GameDataType.Enemy, Indices.ToArray(), ArtIndices.ToArray(), ImageIndices.ToArray(), Other.ToArray(), Angles.ToArray(), Sizes.ToArray(), Locations.ToArray(), Colors.ToArray());
             Indices = new List<int>();
             ArtIndices = new List<int>();
             ImageIndices = new List<int>();
             Angles = new List<double>();
             Sizes = new List<double>();
             Locations = new List<Point>();
+            Colors = new List<Color>();
             Other = new List<int>();
             for (int i = 0; i < Projectiles.Count; i++)
             {
@@ -249,18 +252,20 @@ namespace PerfectPidgeonGameMechanic
                     Angles.Add(Projectiles[i].Facing);
                     Sizes.Add(Projectiles[i].Scale);
                     Other.Add(Projectiles[i].Spin);
+                    Colors.Add(Projectiles[i].Paint);
                     Locations.Add(Projectiles[i].Location.ToPoint());
                 }
             }
             for (int i = Projectiles.Count - 1; i >= 0; i--) if (!(Projectiles[i].Location != null)) Projectiles.RemoveAt(i);
             while (DForm.Data.Working) ;
-            DForm.Data.UpdateItems(GameDataType.Projectile, Indices.ToArray(), ArtIndices.ToArray(), ImageIndices.ToArray(), Other.ToArray(), Angles.ToArray(), Sizes.ToArray(), Locations.ToArray());
+            DForm.Data.UpdateItems(GameDataType.Projectile, Indices.ToArray(), ArtIndices.ToArray(), ImageIndices.ToArray(), Other.ToArray(), Angles.ToArray(), Sizes.ToArray(), Locations.ToArray(), Colors.ToArray());
             Indices = new List<int>();
             ArtIndices = new List<int>();
             ImageIndices = new List<int>();
             Angles = new List<double>();
             Sizes = new List<double>();
             Locations = new List<Point>();
+            Colors = new List<Color>();
             Other = new List<int>();
             for (int i = 0; i < Effects.Count; i++)
             {
@@ -272,18 +277,20 @@ namespace PerfectPidgeonGameMechanic
                     Angles.Add(0);
                     Sizes.Add(1);
                     Other.Add(0);
+                    Colors.Add(Color.White);
                     Locations.Add(Effects[i].Location.ToPoint());
                 }
             }
             for (int i = Effects.Count - 1; i >= 0; i--) if (!(Effects[i].Location != null)) Effects.RemoveAt(i);
             while (DForm.Data.Working) ;
-            DForm.Data.UpdateItems(GameDataType.Effect, Indices.ToArray(), ArtIndices.ToArray(), ImageIndices.ToArray(), Other.ToArray(), Angles.ToArray(), Sizes.ToArray(), Locations.ToArray());
+            DForm.Data.UpdateItems(GameDataType.Effect, Indices.ToArray(), ArtIndices.ToArray(), ImageIndices.ToArray(), Other.ToArray(), Angles.ToArray(), Sizes.ToArray(), Locations.ToArray(), Colors.ToArray());
             Indices = new List<int>();
             ArtIndices = new List<int>();
             ImageIndices = new List<int>();
             Angles = new List<double>();
             Sizes = new List<double>();
             Locations = new List<Point>();
+            Colors = new List<Color>();
             Other = new List<int>();
             for (int i = 0; i < PowerUps.Count; i++)
             {
@@ -295,12 +302,13 @@ namespace PerfectPidgeonGameMechanic
                     Angles.Add(0);
                     Sizes.Add(1);
                     Other.Add(0);
+                    Colors.Add(Color.White);
                     Locations.Add(PowerUps[i].Location.ToPoint());
                 }
             }
             for (int i = PowerUps.Count - 1; i >= 0; i--) if (!(PowerUps[i].Location != null)) PowerUps.RemoveAt(i);
             while (DForm.Data.Working) ;
-            DForm.Data.UpdateItems(GameDataType.PowerUp, Indices.ToArray(), ArtIndices.ToArray(), ImageIndices.ToArray(), Other.ToArray(), Angles.ToArray(), Sizes.ToArray(), Locations.ToArray());
+            DForm.Data.UpdateItems(GameDataType.PowerUp, Indices.ToArray(), ArtIndices.ToArray(), ImageIndices.ToArray(), Other.ToArray(), Angles.ToArray(), Sizes.ToArray(), Locations.ToArray(), Colors.ToArray());
             DForm.Data.SwapBuffers();
         }
         public void MouseEvent_Move(object sender, MouseEventArgs e)
