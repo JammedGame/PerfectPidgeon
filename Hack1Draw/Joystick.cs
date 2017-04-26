@@ -27,15 +27,17 @@ namespace PerfectPidgeon.Draw
             public AxisStateStatus Status;
             public double Angle;
         }
+        private int _Index;
         private OpenTK.Input.JoystickState _Joy;
         private System.Timers.Timer _Time;
         private List<JoystickButton> _Pressed;
         public event AxisEvent LeftAxisChange;
         public event AxisEvent RightAxisChange;
         public event ButtonPress JoystickButtonPress;
-        public Joystick()
+        public Joystick(int Index)
         {
-            this._Joy = OpenTK.Input.Joystick.GetState(0);
+            this._Index = Index;
+            this._Joy = OpenTK.Input.Joystick.GetState(this._Index);
             this.LeftAxisChange = new AxisEvent(this.OnLeftChange);
             this.RightAxisChange = new AxisEvent(this.OnRightChange);
             this.JoystickButtonPress = new ButtonPress(this.OnButtonPress);
@@ -46,6 +48,7 @@ namespace PerfectPidgeon.Draw
         }
         private void TimerTick(object sender, System.Timers.ElapsedEventArgs e)
         {
+            this._Joy = OpenTK.Input.Joystick.GetState(this._Index);
             if (!_Joy.IsConnected) return;
             AxisState Left = this.GetLeftAxis();
             if (Left.Status == AxisStateStatus.Angle)
@@ -61,7 +64,7 @@ namespace PerfectPidgeon.Draw
         }
         private AxisState GetLeftAxis()
         {
-            this._Joy = OpenTK.Input.Joystick.GetState(0);
+            this._Joy = OpenTK.Input.Joystick.GetState(this._Index);
             AxisState State = new AxisState();
             if (Math.Abs(this._Joy.GetAxis(OpenTK.Input.JoystickAxis.Axis1)) > 0.004 || Math.Abs(this._Joy.GetAxis(OpenTK.Input.JoystickAxis.Axis0)) > 0.004)
             {
@@ -81,7 +84,7 @@ namespace PerfectPidgeon.Draw
         }
         private AxisState GetRightAxis()
         {
-            this._Joy = OpenTK.Input.Joystick.GetState(0);
+            this._Joy = OpenTK.Input.Joystick.GetState(this._Index);
             AxisState State = new AxisState();
             if (Math.Abs(this._Joy.GetAxis(OpenTK.Input.JoystickAxis.Axis3)) > 0.004 || Math.Abs(this._Joy.GetAxis(OpenTK.Input.JoystickAxis.Axis2)) > 0.004)
             {
@@ -101,8 +104,8 @@ namespace PerfectPidgeon.Draw
         }
         private void ButtonPressCheck()
         {
-            this._Joy = OpenTK.Input.Joystick.GetState(0);
-            if (this._Joy.IsButtonDown(OpenTK.Input.JoystickButton.Button7))
+            this._Joy = OpenTK.Input.Joystick.GetState(this._Index);
+            if (this._Joy.IsButtonDown(OpenTK.Input.JoystickButton.Button5))
             {
                 if (!this._Pressed.Contains(JoystickButton.Move))
                 {
@@ -118,7 +121,7 @@ namespace PerfectPidgeon.Draw
                     JoystickButtonPress.Invoke(JoystickButton.Move, false);
                 }
             }
-            if (this._Joy.IsButtonDown(OpenTK.Input.JoystickButton.Button5))
+            if (this._Joy.IsButtonDown(OpenTK.Input.JoystickButton.Button7))
             {
                 if (!this._Pressed.Contains(JoystickButton.Shoot))
                 {

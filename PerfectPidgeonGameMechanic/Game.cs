@@ -65,7 +65,7 @@ namespace PerfectPidgeonGameMechanic
             DForm.KeyPressed += new DrawForm.KeyPressedDelegate(this.KeyPressed);
             DForm.LeftRotate += new DrawForm.AxisRotate(this.LeftRotate);
             this._DataPool = new BaseDataPool();
-            StartLevel(this._DataPool.Levels["AlienBasic-Test"]);
+            StartLevel(this._DataPool.Levels["LVL01"]);
             Time = new System.Timers.Timer(10);
             Time.Elapsed += new System.Timers.ElapsedEventHandler(TimerEvent_Tick);
             Time.Start();
@@ -534,7 +534,10 @@ namespace PerfectPidgeonGameMechanic
         }
         private void LeftRotate(double Angle)
         {
-            this._CurrentPlayer.GunRotation = Angle + 180 - this._CurrentPlayer.Facing;
+            if (this._CurrentPlayer != null)
+            {
+                //this._CurrentPlayer.GunRotation += (Angle + 180) - this._CurrentPlayer.Facing;
+            }
         }
     }
 }

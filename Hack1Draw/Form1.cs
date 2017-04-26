@@ -87,7 +87,7 @@ namespace PerfectPidgeon.Draw
             KeyPressed = new KeyPressedDelegate(OnKeyPress);
             LeftRotate = new AxisRotate(OnLeftRotate);
 
-            this._Joystick = new Joystick();
+            this._Joystick = new Joystick(0);
             this._Joystick.LeftAxisChange += new AxisEvent(JoystickAxisLeft);
             this._Joystick.RightAxisChange += new AxisEvent(JoystickAxisRight);
             this._Joystick.JoystickButtonPress += new ButtonPress(JoystickButtonPressed);
@@ -140,14 +140,15 @@ namespace PerfectPidgeon.Draw
         }
         private void JoystickAxisLeft(double Angle)
         {
-            LeftRotate.Invoke(Angle);
-        }
-        private void JoystickAxisRight(double Angle)
-        {
+            
             Vertex V = new Vertex(0, 300);
             V = V.RotateZ(Angle);
             Point P = V.ToPoint();
             MouseMoved.Invoke(null, new MouseEventArgs(MouseButtons.None, 0, -P.X + GLD.Width / 2, -P.Y + GLD.Height / 2, 0));
+        }
+        private void JoystickAxisRight(double Angle)
+        {
+            LeftRotate.Invoke(Angle);
         }
         private void GLD_MouseDown(object sender, MouseEventArgs e)
         {
