@@ -421,7 +421,7 @@ namespace PerfectPidgeonGameMechanic.Content
             L.Enemies.Add(new Enemy(this._Enemies["AlienMiner"]));
             this._Levels.Add("AlienMiner-Test", L);
             L = new Level();
-            L.Back = new Background("Data\\Town1", BackgroundType.Tiled, 2);
+            L.Back = new Background("Data\\Town3", BackgroundType.Tiled, 1);
             L.Enemies.Add(new Enemy(this._Enemies["ElvenArcher"]));
             this._Levels.Add("ElvenArcher-Test", L);
             L = new Level();
