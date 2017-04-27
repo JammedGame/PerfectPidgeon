@@ -611,7 +611,7 @@ namespace PerfectPidgeonGameMechanic.Content
             L.FinishCondition = 15;
             L.Title = "2-1";
             L.Next = "";
-            L.Back = new Background("Data\\Town2", BackgroundType.Tiled);
+            L.Back = new Background("Data\\Town3", BackgroundType.Tiled);
             for (int i = 0; i < 40; i++) L.Enemies.Add(new Enemy(this._Enemies["ElvenArcher"]));
             this._Levels.Add("LVL11", L);
         }

@@ -46,7 +46,7 @@
             this.GLD.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GLD.Location = new System.Drawing.Point(0, 0);
             this.GLD.Name = "GLD";
-            this.GLD.Size = new System.Drawing.Size(1366, 768);
+            this.GLD.Size = new System.Drawing.Size(800, 600);
             this.GLD.TabIndex = 0;
             this.GLD.VSync = false;
             this.GLD.Load += new System.EventHandler(this.GLDLoad);
@@ -119,7 +119,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1366, 768);
+            this.ClientSize = new System.Drawing.Size(800, 600);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.GLD);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

@@ -43,8 +43,7 @@ namespace PerfectPidgeon.Draw
         }
         private void DrawImage(int X, int Y, int XSize, int YSize, Bitmap ToDraw)
         {
-            if (ToDraw == null) return;
-            if (ToDraw != _CurrentTexture) SetTexture(ref ToDraw);
+            if (ToDraw != null && ToDraw != _CurrentTexture) SetTexture(ref ToDraw);
             GL.Begin(BeginMode.Polygon);
             GL.TexCoord2(0f, 0f); GL.Vertex2(X, Y);
             GL.TexCoord2(0f, 1f); GL.Vertex2(X, Y + YSize);
@@ -100,7 +99,9 @@ namespace PerfectPidgeon.Draw
 
             if (this._ArtData.BackType == 0)
             {
-                DrawImage(0, 0, this._ArtData.Back.Width, this._ArtData.Back.Height, this._ArtData.Back);
+                GL.Translate(_GLD.Width / 2, _GLD.Height / 2, 0);
+                DrawImageCentered((int)(this._ArtData.Back.Width * _Aspect), (int)(this._ArtData.Back.Height * _Aspect), this._ArtData.Back);
+                GL.LoadIdentity();
             }
             else if (this._ArtData.BackType == 1)
             {
@@ -112,13 +113,13 @@ namespace PerfectPidgeon.Draw
 
                 DrawImage(-XOffset, -YOffset, _GLD.Width, _GLD.Height, this._ArtData.Back);
                 DrawImage(-XOffset + _GLD.Width,    -YOffset,               _GLD.Width, _GLD.Height, this._ArtData.Back);
-                DrawImage(-XOffset - _GLD.Width,    -YOffset,               _GLD.Width, _GLD.Height, this._ArtData.Back);
-                DrawImage(-XOffset,                 -YOffset - _GLD.Height, _GLD.Width, _GLD.Height, this._ArtData.Back);
-                DrawImage(-XOffset + _GLD.Width,    -YOffset - _GLD.Height, _GLD.Width, _GLD.Height, this._ArtData.Back);
-                DrawImage(-XOffset - _GLD.Width,    -YOffset - _GLD.Height, _GLD.Width, _GLD.Height, this._ArtData.Back);
-                DrawImage(-XOffset,                 -YOffset + _GLD.Height, _GLD.Width, _GLD.Height, this._ArtData.Back);
-                DrawImage(-XOffset + _GLD.Width,    -YOffset + _GLD.Height, _GLD.Width, _GLD.Height, this._ArtData.Back);
-                DrawImage(-XOffset - _GLD.Width,    -YOffset + _GLD.Height, _GLD.Width, _GLD.Height, this._ArtData.Back);
+                DrawImage(-XOffset - _GLD.Width, -YOffset, _GLD.Width, _GLD.Height, null);
+                DrawImage(-XOffset,                 -YOffset - _GLD.Height, _GLD.Width, _GLD.Height, null);
+                DrawImage(-XOffset + _GLD.Width,    -YOffset - _GLD.Height, _GLD.Width, _GLD.Height, null);
+                DrawImage(-XOffset - _GLD.Width,    -YOffset - _GLD.Height, _GLD.Width, _GLD.Height, null);
+                DrawImage(-XOffset,                 -YOffset + _GLD.Height, _GLD.Width, _GLD.Height, null);
+                DrawImage(-XOffset + _GLD.Width,    -YOffset + _GLD.Height, _GLD.Width, _GLD.Height, null);
+                DrawImage(-XOffset - _GLD.Width,    -YOffset + _GLD.Height, _GLD.Width, _GLD.Height, null);
             }
             else if (this._ArtData.BackType == 2)
             {
@@ -127,15 +128,15 @@ namespace PerfectPidgeon.Draw
                 XOffset %= _ArtData.Back.Width;
                 YOffset %= _ArtData.Back.Height;
 
-                DrawImage(-XOffset, -YOffset, _ArtData.Back.Width, _ArtData.Back.Height, _ArtData.Back);
-                DrawImage(-XOffset + _ArtData.Back.Width, -YOffset, _ArtData.Back.Width, _ArtData.Back.Height, this._ArtData.Back);
-                DrawImage(-XOffset - _ArtData.Back.Width, -YOffset, _ArtData.Back.Width, _ArtData.Back.Height, this._ArtData.Back);
-                DrawImage(-XOffset, -YOffset - _ArtData.Back.Height, _ArtData.Back.Width, _ArtData.Back.Height, this._ArtData.Back);
-                DrawImage(-XOffset + _ArtData.Back.Width, -YOffset - _ArtData.Back.Height, _ArtData.Back.Width, _ArtData.Back.Height, this._ArtData.Back);
-                DrawImage(-XOffset - _ArtData.Back.Width, -YOffset - _ArtData.Back.Height, _ArtData.Back.Width, _ArtData.Back.Height, this._ArtData.Back);
-                DrawImage(-XOffset, -YOffset + _ArtData.Back.Height, _ArtData.Back.Width, _ArtData.Back.Height, this._ArtData.Back);
-                DrawImage(-XOffset + _ArtData.Back.Width, -YOffset + _ArtData.Back.Height, _ArtData.Back.Width, _ArtData.Back.Height, this._ArtData.Back);
-                DrawImage(-XOffset - _ArtData.Back.Width, -YOffset + _ArtData.Back.Height, _ArtData.Back.Width, _ArtData.Back.Height, this._ArtData.Back);
+                DrawImage(-XOffset, -YOffset, (int)(this._ArtData.Back.Width * _Aspect), (int)(this._ArtData.Back.Height * _Aspect), _ArtData.Back);
+                DrawImage(-XOffset + (int)(this._ArtData.Back.Width * _Aspect), -YOffset, (int)(this._ArtData.Back.Width * _Aspect), (int)(this._ArtData.Back.Height * _Aspect), null);
+                DrawImage(-XOffset - (int)(this._ArtData.Back.Width * _Aspect), -YOffset, (int)(this._ArtData.Back.Width * _Aspect), (int)(this._ArtData.Back.Height * _Aspect), null);
+                DrawImage(-XOffset, -YOffset - (int)(this._ArtData.Back.Height * _Aspect), (int)(this._ArtData.Back.Width * _Aspect), (int)(this._ArtData.Back.Height * _Aspect), null);
+                DrawImage(-XOffset + (int)(this._ArtData.Back.Width * _Aspect), -YOffset - (int)(this._ArtData.Back.Height * _Aspect), (int)(this._ArtData.Back.Width * _Aspect), (int)(this._ArtData.Back.Height * _Aspect), null);
+                DrawImage(-XOffset - (int)(this._ArtData.Back.Width * _Aspect), -YOffset - (int)(this._ArtData.Back.Height * _Aspect), (int)(this._ArtData.Back.Width * _Aspect), (int)(this._ArtData.Back.Height * _Aspect), null);
+                DrawImage(-XOffset, -YOffset + (int)(this._ArtData.Back.Height * _Aspect), (int)(this._ArtData.Back.Width * _Aspect), (int)(this._ArtData.Back.Height * _Aspect), null);
+                DrawImage(-XOffset + (int)(this._ArtData.Back.Width * _Aspect), -YOffset + (int)(this._ArtData.Back.Height * _Aspect), (int)(this._ArtData.Back.Width * _Aspect), (int)(this._ArtData.Back.Height * _Aspect), null);
+                DrawImage(-XOffset - (int)(this._ArtData.Back.Width * _Aspect), -YOffset + (int)(this._ArtData.Back.Height * _Aspect), (int)(this._ArtData.Back.Width * _Aspect), (int)(this._ArtData.Back.Height * _Aspect), null);
             }
 
             try
