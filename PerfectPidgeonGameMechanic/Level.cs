@@ -13,6 +13,7 @@ namespace PerfectPidgeonGameMechanic
         private int _Accessory;
         private string _Title;
         private string _Next;
+        private Boss _LBoss;
         private Background _Back;
         private List<Enemy> _Enemies;
         public int MaxSpawns
@@ -75,6 +76,18 @@ namespace PerfectPidgeonGameMechanic
                 _Next = value;
             }
         }
+        public Boss LBoss
+        {
+            get
+            {
+                return _LBoss;
+            }
+
+            set
+            {
+                _LBoss = value;
+            }
+        }
         public Background Back
         {
             get
@@ -107,6 +120,7 @@ namespace PerfectPidgeonGameMechanic
             this._Title = "TST";
             this._Next = "";
             this._Back = new Background("", BackgroundType.Static);
+            this._LBoss = null;
             this._Enemies = new List<Enemy>();
         }
     }
