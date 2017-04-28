@@ -234,9 +234,10 @@ namespace PerfectPidgeonGameMechanic.Content
             P.ArtIndex = 18;
             P.Speed = 8;
             P.Scale = 3;
-            P.Damage = 5;
+            P.Damage = 1;
             P.Health = 100;
             P.MaxHealth = 100;
+            P.HitRadius = 200;
             this._Projectiles.Add("ElvenTendrils", P);
             P = new Projectile();
             P.Type = ProjectileType.ElvenFirebolt;
@@ -347,13 +348,12 @@ namespace PerfectPidgeonGameMechanic.Content
             W.Ammo = -1;
             this._Weapons.Add("ElvenIceStaff", W);
             W = new Weapon();
-            W.FireRate = 15;
-            W.Type = this._Projectiles["ElvenIcebolt"];
+            W.FireRate = 5;
+            W.Type = this._Projectiles["ElvenTendrils"];
             W.Location = new Vertex(-15, 180, 0);
             W.Ammo = -1;
-            this._Weapons.Add("ElvenIceStaff", W);
+            this._Weapons.Add("ElvenStormStaff", W);
             W = new Weapon();
-            W.FireRate = 15;
             W.Type = this._Projectiles["ElvenFirebolt"];
             W.Location = new Vertex(-15, 180, 0);
             W.Ammo = -1;
@@ -512,7 +512,7 @@ namespace PerfectPidgeonGameMechanic.Content
             E.Owner = 1;
             B = new Behaviour();
             E.Behave = B;
-            E.Guns.Add(new Weapon(this._Weapons["ElvenBow"]));
+            E.Guns.Add(new Weapon(this._Weapons["ElvenStormStaff"]));
             this._Enemies.Add("ElvenMageStorm", E);
             E = new Enemy();
             E.ArtIndex = 16;
@@ -524,7 +524,7 @@ namespace PerfectPidgeonGameMechanic.Content
             E.Owner = 1;
             B = new Behaviour();
             E.Behave = B;
-            E.Guns.Add(new Weapon(this._Weapons["ElvenIceStaff"]));
+            E.Guns.Add(new Weapon(this._Weapons["ElvenFireStaff"]));
             this._Enemies.Add("ElvenMageFire", E);
             E = new Enemy();
             E.ArtIndex = 17;
