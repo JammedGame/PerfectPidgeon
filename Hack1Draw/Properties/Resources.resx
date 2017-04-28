@@ -415,4 +415,16 @@
   <data name="enm16_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\enm16-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="enm16_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm16-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm16_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm16-3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ice" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ice3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="spear" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\spear.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

@@ -453,6 +453,26 @@ namespace PerfectPidgeon.Draw.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap enm16_2 {
+            get {
+                object obj = ResourceManager.GetObject("enm16_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap enm16_3 {
+            get {
+                object obj = ResourceManager.GetObject("enm16_3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap enm2_1 {
             get {
                 object obj = ResourceManager.GetObject("enm2_1", resourceCulture);
@@ -663,6 +683,16 @@ namespace PerfectPidgeon.Draw.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap fire {
+            get {
+                object obj = ResourceManager.GetObject("fire", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap gohlub1 {
             get {
                 object obj = ResourceManager.GetObject("gohlub1", resourceCulture);
@@ -766,6 +796,16 @@ namespace PerfectPidgeon.Draw.Properties {
         internal static System.Drawing.Bitmap Heavy {
             get {
                 object obj = ResourceManager.GetObject("Heavy", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ice {
+            get {
+                object obj = ResourceManager.GetObject("ice", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -953,9 +993,29 @@ namespace PerfectPidgeon.Draw.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap spear {
+            get {
+                object obj = ResourceManager.GetObject("spear", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Speed {
             get {
                 object obj = ResourceManager.GetObject("Speed", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap storm {
+            get {
+                object obj = ResourceManager.GetObject("storm", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
