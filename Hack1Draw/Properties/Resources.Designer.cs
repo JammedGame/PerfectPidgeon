@@ -303,6 +303,56 @@ namespace PerfectPidgeon.Draw.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap enm10_1 {
+            get {
+                object obj = ResourceManager.GetObject("enm10_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap enm11_1 {
+            get {
+                object obj = ResourceManager.GetObject("enm11_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap enm11_2 {
+            get {
+                object obj = ResourceManager.GetObject("enm11_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap enm11_3 {
+            get {
+                object obj = ResourceManager.GetObject("enm11_3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap enm12_1 {
+            get {
+                object obj = ResourceManager.GetObject("enm12_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap enm2_1 {
             get {
                 object obj = ResourceManager.GetObject("enm2_1", resourceCulture);
@@ -473,9 +523,9 @@ namespace PerfectPidgeon.Draw.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap enm7_2 {
+        internal static System.Drawing.Bitmap enm8_1 {
             get {
-                object obj = ResourceManager.GetObject("enm7_2", resourceCulture);
+                object obj = ResourceManager.GetObject("enm8_1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -483,9 +533,9 @@ namespace PerfectPidgeon.Draw.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap enm7_3 {
+        internal static System.Drawing.Bitmap enm9_1 {
             get {
-                object obj = ResourceManager.GetObject("enm7_3", resourceCulture);
+                object obj = ResourceManager.GetObject("enm9_1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -493,9 +543,19 @@ namespace PerfectPidgeon.Draw.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap enm7_4 {
+        internal static System.Drawing.Bitmap enm9_2 {
             get {
-                object obj = ResourceManager.GetObject("enm7_4", resourceCulture);
+                object obj = ResourceManager.GetObject("enm9_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap enm9_3 {
+            get {
+                object obj = ResourceManager.GetObject("enm9_3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

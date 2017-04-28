@@ -12,6 +12,7 @@ namespace PerfectPidgeonGameMechanic.Content
     public class BaseDataPool
     {
         private Player _Pidgeon;
+        private Dictionary<string, Boss> _Bosses;
         private Dictionary<string, Enemy> _Enemies;
         private Dictionary<string, PowerUp> _PowerUps;
         private Dictionary<string, Weapon> _Weapons;
@@ -27,6 +28,18 @@ namespace PerfectPidgeonGameMechanic.Content
             set
             {
                 _Pidgeon = value;
+            }
+        }
+        public Dictionary<string, Boss> Bosses
+        {
+            get
+            {
+                return _Bosses;
+            }
+
+            set
+            {
+                _Bosses = value;
             }
         }
         public Dictionary<string, Enemy> Enemies
@@ -299,9 +312,11 @@ namespace PerfectPidgeonGameMechanic.Content
 
             Enemy E;
             Behaviour B;
+            Boss BO;
             Weapon W;
 
             this._Enemies = new Dictionary<string, Enemy>();
+            this._Bosses = new Dictionary<string, Boss>();
             E = new Enemy();
             E.ArtIndex = 2;
             E.Facing = 0;
@@ -362,23 +377,43 @@ namespace PerfectPidgeonGameMechanic.Content
             this._Enemies.Add("AlienMiner", E);
             //BOSS
             E = new Enemy();
-            E.ArtIndex = 8;
+            E.ArtIndex = 10;
             E.Facing = 0;
-            E.Health = 5000;
-            E.MaxHealth = 5000;
+            E.Health = 3000;
+            E.MaxHealth = 3000;
             E.Scale = 2.5;
             E.Speed = 5;
             E.Owner = 1;
             E.HitRadius = 140;
             B = new Behaviour();
             E.Behave = B;
-            W = new Weapon(this._Weapons["AlienBeamer"]);
-            W.Location = new Vertex(500, 0);
-            E.Guns.Add(new Weapon(W));
-            W = new Weapon(this._Weapons["AlienSpeeder"]);
-            W.Location = new Vertex(50, 0);
-            E.Guns.Add(new Weapon(W));
-            this._Enemies.Add("AlienMothership", E);
+            this._Enemies.Add("AlienMothershipLeftWing", E);
+            E = new Enemy();
+            E.ArtIndex = 12;
+            E.Facing = 0;
+            E.Health = 3000;
+            E.MaxHealth = 3000;
+            E.Scale = 2.5;
+            E.Speed = 5;
+            E.Owner = 1;
+            E.HitRadius = 140;
+            B = new Behaviour();
+            E.Behave = B;
+            this._Enemies.Add("AlienMothershipRightWing", E);
+            BO = new Boss();
+            BO.ArtIndex = 8;
+            BO.Facing = 0;
+            BO.Health = 5000;
+            BO.MaxHealth = 5000;
+            BO.Scale = 1;
+            BO.Speed = 5;
+            BO.Owner = 1;
+            BO.HitRadius = 140;
+            B = new Behaviour();
+            BO.Behave = B;
+            BO.Auxes.Add(this.Enemies["AlienMothershipLeftWing"]);
+            BO.Auxes.Add(this.Enemies["AlienMothershipRightWing"]);
+            this._Bosses.Add("AlienMothership", BO);
 
             //Elves
 
@@ -599,12 +634,12 @@ namespace PerfectPidgeonGameMechanic.Content
             this._Levels.Add("LVL09", L);
             L = new Level();
             L.MaxSpawns = 4;
-            L.FinishCondition = 0;
+            L.FinishCondition = -1;
             L.Title = "1-X";
             L.Next = "LVL11";
             L.Back = new Background("Earth", BackgroundType.Static);
-            L.Enemies.Add(new Enemy(this._Enemies["AlienMothership"]));
-            for (int i = 0; i < 20; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienCaptain"]));
+            //L.LBoss = new Boss(this._Bosses["AlienMothership"]);
+            //for (int i = 0; i < 20; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienCaptain"]));
             this._Levels.Add("LVL10", L);
             L = new Level();
             L.MaxSpawns = 20;

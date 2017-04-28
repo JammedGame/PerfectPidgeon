@@ -265,9 +265,6 @@
     <None Include="Resources\clouds3.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\enm7-1.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\enm7-2.png" />
   </ItemGroup>
   <ItemGroup>
@@ -287,6 +284,36 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\pigstand.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enm7-1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enm8-1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enm9-1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enm9-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enm9-3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enm10-1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enm11-1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enm11-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enm11-3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enm12-1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

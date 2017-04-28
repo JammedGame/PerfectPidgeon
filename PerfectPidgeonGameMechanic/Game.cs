@@ -103,6 +103,15 @@ namespace PerfectPidgeonGameMechanic
                 Enemy E = new Enemy(CLevel.Enemies[i]);
                 this._EnemyPool.Add(E);
             }
+            if (CLevel.LBoss != null)
+            {
+                this._EnemyPool.Add(new Boss(CLevel.LBoss));
+                for (int i = 0; i < CLevel.LBoss.Auxes.Count; i++)
+                {
+                    Enemy E = new Enemy(CLevel.LBoss.Auxes[i]);
+                    this._EnemyPool.Add(E);
+                }
+            }
             Spawn();
 
             this.Projectiles = new List<Projectile>();
@@ -434,7 +443,7 @@ namespace PerfectPidgeonGameMechanic
 
                 }
             }
-            if (Enemies.Count + _EnemyPool.Count <= this._CurrentLevel.FinishCondition)
+            if ((Enemies.Count + _EnemyPool.Count <= this._CurrentLevel.FinishCondition) || (this._CurrentLevel.FinishCondition == -1 && false))
             {
                 CurrentTick = true;
                 CurrentPlayer.Health = CurrentPlayer.MaxHealth;
