@@ -109,24 +109,24 @@ namespace PerfectPidgeon.Draw
                 int YOffset = this._Data.Players[this._Data.CurrentPlayer].Location.Y;
                 XOffset %= _GLD.Width;
                 YOffset %= _GLD.Height;
-                
+
 
                 DrawImage(-XOffset, -YOffset, _GLD.Width, _GLD.Height, this._ArtData.Back);
-                DrawImage(-XOffset + _GLD.Width,    -YOffset,               _GLD.Width, _GLD.Height, this._ArtData.Back);
+                DrawImage(-XOffset + _GLD.Width, -YOffset, _GLD.Width, _GLD.Height, this._ArtData.Back);
                 DrawImage(-XOffset - _GLD.Width, -YOffset, _GLD.Width, _GLD.Height, null);
-                DrawImage(-XOffset,                 -YOffset - _GLD.Height, _GLD.Width, _GLD.Height, null);
-                DrawImage(-XOffset + _GLD.Width,    -YOffset - _GLD.Height, _GLD.Width, _GLD.Height, null);
-                DrawImage(-XOffset - _GLD.Width,    -YOffset - _GLD.Height, _GLD.Width, _GLD.Height, null);
-                DrawImage(-XOffset,                 -YOffset + _GLD.Height, _GLD.Width, _GLD.Height, null);
-                DrawImage(-XOffset + _GLD.Width,    -YOffset + _GLD.Height, _GLD.Width, _GLD.Height, null);
-                DrawImage(-XOffset - _GLD.Width,    -YOffset + _GLD.Height, _GLD.Width, _GLD.Height, null);
+                DrawImage(-XOffset, -YOffset - _GLD.Height, _GLD.Width, _GLD.Height, null);
+                DrawImage(-XOffset + _GLD.Width, -YOffset - _GLD.Height, _GLD.Width, _GLD.Height, null);
+                DrawImage(-XOffset - _GLD.Width, -YOffset - _GLD.Height, _GLD.Width, _GLD.Height, null);
+                DrawImage(-XOffset, -YOffset + _GLD.Height, _GLD.Width, _GLD.Height, null);
+                DrawImage(-XOffset + _GLD.Width, -YOffset + _GLD.Height, _GLD.Width, _GLD.Height, null);
+                DrawImage(-XOffset - _GLD.Width, -YOffset + _GLD.Height, _GLD.Width, _GLD.Height, null);
             }
             else if (this._ArtData.BackType == 2)
             {
                 int XOffset = this._Data.Players[this._Data.CurrentPlayer].Location.X;
                 int YOffset = this._Data.Players[this._Data.CurrentPlayer].Location.Y;
-                XOffset %= _ArtData.Back.Width;
-                YOffset %= _ArtData.Back.Height;
+                XOffset %= (int)(_ArtData.Back.Width*_Aspect);
+                YOffset %= (int)(_ArtData.Back.Height*_Aspect);
 
                 DrawImage(-XOffset, -YOffset, (int)(this._ArtData.Back.Width * _Aspect), (int)(this._ArtData.Back.Height * _Aspect), _ArtData.Back);
                 DrawImage(-XOffset + (int)(this._ArtData.Back.Width * _Aspect), -YOffset, (int)(this._ArtData.Back.Width * _Aspect), (int)(this._ArtData.Back.Height * _Aspect), null);
