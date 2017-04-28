@@ -66,7 +66,7 @@ namespace PerfectPidgeonGameMechanic
             DForm.KeyPressed += new DrawForm.KeyPressedDelegate(this.KeyPressed);
             DForm.LeftRotate += new DrawForm.AxisRotate(this.LeftRotate);
             this._DataPool = new BaseDataPool();
-            StartLevel(this._DataPool.Levels["ElvenMageStorm-Test"]);
+            StartLevel(this._DataPool.Levels["LVL01"]);
             Time = new System.Timers.Timer(10);
             Time.Elapsed += new System.Timers.ElapsedEventHandler(TimerEvent_Tick);
             Time.Start();
@@ -138,13 +138,14 @@ namespace PerfectPidgeonGameMechanic
             {
                 Projectiles[i].Spin += 5;
             }
+            CurrentPlayer.ApplyBuffs();
             if (PlayerOnMove)
             {
                 //Vertex UnitVector = Vertex.Norm(DrawForm.GetAngleDegree(CurrentPlayer.Location.ToPoint(), CurrentPlayer.NextLocation.ToPoint())) * CurrentPlayer.Speed;
                 Vertex UnitVectorBase = new Vertex(1, 0);
                 double Angle = CurrentPlayer.Facing + 90;
                 Vertex UnitVector = UnitVectorBase.RotateZ(Angle);
-                CurrentPlayer.Location += UnitVector * CurrentPlayer.Speed * CurrentPlayer.SpeedBoost;
+                CurrentPlayer.Location += UnitVector * CurrentPlayer.ActiveSpeed;
             }
             for (int i = 0; i < Projectiles.Count; i++)
             {
@@ -173,6 +174,7 @@ namespace PerfectPidgeonGameMechanic
             {
                 if (Sanctuary > 0) break;
                 if (Enemies[i].Location == null) continue;
+                Enemies[i].ApplyBuffs();
                 if (Vertex.Distance(Enemies[i].Location, CurrentPlayer.Location) < Enemies[i].Behave.Sight)
                 {
                     if (Vertex.Distance(Enemies[i].Location, CurrentPlayer.Location) > Enemies[i].Behave.Radius)
@@ -181,7 +183,7 @@ namespace PerfectPidgeonGameMechanic
                         double Angle = DrawForm.GetAngleDegree(Enemies[i].Location.ToPoint(), CurrentPlayer.Location.ToPoint());
                         Vertex UnitVector = UnitVectorBase.RotateZ(Angle + 90);
                         UnitVector.Y *= -1;
-                        Enemies[i].Location -= UnitVector * Enemies[i].Speed;
+                        Enemies[i].Location -= UnitVector * Enemies[i].ActiveSpeed;
                     }
                     else if (TimeStamp % 5 == 0)
                     {
@@ -206,10 +208,6 @@ namespace PerfectPidgeonGameMechanic
             isHit();
             isPlayerHit();
             if (PowerUps.Count > 0) tookPowerUp();
-            if (CurrentPlayer.SpeedBoostTimer > 0)
-                CurrentPlayer.SpeedBoostTimer -= 40;
-            else
-                CurrentPlayer.SpeedBoost = 1;
             if (CurrentPlayer.CurrentWeapons == 0) DForm.RefreshData((int)(200 * CurrentPlayer.Health * 1.0 / CurrentPlayer.MaxHealth), "Basic");
             else if (CurrentPlayer.CurrentWeapons == 1) DForm.RefreshData((int)(200 * CurrentPlayer.Health * 1.0 / CurrentPlayer.MaxHealth), "Heavy - " + CurrentPlayer.CurrentAmmo());
             else if (CurrentPlayer.CurrentWeapons == 2) DForm.RefreshData((int)(200 * CurrentPlayer.Health * 1.0 / CurrentPlayer.MaxHealth), "Laser - " + CurrentPlayer.CurrentAmmo());
@@ -479,8 +477,7 @@ namespace PerfectPidgeonGameMechanic
                     }
                     if (PowerUps[i].Type == PowerUpType.Speed)
                     {
-                        CurrentPlayer.SpeedBoostTimer = PowerUps[i].Duration_Ammo;
-                        CurrentPlayer.SpeedBoost = PowerUps[i].Boost;
+                        CurrentPlayer.Buffs.Add(new Buff(BuffType.SpeedEffect, PowerUps[i].Boost, PowerUps[i].Duration_Ammo));
                     }
                     if (PowerUps[i].Type == PowerUpType.PidgeonHeavy)
                     {

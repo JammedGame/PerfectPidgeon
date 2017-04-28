@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="Behaviour.cs" />
     <Compile Include="Boss.cs" />
+    <Compile Include="Buff.cs" />
     <Compile Include="Content\BaseDataPool.cs" />
     <Compile Include="Effect.cs" />
     <Compile Include="Enemy.cs" />

@@ -9,17 +9,22 @@ namespace PerfectPidgeonGameMechanic
 {
     public class Object
     {
+        private bool _Disabled;
         private int _Health;
         private int _MaxHealth;
         private int _ArtIndex;
         private int _ImageIndex;
         private int _Owner;
         private int _HitRadius;
+        private int _ActiveHitRadius;
         private double _Scale;
         private double _Speed;
         private double _Facing;
+        private double _ActiveScale;
+        private double _ActiveSpeed;
         private Vertex _Location;
         private Color _Paint;
+        private List<Buff> _Buffs;
         public int Health
         {
             get { return _Health; }
@@ -103,6 +108,12 @@ namespace PerfectPidgeonGameMechanic
                 _Paint = value;
             }
         }
+        public List<Buff> Buffs
+        { get => _Buffs; set => _Buffs = value; }
+        public bool Disabled { get => _Disabled; set => _Disabled = value; }
+        public int ActiveHitRadius { get => _ActiveHitRadius; set => _ActiveHitRadius = value; }
+        public double ActiveScale { get => _ActiveScale; set => _ActiveScale = value; }
+        public double ActiveSpeed { get => _ActiveSpeed; set => _ActiveSpeed = value; }
         public Object()
         {
             this._Health = 100;
@@ -116,6 +127,7 @@ namespace PerfectPidgeonGameMechanic
             this._Facing = 0;
             this._Location = new Vertex();
             this._Paint = Color.White;
+            this._Buffs = new List<Buff>();
         }
         public Object(Object Old)
         {
@@ -130,6 +142,33 @@ namespace PerfectPidgeonGameMechanic
             this._Facing = Old._Facing;
             this._Location = new Vertex(Old._Location);
             this._Paint = Old._Paint;
+            this._Buffs = new List<Buff>();
+            for (int i = 0; i < Old.Buffs.Count; i++) this._Buffs.Add(Old.Buffs[i]);
+        }
+        public virtual void ApplyBuffs()
+        {
+            this.Disabled = false;
+            this.ActiveHitRadius = this._HitRadius;
+            this.ActiveScale = this._Scale;
+            this.ActiveSpeed = this._Speed;
+            for(int i = this._Buffs.Count - 1; i >= 0; i--)
+            {
+                if (this._Buffs[i].Duration == 0) this._Buffs.RemoveAt(i);
+                this._Buffs[i].Duration--;
+                if (this._Buffs[i].Type == BuffType.DamageOverTime)
+                {
+                    this._Health -= (int)this._Buffs[i].Amount;
+                    if (this._Health <= 0) this._Health = 1;
+                }
+                else if (this._Buffs[i].Type == BuffType.SpeedEffect)
+                {
+                    this.ActiveSpeed = this._Buffs[i].Amount * this._Speed;
+                }
+                else if(this._Buffs[i].Type == BuffType.WeaponMalfunction)
+                {
+                    this.Disabled = true;
+                }
+            }
         }
         public virtual double ShootDirection()
         {

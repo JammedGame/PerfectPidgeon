@@ -122,8 +122,6 @@ namespace PerfectPidgeonGameMechanic.Content
             this._Pidgeon.MaxHealth = 100;
             this._Pidgeon.Facing = 0;
             this._Pidgeon.Speed = 6;
-            this._Pidgeon.SpeedBoost = 1;
-            this._Pidgeon.SpeedBoostTimer = 0;
             this._Pidgeon.Guns.Add(new Weapon(this._Weapons["Left-Basic"]));
             this._Pidgeon.Guns.Add(new Weapon(this._Weapons["Right-Basic"]));
             this._Pidgeon.Guns.Add(new Weapon(this._Weapons["Left-Heavy"]));
