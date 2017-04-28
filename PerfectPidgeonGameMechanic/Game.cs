@@ -66,7 +66,7 @@ namespace PerfectPidgeonGameMechanic
             DForm.KeyPressed += new DrawForm.KeyPressedDelegate(this.KeyPressed);
             DForm.LeftRotate += new DrawForm.AxisRotate(this.LeftRotate);
             this._DataPool = new BaseDataPool();
-            StartLevel(this._DataPool.Levels["LVL01"]);
+            StartLevel(this._DataPool.Levels["ElvenMageFire-Test"]);
             Time = new System.Timers.Timer(10);
             Time.Elapsed += new System.Timers.ElapsedEventHandler(TimerEvent_Tick);
             Time.Start();
@@ -138,7 +138,7 @@ namespace PerfectPidgeonGameMechanic
             {
                 Projectiles[i].Spin += 5;
             }
-            CurrentPlayer.ApplyBuffs();
+            CurrentPlayer.ApplyBuffs(TimeStamp);
             if (PlayerOnMove)
             {
                 //Vertex UnitVector = Vertex.Norm(DrawForm.GetAngleDegree(CurrentPlayer.Location.ToPoint(), CurrentPlayer.NextLocation.ToPoint())) * CurrentPlayer.Speed;
@@ -158,12 +158,15 @@ namespace PerfectPidgeonGameMechanic
             }
             if (PlayerOnFire && TimeStamp % 5 == 0)
             {
-                for (int i = 0; i < CurrentPlayer.Guns.Count; i++)
+                if (!CurrentPlayer.Disabled)
                 {
-                    if (!CurrentPlayer.Guns[i].Active) continue;
-                    this._Projectiles.AddRange(CurrentPlayer.Guns[i].Shoot(CurrentPlayer, TimeStamp));
+                    for (int i = 0; i < CurrentPlayer.Guns.Count; i++)
+                    {
+                        if (!CurrentPlayer.Guns[i].Active) continue;
+                        this._Projectiles.AddRange(CurrentPlayer.Guns[i].Shoot(CurrentPlayer, TimeStamp));
+                    }
+                    CurrentPlayer.IsActiveEmpty();
                 }
-                CurrentPlayer.IsActiveEmpty();
             }
             for (int i = 0; i < Effects.Count; i++)
             {
@@ -174,7 +177,7 @@ namespace PerfectPidgeonGameMechanic
             {
                 if (Sanctuary > 0) break;
                 if (Enemies[i].Location == null) continue;
-                Enemies[i].ApplyBuffs();
+                Enemies[i].ApplyBuffs(TimeStamp);
                 if (Vertex.Distance(Enemies[i].Location, CurrentPlayer.Location) < Enemies[i].Behave.Sight)
                 {
                     if (Vertex.Distance(Enemies[i].Location, CurrentPlayer.Location) > Enemies[i].Behave.Radius)
@@ -377,6 +380,10 @@ namespace PerfectPidgeonGameMechanic
                 if (distance < CurrentPlayer.HitRadius + Projectiles[j].HitRadius)
                 {
                     CurrentPlayer.Health -= Projectiles[j].Damage;
+                    for(int i = 0; i < Projectiles[j].Buffs.Count; i++)
+                    {
+                        CurrentPlayer.Buffs.Add(new Buff(Projectiles[j].Buffs[i]));
+                    }
                     if (!(CurrentPlayer.Health > 0))
                     {
                         Time.Stop();

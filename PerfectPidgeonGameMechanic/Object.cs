@@ -145,7 +145,7 @@ namespace PerfectPidgeonGameMechanic
             this._Buffs = new List<Buff>();
             for (int i = 0; i < Old.Buffs.Count; i++) this._Buffs.Add(Old.Buffs[i]);
         }
-        public virtual void ApplyBuffs()
+        public virtual void ApplyBuffs(long TimeStamp)
         {
             this.Disabled = false;
             this.ActiveHitRadius = this._HitRadius;
@@ -153,20 +153,29 @@ namespace PerfectPidgeonGameMechanic
             this.ActiveSpeed = this._Speed;
             for(int i = this._Buffs.Count - 1; i >= 0; i--)
             {
-                if (this._Buffs[i].Duration == 0) this._Buffs.RemoveAt(i);
-                this._Buffs[i].Duration--;
-                if (this._Buffs[i].Type == BuffType.DamageOverTime)
+                if (this._Buffs[i].Duration == 0)
+                {
+                    this._Buffs.RemoveAt(i);
+                    continue;
+                }
+                
+                if (this._Buffs[i].Type == BuffType.DamageOverTime && TimeStamp % 3 == 0)
                 {
                     this._Health -= (int)this._Buffs[i].Amount;
                     if (this._Health <= 0) this._Health = 1;
+                    this._Buffs[i].Duration--;
                 }
-                else if (this._Buffs[i].Type == BuffType.SpeedEffect)
+                else
                 {
-                    this.ActiveSpeed = this._Buffs[i].Amount * this._Speed;
-                }
-                else if(this._Buffs[i].Type == BuffType.WeaponMalfunction)
-                {
-                    this.Disabled = true;
+                    this._Buffs[i].Duration--;
+                    if (this._Buffs[i].Type == BuffType.SpeedEffect)
+                    {
+                        this.ActiveSpeed = this._Buffs[i].Amount * this._Speed;
+                    }
+                    else if (this._Buffs[i].Type == BuffType.WeaponMalfunction)
+                    {
+                        this.Disabled = true;
+                    }
                 }
             }
         }
