@@ -91,10 +91,6 @@ namespace PerfectPidgeonGameMechanic
         }
         public List<Projectile> Shoot(Object Owner, long TimeStamp)
         {
-            if(Owner.Owner == 0 && this._Type.Type != ProjectileType.PidgeonGun)
-            {
-                int y = 4;
-            }
             List<Projectile> Projectiles = new List<Projectile>();
             if (!this._Active) return Projectiles;
             if (this._Ammo == 0) return Projectiles;

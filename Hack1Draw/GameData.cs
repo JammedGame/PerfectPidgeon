@@ -25,7 +25,8 @@ namespace PerfectPidgeon.Draw
             this.PowerUps = new List<Item>();
         }
         private bool _Working = false;
-        private bool _ImageSwitchWorking = false;       
+        private bool _ImageSwitchWorking = false;
+        private bool _SwapingBuffers = false;
         public int CurrentPlayer = 0;
         public List<Item> Players;
         public List<Item> NPCs;
@@ -61,6 +62,7 @@ namespace PerfectPidgeon.Draw
                 _ImageSwitchWorking = value;
             }
         }
+        public bool SwapingBuffers { get => _SwapingBuffers; set => _SwapingBuffers = value; }
         public void ImageSwitch(List<SpriteSet> SpriteSets)
         {
             if (this._ImageSwitchWorking) return;
@@ -96,11 +98,13 @@ namespace PerfectPidgeon.Draw
         }
         public void SwapBuffers()
         {
+            this.SwapingBuffers = true;
             Players = PlayersBuffer;
             NPCs = NPCsBuffer;
             Projectiles = ProjectilesBuffer;
             Effects = EffectsBuffer;
             PowerUps = PowerUpsBuffer;
+            this.SwapingBuffers = false;
         }
         public void UpdateItem(GameDataType Type, int Index, int ArtIndex, int ImageIndex, int Other, double Facing, double Size, Point Location, Color Paint)
         {
