@@ -381,7 +381,7 @@ namespace PerfectPidgeonGameMechanic.Content
             E.Facing = 0;
             E.Health = 3000;
             E.MaxHealth = 3000;
-            E.Scale = 2.5;
+            E.Scale = 1.5;
             E.Speed = 5;
             E.Owner = 1;
             E.HitRadius = 140;
@@ -393,7 +393,7 @@ namespace PerfectPidgeonGameMechanic.Content
             E.Facing = 0;
             E.Health = 3000;
             E.MaxHealth = 3000;
-            E.Scale = 2.5;
+            E.Scale = 1.5;
             E.Speed = 5;
             E.Owner = 1;
             E.HitRadius = 140;
@@ -405,7 +405,7 @@ namespace PerfectPidgeonGameMechanic.Content
             BO.Facing = 0;
             BO.Health = 5000;
             BO.MaxHealth = 5000;
-            BO.Scale = 1;
+            BO.Scale = 1.5;
             BO.Speed = 5;
             BO.Owner = 1;
             BO.HitRadius = 140;
@@ -413,6 +413,8 @@ namespace PerfectPidgeonGameMechanic.Content
             BO.Behave = B;
             BO.Auxes.Add(this.Enemies["AlienMothershipLeftWing"]);
             BO.Auxes.Add(this.Enemies["AlienMothershipRightWing"]);
+            BO.Offsets.Add(new Vertex(500, 0));
+            BO.Offsets.Add(new Vertex(-500, 0));
             this._Bosses.Add("AlienMothership", BO);
 
             //Elves
@@ -638,7 +640,7 @@ namespace PerfectPidgeonGameMechanic.Content
             L.Title = "1-X";
             L.Next = "LVL11";
             L.Back = new Background("Earth", BackgroundType.Static);
-            //L.LBoss = new Boss(this._Bosses["AlienMothership"]);
+            L.LBoss = new Boss(this._Bosses["AlienMothership"]);
             //for (int i = 0; i < 20; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienCaptain"]));
             this._Levels.Add("LVL10", L);
             L = new Level();

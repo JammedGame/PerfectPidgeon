@@ -19,6 +19,7 @@ namespace PerfectPidgeonGameMechanic
         private DrawForm DForm;
         private System.Timers.Timer _Time;
         private Player _CurrentPlayer;
+        private Boss _CurrentBoss;
         private Level _CurrentLevel;
         private BaseDataPool _DataPool;
         private List<Enemy> _EnemyPool;
@@ -65,7 +66,7 @@ namespace PerfectPidgeonGameMechanic
             DForm.KeyPressed += new DrawForm.KeyPressedDelegate(this.KeyPressed);
             DForm.LeftRotate += new DrawForm.AxisRotate(this.LeftRotate);
             this._DataPool = new BaseDataPool();
-            StartLevel(this._DataPool.Levels["LVL11"]);
+            StartLevel(this._DataPool.Levels["LVL10"]);
             Time = new System.Timers.Timer(10);
             Time.Elapsed += new System.Timers.ElapsedEventHandler(TimerEvent_Tick);
             Time.Start();
@@ -105,12 +106,13 @@ namespace PerfectPidgeonGameMechanic
             }
             if (CLevel.LBoss != null)
             {
-                this._EnemyPool.Add(new Boss(CLevel.LBoss));
-                for (int i = 0; i < CLevel.LBoss.Auxes.Count; i++)
+                this._CurrentBoss = new Boss(CLevel.LBoss);
+                
+                for (int i = 0; i < this._CurrentBoss.Auxes.Count; i++)
                 {
-                    Enemy E = new Enemy(CLevel.LBoss.Auxes[i]);
-                    this._EnemyPool.Add(E);
+                    this._EnemyPool.Add(this._CurrentBoss.Auxes[i]);
                 }
+                this._EnemyPool.Add(this._CurrentBoss);
             }
             Spawn();
 
@@ -193,6 +195,14 @@ namespace PerfectPidgeonGameMechanic
                     }
                 }
             }
+            if(this._CurrentBoss != null)
+            {
+                for(int i = 0; i < this._CurrentBoss.Auxes.Count; i++)
+                {
+                    this._CurrentBoss.Auxes[i].Location = this._CurrentBoss.Location + this._CurrentBoss.Offsets[i].RotateZ(this._CurrentBoss.Facing);
+                    this._CurrentBoss.Auxes[i].Facing = this._CurrentBoss.Facing;
+                }
+            }
             isHit();
             isPlayerHit();
             if (PowerUps.Count > 0) tookPowerUp();
@@ -227,9 +237,13 @@ namespace PerfectPidgeonGameMechanic
                     ImageIndices.Add(Enemies[i].ImageIndex);
                     Other.Add(0);
                     Colors.Add(Enemies[i].Paint);
-                    Angles.Add(DrawForm.GetAngleDegree((CurrentPlayer.Location).ToPoint(), Enemies[i].Location.ToPoint()));
                     Sizes.Add(Enemies[i].Scale);
                     Locations.Add(Enemies[i].Location.ToPoint());
+                    if(this._CurrentBoss != null && this._CurrentBoss.Auxes.Contains(Enemies[i]))
+                    {
+                        Angles.Add(DrawForm.GetAngleDegree((CurrentPlayer.Location).ToPoint(), this._CurrentBoss.Location.ToPoint()));
+                    }
+                    else Angles.Add(DrawForm.GetAngleDegree((CurrentPlayer.Location).ToPoint(), Enemies[i].Location.ToPoint()));
                 }
             }
             for (int i = Enemies.Count - 1; i >= 0; i--) if (!(Enemies[i].Location != null)) Enemies.RemoveAt(i);
@@ -357,12 +371,6 @@ namespace PerfectPidgeonGameMechanic
             double distance;
             for (int j = Projectiles.Count - 1; j >= 0; j--)
             {
-
-                if (Projectiles[j].Type == ProjectileType.AlienMineField)
-                {
-                    int e = 23;
-                }
-
                 if (!(CurrentPlayer.Location != null)) continue;
                 if (!(Projectiles[j].Location != null)) continue;
                 if (Projectiles[j].Owner == 0) continue;
@@ -526,10 +534,10 @@ namespace PerfectPidgeonGameMechanic
             while(this._Enemies.Count < this._CurrentLevel.MaxSpawns && this._EnemyPool.Count > 0)
             {
                 long X = Rand.Next(-1500, +1500);
-                if (X != 0) X += (X / Math.Abs(X)) * 300;
+                if (X != 0) X += (X / Math.Abs(X)) * 600;
                 else X = 600;
                 long Y = Rand.Next(-1500, +1500);
-                if (Y != 0) Y += (Y / Math.Abs(X)) * 300;
+                if (Y != 0) Y += (Y / Math.Abs(X)) * 600;
                 else Y = 600;
                 this._EnemyPool[0].Location = this._CurrentPlayer.Location + new Vertex (X, Y);
                 this._Enemies.Add(this._EnemyPool[0]);

@@ -110,7 +110,6 @@ namespace PerfectPidgeon.Draw
                 XOffset %= _GLD.Width;
                 YOffset %= _GLD.Height;
 
-
                 DrawImage(-XOffset, -YOffset, _GLD.Width, _GLD.Height, this._ArtData.Back);
                 DrawImage(-XOffset + _GLD.Width, -YOffset, _GLD.Width, _GLD.Height, this._ArtData.Back);
                 DrawImage(-XOffset - _GLD.Width, -YOffset, _GLD.Width, _GLD.Height, null);
