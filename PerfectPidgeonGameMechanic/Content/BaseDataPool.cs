@@ -496,10 +496,10 @@ namespace PerfectPidgeonGameMechanic.Content
             E = new Enemy();
             E.ArtIndex = 7;
             E.Facing = 0;
-            E.Health = 100;
-            E.MaxHealth = 100;
+            E.Health = 80;
+            E.MaxHealth = 80;
             E.Scale = 1.5;
-            E.Speed = 3;
+            E.Speed = 4;
             E.Owner = 1;
             B = new Behaviour();
             E.Behave = B;
@@ -508,8 +508,8 @@ namespace PerfectPidgeonGameMechanic.Content
             E = new Enemy();
             E.ArtIndex = 14;
             E.Facing = 0;
-            E.Health = 100;
-            E.MaxHealth = 100;
+            E.Health = 120;
+            E.MaxHealth = 120;
             E.Scale = 1.5;
             E.Speed = 3;
             E.Owner = 1;
@@ -520,8 +520,8 @@ namespace PerfectPidgeonGameMechanic.Content
             E = new Enemy();
             E.ArtIndex = 15;
             E.Facing = 0;
-            E.Health = 100;
-            E.MaxHealth = 100;
+            E.Health = 120;
+            E.MaxHealth = 120;
             E.Scale = 1.5;
             E.Speed = 3;
             E.Owner = 1;
@@ -532,8 +532,8 @@ namespace PerfectPidgeonGameMechanic.Content
             E = new Enemy();
             E.ArtIndex = 16;
             E.Facing = 0;
-            E.Health = 100;
-            E.MaxHealth = 100;
+            E.Health = 120;
+            E.MaxHealth = 120;
             E.Scale = 1.5;
             E.Speed = 3;
             E.Owner = 1;
@@ -544,16 +544,27 @@ namespace PerfectPidgeonGameMechanic.Content
             E = new Enemy();
             E.ArtIndex = 17;
             E.Facing = 0;
-            E.Health = 100;
-            E.MaxHealth = 100;
+            E.Health = 200;
+            E.MaxHealth = 200;
             E.Scale = 1.2;
-            E.Speed = 3;
+            E.Speed = 2;
             E.Owner = 1;
             B = new Behaviour();
             E.Behave = B;
             E.Guns.Add(new Weapon(this._Weapons["ElvenSpearThrower"]));
             E.Guns.Add(new Weapon(this._Weapons["ElvenManticoreBlaster"]));
             this._Enemies.Add("ElvenManticore", E);
+            E = new Enemy();
+            E.ArtIndex = 18;
+            E.Facing = 0;
+            E.Health = 300;
+            E.MaxHealth = 300;
+            E.Scale = 1;
+            E.Speed = 1;
+            E.Owner = 1;
+            B = new Behaviour();
+            E.Behave = B;
+            this._Enemies.Add("ElvenArchmage", E);
         }
         private void InitLevels()
         {
@@ -600,6 +611,10 @@ namespace PerfectPidgeonGameMechanic.Content
             L.Back = new Background("Data\\Town2", BackgroundType.Tiled, 1);
             L.Enemies.Add(new Enemy(this._Enemies["ElvenManticore"]));
             this._Levels.Add("ElvenManticore-Test", L);
+            L = new Level();
+            L.Back = new Background("Data\\Town2", BackgroundType.Tiled, 1);
+            L.Enemies.Add(new Enemy(this._Enemies["ElvenArchmage"]));
+            this._Levels.Add("ElvenArchmage-Test", L);
             L = new Level();
             L.Back = new Background("Data\\Town1", BackgroundType.Tiled, 2);
             L.Enemies.Add(new Enemy(this._Enemies["AlienBasic"]));
