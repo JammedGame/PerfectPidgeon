@@ -181,6 +181,9 @@ namespace PerfectPidgeon.Draw
             SpriteSetImages = new Bitmap[1];
             SpriteSetImages[0] = global::PerfectPidgeon.Draw.Properties.Resources.spear;
             Bullets.Add(new SpriteSet(SpriteSetImages, 1));
+            SpriteSetImages = new Bitmap[1];
+            SpriteSetImages[0] = global::PerfectPidgeon.Draw.Properties.Resources.blast2;
+            Bullets.Add(new SpriteSet(SpriteSetImages, 1));
         }
         private void InitializeTileSets()
         {

@@ -385,6 +385,9 @@
   <data name="enm9_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\enm9-3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="blast2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\blast2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="enm13_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\enm13-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -420,6 +423,33 @@
   </data>
   <data name="enm16_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\enm16-3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm17_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm17-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm17_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm17-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm17_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm17-3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm18_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm18-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm18_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm18-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm18_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm18-3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm19_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm19-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm19_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm19-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm19_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm19-3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="fire" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\fire.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>

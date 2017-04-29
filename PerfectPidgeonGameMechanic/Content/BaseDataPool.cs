@@ -226,6 +226,7 @@ namespace PerfectPidgeonGameMechanic.Content
             P.Damage = 10;
             P.Health = 3000;
             P.MaxHealth = 3000;
+            P.Buffs.Add(new Buff(BuffType.SpeedEffect, 0.5, 200));
             this._Projectiles.Add("ElvenIcebolt", P);
             P = new Projectile();
             P.Type = ProjectileType.ElvenTendrils;
@@ -246,16 +247,24 @@ namespace PerfectPidgeonGameMechanic.Content
             P.Damage = 1;
             P.Health = 3000;
             P.MaxHealth = 3000;
-            P.Buffs.Add(new Buff(BuffType.DamageOverTime, 1, 15));
+            P.Buffs.Add(new Buff(BuffType.DamageOverTime, 1, 20));
             this._Projectiles.Add("ElvenFirebolt", P);
             P = new Projectile();
             P.Type = ProjectileType.ElvenSpear;
             P.ArtIndex = 20;
             P.Speed = 8;
-            P.Damage = 30;
-            P.Health = 8000;
-            P.MaxHealth = 8000;
+            P.Damage = 15;
+            P.Health = 5000;
+            P.MaxHealth = 5000;
             this._Projectiles.Add("ElvenSpear", P);
+            P = new Projectile();
+            P.Type = ProjectileType.ElvenSpear;
+            P.ArtIndex = 21;
+            P.Speed = 5;
+            P.Damage = 50;
+            P.Health = 10000;
+            P.MaxHealth = 10000;
+            this._Projectiles.Add("ElvenBlast", P);
         }
         private void InitWeapons()
         {
@@ -364,6 +373,12 @@ namespace PerfectPidgeonGameMechanic.Content
             W.Location = new Vertex(-45, 170, 0);
             W.Ammo = -1;
             this._Weapons.Add("ElvenSpearThrower", W);
+            W = new Weapon();
+            W.FireRate = 150;
+            W.Type = this._Projectiles["ElvenBlast"];
+            W.Location = new Vertex(0, 170, 0);
+            W.Ammo = -1;
+            this._Weapons.Add("ElvenManticoreBlaster", W);
         }
         private void InitEnemies()
         {
@@ -537,6 +552,7 @@ namespace PerfectPidgeonGameMechanic.Content
             B = new Behaviour();
             E.Behave = B;
             E.Guns.Add(new Weapon(this._Weapons["ElvenSpearThrower"]));
+            E.Guns.Add(new Weapon(this._Weapons["ElvenManticoreBlaster"]));
             this._Enemies.Add("ElvenManticore", E);
         }
         private void InitLevels()
