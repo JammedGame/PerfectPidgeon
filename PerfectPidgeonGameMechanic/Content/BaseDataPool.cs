@@ -246,7 +246,7 @@ namespace PerfectPidgeonGameMechanic.Content
             P.Damage = 1;
             P.Health = 3000;
             P.MaxHealth = 3000;
-            P.Buffs.Add(new Buff(BuffType.DamageOverTime, 3, 10));
+            P.Buffs.Add(new Buff(BuffType.DamageOverTime, 1, 15));
             this._Projectiles.Add("ElvenFirebolt", P);
             P = new Projectile();
             P.Type = ProjectileType.ElvenSpear;

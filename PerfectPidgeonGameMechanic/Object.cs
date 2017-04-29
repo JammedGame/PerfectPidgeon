@@ -159,11 +159,14 @@ namespace PerfectPidgeonGameMechanic
                     continue;
                 }
                 
-                if (this._Buffs[i].Type == BuffType.DamageOverTime && TimeStamp % 3 == 0)
+                if (this._Buffs[i].Type == BuffType.DamageOverTime)
                 {
-                    this._Health -= (int)this._Buffs[i].Amount;
-                    if (this._Health <= 0) this._Health = 1;
-                    this._Buffs[i].Duration--;
+                    if (TimeStamp % 6 == 0)
+                    {
+                        this._Health -= (int)this._Buffs[i].Amount;
+                        if (this._Health <= 0) this._Health = 1;
+                        this._Buffs[i].Duration--;
+                    }
                 }
                 else
                 {
