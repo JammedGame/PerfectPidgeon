@@ -66,7 +66,7 @@ namespace PerfectPidgeonGameMechanic
             DForm.KeyPressed += new DrawForm.KeyPressedDelegate(this.KeyPressed);
             DForm.LeftRotate += new DrawForm.AxisRotate(this.LeftRotate);
             this._DataPool = new BaseDataPool();
-            StartLevel(this._DataPool.Levels["ElvenArchmage-Test"]);
+            StartLevel(this._DataPool.Levels["AlienMiner-Test"]);
             Time = new System.Timers.Timer(10);
             Time.Elapsed += new System.Timers.ElapsedEventHandler(TimerEvent_Tick);
             Time.Start();
@@ -149,12 +149,34 @@ namespace PerfectPidgeonGameMechanic
             }
             for (int i = 0; i < Projectiles.Count; i++)
             {
+                double Angle = 0;
+                if (Projectiles[i].Behave.Linear) Angle = Projectiles[i].Facing + 90;
+                else Angle = -DrawForm.GetAngleDegree(Projectiles[i].Location.ToPoint(), CurrentPlayer.Location.ToPoint()) + 90;
                 Vertex UnitVectorBase = new Vertex(1, 0);
-                double Angle = Projectiles[i].Facing + 90;
                 Vertex UnitVector = UnitVectorBase.RotateZ(Angle);
                 Projectiles[i].Location += UnitVector * Projectiles[i].Speed;
-                /*Projectiles[i].Health -= 5;
-                if (Projectiles[i].Health <= 0) Projectiles[i].Location = null;*/
+                if(!Projectiles[i].Behave.Sustainable) Projectiles[i].Health -= 10;
+                if (Projectiles[i].Health == 0)
+                {
+                    for (int j = 0; j < Projectiles[i].Summons.Count; j++)
+                    {
+                        if (Projectiles[i].Summons[j].Event == SummonActivationType.OnExpire)
+                        {
+                            if (Projectiles[i].Summons[j].Type == SummonType.Projectile)
+                            {
+                                Projectile P = new Projectile(Projectiles[i].Summons[j].Projectile);
+                                P.Location += Projectiles[i].Location;
+                                P.Facing += Projectiles[i].Facing;
+                                Projectiles.Add(P);
+                            }
+                            else if (Projectiles[i].Summons[j].Type == SummonType.Enemy)
+                            {
+
+                            }
+                        }
+                    }
+                    Projectiles[i].Location = null;
+                }
             }
             if (PlayerOnFire && TimeStamp % 5 == 0)
             {
@@ -260,14 +282,6 @@ namespace PerfectPidgeonGameMechanic
             Other = new List<int>();
             for (int i = 0; i < Projectiles.Count; i++)
             {
-                if (Projectiles[i].Type != ProjectileType.AlienMineField)
-                {
-                    Projectiles[i].Health -= 10;
-                    if (Projectiles[i].Health == 0)
-                    {
-                        Projectiles[i].Location = null;
-                    }
-                }
                 if (Projectiles[i].Location != null)
                 {
                     Indices.Add(i);
@@ -397,15 +411,24 @@ namespace PerfectPidgeonGameMechanic
                         NewEffect.Location = Projectiles[j].Location;
                         Effects.Add(NewEffect);
                     }
-                    if(Projectiles[j].Type == ProjectileType.AlienMine)
+                    for (int k = 0; k < Projectiles[j].Summons.Count; k++)
                     {
-                        Projectile P = new Projectile(this._DataPool.Projectiles["AlienMineField"]);
-                        P.Location = Projectiles[j].Location;
-                        P.Owner = 1;
-                        Projectiles.Add(P);
-                        Projectiles[j].Location = null;
+                        if (Projectiles[j].Summons[k].Event == SummonActivationType.OnHit)
+                        {
+                            if (Projectiles[j].Summons[k].Type == SummonType.Projectile)
+                            {
+                                Projectile P = new Projectile(Projectiles[j].Summons[k].Projectile);
+                                P.Location += Projectiles[j].Location;
+                                P.Facing += Projectiles[j].Facing;
+                                Projectiles.Add(P);
+                            }
+                            else if (Projectiles[j].Summons[j].Type == SummonType.Enemy)
+                            {
+
+                            }
+                        }
                     }
-                    else if (Projectiles[j].Type == ProjectileType.AlienMineField)
+                    if (Projectiles[j].Behave.Sustainable)
                     {
                         Projectiles[j].Health -= Projectiles[j].Damage;
                         if(Projectiles[j].Health <= 0) Projectiles[j].Location = null;

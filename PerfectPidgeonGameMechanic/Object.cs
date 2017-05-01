@@ -24,6 +24,7 @@ namespace PerfectPidgeonGameMechanic
         private double _ActiveSpeed;
         private Vertex _Location;
         private Color _Paint;
+        private Behaviour _Behave;
         private List<Buff> _Buffs;
         public int Health
         {
@@ -108,6 +109,18 @@ namespace PerfectPidgeonGameMechanic
                 _Paint = value;
             }
         }
+        public Behaviour Behave
+        {
+            get
+            {
+                return _Behave;
+            }
+
+            set
+            {
+                _Behave = value;
+            }
+        }
         public List<Buff> Buffs
         { get => _Buffs; set => _Buffs = value; }
         public bool Disabled { get => _Disabled; set => _Disabled = value; }
@@ -127,6 +140,7 @@ namespace PerfectPidgeonGameMechanic
             this._Facing = 0;
             this._Location = new Vertex();
             this._Paint = Color.White;
+            this._Behave = new Behaviour();
             this._Buffs = new List<Buff>();
         }
         public Object(Object Old)
@@ -142,6 +156,7 @@ namespace PerfectPidgeonGameMechanic
             this._Facing = Old._Facing;
             this._Location = new Vertex(Old._Location);
             this._Paint = Old._Paint;
+            this._Behave = new Behaviour(Old._Behave);
             this._Buffs = new List<Buff>();
             for (int i = 0; i < Old.Buffs.Count; i++) this._Buffs.Add(Old.Buffs[i]);
         }

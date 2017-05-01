@@ -367,9 +367,6 @@
     <None Include="Resources\blast2.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\enm17-1.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\enm17-2.png" />
   </ItemGroup>
   <ItemGroup>
@@ -392,6 +389,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\enm19-3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enm17-1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

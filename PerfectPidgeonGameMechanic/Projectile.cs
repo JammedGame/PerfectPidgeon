@@ -7,29 +7,18 @@ namespace PerfectPidgeonGameMechanic
 {
     public enum ProjectileType
     {
+        Ordinary,
         PidgeonGun,
         PidgeonHeavy,
         PidgeonLaser,
-        PidgeonPlazma,
-        AlienBasic,
-        AlienSpeeder,
-        AlienMine,
-        AlienMineField,
-        AlienField,
-        AlienBeamer,
-        AlienMothershipLaser,
-        ElvenArrow,
-        ElvenIcebolt,
-        ElvenTendrils,
-        ElvenFirebolt,
-        ElvenSpear,
-        ElvenBlast
+        PidgeonPlazma
     }
     public class Projectile : Object
     {
         private int _Damage;
         private int _Spin;
         private ProjectileType _Type;
+        private List<Summon> _Summons;
         public int Damage
         {
             get { return _Damage; }
@@ -59,18 +48,22 @@ namespace PerfectPidgeonGameMechanic
                 _Type = value;
             }
         }
+        public List<Summon> Summons { get => _Summons; set => _Summons = value; }
         public Projectile() : base()
         {
             this._Damage = 0;
             this._Spin = 0;
-            this._Type = ProjectileType.PidgeonGun;
+            this._Type = ProjectileType.Ordinary;
             this.HitRadius = 30;
+            this._Summons = new List<Summon>();
         }
         public Projectile(Projectile Old) : base(Old)
         {
             this._Damage = Old._Damage;
             this._Spin = Old._Spin;
             this._Type = Old._Type;
+            this._Summons = new List<Summon>();
+            for (int i = 0; i < Old._Summons.Count; i++) this._Summons.Add(new Summon(Old._Summons[i]));
         }
     }
 }
