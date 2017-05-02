@@ -652,7 +652,7 @@ namespace PerfectPidgeonGameMechanic.Content
             L = new Level();
             L.Back = new Background("Data\\Town4", BackgroundType.Tiled, 2);
             L.Enemies.Add(new Enemy(this._Enemies["AlienCaptain"]));
-            this._Levels.Add("JapanAWOL-Test", L);
+            this._Levels.Add("Japan-Test", L);
             L = new Level();
             L.Back = new Background("Data\\Town1", BackgroundType.Tiled, 2);
             L.Enemies.Add(new Enemy(this._Enemies["AlienBasic"]));
