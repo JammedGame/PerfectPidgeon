@@ -14,7 +14,8 @@ namespace PerfectPidgeonGameMechanic
     public enum SummonActivationType
     {
         OnExpire,
-        OnHit
+        OnHit,
+        OnBoth
     }
     public class Summon
     {

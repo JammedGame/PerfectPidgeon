@@ -160,11 +160,12 @@ namespace PerfectPidgeonGameMechanic
                 {
                     for (int j = 0; j < Projectiles[i].Summons.Count; j++)
                     {
-                        if (Projectiles[i].Summons[j].Event == SummonActivationType.OnExpire)
+                        if (Projectiles[i].Summons[j].Event == SummonActivationType.OnExpire || Projectiles[i].Summons[j].Event == SummonActivationType.OnBoth)
                         {
                             if (Projectiles[i].Summons[j].Type == SummonType.Projectile)
                             {
                                 Projectile P = new Projectile(Projectiles[i].Summons[j].Projectile);
+                                P.Owner = Projectiles[i].Owner;
                                 P.Location += Projectiles[i].Location;
                                 P.Facing += Projectiles[i].Facing;
                                 Projectiles.Add(P);
@@ -413,13 +414,14 @@ namespace PerfectPidgeonGameMechanic
                     }
                     for (int k = 0; k < Projectiles[j].Summons.Count; k++)
                     {
-                        if (Projectiles[j].Summons[k].Event == SummonActivationType.OnHit)
+                        if (Projectiles[j].Summons[k].Event == SummonActivationType.OnHit || Projectiles[j].Summons[k].Event == SummonActivationType.OnBoth)
                         {
                             if (Projectiles[j].Summons[k].Type == SummonType.Projectile)
                             {
                                 Projectile P = new Projectile(Projectiles[j].Summons[k].Projectile);
                                 P.Location += Projectiles[j].Location;
                                 P.Facing += Projectiles[j].Facing;
+                                P.Owner = Projectiles[j].Owner;
                                 Projectiles.Add(P);
                             }
                             else if (Projectiles[j].Summons[j].Type == SummonType.Enemy)

@@ -216,12 +216,12 @@ namespace PerfectPidgeonGameMechanic.Content
             P.ArtIndex = 13;
             P.Speed = 10;
             P.Damage = 0;
-            P.Health = 500;
-            P.MaxHealth = 500;
+            P.Health = 800;
+            P.MaxHealth = 800;
             P.Behave = B;
             S = new Summon();
             S.Type = SummonType.Projectile;
-            S.Event = SummonActivationType.OnHit;
+            S.Event = SummonActivationType.OnBoth;
             S.Projectile = this._Projectiles["AlienMineField"];
             P.Summons.Add(S);
             this._Projectiles.Add("AlienMine", P);
