@@ -19,10 +19,6 @@ namespace PerfectPidgeon.Draw
         public Bitmap Back = global::PerfectPidgeon.Draw.Properties.Resources.earth1;
         public Bitmap Clouds = global::PerfectPidgeon.Draw.Properties.Resources.clouds3;
         public List<SpriteSet> SpriteSets;
-        public List<Bitmap> Tile1;
-        public List<Bitmap> Tile2;
-        public List<Bitmap> Tile3;
-        public List<Bitmap> Tile4;
         public List<Bitmap> EffectArt;
         public List<Bitmap> PowerUpArt;
         public List<SpriteSet> Bullets;
@@ -228,19 +224,6 @@ namespace PerfectPidgeon.Draw
         }
         private void InitializeTileSets()
         {
-            Tile1 = new List<Bitmap>();
-            Tile1.Add(global::PerfectPidgeon.Draw.Properties.Resources.z0);
-            Tile1.Add(global::PerfectPidgeon.Draw.Properties.Resources.z1);
-            Tile1.Add(global::PerfectPidgeon.Draw.Properties.Resources.z2);
-            Tile1.Add(global::PerfectPidgeon.Draw.Properties.Resources.z3);
-            Tile2 = new List<Bitmap>();
-            Tile2.Add(global::PerfectPidgeon.Draw.Properties.Resources.z_0);
-            Tile2.Add(global::PerfectPidgeon.Draw.Properties.Resources.z_1);
-            Tile2.Add(global::PerfectPidgeon.Draw.Properties.Resources.z_2);
-            Tile3 = new List<Bitmap>();
-            Tile3.Add(global::PerfectPidgeon.Draw.Properties.Resources.z__0);
-            Tile4 = new List<Bitmap>();
-            Tile4.Add(global::PerfectPidgeon.Draw.Properties.Resources.z___0);
             EffectArt = new List<Bitmap>();
             EffectArt.Add(global::PerfectPidgeon.Draw.Properties.Resources.bum);
             EffectArt.Add(global::PerfectPidgeon.Draw.Properties.Resources.boom4);

@@ -51,6 +51,7 @@
     <Compile Include="Effect.cs" />
     <Compile Include="Enemy.cs" />
     <Compile Include="Game.cs" />
+    <Compile Include="Grouped.cs" />
     <Compile Include="LevelData\Background.cs" />
     <Compile Include="Level.cs" />
     <Compile Include="Object.cs" />
