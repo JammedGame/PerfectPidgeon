@@ -557,26 +557,41 @@ namespace PerfectPidgeonGameMechanic
         }
         public void Spawn()
         {
-            Random Rand = new Random();
-            for(int i = 0; i < this._Enemies.Count; i++)
+            if (this._CurrentLevel.SpawnStrategy < 4)
             {
-                if(Vertex.Distance(this._CurrentPlayer.Location, this._Enemies[i].Location) > 3000)
+                int OuterRadius = 3000;
+                int InnerRadius = 600;
+                if(this._CurrentLevel.SpawnStrategy == 1)
                 {
-                    this._EnemyPool.Insert(0, this._Enemies[i]);
-                    this._Enemies.Remove(this._Enemies[i]);
+                    OuterRadius = 1200;
+                    InnerRadius = 600;
                 }
-            }
-            while(this._Enemies.Count < this._CurrentLevel.MaxSpawns && this._EnemyPool.Count > 0)
-            {
-                long X = Rand.Next(-1500, +1500);
-                if (X != 0) X += (X / Math.Abs(X)) * 600;
-                else X = 600;
-                long Y = Rand.Next(-1500, +1500);
-                if (Y != 0) Y += (Y / Math.Abs(X)) * 600;
-                else Y = 600;
-                this._EnemyPool[0].Location = this._CurrentPlayer.Location + new Vertex (X, Y);
-                this._Enemies.Add(this._EnemyPool[0]);
-                this._EnemyPool.RemoveAt(0);
+                else if (this._CurrentLevel.SpawnStrategy == 2)
+                {
+                    OuterRadius = 1500;
+                    InnerRadius = 800;
+                }
+                Random Rand = new Random();
+                for (int i = 0; i < this._Enemies.Count; i++)
+                {
+                    if (Vertex.Distance(this._CurrentPlayer.Location, this._Enemies[i].Location) > OuterRadius)
+                    {
+                        this._EnemyPool.Insert(0, this._Enemies[i]);
+                        this._Enemies.Remove(this._Enemies[i]);
+                    }
+                }
+                while (this._Enemies.Count < this._CurrentLevel.MaxSpawns && this._EnemyPool.Count > 0)
+                {
+                    long X = Rand.Next(-OuterRadius/2, +OuterRadius/2);
+                    if (X != 0) X += (X / Math.Abs(X)) * InnerRadius;
+                    else X = InnerRadius;
+                    long Y = Rand.Next(-OuterRadius / 2, +OuterRadius / 2);
+                    if (Y != 0) Y += (Y / Math.Abs(X)) * InnerRadius;
+                    else Y = InnerRadius;
+                    this._EnemyPool[0].Location = this._CurrentPlayer.Location + new Vertex(X, Y);
+                    this._Enemies.Add(this._EnemyPool[0]);
+                    this._EnemyPool.RemoveAt(0);
+                }
             }
         }
         public void KeyPressed(Keys Key)

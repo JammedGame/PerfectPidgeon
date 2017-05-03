@@ -11,6 +11,7 @@ namespace PerfectPidgeonGameMechanic
         private int _MaxSpawns;
         private int _FinishCondition;
         private int _Accessory;
+        private int _SpawnStrategy;
         private string _Title;
         private string _Next;
         private Boss _LBoss;
@@ -112,10 +113,12 @@ namespace PerfectPidgeonGameMechanic
                 _Enemies = value;
             }
         }
+        public int SpawnStrategy { get => _SpawnStrategy; set => _SpawnStrategy = value; }
         public Level()
         {
             this._MaxSpawns = 10;
             this._FinishCondition = 0;
+            this._SpawnStrategy = 0;
             this._Accessory = 0;
             this._Title = "TST";
             this._Next = "";

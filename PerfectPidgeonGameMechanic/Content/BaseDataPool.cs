@@ -696,73 +696,136 @@ namespace PerfectPidgeonGameMechanic.Content
             E.Behave = BDra;
             E.Guns.Add(new Weapon(this._Weapons["ElvenDragonBlaster"]));
             this._Enemies.Add("ElvenDragon", E);
+            E = new Enemy();
+            E.ArtIndex = 21;
+            E.Facing = 0;
+            E.Health = 3000;
+            E.MaxHealth = 3000;
+            E.Scale = 2.5;
+            E.Speed = 2;
+            E.Owner = 1;
+            E.Behave = BDra;
+            this._Enemies.Add("ElvenTiamatIce", E);
+            E = new Enemy();
+            E.ArtIndex = 22;
+            E.Facing = 0;
+            E.Health = 3000;
+            E.MaxHealth = 3000;
+            E.Scale = 2.5;
+            E.Speed = 2;
+            E.Owner = 1;
+            E.Behave = BDra;
+            this._Enemies.Add("ElvenTiamatFire", E);
+            E = new Enemy();
+            E.ArtIndex = 23;
+            E.Facing = 0;
+            E.Health = 3000;
+            E.MaxHealth = 3000;
+            E.Scale = 2.5;
+            E.Speed = 2;
+            E.Owner = 1;
+            E.Behave = BDra;
+            this._Enemies.Add("ElvenTiamatDrake", E);
+            E = new Enemy();
+            E.ArtIndex = 24;
+            E.Facing = 0;
+            E.Health = 3000;
+            E.MaxHealth = 3000;
+            E.Scale = 2.5;
+            E.Speed = 2;
+            E.Owner = 1;
+            E.Behave = BDra;
+            this._Enemies.Add("ElvenTiamatStorm", E);
+            E = new Enemy();
+            E.ArtIndex = 25;
+            E.Facing = 0;
+            E.Health = 3000;
+            E.MaxHealth = 3000;
+            E.Scale = 2.5;
+            E.Speed = 2;
+            E.Owner = 1;
+            E.Behave = BDra;
+            this._Enemies.Add("ElvenTiamatSummon", E);
         }
         private void InitLevels()
         {
             this._Levels = new Dictionary<string, Level>();
-
-            //Tests
+            #region Tests
             Level L = new Level();
+            L.SpawnStrategy = 1;
             L.Back = new Background("Data\\Town1", BackgroundType.Tiled, 2);
             L.Enemies.Add(new Enemy(this._Enemies["AlienBasic"]));
             this._Levels.Add("AlienBasic-Test", L);
             L = new Level();
+            L.SpawnStrategy = 1;
             L.Back = new Background("Data\\Town1", BackgroundType.Tiled, 2);
             L.Enemies.Add(new Enemy(this._Enemies["AlienCaptain"]));
             this._Levels.Add("AlienCaptain-Test", L);
             L = new Level();
+            L.SpawnStrategy = 1;
             L.Back = new Background("Data\\Town1", BackgroundType.Tiled, 2);
             L.Enemies.Add(new Enemy(this._Enemies["AlienSpeeder"]));
             this._Levels.Add("AlienSpeeder-Test", L);
             L = new Level();
+            L.SpawnStrategy = 1;
             L.Back = new Background("Data\\Town1", BackgroundType.Static);
             L.Enemies.Add(new Enemy(this._Enemies["AlienBeamer"]));
             this._Levels.Add("AlienBeamer-Test", L);
             L = new Level();
+            L.SpawnStrategy = 1;
             L.Back = new Background("Data\\Town1", BackgroundType.Tiled, 2);
             L.Enemies.Add(new Enemy(this._Enemies["AlienMiner"]));
             this._Levels.Add("AlienMiner-Test", L);
             L = new Level();
+            L.SpawnStrategy = 1;
             L.Back = new Background("Data\\Town2", BackgroundType.Tiled, 1);
             L.Enemies.Add(new Enemy(this._Enemies["ElvenArcher"]));
             this._Levels.Add("ElvenArcher-Test", L);
             L = new Level();
+            L.SpawnStrategy = 1;
             L.Back = new Background("Data\\Town2", BackgroundType.Tiled, 1);
             L.Enemies.Add(new Enemy(this._Enemies["ElvenMageIce"]));
             this._Levels.Add("ElvenMageIce-Test", L);
             L = new Level();
+            L.SpawnStrategy = 1;
             L.Back = new Background("Data\\Town2", BackgroundType.Tiled, 1);
             L.Enemies.Add(new Enemy(this._Enemies["ElvenMageStorm"]));
             this._Levels.Add("ElvenMageStorm-Test", L);
             L = new Level();
+            L.SpawnStrategy = 1;
             L.Back = new Background("Data\\Town2", BackgroundType.Tiled, 1);
             L.Enemies.Add(new Enemy(this._Enemies["ElvenMageFire"]));
             this._Levels.Add("ElvenMageFire-Test", L);
             L = new Level();
+            L.SpawnStrategy = 1;
             L.Back = new Background("Data\\Town2", BackgroundType.Tiled, 1);
             L.Enemies.Add(new Enemy(this._Enemies["ElvenManticore"]));
             this._Levels.Add("ElvenManticore-Test", L);
             L = new Level();
+            L.SpawnStrategy = 1;
             L.Back = new Background("Data\\Town3", BackgroundType.Tiled, 1);
             L.Enemies.Add(new Enemy(this._Enemies["ElvenArchmage"]));
             this._Levels.Add("ElvenArchmage-Test", L);
             L = new Level();
+            L.SpawnStrategy = 1;
             L.Back = new Background("Data\\Town3", BackgroundType.Tiled, 1);
             L.Enemies.Add(new Enemy(this._Enemies["ElvenDragon"]));
             this._Levels.Add("ElvenDragon-Test", L);
             L = new Level();
+            L.SpawnStrategy = 1;
             L.Back = new Background("Data\\Town4", BackgroundType.Tiled, 2);
             L.Enemies.Add(new Enemy(this._Enemies["AlienCaptain"]));
             this._Levels.Add("Japan-Test", L);
             L = new Level();
+            L.SpawnStrategy = 1;
             L.Back = new Background("Data\\Town1", BackgroundType.Tiled, 2);
             L.Enemies.Add(new Enemy(this._Enemies["AlienBasic"]));
             L.Enemies.Add(new Enemy(this._Enemies["AlienCaptain"]));
             L.Enemies.Add(new Enemy(this._Enemies["AlienSpeeder"]));
             L.Enemies.Add(new Enemy(this._Enemies["AlienBeamer"]));
             this._Levels.Add("Alien-Test", L);
-            
-            //Alien Levels
+            #endregion
+            #region Alien
             L = new Level();
             L.MaxSpawns = 10;
             L.FinishCondition = 5;
@@ -936,9 +999,8 @@ namespace PerfectPidgeonGameMechanic.Content
             L.LBoss = new Boss(this._Bosses["AlienMothership"]);
             //for (int i = 0; i < 20; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienCaptain"]));
             this._Levels.Add("LVL10", L);
-
-            // Elven Levels
-
+            #endregion
+            #region Elven
             L = new Level();
             L.MaxSpawns = 20;
             L.FinishCondition = 12;
@@ -1142,6 +1204,53 @@ namespace PerfectPidgeonGameMechanic.Content
             for (int i = 0; i < 2; i++) L.Enemies.Add(new Enemy(this._Enemies["ElvenManticore"]));
             for (int i = 0; i < 2; i++) L.Enemies.Add(new Enemy(this._Enemies["ElvenArchmage"]));
             this._Levels.Add("LVL18", L);
+            L = new Level();
+            L.MaxSpawns = 30;
+            L.FinishCondition = 18;
+            L.Title = "2-9";
+            L.Next = "LVL20";
+            L.Back = new Background("Data\\Town3", BackgroundType.Tiled, 1);
+            for (int i = 0; i < 2; i++) L.Enemies.Add(new Enemy(this._Enemies["ElvenArcher"]));
+            for (int i = 0; i < 2; i++) L.Enemies.Add(new Enemy(this._Enemies["ElvenMageIce"]));
+            for (int i = 0; i < 2; i++) L.Enemies.Add(new Enemy(this._Enemies["ElvenMageStorm"]));
+            for (int i = 0; i < 2; i++) L.Enemies.Add(new Enemy(this._Enemies["ElvenMageFire"]));
+            for (int i = 0; i < 2; i++) L.Enemies.Add(new Enemy(this._Enemies["ElvenManticore"]));
+            for (int i = 0; i < 2; i++) L.Enemies.Add(new Enemy(this._Enemies["ElvenArchmage"]));
+            for (int i = 0; i < 2; i++) L.Enemies.Add(new Enemy(this._Enemies["ElvenArcher"]));
+            for (int i = 0; i < 2; i++) L.Enemies.Add(new Enemy(this._Enemies["ElvenMageIce"]));
+            for (int i = 0; i < 2; i++) L.Enemies.Add(new Enemy(this._Enemies["ElvenMageStorm"]));
+            for (int i = 0; i < 2; i++) L.Enemies.Add(new Enemy(this._Enemies["ElvenMageFire"]));
+            for (int i = 0; i < 2; i++) L.Enemies.Add(new Enemy(this._Enemies["ElvenManticore"]));
+            for (int i = 0; i < 2; i++) L.Enemies.Add(new Enemy(this._Enemies["ElvenArchmage"]));
+            for (int i = 0; i < 1; i++) L.Enemies.Add(new Enemy(this._Enemies["ElvenDragon"]));
+            for (int i = 0; i < 2; i++) L.Enemies.Add(new Enemy(this._Enemies["ElvenArcher"]));
+            for (int i = 0; i < 2; i++) L.Enemies.Add(new Enemy(this._Enemies["ElvenMageIce"]));
+            for (int i = 0; i < 2; i++) L.Enemies.Add(new Enemy(this._Enemies["ElvenMageStorm"]));
+            for (int i = 0; i < 2; i++) L.Enemies.Add(new Enemy(this._Enemies["ElvenMageFire"]));
+            for (int i = 0; i < 2; i++) L.Enemies.Add(new Enemy(this._Enemies["ElvenManticore"]));
+            for (int i = 0; i < 2; i++) L.Enemies.Add(new Enemy(this._Enemies["ElvenArchmage"]));
+            for (int i = 0; i < 1; i++) L.Enemies.Add(new Enemy(this._Enemies["ElvenDragon"]));
+            for (int i = 0; i < 2; i++) L.Enemies.Add(new Enemy(this._Enemies["ElvenArcher"]));
+            for (int i = 0; i < 2; i++) L.Enemies.Add(new Enemy(this._Enemies["ElvenMageIce"]));
+            for (int i = 0; i < 2; i++) L.Enemies.Add(new Enemy(this._Enemies["ElvenMageStorm"]));
+            for (int i = 0; i < 2; i++) L.Enemies.Add(new Enemy(this._Enemies["ElvenMageFire"]));
+            for (int i = 0; i < 2; i++) L.Enemies.Add(new Enemy(this._Enemies["ElvenManticore"]));
+            for (int i = 0; i < 2; i++) L.Enemies.Add(new Enemy(this._Enemies["ElvenArchmage"]));
+            this._Levels.Add("LVL19", L);
+            L = new Level();
+            L.SpawnStrategy = 2;
+            L.MaxSpawns = 30;
+            L.FinishCondition = 0;
+            L.Title = "2-9";
+            L.Next = "LVL21";
+            L.Back = new Background("Data\\Town3", BackgroundType.Tiled, 1);
+            L.Enemies.Add(new Enemy(this._Enemies["ElvenTiamatIce"]));
+            L.Enemies.Add(new Enemy(this._Enemies["ElvenTiamatFire"]));
+            L.Enemies.Add(new Enemy(this._Enemies["ElvenTiamatStorm"]));
+            L.Enemies.Add(new Enemy(this._Enemies["ElvenTiamatDrake"]));
+            L.Enemies.Add(new Enemy(this._Enemies["ElvenTiamatSummon"]));
+            this._Levels.Add("LVL20", L);
+            #endregion
         }
     }
 }
