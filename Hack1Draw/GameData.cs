@@ -69,7 +69,7 @@ namespace PerfectPidgeon.Draw
             this._ImageSwitchWorking = true;
             for (int i = 0; i < Players.Count; i++)
             {
-                if (SpriteSets[0].Images.Length > 1)
+                if (SpriteSets[i].Images.Length > 1)
                 {
                     Players[i].ImageIndex += Players[i].ImageIndexIncrement;
                     if (Players[i].ImageIndex == SpriteSets[0].Images.Length)
