@@ -20,6 +20,7 @@ namespace PerfectPidgeon.Draw
         private ArtData _ArtData;
         private GameData _Data;
         private Controls _Controls;
+        private SettingsData _Sets;
         private GLControl _GLD;
         public bool GLLoaded
         {
@@ -33,12 +34,13 @@ namespace PerfectPidgeon.Draw
                 _GLLoaded = value;
             }
         }
-        public Renderer(GLControl GLD, GameData Data, ArtData AData, Controls Controls_)
+        public Renderer(GLControl GLD, GameData Data, ArtData AData, Controls Controls_, SettingsData Sets)
         {
             this._InDraw = false;
             this._Data = Data;
             this._ArtData = AData;
             this._GLD = GLD;
+            this._Sets = Sets;
             this._Controls = Controls_;
         }
         private void DrawImage(int X, int Y, int XSize, int YSize, Bitmap ToDraw)
@@ -84,7 +86,7 @@ namespace PerfectPidgeon.Draw
             GL.MatrixMode(MatrixMode.Projection);
             GL.LoadIdentity();
             GL.Ortho(0, _GLD.Width, _GLD.Height, 0, -1, 1);
-            this._Aspect = _GLD.Height / 1080.0;
+            this._Aspect = _GLD.Height / (_Sets.Resolution.Y * 1.0);
         }
         public void Draw()
         {

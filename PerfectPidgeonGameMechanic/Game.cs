@@ -18,7 +18,7 @@ namespace PerfectPidgeonGameMechanic
         private bool PlayerOnFire = false;
         private DrawForm DForm;
         private System.Timers.Timer _Time;
-        private Player _CurrentPlayer;
+        private Player _CurrentPlayer = null;
         private Boss _CurrentBoss;
         private Level _CurrentLevel;
         private BaseDataPool _DataPool;
@@ -66,10 +66,7 @@ namespace PerfectPidgeonGameMechanic
             DForm.KeyPressed += new DrawForm.KeyPressedDelegate(this.KeyPressed);
             DForm.LeftRotate += new DrawForm.AxisRotate(this.LeftRotate);
             this._DataPool = new BaseDataPool();
-            StartLevel(this._DataPool.Levels["LVL01"]);
-            Time = new System.Timers.Timer(10);
-            Time.Elapsed += new System.Timers.ElapsedEventHandler(TimerEvent_Tick);
-            Time.Start();
+            DForm.LevelStart += new DrawForm.LevelChosen(LevelChosen);
         }
         public void StartLevel(Level CLevel)
         {
@@ -352,6 +349,7 @@ namespace PerfectPidgeonGameMechanic
             while (DForm.Data.Working) ;
             DForm.Data.UpdateItems(GameDataType.PowerUp, Indices.ToArray(), ArtIndices.ToArray(), ImageIndices.ToArray(), Other.ToArray(), Angles.ToArray(), Sizes.ToArray(), Locations.ToArray(), Colors.ToArray());
             DForm.Data.SwapBuffers();
+            DForm.DrawDataReady = true;
         }
         public void MouseEvent_Move(object sender, MouseEventArgs e)
         {
@@ -613,6 +611,13 @@ namespace PerfectPidgeonGameMechanic
             {
                 //this._CurrentPlayer.GunRotation += (Angle + 180) - this._CurrentPlayer.Facing;
             }
+        }
+        private void LevelChosen(string Choice)
+        {
+            StartLevel(this._DataPool.Levels[Choice]);
+            Time = new System.Timers.Timer(10);
+            Time.Elapsed += new System.Timers.ElapsedEventHandler(TimerEvent_Tick);
+            Time.Start();
         }
     }
 }

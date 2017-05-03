@@ -21,6 +21,8 @@ C:\Users\Manojlo\Projects\PerfectPidgeon\Hack1Draw\bin\Debug\OpenTK.GLControl.xm
 C:\Users\Manojlo\Projects\PerfectPidgeon\Hack1Draw\obj\Debug\PerfectPidgeon.Draw.DrawForm.resources
 C:\Users\Manojlo\Projects\PerfectPidgeon\Hack1Draw\obj\Debug\PerfectPidgeon.Draw.Properties.Resources.resources
 C:\Users\Manojlo\Projects\PerfectPidgeon\Hack1Draw\obj\Debug\PerfectPidgeon.Draw.csproj.GenerateResource.Cache
-C:\Users\Manojlo\Projects\PerfectPidgeon\Hack1Draw\obj\Debug\PerfectPidgeon.Draw.dll
 C:\Users\Manojlo\Projects\PerfectPidgeon\Hack1Draw\obj\Debug\PerfectPidgeon.Draw.pdb
 C:\Users\Manojlo\Projects\PerfectPidgeon\Hack1Draw\obj\Debug\PerfectPidgeon.Draw.MainMenu.resources
+C:\Users\Manojlo\Projects\PerfectPidgeon\Hack1Draw\obj\Debug\PerfectPidgeon.Draw.csprojResolveAssemblyReference.cache
+C:\Users\Manojlo\Projects\PerfectPidgeon\Hack1Draw\obj\Debug\PerfectPidgeon.Draw.Settings.resources
+C:\Users\Manojlo\Projects\PerfectPidgeon\Hack1Draw\obj\Debug\PerfectPidgeon.Draw.LevelChoice.resources

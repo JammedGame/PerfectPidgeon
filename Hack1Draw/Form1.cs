@@ -15,10 +15,13 @@ namespace PerfectPidgeon.Draw
 {
     public partial class DrawForm : Form
     {
+        private SettingsData _SetData;
+
         private ArtData _ArtData;
         private GameData _Data;
         private Controls _Controls;
         private Renderer _Renderer;
+        private GLControl GLD;
 
         private int HealthIndex = 200;
         private string WeaponText = "Basic";
@@ -30,6 +33,8 @@ namespace PerfectPidgeon.Draw
         public event KeyPressedDelegate KeyPressed;
         public delegate void AxisRotate(double Angle);
         public event AxisRotate LeftRotate;
+        public delegate void LevelChosen(string Choice);
+        public event LevelChosen LevelStart;
 
         private System.Timers.Timer UpdateFrame;
         private System.Timers.Timer UpdateLeap;
@@ -41,6 +46,7 @@ namespace PerfectPidgeon.Draw
         private bool LeapCheck = false;
         private bool LeftDown = false;
         private bool RightDown = false;
+        public bool DrawDataReady = false;
         private string Title = "TST";
         public ArtData ArtData
         {
@@ -68,16 +74,39 @@ namespace PerfectPidgeon.Draw
         }
 
         private int counter = 0;
-
         public DrawForm()
         {
-            Cursor.Hide();
+            //Cursor.Hide();
             InitializeComponent();
+
+            _SetData = new SettingsData();
+            this.Sets.Data = _SetData;
+            this.Sets.Update += new Settings.SettingsUpdate(SetsUpdate);
+            this.mainMenu1.Choice += new MainMenu.MenuItemChosen(MenuEvent);
+            this.LevelStart += new LevelChosen(OnLevelStart);
+            this.LevelChooser.Choice += new Draw.LevelChoice.LevelChosen(LevelChoice);
+
+            this.GLD = new GLControl();
+            this.GLD.BackColor = System.Drawing.Color.Black;
+            this.GLD.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.GLD.Location = new System.Drawing.Point(0, 0);
+            this.GLD.Name = "GLD";
+            this.GLD.Size = new System.Drawing.Size(800, 600);
+            this.GLD.TabIndex = 0;
+            this.GLD.VSync = false;
+            this.GLD.Load += new System.EventHandler(this.GLDLoad);
+            this.GLD.Paint += new System.Windows.Forms.PaintEventHandler(this.GLDPaint);
+            this.GLD.MouseDown += new System.Windows.Forms.MouseEventHandler(this.GLD_MouseDown);
+            this.GLD.MouseMove += new System.Windows.Forms.MouseEventHandler(this.GLD_MouseMove);
+            this.GLD.MouseUp += new System.Windows.Forms.MouseEventHandler(this.GLD_MouseUp);
+            this.GLD.Resize += new System.EventHandler(this.GLD_Resize);
+            this.GLD.Visible = false;
+            this.Controls.Add(GLD);
 
             this.Data = new GameData();
             this.ArtData = new ArtData();
             this._Controls = new PerfectPidgeon.Draw.Controls();
-            this._Renderer = new Renderer(GLD, Data, ArtData, this._Controls);
+            this._Renderer = new Renderer(GLD, Data, ArtData, this._Controls, this._SetData);
             
             MouseMoved = new MouseEventHandler(OnMouseMoved);
             MouseUpP = new MouseEventHandler(OnMouseUp);
@@ -182,6 +211,7 @@ namespace PerfectPidgeon.Draw
         {
 
         }
+        private void OnLevelStart(string Choice) { }
         private void GLD_MouseUp(object sender, MouseEventArgs e)
         {
             MouseUpP.Invoke(sender, e);
@@ -193,6 +223,7 @@ namespace PerfectPidgeon.Draw
         private void GLDPaint(object sender, PaintEventArgs e)
         {
             if (!this._Renderer.GLLoaded) return;
+            if (!DrawDataReady) return;
             if (this.WindowState == FormWindowState.Minimized || this.Height == 0 || this.Width == 0) return;
             HealthPanel.Size = new System.Drawing.Size(HealthIndex, HealthPanel.Height);
             WeaponLabel.Text = WeaponText;
@@ -253,6 +284,169 @@ namespace PerfectPidgeon.Draw
         public void SetTitle(string Title)
         {
             this.Title = Title;
+        }
+        public void MenuEvent(MenuItem Item)
+        {
+            if (Item == MenuItem.Settings)
+            {
+                this.Sets.Visible = true;
+            }
+            else if (Item == MenuItem.Level)
+            {
+                this.LevelChooser.Visible = true;
+            }
+            else if (Item == MenuItem.Continue)
+            {
+                LevelChoice("LVL01");
+            }
+        }
+        public void SetsUpdate()
+        {
+            if(_SetData.Fullscreen)
+            {
+                this.WindowState = FormWindowState.Maximized;
+                this.FormBorderStyle = FormBorderStyle.None;
+            }
+            else
+            {
+                this.WindowState = FormWindowState.Normal;
+                this.FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            }
+            this.Size = new Size(_SetData.Resolution.X, _SetData.Resolution.Y);
+        }
+        public void LevelChoice(string Choice)
+        {
+            GLD.Visible = true;
+            HealthPanel.Visible = true;
+            LevelChooser.Visible = false;
+            mainMenu1.Visible = false;
+            GLD.BringToFront();
+            HealthPanel.BringToFront();
+            LevelStart.Invoke(Choice);
+        }
+        private void InitializeComponent()
+        {
+            this.components = new System.ComponentModel.Container();
+            this.Time = new System.Windows.Forms.Timer(this.components);
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.HealthPanel = new System.Windows.Forms.Panel();
+            this.WeaponLabel = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.LevelTitle = new System.Windows.Forms.Label();
+            this.mainMenu1 = new PerfectPidgeon.Draw.MainMenu();
+            this.Sets = new PerfectPidgeon.Draw.Settings();
+            this.LevelChooser = new PerfectPidgeon.Draw.LevelChoice();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // Time
+            // 
+            this.Time.Interval = 10;
+            this.Time.Tick += new System.EventHandler(this.Time_Tick);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Black;
+            this.panel1.Controls.Add(this.HealthPanel);
+            this.panel1.Location = new System.Drawing.Point(15, 18);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(200, 30);
+            this.panel1.TabIndex = 1;
+            // 
+            // HealthPanel
+            // 
+            this.HealthPanel.BackColor = System.Drawing.Color.Silver;
+            this.HealthPanel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.HealthPanel.Location = new System.Drawing.Point(0, 0);
+            this.HealthPanel.Name = "HealthPanel";
+            this.HealthPanel.Size = new System.Drawing.Size(120, 30);
+            this.HealthPanel.TabIndex = 2;
+            // 
+            // WeaponLabel
+            // 
+            this.WeaponLabel.AutoSize = true;
+            this.WeaponLabel.BackColor = System.Drawing.Color.Transparent;
+            this.WeaponLabel.Font = new System.Drawing.Font("Consolas", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.WeaponLabel.ForeColor = System.Drawing.Color.Black;
+            this.WeaponLabel.Location = new System.Drawing.Point(313, 20);
+            this.WeaponLabel.Name = "WeaponLabel";
+            this.WeaponLabel.Size = new System.Drawing.Size(90, 28);
+            this.WeaponLabel.TabIndex = 2;
+            this.WeaponLabel.Text = "label1";
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Controls.Add(this.LevelTitle);
+            this.panel2.Controls.Add(this.panel1);
+            this.panel2.Controls.Add(this.WeaponLabel);
+            this.panel2.Location = new System.Drawing.Point(12, 12);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(502, 66);
+            this.panel2.TabIndex = 4;
+            this.panel2.Visible = false;
+            // 
+            // LevelTitle
+            // 
+            this.LevelTitle.BackColor = System.Drawing.Color.Transparent;
+            this.LevelTitle.Font = new System.Drawing.Font("Consolas", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LevelTitle.ForeColor = System.Drawing.Color.Black;
+            this.LevelTitle.Location = new System.Drawing.Point(233, 18);
+            this.LevelTitle.Name = "LevelTitle";
+            this.LevelTitle.Size = new System.Drawing.Size(74, 30);
+            this.LevelTitle.TabIndex = 4;
+            this.LevelTitle.Text = "TST";
+            this.LevelTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // mainMenu1
+            // 
+            this.mainMenu1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mainMenu1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mainMenu1.Location = new System.Drawing.Point(0, 0);
+            this.mainMenu1.Name = "mainMenu1";
+            this.mainMenu1.Size = new System.Drawing.Size(800, 600);
+            this.mainMenu1.TabIndex = 5;
+            // 
+            // Sets
+            // 
+            this.Sets.BackColor = System.Drawing.Color.White;
+            this.Sets.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Sets.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Sets.Location = new System.Drawing.Point(0, 0);
+            this.Sets.Name = "Sets";
+            this.Sets.Size = new System.Drawing.Size(800, 600);
+            this.Sets.TabIndex = 6;
+            this.Sets.Visible = false;
+            // 
+            // LevelChooser
+            // 
+            this.LevelChooser.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LevelChooser.Location = new System.Drawing.Point(0, 0);
+            this.LevelChooser.Name = "LevelChooser";
+            this.LevelChooser.Size = new System.Drawing.Size(800, 600);
+            this.LevelChooser.TabIndex = 7;
+            // 
+            // DrawForm
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(800, 600);
+            this.Controls.Add(this.LevelChooser);
+            this.Controls.Add(this.Sets);
+            this.Controls.Add(this.mainMenu1);
+            this.Controls.Add(this.panel2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Name = "DrawForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Form1";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.ResumeLayout(false);
+
         }
     }
 }
