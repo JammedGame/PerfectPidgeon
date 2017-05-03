@@ -66,7 +66,7 @@ namespace PerfectPidgeonGameMechanic
             DForm.KeyPressed += new DrawForm.KeyPressedDelegate(this.KeyPressed);
             DForm.LeftRotate += new DrawForm.AxisRotate(this.LeftRotate);
             this._DataPool = new BaseDataPool();
-            StartLevel(this._DataPool.Levels["Japan-Test"]);
+            StartLevel(this._DataPool.Levels["ElvenDragon-Test"]);
             Time = new System.Timers.Timer(10);
             Time.Elapsed += new System.Timers.ElapsedEventHandler(TimerEvent_Tick);
             Time.Start();
@@ -167,12 +167,15 @@ namespace PerfectPidgeonGameMechanic
                                 Projectile P = new Projectile(Projectiles[i].Summons[j].Projectile);
                                 P.Owner = Projectiles[i].Owner;
                                 P.Location += Projectiles[i].Location;
-                                P.Facing += Projectiles[i].Facing;
+                                P.Facing += Projectiles[i].Facing + Projectiles[i].Summons[j].Facing;
                                 Projectiles.Add(P);
                             }
                             else if (Projectiles[i].Summons[j].Type == SummonType.Enemy)
                             {
-
+                                Enemy E = new Enemy(_DataPool.Enemies[Projectiles[i].Summons[j].Enemy]);
+                                E.Location += Projectiles[i].Location;
+                                E.Facing = Projectiles[i].Facing;
+                                this._Enemies.Add(E);
                             }
                         }
                     }
@@ -420,13 +423,16 @@ namespace PerfectPidgeonGameMechanic
                             {
                                 Projectile P = new Projectile(Projectiles[j].Summons[k].Projectile);
                                 P.Location += Projectiles[j].Location;
-                                P.Facing += Projectiles[j].Facing;
+                                P.Facing += Projectiles[j].Facing + Projectiles[j].Summons[k].Facing;
                                 P.Owner = Projectiles[j].Owner;
                                 Projectiles.Add(P);
                             }
-                            else if (Projectiles[j].Summons[j].Type == SummonType.Enemy)
+                            else if (Projectiles[j].Summons[k].Type == SummonType.Enemy)
                             {
-
+                                Enemy E = new Enemy(_DataPool.Enemies[Projectiles[j].Summons[k].Enemy]);
+                                E.Location += Projectiles[j].Location;
+                                E.Facing = Projectiles[j].Facing;
+                                this._Enemies.Add(E);
                             }
                         }
                     }
@@ -540,7 +546,7 @@ namespace PerfectPidgeonGameMechanic
                 if (type == 1)
                     PowerUps.Add(new PowerUp(DropLocation, PowerUpType.Health, 0, 50));//HP
                 if (type == 2)
-                    PowerUps.Add(new PowerUp(DropLocation, PowerUpType.Speed, 30000, 2)); //Speed
+                    PowerUps.Add(new PowerUp(DropLocation, PowerUpType.Speed, 600, 2)); //Speed
                 if (type == 3)
                     PowerUps.Add(new PowerUp(DropLocation, PowerUpType.PidgeonHeavy, 100, 50)); // Heavy ammo
                 if (type == 4)

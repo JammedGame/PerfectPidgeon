@@ -120,6 +120,16 @@ namespace PerfectPidgeon.Draw
             SpriteSetImages[1] = global::PerfectPidgeon.Draw.Properties.Resources.enm17_2;
             SpriteSetImages[2] = global::PerfectPidgeon.Draw.Properties.Resources.enm17_3;
             SpriteSets.Add(new SpriteSet(SpriteSetImages, 3));
+            SpriteSetImages = new Bitmap[3];
+            SpriteSetImages[0] = global::PerfectPidgeon.Draw.Properties.Resources.enm18_1;
+            SpriteSetImages[1] = global::PerfectPidgeon.Draw.Properties.Resources.enm18_2;
+            SpriteSetImages[2] = global::PerfectPidgeon.Draw.Properties.Resources.enm18_3;
+            SpriteSets.Add(new SpriteSet(SpriteSetImages, 3));
+            SpriteSetImages = new Bitmap[3];
+            SpriteSetImages[0] = global::PerfectPidgeon.Draw.Properties.Resources.enm19_1;
+            SpriteSetImages[1] = global::PerfectPidgeon.Draw.Properties.Resources.enm19_2;
+            SpriteSetImages[2] = global::PerfectPidgeon.Draw.Properties.Resources.enm19_3;
+            SpriteSets.Add(new SpriteSet(SpriteSetImages, 3));
 
             Bullets = new List<SpriteSet>();
             SpriteSetImages = new Bitmap[1];
@@ -188,6 +198,9 @@ namespace PerfectPidgeon.Draw
             Bullets.Add(new SpriteSet(SpriteSetImages, 1));
             SpriteSetImages = new Bitmap[1];
             SpriteSetImages[0] = global::PerfectPidgeon.Draw.Properties.Resources.blast2;
+            Bullets.Add(new SpriteSet(SpriteSetImages, 1));
+            SpriteSetImages = new Bitmap[1];
+            SpriteSetImages[0] = global::PerfectPidgeon.Draw.Properties.Resources.burito;
             Bullets.Add(new SpriteSet(SpriteSetImages, 1));
         }
         private void InitializeTileSets()

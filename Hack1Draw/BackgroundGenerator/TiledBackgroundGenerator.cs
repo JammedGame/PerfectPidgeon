@@ -10,6 +10,8 @@ namespace PerfectPidgeon.Draw.BackgroundGenerator
     {
         public static Bitmap Create(string Path, int Size, int Step, int Scale)
         {
+            int Factor = 1;
+            if (Scale == 1) Factor = 5;
             int TileSize = 100;
 
             List<TileGroup> Groups = TileGroupLoader.Load(Path);
@@ -17,7 +19,7 @@ namespace PerfectPidgeon.Draw.BackgroundGenerator
             int Amount = Size/16;
             for (int i = Groups.Count - 1; i >= 0; i--)
             {
-                Groups[i].Amount = Amount * Groups[i].Images.Count;
+                Groups[i].Amount = Amount * Groups[i].Images.Count * Factor;
                 Amount *= 4;
             }
             //Groups[3].Amount = 4;
