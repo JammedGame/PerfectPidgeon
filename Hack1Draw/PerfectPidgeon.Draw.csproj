@@ -34,14 +34,6 @@
     <Reference Include="LeapCSharp.NET4.0">
       <HintPath>..\..\..\..\..\My Projects\Leap\PerfectPidgeon_Motion_Test\PerfectPidgeon_Motion_Test\bin\Debug\LeapCSharp.NET4.0.dll</HintPath>
     </Reference>
-    <Reference Include="OpenTK, Version=2.0.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
-      <HintPath>..\packages\OpenTK.2.0.0\lib\net20\OpenTK.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="OpenTK.GLControl, Version=1.1.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
-      <HintPath>..\packages\OpenTK.GLControl.1.1.2349.61993\lib\NET40\OpenTK.GLControl.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="PerfectPidgeon.Draw">
       <HintPath>obj\Debug\PerfectPidgeon.Draw.dll</HintPath>
     </Reference>
@@ -71,6 +63,12 @@
     </Compile>
     <Compile Include="LevelChoice.Designer.cs">
       <DependentUpon>LevelChoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MainMenu.cs">
       <SubType>UserControl</SubType>
@@ -104,6 +102,9 @@
     <EmbeddedResource Include="LevelChoice.resx">
       <DependentUpon>LevelChoice.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
     </EmbeddedResource>
@@ -117,8 +118,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="OpenTK.dll.config" />
-    <None Include="packages.config" />
     <None Include="Resources\zgrada 9 800x800.png" />
     <None Include="Resources\zgrada 8 600x600.png" />
     <None Include="Resources\zgrada 7 400x400.png" />
