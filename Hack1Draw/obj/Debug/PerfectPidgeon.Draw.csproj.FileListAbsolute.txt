@@ -24,3 +24,5 @@ C:\Users\Manojlo\Projects\PerfectPidgeon\Hack1Draw\obj\Debug\PerfectPidgeon.Draw
 C:\Users\Manojlo\Projects\PerfectPidgeon\Hack1Draw\obj\Debug\PerfectPidgeon.Draw.csproj.GenerateResource.Cache
 C:\Users\Manojlo\Projects\PerfectPidgeon\Hack1Draw\obj\Debug\PerfectPidgeon.Draw.dll
 C:\Users\Manojlo\Projects\PerfectPidgeon\Hack1Draw\obj\Debug\PerfectPidgeon.Draw.pdb
+C:\Users\DeinVenteD\Projects\ShadySolutions\PerfectPidgeon\Hack1Draw\obj\Debug\PerfectPidgeon.Draw.MainForm.resources
+C:\Users\DeinVenteD\Projects\ShadySolutions\PerfectPidgeon\Hack1Draw\obj\Debug\PerfectPidgeon.Draw.LevelPicker.resources

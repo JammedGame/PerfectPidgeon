@@ -14,9 +14,11 @@ namespace PerfectPidgeonGameMechanic
     {
         private long TimeStamp = 0;
         private long Sanctuary = 1000;
+        private bool Started = false;
         private bool PlayerOnMove = false;
         private bool PlayerOnFire = false;
         private DrawForm DForm;
+        private MainForm MForm;
         private System.Timers.Timer _Time;
         private Player _CurrentPlayer;
         private Boss _CurrentBoss;
@@ -57,19 +59,45 @@ namespace PerfectPidgeonGameMechanic
             get { return _PowerUps; }
             set { _PowerUps = value; }
         }
-        public Game(DrawForm DForm)
+        public Game(DrawForm DForm, MainForm MForm)
         {
             this.DForm = DForm;
-            DForm.MouseMoved += new MouseEventHandler(this.MouseEvent_Move);
-            DForm.MouseUpP += new MouseEventHandler(this.MouseEvent_Up);
-            DForm.MouseDownP += new MouseEventHandler(this.MouseEvent_Down);
-            DForm.KeyPressed += new DrawForm.KeyPressedDelegate(this.KeyPressed);
-            DForm.LeftRotate += new DrawForm.AxisRotate(this.LeftRotate);
-            this._DataPool = new BaseDataPool();
-            StartLevel(this._DataPool.Levels["Japan-Test"]);
-            Time = new System.Timers.Timer(10);
-            Time.Elapsed += new System.Timers.ElapsedEventHandler(TimerEvent_Tick);
+            this.MForm = MForm;
+            MForm.LevelStart += new MainForm.LevelInit(this.Start);
+            MForm.LevelContinue += new MainForm.LevelInit(this.Continue);
+        }
+        public void Start(string LevelName)
+        {
+            if(!this.Started)
+            {
+                DForm.MouseMoved += new MouseEventHandler(this.MouseEvent_Move);
+                DForm.MouseUpP += new MouseEventHandler(this.MouseEvent_Up);
+                DForm.MouseDownP += new MouseEventHandler(this.MouseEvent_Down);
+                DForm.KeyPressed += new DrawForm.KeyPressedDelegate(this.KeyPressed);
+                DForm.LeftRotate += new DrawForm.AxisRotate(this.LeftRotate);
+                this._DataPool = new BaseDataPool();
+                StartLevel(this._DataPool.Levels[LevelName]);
+                Time = new System.Timers.Timer(10);
+                Time.Elapsed += new System.Timers.ElapsedEventHandler(TimerEvent_Tick);
+                Time.Start();
+                DForm.Show();
+            }
+            else
+            {
+                Restart(this._DataPool.Levels[LevelName]);
+                Time.Start();
+                DForm.Show();
+            }
+        }
+        public void Continue(string LevelName)
+        {
+            DForm.Show();
             Time.Start();
+        }
+        public void Stop()
+        {
+            DForm.Hide();
+            Time.Stop();
         }
         public void StartLevel(Level CLevel)
         {
@@ -489,13 +517,17 @@ namespace PerfectPidgeonGameMechanic
             }
             if ((Enemies.Count + _EnemyPool.Count <= this._CurrentLevel.FinishCondition) || (this._CurrentLevel.FinishCondition == -1 && false))
             {
-                CurrentTick = true;
-                CurrentPlayer.Health = CurrentPlayer.MaxHealth;
-                CurrentPlayer.Location = new Vertex();
-                if(this._CurrentLevel.Next != "") StartLevel(this._DataPool.Levels[this._CurrentLevel.Next]);
-                else StartLevel(this._CurrentLevel);
-                CurrentTick = false;
+                if (this._CurrentLevel.Next != "") Restart(this._DataPool.Levels[this._CurrentLevel.Next]);
+                else Restart(this._CurrentLevel);
             }
+        }
+        public void Restart(Level New)
+        {
+            CurrentTick = true;
+            CurrentPlayer.Health = CurrentPlayer.MaxHealth;
+            CurrentPlayer.Location = new Vertex();
+            StartLevel(New);
+            CurrentTick = false;
         }
         public void tookPowerUp()
         {
@@ -596,9 +628,10 @@ namespace PerfectPidgeonGameMechanic
         }
         public void KeyPressed(Keys Key)
         {
-            if (Key == Keys.Q) this._CurrentPlayer.GunRotation-=10;
+            if (Key == Keys.Escape) this.Stop();
+            else if (Key == Keys.Q) this._CurrentPlayer.GunRotation -= 10;
             else if (Key == Keys.W) this._CurrentPlayer.GunRotation = 0;
-            else if (Key == Keys.E) this._CurrentPlayer.GunRotation+=10;
+            else if (Key == Keys.E) this._CurrentPlayer.GunRotation += 10;
             else if (Key == Keys.S) this._CurrentPlayer.GunRotation = 180;
             else if (Key == Keys.D) this._CurrentPlayer.GunRotation = 90;
             else if (Key == Keys.A) this._CurrentPlayer.GunRotation = 270;

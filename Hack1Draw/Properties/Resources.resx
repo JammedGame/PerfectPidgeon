@@ -118,391 +118,394 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="aim" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\aim 200x200.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="bad1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bad 1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="bad2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bad 2.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="bad3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bad 3.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="bad4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bad 4.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="bum" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\hit.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="gohlub1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\gohlub1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="gohlub2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\gohlub2.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="gohlub3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\gohlub3.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="gohlub4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\gohlub4.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Health" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Health.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Heavy" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Heavy.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Laser" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Laser.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="lazer" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\lazer.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="met1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\metak 1 50x50.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="pew1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pew1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="pew2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pew2.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="pew3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pew3.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Plasma" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Plasma.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Speed" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Speed.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="z0" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\zgrada 1 200x200.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="z1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\zgrada 2 200x200.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="z2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\zgrada 3 200x200.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="z3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\zgrada 4 200x200.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="z_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\zgrada 5 400x400.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="z_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\zgrada 6 400x400.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="z_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\zgrada 7 400x400.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="z__0" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\zgrada 8 600x600.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="z___0" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\zgrada 9 800x800.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="boom" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\boom.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="earth" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\earth.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="pig1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pig1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="pig2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pig2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="pig3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pig3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="boom1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\boom1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="boom4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\boom4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="bul_las" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bul_las.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="burito" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\burito.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="bul_pla" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bul_pla.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="enm1_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\enm1-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="enm1_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\enm1-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="enm1_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\enm1-3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="gun_def" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\gun_def.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="gun_hev" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\gun_hev.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="gun_las" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\gun_las.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="gun_pla" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\gun_pla.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="earth1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\earth1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="pewf" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pewf.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="beam" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\beam.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="beam1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\beam1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="beam2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\beam2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="enm2_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\enm2-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="enm2_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\enm2-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="enm2_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\enm2-3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="enm3_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\enm3-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="enm3_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\enm3-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="enm3_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\enm3-3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="enm4_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\enm4-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="enm4_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\enm4-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="enm4_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\enm4-3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="enm4_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\enm4-4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="enm5_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\enm5-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="enm5_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\enm5-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="enm5_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\enm5-3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="mine" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\mine.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="minef1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\minef1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="minef2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\minef2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="minef3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\minef3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="arrow" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\arrow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="clouds" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\clouds.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="clouds1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\clouds1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="clouds2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\clouds2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="clouds3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\clouds3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="enm6_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\enm6-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="enm6_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\enm6-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="enm6_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\enm6-3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="enm7_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\enm7-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="gun_stand" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pigstand.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="pig01" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pig01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="pig02" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pig02.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="pig03" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\pig03.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="enm10_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\enm10-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="enm11_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\enm11-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="enm11_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\enm11-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="enm11_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\enm11-3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="enm12_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\enm12-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="enm23_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm23-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="enm8_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\enm8-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="enm9_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\enm9-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="enm9_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\enm9-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="enm9_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\enm9-3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="blast2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\blast2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="enm13_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\enm13-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="enm13_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\enm13-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="enm13_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\enm13-3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="enm14_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\enm14-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="enm14_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\enm14-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="enm14_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\enm14-3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="enm15_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\enm15-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="enm15_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\enm15-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="enm15_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\enm15-3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="enm16_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\enm16-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="enm16_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\enm16-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="enm16_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\enm16-3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="enm17_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\enm17-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="enm17_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\enm17-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="enm17_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\enm17-3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="enm18_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\enm18-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="enm18_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\enm18-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="enm18_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\enm18-3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="enm19_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\enm19-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="enm19_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\enm19-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="enm19_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\enm19-3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="fire" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\fire.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ice" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\ice3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="spear" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\spear.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="storm" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\storm.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="burito" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\burito.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="enm20_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\enm20-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="enm21_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\enm21-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="enm21_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\enm21-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="enm21_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\enm21-3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="enm22_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\enm22-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="enm22_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\enm22-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="enm22_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\enm22-3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="enm5_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm5-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="enm23_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\enm23-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="enm23_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\enm23-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="enm5_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm5-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="enm23_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\enm23-3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="enm11_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm11-3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="enm24_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\enm24-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="lazer" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\lazer.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="beam" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\beam.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm1_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm1-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="spear" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\spear.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm9_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm9-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm1_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm1-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm4_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm4-4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="clouds1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\clouds1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bum" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\hit.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm6_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm6-3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="mine" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\mine.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm11_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm11-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm22_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm22-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm16_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm16-3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Heavy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Heavy.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Speed" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Speed.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pig1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pig1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bad3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bad 3.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pew1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pew1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="gohlub3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gohlub3.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm18_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm18-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm2_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm2-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="z___0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\zgrada 9 800x800.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm20_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm20-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm2_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm2-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm22_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm22-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm17_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm17-3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="earth1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\earth1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="z_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\zgrada 6 400x400.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ice" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ice3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm12_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm12-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="gohlub1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gohlub1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm3_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm3-3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm17_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm17-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="z2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\zgrada 3 200x200.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm11_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm11-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="gun_hev" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gun_hev.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="aim" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\aim 200x200.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="enm24_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\enm24-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="enm17_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm17-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm9_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm9-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm22_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm22-3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm3_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm3-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="earth" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\earth.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="clouds3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\clouds3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Health" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Health.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pig03" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pig03.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="boom4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\boom4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="beam2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\beam2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm15_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm15-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm4_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm4-3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="boom" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\boom.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pig3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pig3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm21_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm21-3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm23_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm23-3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm13_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm13-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pig01" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pig01.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm13_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm13-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="enm24_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\enm24-3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="z__0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\zgrada 8 600x600.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="gun_las" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gun_las.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm3_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm3-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="gun_pla" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gun_pla.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="z1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\zgrada 2 200x200.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm9_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm9-3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm19_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm19-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="z_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\zgrada 7 400x400.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="boom1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\boom1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm7_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm7-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm18_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm18-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="z0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\zgrada 1 200x200.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm21_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm21-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="storm" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\storm.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm1_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm1-3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pig2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pig2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bul_las" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bul_las.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm15_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm15-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="clouds2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\clouds2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="minef1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\minef1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pewf" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pewf.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="minef2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\minef2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm21_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm21-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="gohlub2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gohlub2.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pew3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pew3.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm14_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm14-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bad1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bad 1.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm4_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm4-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm2_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm2-3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bad2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bad 2.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm14_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm14-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="blast2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\blast2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm24_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm24-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm19_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm19-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="gun_def" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gun_def.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Laser" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Laser.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="gohlub4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gohlub4.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Plasma" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Plasma.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm5_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm5-3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm19_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm19-3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="z3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\zgrada 4 200x200.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm18_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm18-3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm6_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm6-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm14_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm14-3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm6_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm6-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bad4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bad 4.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pig02" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pig02.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="arrow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\arrow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="gun_stand" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pigstand.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="z_0" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\zgrada 5 400x400.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm15_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm15-3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm13_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm13-3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="minef3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\minef3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm16_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm16-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="beam1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\beam1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="fire" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fire.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pew2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pew2.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm16_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm16-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm4_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm4-2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="clouds" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\clouds.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="met1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\metak 1 50x50.png;System.Drawing.Bitmap, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm10_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm10-1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pidgeon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pidgeon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

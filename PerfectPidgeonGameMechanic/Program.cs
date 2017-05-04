@@ -17,9 +17,10 @@ namespace PerfectPidgeonGameMechanic
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            MainForm Form = new MainForm();
             DrawForm DForm = new DrawForm();
-            Game CurrentGame = new Game(DForm);
-            Application.Run(DForm);
+            Game CurrentGame = new Game(DForm, Form);
+            Application.Run(Form);
         }
     }
 }
