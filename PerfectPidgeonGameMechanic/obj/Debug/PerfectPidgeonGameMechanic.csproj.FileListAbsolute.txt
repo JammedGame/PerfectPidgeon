@@ -55,3 +55,4 @@ C:\Users\Manojlo\Projects\PerfectPidgeon\PerfectPidgeonGameMechanic\obj\Debug\Pe
 C:\Users\Manojlo\Projects\PerfectPidgeon\PerfectPidgeonGameMechanic\obj\Debug\PerfectPidgeonGameMechanic.csproj.GenerateResource.Cache
 C:\Users\Manojlo\Projects\PerfectPidgeon\PerfectPidgeonGameMechanic\obj\Debug\PerfectPidgeonGameMechanic.exe
 C:\Users\Manojlo\Projects\PerfectPidgeon\PerfectPidgeonGameMechanic\obj\Debug\PerfectPidgeonGameMechanic.pdb
+C:\Users\DeinVenteD\Projects\ShadySolutions\PerfectPidgeon\PerfectPidgeonGameMechanic\bin\Debug\PerfectPidgeon.Draw.dll.config
