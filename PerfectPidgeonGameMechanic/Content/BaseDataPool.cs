@@ -1248,6 +1248,14 @@ namespace PerfectPidgeonGameMechanic.Content
             L.Next = "LVL21";
             L.Back = new Background("Data\\Town3", BackgroundType.Tiled, 1);
             this._Levels.Add("LVL20", L);
+            L = new Level();
+            L.MaxSpawns = 10;
+            L.FinishCondition = 5;
+            L.Title = "3-1";
+            L.Next = "";
+            L.Back = new Background("Data\\Town4", BackgroundType.Tiled, 2);
+            for (int i = 0; i < 20; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienBasic"]));
+            this._Levels.Add("LVL21", L);
             #endregion
         }
     }

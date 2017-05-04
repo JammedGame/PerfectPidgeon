@@ -51,8 +51,20 @@
             this.button18 = new System.Windows.Forms.Button();
             this.button19 = new System.Windows.Forms.Button();
             this.button20 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button21 = new System.Windows.Forms.Button();
+            this.button22 = new System.Windows.Forms.Button();
+            this.button23 = new System.Windows.Forms.Button();
+            this.button24 = new System.Windows.Forms.Button();
+            this.button25 = new System.Windows.Forms.Button();
+            this.button26 = new System.Windows.Forms.Button();
+            this.button27 = new System.Windows.Forms.Button();
+            this.button28 = new System.Windows.Forms.Button();
+            this.button29 = new System.Windows.Forms.Button();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // Back
@@ -368,11 +380,180 @@
             this.button20.UseVisualStyleBackColor = false;
             this.button20.Click += new System.EventHandler(this.Level_Click);
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Gainsboro;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(324, 480);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(150, 34);
+            this.button1.TabIndex = 39;
+            this.button1.Tag = "LVL20";
+            this.button1.Text = "3-X";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Visible = false;
+            this.button1.Click += new System.EventHandler(this.Level_Click);
+            // 
+            // button21
+            // 
+            this.button21.BackColor = System.Drawing.Color.Gainsboro;
+            this.button21.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button21.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button21.Location = new System.Drawing.Point(324, 440);
+            this.button21.Name = "button21";
+            this.button21.Size = new System.Drawing.Size(150, 34);
+            this.button21.TabIndex = 38;
+            this.button21.Tag = "LVL19";
+            this.button21.Text = "3-9";
+            this.button21.UseVisualStyleBackColor = false;
+            this.button21.Visible = false;
+            this.button21.Click += new System.EventHandler(this.Level_Click);
+            // 
+            // button22
+            // 
+            this.button22.BackColor = System.Drawing.Color.Gainsboro;
+            this.button22.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button22.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button22.Location = new System.Drawing.Point(324, 400);
+            this.button22.Name = "button22";
+            this.button22.Size = new System.Drawing.Size(150, 34);
+            this.button22.TabIndex = 37;
+            this.button22.Tag = "LVL18";
+            this.button22.Text = "3-8";
+            this.button22.UseVisualStyleBackColor = false;
+            this.button22.Visible = false;
+            this.button22.Click += new System.EventHandler(this.Level_Click);
+            // 
+            // button23
+            // 
+            this.button23.BackColor = System.Drawing.Color.Gainsboro;
+            this.button23.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button23.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button23.Location = new System.Drawing.Point(324, 360);
+            this.button23.Name = "button23";
+            this.button23.Size = new System.Drawing.Size(150, 34);
+            this.button23.TabIndex = 36;
+            this.button23.Tag = "LVL17";
+            this.button23.Text = "3-7";
+            this.button23.UseVisualStyleBackColor = false;
+            this.button23.Visible = false;
+            this.button23.Click += new System.EventHandler(this.Level_Click);
+            // 
+            // button24
+            // 
+            this.button24.BackColor = System.Drawing.Color.Gainsboro;
+            this.button24.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button24.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button24.Location = new System.Drawing.Point(324, 120);
+            this.button24.Name = "button24";
+            this.button24.Size = new System.Drawing.Size(150, 34);
+            this.button24.TabIndex = 35;
+            this.button24.Tag = "LVL21";
+            this.button24.Text = "3-1";
+            this.button24.UseVisualStyleBackColor = false;
+            this.button24.Click += new System.EventHandler(this.Level_Click);
+            // 
+            // button25
+            // 
+            this.button25.BackColor = System.Drawing.Color.Gainsboro;
+            this.button25.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button25.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button25.Location = new System.Drawing.Point(324, 320);
+            this.button25.Name = "button25";
+            this.button25.Size = new System.Drawing.Size(150, 34);
+            this.button25.TabIndex = 34;
+            this.button25.Tag = "LVL16";
+            this.button25.Text = "3-6";
+            this.button25.UseVisualStyleBackColor = false;
+            this.button25.Visible = false;
+            this.button25.Click += new System.EventHandler(this.Level_Click);
+            // 
+            // button26
+            // 
+            this.button26.BackColor = System.Drawing.Color.Gainsboro;
+            this.button26.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button26.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button26.Location = new System.Drawing.Point(324, 280);
+            this.button26.Name = "button26";
+            this.button26.Size = new System.Drawing.Size(150, 34);
+            this.button26.TabIndex = 33;
+            this.button26.Tag = "LVL15";
+            this.button26.Text = "3-5";
+            this.button26.UseVisualStyleBackColor = false;
+            this.button26.Visible = false;
+            this.button26.Click += new System.EventHandler(this.Level_Click);
+            // 
+            // button27
+            // 
+            this.button27.BackColor = System.Drawing.Color.Gainsboro;
+            this.button27.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button27.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button27.Location = new System.Drawing.Point(324, 240);
+            this.button27.Name = "button27";
+            this.button27.Size = new System.Drawing.Size(150, 34);
+            this.button27.TabIndex = 32;
+            this.button27.Tag = "LVL14";
+            this.button27.Text = "3-4";
+            this.button27.UseVisualStyleBackColor = false;
+            this.button27.Visible = false;
+            this.button27.Click += new System.EventHandler(this.Level_Click);
+            // 
+            // button28
+            // 
+            this.button28.BackColor = System.Drawing.Color.Gainsboro;
+            this.button28.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button28.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button28.Location = new System.Drawing.Point(324, 200);
+            this.button28.Name = "button28";
+            this.button28.Size = new System.Drawing.Size(150, 34);
+            this.button28.TabIndex = 31;
+            this.button28.Tag = "LVL13";
+            this.button28.Text = "3-3";
+            this.button28.UseVisualStyleBackColor = false;
+            this.button28.Visible = false;
+            this.button28.Click += new System.EventHandler(this.Level_Click);
+            // 
+            // button29
+            // 
+            this.button29.BackColor = System.Drawing.Color.Gainsboro;
+            this.button29.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button29.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button29.Location = new System.Drawing.Point(324, 160);
+            this.button29.Name = "button29";
+            this.button29.Size = new System.Drawing.Size(150, 34);
+            this.button29.TabIndex = 30;
+            this.button29.Tag = "LVL12";
+            this.button29.Text = "3-2";
+            this.button29.UseVisualStyleBackColor = false;
+            this.button29.Visible = false;
+            this.button29.Click += new System.EventHandler(this.Level_Click);
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox3.Location = new System.Drawing.Point(324, 14);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(150, 100);
+            this.pictureBox3.TabIndex = 29;
+            this.pictureBox3.TabStop = false;
+            // 
             // LevelPicker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.button21);
+            this.Controls.Add(this.button22);
+            this.Controls.Add(this.button23);
+            this.Controls.Add(this.button24);
+            this.Controls.Add(this.button25);
+            this.Controls.Add(this.button26);
+            this.Controls.Add(this.button27);
+            this.Controls.Add(this.button28);
+            this.Controls.Add(this.button29);
+            this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.button11);
             this.Controls.Add(this.button12);
             this.Controls.Add(this.button13);
@@ -400,6 +581,7 @@
             this.Size = new System.Drawing.Size(800, 600);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -429,5 +611,16 @@
         private System.Windows.Forms.Button button18;
         private System.Windows.Forms.Button button19;
         private System.Windows.Forms.Button button20;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button21;
+        private System.Windows.Forms.Button button22;
+        private System.Windows.Forms.Button button23;
+        private System.Windows.Forms.Button button24;
+        private System.Windows.Forms.Button button25;
+        private System.Windows.Forms.Button button26;
+        private System.Windows.Forms.Button button27;
+        private System.Windows.Forms.Button button28;
+        private System.Windows.Forms.Button button29;
+        private System.Windows.Forms.PictureBox pictureBox3;
     }
 }
