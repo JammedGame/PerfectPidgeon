@@ -14,6 +14,7 @@ namespace PerfectPidgeonGameMechanic
     {
         private long TimeStamp = 0;
         private long Sanctuary = 1000;
+        private bool Paused = false;
         private bool Started = false;
         private bool PlayerOnMove = false;
         private bool PlayerOnFire = false;
@@ -629,6 +630,12 @@ namespace PerfectPidgeonGameMechanic
         public void KeyPressed(Keys Key)
         {
             if (Key == Keys.Escape) this.Stop();
+            else if (Key == Keys.Space)
+            {
+                this.Paused = !this.Paused;
+                if (Paused) this.Time.Stop();
+                else this.Time.Start();
+            }
             else if (Key == Keys.Q) this._CurrentPlayer.GunRotation -= 10;
             else if (Key == Keys.W) this._CurrentPlayer.GunRotation = 0;
             else if (Key == Keys.E) this._CurrentPlayer.GunRotation += 10;
