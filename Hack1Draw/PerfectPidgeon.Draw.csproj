@@ -34,6 +34,12 @@
     <Reference Include="LeapCSharp.NET4.0">
       <HintPath>..\..\..\..\..\My Projects\Leap\PerfectPidgeon_Motion_Test\PerfectPidgeon_Motion_Test\bin\Debug\LeapCSharp.NET4.0.dll</HintPath>
     </Reference>
+    <Reference Include="OpenTK">
+      <HintPath>..\OpenTK.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenTK.GLControl">
+      <HintPath>..\OpenTK.GLControl.dll</HintPath>
+    </Reference>
     <Reference Include="PerfectPidgeon.Draw">
       <HintPath>obj\Debug\PerfectPidgeon.Draw.dll</HintPath>
     </Reference>

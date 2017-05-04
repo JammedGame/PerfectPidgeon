@@ -9,7 +9,6 @@ using System.Windows.Forms;
 using OpenTK;
 using OpenTK.Graphics;
 using OpenTK.Graphics.OpenGL;
-using Leap;
 
 namespace PerfectPidgeon.Draw
 {
@@ -41,8 +40,8 @@ namespace PerfectPidgeon.Draw
         private System.Timers.Timer Killemll;
 
         private Joystick _Joystick;
-        private PidgeonLeapListener Listen;
-        private Controller Control;
+        //private PidgeonLeapListener Listen;
+        //private Controller Control;
         private bool LeapCheck = false;
         private bool LeftDown = false;
         private bool RightDown = false;
@@ -119,9 +118,9 @@ namespace PerfectPidgeon.Draw
             this._Joystick.RightAxisChange += new AxisEvent(JoystickAxisRight);
             this._Joystick.JoystickButtonPress += new ButtonPress(JoystickButtonPressed);
 
-            Listen = new PidgeonLeapListener();
-            Control = new Controller();
-            Control.AddListener(Listen);
+            //Listen = new PidgeonLeapListener();
+            //Control = new Controller();
+            //Control.AddListener(Listen);
 
             UpdateLeap = new System.Timers.Timer();
             UpdateLeap.Enabled = true;
@@ -131,7 +130,7 @@ namespace PerfectPidgeon.Draw
         }
         private void Leap_Tick(object sender, System.Timers.ElapsedEventArgs e)
         {
-            if (!Listen.Connected) return;
+            /*if (!Listen.Connected) return;
             bool LeftPress = Listen.LeftCollected;
             bool RightPress = Listen.RightCollected;
             Point Loc = new Point((int)(Listen.LeftHandLocation.X * 16 + this.Width * 1.3), (int)(-Listen.LeftHandLocation.Y * 16 + this.Height * 3));
@@ -150,7 +149,7 @@ namespace PerfectPidgeon.Draw
                     MouseUpP.Invoke(null, new MouseEventArgs(System.Windows.Forms.MouseButtons.Right, 0, Loc.X, Loc.Y, 0));
                 }
                 MouseMoved.Invoke(null, new MouseEventArgs(System.Windows.Forms.MouseButtons.Right, 1, Loc.X, Loc.Y, 0));
-            }
+            }*/
         }     
         private void JoystickButtonPressed(JoystickButton Button, bool Pressed)
         {

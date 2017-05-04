@@ -104,8 +104,8 @@ namespace PerfectPidgeon.Draw
         }
         private void ButtonPressCheck()
         {
-            this._Joy = OpenTK.Input.Joystick.GetState(this._Index);
-            if (this._Joy.IsButtonDown(OpenTK.Input.JoystickButton.Button5))
+            /*this._Joy = OpenTK.Input.Joystick.GetState(this._Index);
+            if (this._Joy.IsButtonDown(OpenTK.Input.))
             {
                 if (!this._Pressed.Contains(JoystickButton.Move))
                 {
@@ -136,7 +136,7 @@ namespace PerfectPidgeon.Draw
                     this._Pressed.Remove(JoystickButton.Shoot);
                     JoystickButtonPress.Invoke(JoystickButton.Shoot, false);
                 }
-            }
+            }*/
         }
         private void OnLeftChange(double Angle)
         {
