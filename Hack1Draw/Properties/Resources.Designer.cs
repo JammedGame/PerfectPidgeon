@@ -743,6 +743,36 @@ namespace PerfectPidgeon.Draw.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap enm25_1 {
+            get {
+                object obj = ResourceManager.GetObject("enm25_1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap enm25_2 {
+            get {
+                object obj = ResourceManager.GetObject("enm25_2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap enm25_3 {
+            get {
+                object obj = ResourceManager.GetObject("enm25_3", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap enm3_1 {
             get {
                 object obj = ResourceManager.GetObject("enm3_1", resourceCulture);
@@ -1246,6 +1276,36 @@ namespace PerfectPidgeon.Draw.Properties {
         internal static System.Drawing.Bitmap Plasma {
             get {
                 object obj = ResourceManager.GetObject("Plasma", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap rocket1 {
+            get {
+                object obj = ResourceManager.GetObject("rocket1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap rocket2 {
+            get {
+                object obj = ResourceManager.GetObject("rocket2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap rocket3 {
+            get {
+                object obj = ResourceManager.GetObject("rocket3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

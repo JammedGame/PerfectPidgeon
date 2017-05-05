@@ -345,6 +345,14 @@ namespace PerfectPidgeonGameMechanic.Content
                 P.Summons.Add(S);
             }
             this._Projectiles.Add("ElvenDragonBlast", P);
+            P = new Projectile();
+            P.ArtIndex = 23;
+            P.Speed = 6;
+            P.Damage = 15;
+            P.Health = 3000;
+            P.MaxHealth = 3000;
+            P.Behave = B;
+            this._Projectiles.Add("TekitaiSmallRocket", P);
         }
         private void InitWeapons()
         {
@@ -482,6 +490,12 @@ namespace PerfectPidgeonGameMechanic.Content
             W.Location = new Vertex(0, 250, 0);
             W.Ammo = -1;
             this._Weapons.Add("ElvenDragonBlaster", W);
+            W = new Weapon();
+            W.FireRate = 15;
+            W.Type = this._Projectiles["TekitaiSmallRocket"];
+            W.Location = new Vertex(0, 100, 0);
+            W.Ammo = -1;
+            this._Weapons.Add("TekitaiSmallRocket", W);
         }
         private void InitEnemies()
         {
@@ -749,6 +763,17 @@ namespace PerfectPidgeonGameMechanic.Content
             E.Owner = 1;
             E.Behave = BDra;
             this._Enemies.Add("ElvenTiamatSummon", E);
+            E = new Enemy();
+            E.ArtIndex = 26;
+            E.Facing = 0;
+            E.Health = 120;
+            E.MaxHealth = 120;
+            E.Speed = 4;
+            E.Owner = 1;
+            B = new Behaviour();
+            E.Behave = B;
+            E.Guns.Add(new Weapon(this._Weapons["TekitaiSmallRocket"]));
+            this._Enemies.Add("TekitaiFighter", E);
         }
         private void InitLevels()
         {
@@ -1254,7 +1279,7 @@ namespace PerfectPidgeonGameMechanic.Content
             L.Title = "3-1";
             L.Next = "";
             L.Back = new Background("Data\\Town4", BackgroundType.Tiled, 2);
-            for (int i = 0; i < 20; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienBasic"]));
+            for (int i = 0; i < 20; i++) L.Enemies.Add(new Enemy(this._Enemies["TekitaiFighter"]));
             this._Levels.Add("LVL21", L);
             #endregion
         }
