@@ -98,7 +98,7 @@
             this.webBrowser1.Name = "webBrowser1";
             this.webBrowser1.Size = new System.Drawing.Size(346, 240);
             this.webBrowser1.TabIndex = 6;
-            this.webBrowser1.Url = new System.Uri("http://www.deinvented.com", System.UriKind.Absolute);
+            this.webBrowser1.Url = new System.Uri("http://perfectpigeon.deinvented.com/feed/feed.html", System.UriKind.Absolute);
             // 
             // Picker
             // 
