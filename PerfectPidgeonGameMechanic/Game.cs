@@ -572,7 +572,7 @@ namespace PerfectPidgeonGameMechanic
         public void dropPowerUp(Vertex DropLocation)
         {
             Random rnd = new Random();
-            int chance = rnd.Next(1, 10);
+            int chance = rnd.Next(1, 1);
             if (chance == 1)
             {
                 int type = rnd.Next(1, 6);

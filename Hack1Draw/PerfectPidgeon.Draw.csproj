@@ -456,6 +456,48 @@
   <ItemGroup>
     <None Include="Resources\pidgeon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Perfectlogo copy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Perfectlogo1 copy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Perfectlogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\h.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UpHeavy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UpBow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UpForce.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UpHeavy2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UpInvincibility.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UpLaser.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UpMagic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UpPlazma.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UpSpeed.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\UpHealth.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

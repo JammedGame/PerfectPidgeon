@@ -110,7 +110,7 @@ namespace PerfectPidgeonGameMechanic
                 for (int i = 0; i < 50; i++)
                 {
                     Projectile P = new Projectile(this._Type);
-                    Vertex Offset = new Vertex(this._Location.X, this._Location.Y + i * 50);
+                    Vertex Offset = new Vertex(this._Location.X, this._Location.Y + i * 30);
                     Offset = Offset.RotateZ(Owner.ShootDirection());
                     P.Location = Owner.Location + Offset;
                     P.Owner = Owner.Owner;

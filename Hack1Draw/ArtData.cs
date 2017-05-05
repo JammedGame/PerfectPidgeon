@@ -228,11 +228,11 @@ namespace PerfectPidgeon.Draw
             EffectArt.Add(global::PerfectPidgeon.Draw.Properties.Resources.bum);
             EffectArt.Add(global::PerfectPidgeon.Draw.Properties.Resources.boom4);
             PowerUpArt = new List<Bitmap>();
-            PowerUpArt.Add(global::PerfectPidgeon.Draw.Properties.Resources.Health);
-            PowerUpArt.Add(global::PerfectPidgeon.Draw.Properties.Resources.Speed);
-            PowerUpArt.Add(global::PerfectPidgeon.Draw.Properties.Resources.Heavy);
-            PowerUpArt.Add(global::PerfectPidgeon.Draw.Properties.Resources.Laser);
-            PowerUpArt.Add(global::PerfectPidgeon.Draw.Properties.Resources.Plasma);
+            PowerUpArt.Add(global::PerfectPidgeon.Draw.Properties.Resources.UpHealth);
+            PowerUpArt.Add(global::PerfectPidgeon.Draw.Properties.Resources.UpSpeed);
+            PowerUpArt.Add(global::PerfectPidgeon.Draw.Properties.Resources.UpHeavy2);
+            PowerUpArt.Add(global::PerfectPidgeon.Draw.Properties.Resources.UpLaser);
+            PowerUpArt.Add(global::PerfectPidgeon.Draw.Properties.Resources.UpPlazma);
         }
         public void SetBackground(string Path)
         {
