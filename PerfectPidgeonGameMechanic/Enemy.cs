@@ -5,9 +5,17 @@ using System.Text;
 
 namespace PerfectPidgeonGameMechanic
 {
+    public enum EnemyType
+    {
+        Basic = 0,
+        Grouped = 1
+    }
     public class Enemy : Object
     {
-        private List<Weapon> _Guns;  
+        private EnemyType _Type;
+        private List<Weapon> _Guns;
+        public EnemyType Type
+        { get => _Type; set => _Type = value; }
         public List<Weapon> Guns
         {
             get
@@ -22,10 +30,12 @@ namespace PerfectPidgeonGameMechanic
         }
         public Enemy() : base ()
         {
+            this._Type = EnemyType.Basic;
             this._Guns = new List<Weapon>();
         }
         public Enemy(Enemy Old) : base(Old)
         {
+            this._Type = Old._Type;
             this._Guns = new List<Weapon>();
             for (int i = 0; i < Old._Guns.Count; i++) this._Guns.Add(new Weapon(Old._Guns[i]));
         }

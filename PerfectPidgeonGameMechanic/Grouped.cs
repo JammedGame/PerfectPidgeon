@@ -30,6 +30,7 @@ namespace PerfectPidgeonGameMechanic
         public int DependantInvincibility { get => _DependantInvincibility; set => _DependantInvincibility = value; }
         public Grouped() : base()
         {
+            this.Type = EnemyType.Grouped;
             this._DependantInvincibility = -1;
             this._Facings = new List<double>();
             this._Auxes = new List<Enemy>();

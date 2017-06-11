@@ -513,8 +513,46 @@ namespace PerfectPidgeonGameMechanic
                         }
                         Projectiles[j].Location = null;
                     }
-
                 }
+                if (Enemies[i].Type == EnemyType.Grouped)
+                {
+                    Grouped G = Enemies[i] as Grouped;
+                    for (int k = 0; k < G.Auxes.Count; i++)
+                    {
+                        for (int j = Projectiles.Count - 1; j >= 0; j--)
+                        {
+                            if (!(Projectiles[j].Location != null)) continue;
+                            if (!(G.Auxes[k].Location != null)) continue;
+                            if (Projectiles[j].Owner > 0) continue;
+                            distance = Math.Sqrt((G.Auxes[k].Location.X - Projectiles[j].Location.X) * (G.Auxes[k].Location.X - Projectiles[j].Location.X) +
+                                (G.Auxes[k].Location.Y - Projectiles[j].Location.Y) * (G.Auxes[k].Location.Y - Projectiles[j].Location.Y));
+                            if (distance < G.Auxes[k].HitRadius + Projectiles[j].HitRadius)
+                            {
+                                G.Auxes[k].Health -= Projectiles[j].Damage;
+                                if (!(G.Auxes[k].Health > 0))
+                                {
+                                    Effect NewEffect = new Effect();
+                                    NewEffect.ArtIndex = 1;
+                                    NewEffect.Lifetime = 100;
+                                    NewEffect.Location = G.Auxes[k].Location;
+                                    Effects.Add(NewEffect);
+                                    dropPowerUp(G.Auxes[k].Location);
+                                    G.Auxes[k].Location = null;
+                                }
+                                if (G.Auxes[k].Location != null)
+                                {
+                                    Effect NewEffect = new Effect();
+                                    NewEffect.ArtIndex = 0;
+                                    NewEffect.Lifetime = 25;
+                                    NewEffect.Location = Projectiles[j].Location;
+                                    Effects.Add(NewEffect);
+                                }
+                                Projectiles[j].Location = null;
+                            }
+                        }
+                    }
+                }
+                
             }
             if ((Enemies.Count + _EnemyPool.Count <= this._CurrentLevel.FinishCondition) || (this._CurrentLevel.FinishCondition == -1 && false))
             {
