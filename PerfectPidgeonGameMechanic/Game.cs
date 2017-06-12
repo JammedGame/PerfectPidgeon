@@ -137,10 +137,6 @@ namespace PerfectPidgeonGameMechanic
             {
                 this._CurrentBoss = new Boss(CLevel.LBoss);
                 
-                for (int i = 0; i < this._CurrentBoss.Auxes.Count; i++)
-                {
-                    this._EnemyPool.Add(this._CurrentBoss.Auxes[i]);
-                }
                 this._EnemyPool.Add(this._CurrentBoss);
             }
             Spawn();
@@ -252,15 +248,23 @@ namespace PerfectPidgeonGameMechanic
                             if (!Enemies[i].Guns[j].Active) continue;
                             this._Projectiles.AddRange(Enemies[i].Guns[j].Shoot(Enemies[i], TimeStamp));
                         }
+
+                        if(Enemies[i].Type == EnemyType.Grouped)
+                        {
+                            Grouped G = Enemies[i] as Grouped;
+                            for(int j = 0; j < G.Auxes.Count; j++)
+                            {
+                                if (G.Auxes[j].Location == null) continue;
+                                double Angle = DrawForm.GetAngleDegree((CurrentPlayer.Location).ToPoint(), Enemies[i].Location.ToPoint());
+                                Vertex Location = G.Location + G.Auxes[j].Location.RotateZ(-Angle);
+                                for (int k = 0; k < G.Auxes[j].Guns.Count; k++)
+                                {
+                                    if (!G.Auxes[j].Guns[k].Active) continue;
+                                    this._Projectiles.AddRange(G.Auxes[j].Guns[k].Shoot(Enemies[i], TimeStamp, Location));
+                                }
+                            }
+                        }
                     }
-                }
-            }
-            if(this._CurrentBoss != null && this._CurrentBoss.Location != null)
-            {
-                for(int i = 0; i < this._CurrentBoss.Auxes.Count; i++)
-                {
-                    this._CurrentBoss.Auxes[i].Location = this._CurrentBoss.Location + this._CurrentBoss.Offsets[i].RotateZ(this._CurrentBoss.Facing);
-                    this._CurrentBoss.Auxes[i].Facing = this._CurrentBoss.Facing;
                 }
             }
             isHit();
@@ -284,22 +288,38 @@ namespace PerfectPidgeonGameMechanic
             List<double> Sizes = new List<double>();
             List<Color> Colors = new List<Color>();
             List<Point> Locations = new List<Point>();
+            int Index = 0;
             for (int i = 0; i < Enemies.Count; i++)
             {
                 if (Enemies[i].Location != null)
                 {
-                    Indices.Add(i);
+                    Indices.Add(Index);
                     ArtIndices.Add(Enemies[i].ArtIndex);
                     ImageIndices.Add(Enemies[i].ImageIndex);
                     Other.Add(0);
                     Colors.Add(Enemies[i].Paint);
                     Sizes.Add(Enemies[i].Scale);
                     Locations.Add(Enemies[i].Location.ToPoint());
-                    if(this._CurrentBoss != null && CurrentPlayer.Location != null && this._CurrentBoss.Auxes.Contains(Enemies[i]))
+                    Angles.Add(DrawForm.GetAngleDegree((CurrentPlayer.Location).ToPoint(), Enemies[i].Location.ToPoint()));
+                    Index++;
+                    if(Enemies[i].Type == EnemyType.Grouped)
                     {
-                        Angles.Add(DrawForm.GetAngleDegree((CurrentPlayer.Location).ToPoint(), this._CurrentBoss.Location.ToPoint()));
+                        Grouped GEnemy = Enemies[i] as Grouped;
+                        for(int j = 0; j < GEnemy.Auxes.Count; j++)
+                        {
+                            if (GEnemy.Auxes[j].Location == null) continue;
+                            Indices.Add(Index);
+                            ArtIndices.Add(GEnemy.Auxes[j].ArtIndex);
+                            ImageIndices.Add(GEnemy.Auxes[j].ImageIndex);
+                            Other.Add(0);
+                            Colors.Add(GEnemy.Auxes[j].Paint);
+                            Sizes.Add(GEnemy.Auxes[j].Scale);
+                            double Angle = DrawForm.GetAngleDegree((CurrentPlayer.Location).ToPoint(), Enemies[i].Location.ToPoint());
+                            Locations.Add((GEnemy.Location + GEnemy.Auxes[j].Location.RotateZ(-Angle)).ToPoint());
+                            Angles.Add(Angle);
+                            Index++;
+                        }
                     }
-                    else Angles.Add(DrawForm.GetAngleDegree((CurrentPlayer.Location).ToPoint(), Enemies[i].Location.ToPoint()));
                 }
             }
             for (int i = Enemies.Count - 1; i >= 0; i--) if (!(Enemies[i].Location != null)) Enemies.RemoveAt(i);
@@ -514,18 +534,20 @@ namespace PerfectPidgeonGameMechanic
                         Projectiles[j].Location = null;
                     }
                 }
-                if (Enemies[i].Type == EnemyType.Grouped)
+                if (Enemies[i].Location != null && Enemies[i].Type == EnemyType.Grouped)
                 {
                     Grouped G = Enemies[i] as Grouped;
-                    for (int k = 0; k < G.Auxes.Count; i++)
+                    for (int k = 0; k < G.Auxes.Count; k++)
                     {
                         for (int j = Projectiles.Count - 1; j >= 0; j--)
                         {
                             if (!(Projectiles[j].Location != null)) continue;
                             if (!(G.Auxes[k].Location != null)) continue;
                             if (Projectiles[j].Owner > 0) continue;
-                            distance = Math.Sqrt((G.Auxes[k].Location.X - Projectiles[j].Location.X) * (G.Auxes[k].Location.X - Projectiles[j].Location.X) +
-                                (G.Auxes[k].Location.Y - Projectiles[j].Location.Y) * (G.Auxes[k].Location.Y - Projectiles[j].Location.Y));
+                            double Angle = DrawForm.GetAngleDegree((CurrentPlayer.Location).ToPoint(), Enemies[i].Location.ToPoint());
+                            Vertex Location = G.Location + G.Auxes[k].Location.RotateZ(-Angle);
+                            distance = Math.Sqrt((Location.X - Projectiles[j].Location.X) * (Location.X - Projectiles[j].Location.X) +
+                                (Location.Y - Projectiles[j].Location.Y) * (Location.Y - Projectiles[j].Location.Y));
                             if (distance < G.Auxes[k].HitRadius + Projectiles[j].HitRadius)
                             {
                                 G.Auxes[k].Health -= Projectiles[j].Damage;

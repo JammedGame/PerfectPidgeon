@@ -8,6 +8,7 @@ namespace PerfectPidgeonGameMechanic
     public enum ProjectileType
     {
         Ordinary,
+        Angled,
         PidgeonGun,
         PidgeonHeavy,
         PidgeonLaser,

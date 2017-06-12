@@ -187,6 +187,17 @@ namespace PerfectPidgeonGameMechanic.Content
             P.Behave = B;
             this._Projectiles.Add("AlienBasic", P);
             P = new Projectile();
+            P.ArtIndex = 10;
+            P.Speed = 5;
+            P.Scale = 1.3;
+            P.Damage = 0;
+            P.Health = 5000;
+            P.MaxHealth = 5000;
+            P.Behave = B;
+            P.Paint = Color.FromArgb(180, 180, 180);
+            P.Type = ProjectileType.Angled;
+            this._Projectiles.Add("AlienBossBasic", P);
+            P = new Projectile();
             P.ArtIndex = 11;
             P.Speed = 8;
             P.Damage = 10;
@@ -203,6 +214,15 @@ namespace PerfectPidgeonGameMechanic.Content
             P.MaxHealth = 5000;
             P.Behave = B;
             this._Projectiles.Add("AlienBeamer", P);
+            P = new Projectile();
+            P.ArtIndex = 12;
+            P.Speed = 2;
+            P.Scale = 0.6;
+            P.Damage = 0;
+            P.Health = 5000;
+            P.MaxHealth = 5000;
+            P.Behave = B;
+            this._Projectiles.Add("AlienBossBeamer", P);
             P = new Projectile();
             P.ArtIndex = 14;
             P.Speed = 0;
@@ -225,6 +245,14 @@ namespace PerfectPidgeonGameMechanic.Content
             S.Projectile = this._Projectiles["AlienMineField"];
             P.Summons.Add(S);
             this._Projectiles.Add("AlienMine", P);
+            P = new Projectile();
+            P.ArtIndex = 2;
+            P.Speed = 10;
+            P.Damage = 0;
+            P.Health = 50;
+            P.MaxHealth = 50;
+            P.Behave = B;
+            this._Projectiles.Add("AlienBossLaser", P);
             P = new Projectile();
             P.ArtIndex = 16;
             P.Speed = 10;
@@ -496,6 +524,21 @@ namespace PerfectPidgeonGameMechanic.Content
             W.Location = new Vertex(0, 100, 0);
             W.Ammo = -1;
             this._Weapons.Add("TekitaiSmallRocket", W);
+
+            W = new Weapon();
+            W.FireRate = 15;
+            W.Type = this._Projectiles["AlienBossBasic"];
+            W.Location = new Vertex(0, 150, 0);
+            W.Ammo = -1;
+            W.RandomAngle = 60;
+            this._Weapons.Add("AlienBossBasic", W);
+            W = new Weapon();
+            W.FireRate = 15;
+            W.Type = this._Projectiles["AlienBossBasic"];
+            W.Location = new Vertex(50, 100, 0);
+            W.Ammo = -1;
+            W.RandomAngle = 30;
+            this._Weapons.Add("AlienBossBasic-Right", W);
         }
         private void InitEnemies()
         {
@@ -565,50 +608,6 @@ namespace PerfectPidgeonGameMechanic.Content
             E.Behave = B;
             E.Guns.Add(new Weapon(this._Weapons["AlienMine"]));
             this._Enemies.Add("AlienMiner", E);
-            //BOSS
-            E = new Enemy();
-            E.ArtIndex = 10;
-            E.Facing = 0;
-            E.Health = 3000;
-            E.MaxHealth = 3000;
-            E.Scale = 1.5;
-            E.Speed = 5;
-            E.Owner = 1;
-            E.HitRadius = 140;
-            B = new Behaviour();
-            E.Behave = B;
-            this._Enemies.Add("AlienMothershipLeftWing", E);
-            E = new Enemy();
-            E.ArtIndex = 12;
-            E.Facing = 0;
-            E.Health = 3000;
-            E.MaxHealth = 3000;
-            E.Scale = 1.5;
-            E.Speed = 5;
-            E.Owner = 1;
-            E.HitRadius = 140;
-            B = new Behaviour();
-            E.Behave = B;
-            this._Enemies.Add("AlienMothershipRightWing", E);
-            E = new Enemy();
-            E.ArtIndex = 8;
-            E.Health = 5000;
-            E.MaxHealth = 5000;
-            E.Scale = 1.5;
-            E.Speed = 5;
-            E.Owner = 1;
-            E.HitRadius = 140;
-            B = new Behaviour();
-            E.Behave = B;
-            this._Enemies.Add("AlienMothershipCore", E);
-            BO = new Boss();
-            BO.Auxes.Add(this.Enemies["AlienMothershipCore"]);
-            BO.Auxes.Add(this.Enemies["AlienMothershipLeftWing"]);
-            BO.Auxes.Add(this.Enemies["AlienMothershipRightWing"]);
-            BO.Offsets.Add(new Vertex(0, 0));
-            BO.Offsets.Add(new Vertex(500, 0));
-            BO.Offsets.Add(new Vertex(-500, 0));
-            this._Bosses.Add("AlienMothership", BO);
 
             //Elves
 
@@ -774,6 +773,55 @@ namespace PerfectPidgeonGameMechanic.Content
             E.Behave = B;
             E.Guns.Add(new Weapon(this._Weapons["TekitaiSmallRocket"]));
             this._Enemies.Add("TekitaiFighter", E);
+
+            InitBosses();
+        }
+        private void InitBosses()
+        {
+            Enemy E;
+            Behaviour B, BossB;
+            Boss BO;
+
+            E = new Enemy();
+            E.ArtIndex = 10;
+            E.Facing = 0;
+            E.Health = 300;
+            E.MaxHealth = 300;
+            E.Scale = 1.5;
+            E.Speed = 5;
+            E.Owner = 1;
+            E.HitRadius = 140;
+            B = new Behaviour();
+            E.Behave = B;
+            this._Enemies.Add("AlienMothershipLeftWing", E);
+            E = new Enemy();
+            E.ArtIndex = 12;
+            E.Facing = 0;
+            E.Health = 300;
+            E.MaxHealth = 300;
+            E.Scale = 1.5;
+            E.Speed = 5;
+            E.Owner = 1;
+            E.HitRadius = 140;
+            B = new Behaviour();
+            E.Behave = B;
+            E.Guns.Add(new Weapon(this._Weapons["AlienBossBasic"]));
+            this._Enemies.Add("AlienMothershipRightWing", E);
+            BO = new Boss();
+            BO.ArtIndex = 8;
+            BO.Health = 500;
+            BO.MaxHealth = 500;
+            BO.Scale = 1.5;
+            BO.Speed = 5;
+            BO.Owner = 1;
+            BO.HitRadius = 140;
+            BossB = new Behaviour();
+            BossB.Radius = 1000;
+            BO.Behave = BossB;
+            BO.Guns.Add(new Weapon(this._Weapons["AlienBossBasic"]));
+            BO.AddAux(this.Enemies["AlienMothershipLeftWing"], new Vertex(-500, 0));
+            BO.AddAux(this.Enemies["AlienMothershipRightWing"], new Vertex(500, 0));
+            this._Bosses.Add("AlienMothership", BO);
         }
         private void InitLevels()
         {

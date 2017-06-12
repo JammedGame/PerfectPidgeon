@@ -13,17 +13,12 @@ namespace PerfectPidgeonGameMechanic
         private List<Enemy> _Auxes;
         private List<double> _Facings;
         public List<Vertex> Offsets
-        { get => _Offsets; set => _Offsets = value; }
+        { get => _Offsets; }
         public List<Enemy> Auxes
         {
             get
             {
                 return _Auxes;
-            }
-
-            set
-            {
-                _Auxes = value;
             }
         }
         public List<double> Facings { get => _Facings; set => _Facings = value; }
@@ -36,7 +31,7 @@ namespace PerfectPidgeonGameMechanic
             this._Auxes = new List<Enemy>();
             this._Offsets = new List<Vertex>();
         }
-        public Grouped(Grouped Old)
+        public Grouped(Grouped Old) : base(Old)
         {
             this._DependantInvincibility = Old._DependantInvincibility;
             this._Facings = new List<double>();
@@ -45,6 +40,13 @@ namespace PerfectPidgeonGameMechanic
             for (int i = 0; i < Old._Auxes.Count; i++) this._Auxes.Add(new Enemy(Old.Auxes[i]));
             this._Offsets = new List<Vertex>();
             for (int i = 0; i < Old._Offsets.Count; i++) this._Offsets.Add(new Vertex(Old._Offsets[i]));
+        }
+        public void AddAux(Enemy Aux, Vertex Offset)
+        {
+            Aux.Type = EnemyType.Aux;
+            Aux.Location = Offset;
+            this.Offsets.Add(Offset);
+            this.Auxes.Add(Aux);
         }
     }
 }
