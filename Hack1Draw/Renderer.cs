@@ -206,6 +206,8 @@ namespace PerfectPidgeon.Draw
                     }
                 }
             }
+
+
             
 
             GL.Color3(this._ArtData.Environment);

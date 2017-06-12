@@ -8,7 +8,8 @@ namespace PerfectPidgeonGameMechanic
     public enum EnemyType
     {
         Basic = 0,
-        Grouped = 1
+        Grouped = 1,
+        Aux = 2
     }
     public class Enemy : Object
     {

@@ -255,7 +255,7 @@ namespace PerfectPidgeonGameMechanic
                     }
                 }
             }
-            if(this._CurrentBoss != null)
+            if(this._CurrentBoss != null && this._CurrentBoss.Location != null)
             {
                 for(int i = 0; i < this._CurrentBoss.Auxes.Count; i++)
                 {
@@ -295,7 +295,7 @@ namespace PerfectPidgeonGameMechanic
                     Colors.Add(Enemies[i].Paint);
                     Sizes.Add(Enemies[i].Scale);
                     Locations.Add(Enemies[i].Location.ToPoint());
-                    if(this._CurrentBoss != null && this._CurrentBoss.Auxes.Contains(Enemies[i]))
+                    if(this._CurrentBoss != null && CurrentPlayer.Location != null && this._CurrentBoss.Auxes.Contains(Enemies[i]))
                     {
                         Angles.Add(DrawForm.GetAngleDegree((CurrentPlayer.Location).ToPoint(), this._CurrentBoss.Location.ToPoint()));
                     }
@@ -554,7 +554,7 @@ namespace PerfectPidgeonGameMechanic
                 }
                 
             }
-            if ((Enemies.Count + _EnemyPool.Count <= this._CurrentLevel.FinishCondition) || (this._CurrentLevel.FinishCondition == -1 && false))
+            if ((Enemies.Count + _EnemyPool.Count <= this._CurrentLevel.FinishCondition) || (this._CurrentLevel.FinishCondition == -1 && this._CurrentBoss.Location == null))
             {
                 if (this._CurrentLevel.Next != "") Restart(this._DataPool.Levels[this._CurrentLevel.Next]);
                 else Restart(this._CurrentLevel);
