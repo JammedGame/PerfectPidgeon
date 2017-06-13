@@ -93,6 +93,16 @@ namespace PerfectPidgeon.Draw.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _19141553_1400638206686292_253717592_n {
+            get {
+                object obj = ResourceManager.GetObject("_19141553_1400638206686292_253717592_n", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap _19184004_1400613753355404_231690187_n {
             get {
                 object obj = ResourceManager.GetObject("_19184004_1400613753355404_231690187_n", resourceCulture);

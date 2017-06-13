@@ -30,8 +30,8 @@ namespace PerfectPidgeon.Draw
             this._CinematicTexts[7] = "Dr. Insane: \"Perfect Pidgeon, I'm on it.\"";
             this._CinematicImages = new Bitmap[8];
             this._CinematicImages[0] = PerfectPidgeon.Draw.Properties.Resources._19104794_1398751953541584_660140607_o;
-            this._CinematicImages[1] = PerfectPidgeon.Draw.Properties.Resources._19113314_1399676160115830_671902572_n;
-            this._CinematicImages[2] = PerfectPidgeon.Draw.Properties.Resources._19113314_1399676160115830_671902572_n;
+            this._CinematicImages[1] = PerfectPidgeon.Draw.Properties.Resources._19141553_1400638206686292_253717592_n;
+            this._CinematicImages[2] = PerfectPidgeon.Draw.Properties.Resources._19141553_1400638206686292_253717592_n;
             this._CinematicImages[3] = PerfectPidgeon.Draw.Properties.Resources._19184004_1400613753355404_231690187_n;
             this._CinematicImages[4] = PerfectPidgeon.Draw.Properties.Resources._19184004_1400613753355404_231690187_n;
             this._CinematicImages[5] = PerfectPidgeon.Draw.Properties.Resources._19184004_1400613753355404_231690187_n;
@@ -48,14 +48,29 @@ namespace PerfectPidgeon.Draw
             this._Index++;
             if (this._Index == 8)
             {
-                _Main.Show();
-                this.Hide();
+                FinishCinematic();
             }
             else
             {
                 TextLabel.Text = this._CinematicTexts[_Index];
-                if (this._Index == 1 || this._Index == 3 || this._Index == 7) CinematicImage.BackgroundImage = this._CinematicImages[_Index];
+                CinematicImage.BackgroundImage = this._CinematicImages[_Index];
             }
+        }
+        private void FinishCinematic()
+        {
+            _Main.Show();
+            this.Hide();
+        }
+
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            if (keyData == Keys.Escape)
+            {
+                FinishCinematic();
+                return true;
+            }
+
+            return base.ProcessCmdKey(ref msg, keyData);
         }
     }
 }
