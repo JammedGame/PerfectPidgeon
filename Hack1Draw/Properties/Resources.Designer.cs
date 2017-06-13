@@ -63,6 +63,46 @@ namespace PerfectPidgeon.Draw.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _19104794_1398751953541584_660140607_o {
+            get {
+                object obj = ResourceManager.GetObject("19104794_1398751953541584_660140607_o", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _19113314_1399676160115830_671902572_n {
+            get {
+                object obj = ResourceManager.GetObject("19113314_1399676160115830_671902572_n", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _19141513_1400613750022071_2009513361_n {
+            get {
+                object obj = ResourceManager.GetObject("_19141513_1400613750022071_2009513361_n", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _19184004_1400613753355404_231690187_n {
+            get {
+                object obj = ResourceManager.GetObject("_19184004_1400613753355404_231690187_n", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap aim {
             get {
                 object obj = ResourceManager.GetObject("aim", resourceCulture);

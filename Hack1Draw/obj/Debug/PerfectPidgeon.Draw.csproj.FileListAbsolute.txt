@@ -30,3 +30,4 @@ C:\Users\DeinVenteD\Projects\ShadySolutions\PerfectPidgeon\Hack1Draw\obj\Debug\P
 C:\Users\Manojlo\Projects\PerfectPidgeon\Hack1Draw\obj\Debug\PerfectPidgeon.Draw.LevelPicker.resources
 C:\Users\Manojlo\Projects\PerfectPidgeon\Hack1Draw\obj\Debug\PerfectPidgeon.Draw.MainForm.resources
 C:\Users\Manojlo\Projects\PerfectPidgeon\Hack1Draw\obj\Debug\PerfectPidgeon.Draw.SettingsPanel.resources
+C:\Users\Manojlo\Projects\PerfectPidgeon\Hack1Draw\obj\Debug\PerfectPidgeon.Draw.Cinematic.resources

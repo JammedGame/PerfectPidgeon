@@ -40,10 +40,16 @@ namespace PerfectPidgeon.Draw
         private void Level_Click(object sender, EventArgs e)
         {
             this.Picker.Visible = true;
+            this.Picker.BringToFront();
         }
         private void Continue_Click(object sender, EventArgs e)
         {
             this.LevelContinue.Invoke("");
+        }
+
+        private void MainForm_Resize(object sender, EventArgs e)
+        {
+            this.Picker.Size = new Size(this.ClientSize.Width - 360, this.ClientSize.Height - 110);
         }
     }
 }

@@ -52,6 +52,12 @@
     <Compile Include="ArtData.cs" />
     <Compile Include="BackgroundGenerator\TileGroup.cs" />
     <Compile Include="BackgroundGenerator\TileGroupLoader.cs" />
+    <Compile Include="Cinematic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cinematic.Designer.cs">
+      <DependentUpon>Cinematic.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controls.cs" />
     <Compile Include="DrawForm.cs">
       <SubType>Form</SubType>
@@ -95,6 +101,9 @@
     <Compile Include="Vertex.cs" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Cinematic.resx">
+      <DependentUpon>Cinematic.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DrawForm.resx">
       <DependentUpon>DrawForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -525,6 +534,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\rocket3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\19104794_1398751953541584_660140607_o.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\19113314_1399676160115830_671902572_n.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\19141513_1400613750022071_2009513361_n.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\19184004_1400613753355404_231690187_n.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

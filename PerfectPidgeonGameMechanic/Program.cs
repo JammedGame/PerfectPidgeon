@@ -17,10 +17,12 @@ namespace PerfectPidgeonGameMechanic
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            Cinematic Intro = new Cinematic();
             MainForm Form = new MainForm();
             DrawForm DForm = new DrawForm();
             Game CurrentGame = new Game(DForm, Form);
-            Application.Run(Form);
+            Intro.SetMainForm(Form);
+            Application.Run(Intro);
         }
     }
 }

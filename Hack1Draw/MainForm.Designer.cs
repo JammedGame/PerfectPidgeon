@@ -32,12 +32,16 @@
             this.Level = new System.Windows.Forms.Button();
             this.Settings = new System.Windows.Forms.Button();
             this.Quit = new System.Windows.Forms.Button();
-            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
-            this.Picker = new PerfectPidgeon.Draw.LevelPicker();
             this.Title = new System.Windows.Forms.PictureBox();
-            this.PigeonArt = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.Picker = new PerfectPidgeon.Draw.LevelPicker();
             ((System.ComponentModel.ISupportInitialize)(this.Title)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PigeonArt)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // Continue
@@ -45,9 +49,9 @@
             this.Continue.BackColor = System.Drawing.Color.Gainsboro;
             this.Continue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Continue.Font = new System.Drawing.Font("Segoe UI Semibold", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Continue.Location = new System.Drawing.Point(514, 70);
+            this.Continue.Location = new System.Drawing.Point(0, 58);
             this.Continue.Name = "Continue";
-            this.Continue.Size = new System.Drawing.Size(193, 52);
+            this.Continue.Size = new System.Drawing.Size(200, 52);
             this.Continue.TabIndex = 1;
             this.Continue.Text = "Continue";
             this.Continue.UseVisualStyleBackColor = false;
@@ -58,9 +62,9 @@
             this.Level.BackColor = System.Drawing.Color.Gainsboro;
             this.Level.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Level.Font = new System.Drawing.Font("Segoe UI Semibold", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Level.Location = new System.Drawing.Point(514, 128);
+            this.Level.Location = new System.Drawing.Point(0, 116);
             this.Level.Name = "Level";
-            this.Level.Size = new System.Drawing.Size(193, 52);
+            this.Level.Size = new System.Drawing.Size(200, 52);
             this.Level.TabIndex = 3;
             this.Level.Text = "Level";
             this.Level.UseVisualStyleBackColor = false;
@@ -71,9 +75,9 @@
             this.Settings.BackColor = System.Drawing.Color.Gainsboro;
             this.Settings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Settings.Font = new System.Drawing.Font("Segoe UI Semibold", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Settings.Location = new System.Drawing.Point(514, 186);
+            this.Settings.Location = new System.Drawing.Point(0, 174);
             this.Settings.Name = "Settings";
-            this.Settings.Size = new System.Drawing.Size(193, 52);
+            this.Settings.Size = new System.Drawing.Size(200, 52);
             this.Settings.TabIndex = 4;
             this.Settings.Text = "Settings";
             this.Settings.UseVisualStyleBackColor = false;
@@ -81,89 +85,120 @@
             // Quit
             // 
             this.Quit.BackColor = System.Drawing.Color.Gainsboro;
+            this.Quit.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.Quit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Quit.Font = new System.Drawing.Font("Segoe UI Semibold", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Quit.Location = new System.Drawing.Point(514, 259);
+            this.Quit.Location = new System.Drawing.Point(0, 518);
             this.Quit.Name = "Quit";
-            this.Quit.Size = new System.Drawing.Size(193, 52);
+            this.Quit.Size = new System.Drawing.Size(200, 52);
             this.Quit.TabIndex = 5;
             this.Quit.Text = "Quit";
             this.Quit.UseVisualStyleBackColor = false;
             this.Quit.Click += new System.EventHandler(this.Quit_Click);
             // 
-            // webBrowser1
+            // Title
             // 
-            this.webBrowser1.Location = new System.Drawing.Point(442, 339);
-            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(346, 240);
-            this.webBrowser1.TabIndex = 6;
-            this.webBrowser1.Url = new System.Uri("http://perfectpigeon.deinvented.com/feed/feed.html", System.UriKind.Absolute);
+            this.Title.BackColor = System.Drawing.Color.Transparent;
+            this.Title.BackgroundImage = global::PerfectPidgeon.Draw.Properties.Resources.Perfectlogo;
+            this.Title.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Title.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Title.Location = new System.Drawing.Point(0, 0);
+            this.Title.Name = "Title";
+            this.Title.Size = new System.Drawing.Size(200, 52);
+            this.Title.TabIndex = 8;
+            this.Title.TabStop = false;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.BackgroundImage = global::PerfectPidgeon.Draw.Properties.Resources.pidgeon;
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panel1.Controls.Add(this.Quit);
+            this.panel1.Controls.Add(this.panel3);
+            this.panel1.Controls.Add(this.Title);
+            this.panel1.Controls.Add(this.Continue);
+            this.panel1.Controls.Add(this.Settings);
+            this.panel1.Controls.Add(this.Level);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel1.Location = new System.Drawing.Point(57, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(200, 600);
+            this.panel1.TabIndex = 9;
+            // 
+            // panel3
+            // 
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel3.Location = new System.Drawing.Point(0, 570);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(200, 30);
+            this.panel3.TabIndex = 9;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Transparent;
+            this.panel2.BackgroundImage = global::PerfectPidgeon.Draw.Properties.Resources._19104794_1398751953541584_660140607_o;
+            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.panel2.Controls.Add(this.panel1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(257, 600);
+            this.panel2.TabIndex = 10;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = global::PerfectPidgeon.Draw.Properties.Resources._19104794_1398751953541584_660140607_o;
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(800, 600);
+            this.pictureBox1.TabIndex = 11;
+            this.pictureBox1.TabStop = false;
             // 
             // Picker
             // 
             this.Picker.BackColor = System.Drawing.Color.White;
-            this.Picker.Location = new System.Drawing.Point(0, 0);
+            this.Picker.Location = new System.Drawing.Point(300, 58);
             this.Picker.Name = "Picker";
-            this.Picker.Size = new System.Drawing.Size(800, 600);
-            this.Picker.TabIndex = 7;
+            this.Picker.Size = new System.Drawing.Size(482, 529);
+            this.Picker.TabIndex = 12;
             this.Picker.Visible = false;
-            // 
-            // Title
-            // 
-            this.Title.BackgroundImage = global::PerfectPidgeon.Draw.Properties.Resources.Perfectlogo;
-            this.Title.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Title.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Title.Location = new System.Drawing.Point(425, 0);
-            this.Title.Name = "Title";
-            this.Title.Size = new System.Drawing.Size(375, 67);
-            this.Title.TabIndex = 8;
-            this.Title.TabStop = false;
-            // 
-            // PigeonArt
-            // 
-            this.PigeonArt.BackgroundImage = global::PerfectPidgeon.Draw.Properties.Resources.pidgeon;
-            this.PigeonArt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.PigeonArt.Dock = System.Windows.Forms.DockStyle.Left;
-            this.PigeonArt.Location = new System.Drawing.Point(0, 0);
-            this.PigeonArt.Name = "PigeonArt";
-            this.PigeonArt.Size = new System.Drawing.Size(425, 600);
-            this.PigeonArt.TabIndex = 0;
-            this.PigeonArt.TabStop = false;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(800, 600);
             this.Controls.Add(this.Picker);
-            this.Controls.Add(this.Title);
-            this.Controls.Add(this.webBrowser1);
-            this.Controls.Add(this.Quit);
-            this.Controls.Add(this.Settings);
-            this.Controls.Add(this.Level);
-            this.Controls.Add(this.Continue);
-            this.Controls.Add(this.PigeonArt);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MainForm";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Resize += new System.EventHandler(this.MainForm_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.Title)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PigeonArt)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox PigeonArt;
         private System.Windows.Forms.Button Continue;
         private System.Windows.Forms.Button Level;
         private System.Windows.Forms.Button Settings;
         private System.Windows.Forms.Button Quit;
-        private System.Windows.Forms.WebBrowser webBrowser1;
-        private LevelPicker Picker;
         private System.Windows.Forms.PictureBox Title;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private LevelPicker Picker;
     }
 }

@@ -819,8 +819,8 @@ namespace PerfectPidgeonGameMechanic.Content
             BossB.Radius = 1000;
             BO.Behave = BossB;
             BO.Guns.Add(new Weapon(this._Weapons["AlienBossBasic"]));
-            BO.AddAux(this.Enemies["AlienMothershipLeftWing"], new Vertex(-500, 0));
-            BO.AddAux(this.Enemies["AlienMothershipRightWing"], new Vertex(500, 0));
+            BO.AddAux(this.Enemies["AlienMothershipLeftWing"], new Vertex(-500, -35));
+            BO.AddAux(this.Enemies["AlienMothershipRightWing"], new Vertex(500, -35));
             this._Bosses.Add("AlienMothership", BO);
         }
         private void InitLevels()
