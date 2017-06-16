@@ -1356,6 +1356,7 @@ namespace PerfectPidgeonGameMechanic.Content
             V.Entries.Add(new VideoEntry("Gen.Hard: \"This evening Dr. Insane disappeared from his laboratory.\"", "cin02_03"));
             V.Entries.Add(new VideoEntry("Only thing there was portal to another dimension.", "cin02_04"));
             V.Entries.Add(new VideoEntry("Gen.Hard: \"We are sending you to investigate.\"", "cin02_03"));
+            V.Entries.Add(new VideoEntry("Perfect Pidgeon: \"GUT GUT\"", "cin02_05"));
             _Cinematics.Add("AnotherDimension", V);
 
             Cinematic.BasePoolData = this._Cinematics;

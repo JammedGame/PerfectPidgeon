@@ -114,6 +114,7 @@ namespace PerfectPidgeon.Draw
             _VideoImages.Add("cin02_02", PerfectPidgeon.Draw.Properties.Resources.cin02_02);
             _VideoImages.Add("cin02_03", PerfectPidgeon.Draw.Properties.Resources.cin02_03);
             _VideoImages.Add("cin02_04", PerfectPidgeon.Draw.Properties.Resources.cin02_04);
+            _VideoImages.Add("cin02_05", PerfectPidgeon.Draw.Properties.Resources.cin02_05);
         }
     }
 }

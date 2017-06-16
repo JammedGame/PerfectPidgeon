@@ -40,9 +40,9 @@ namespace PerfectPidgeon.Draw
         }
         private void LevelPicker_Resize(object sender, EventArgs e)
         {
-            Container1.Size = new Size((this.Width - 40) / 5, Container1.Height);
-            Container2.Size = new Size((this.Width - 40) / 5, Container2.Height);
-            Container3.Size = new Size((this.Width - 40) / 5, Container3.Height);
+            Container1.Size = new Size((this.Width - 100) / 5, Container1.Height);
+            Container2.Size = new Size((this.Width - 100) / 5, Container2.Height);
+            Container3.Size = new Size((this.Width - 100) / 5, Container3.Height);
         }
     }
 }

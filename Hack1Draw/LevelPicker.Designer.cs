@@ -741,7 +741,7 @@
             this.button22.Name = "button22";
             this.button22.Size = new System.Drawing.Size(185, 34);
             this.button22.TabIndex = 45;
-            this.button22.Tag = "LVL01";
+            this.button22.Tag = "BeutifulTowers";
             this.button22.Text = "Beautiful Towers";
             this.button22.UseVisualStyleBackColor = false;
             this.button22.Click += new System.EventHandler(this.Cinematic_Click);
@@ -757,7 +757,7 @@
             this.button23.Name = "button23";
             this.button23.Size = new System.Drawing.Size(185, 34);
             this.button23.TabIndex = 47;
-            this.button23.Tag = "LVL01";
+            this.button23.Tag = "SoManyHeads";
             this.button23.Text = "So Many Heads..";
             this.button23.UseVisualStyleBackColor = false;
             // 
@@ -788,7 +788,7 @@
             this.button25.Name = "button25";
             this.button25.Size = new System.Drawing.Size(196, 34);
             this.button25.TabIndex = 49;
-            this.button25.Tag = "LVL01";
+            this.button25.Tag = "DrTekitai";
             this.button25.Text = "Dr. Tekitai";
             this.button25.UseVisualStyleBackColor = false;
             this.button25.Click += new System.EventHandler(this.Cinematic_Click);
