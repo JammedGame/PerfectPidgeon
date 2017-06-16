@@ -30,7 +30,14 @@ namespace PerfectPidgeon.Draw
             this.Visible = false;
             this._MForm.LevelChosen(B.Tag.ToString());
         }
-
+        private void Cinematic_Click(object sender, EventArgs e)
+        {
+            Button B = sender as Button;
+            Cinematic CForm = Cinematic.Singleton;
+            CForm.SetReturnForm(_MForm);
+            CForm.SetCinematic(B.Tag.ToString());
+            CForm.Show();
+        }
         private void LevelPicker_Resize(object sender, EventArgs e)
         {
             Container1.Size = new Size((this.Width - 40) / 5, Container1.Height);

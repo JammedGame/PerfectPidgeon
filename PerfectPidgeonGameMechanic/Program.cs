@@ -4,6 +4,7 @@ using System.Linq;
 using System.Windows.Forms;
 using System.Drawing;
 using PerfectPidgeon.Draw;
+using PerfectPidgeonGameMechanic.Content;
 
 namespace PerfectPidgeonGameMechanic
 {
@@ -17,11 +18,13 @@ namespace PerfectPidgeonGameMechanic
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            BaseDataPool _DataPool = new BaseDataPool();
             Cinematic Intro = new Cinematic();
             MainForm Form = new MainForm();
             DrawForm DForm = new DrawForm();
             Game CurrentGame = new Game(DForm, Form);
-            Intro.SetMainForm(Form);
+            Intro.SetReturnForm(Form);
+            Intro.SetCinematic(_DataPool.Cinematics["Intro"]);
             Application.Run(Intro);
         }
     }

@@ -116,6 +116,7 @@ namespace PerfectPidgeonGameMechanic.Content
             InitPlayer();
             InitEnemies();
             InitLevels();
+            InitCinematics();
         }
         private void InitPlayer()
         {
@@ -1336,7 +1337,28 @@ namespace PerfectPidgeonGameMechanic.Content
         }
         private void InitCinematics()
         {
+            this._Cinematics = new Dictionary<string, Video>();
+            Video V = new Video();
+            V.Entries.Add(new VideoEntry("Aliens are attacking..", "cin00_00"));
+            V.Entries.Add(new VideoEntry("World leaders don't have a solution.", "cin00_01"));
+            V.Entries.Add(new VideoEntry("But someone sure does..", "cin00_02"));
+            V.Entries.Add(new VideoEntry("Gen. Hard: \"Dr. Insane, aliens are attacking.\"", "cin00_03"));
+            V.Entries.Add(new VideoEntry("Gen. Hard: \"We need a perfect widget!\"", "cin00_03"));
+            V.Entries.Add(new VideoEntry("Dr. Insane: \"You need WHAT?!\"", "cin00_04"));
+            V.Entries.Add(new VideoEntry("Gen. Hard: \"A PERFECT WIDGET!!\"", "cin00_05"));
+            V.Entries.Add(new VideoEntry("Dr. Insane: \"Perfect Pidgeon, I'm on it.\"", "cin00_06"));
+            _Cinematics.Add("Intro", V);
 
+            V = new Video();
+            V.Entries.Add(new VideoEntry("[I have a phone?]", "cin02_00"));
+            V.Entries.Add(new VideoEntry("Gen.Hard: \"Congratulations on defeating the enemy.\"", "cin02_01"));
+            V.Entries.Add(new VideoEntry("Gen.Hard: \"Alas, we have unfortunate turn of events..\"", "cin02_02"));
+            V.Entries.Add(new VideoEntry("Gen.Hard: \"This evening Dr. Insane disappeared from his laboratory.\"", "cin02_03"));
+            V.Entries.Add(new VideoEntry("Only thing there was portal to another dimension.", "cin02_04"));
+            V.Entries.Add(new VideoEntry("Gen.Hard: \"We are sending you to investigate.\"", "cin02_03"));
+            _Cinematics.Add("AnotherDimension", V);
+
+            Cinematic.BasePoolData = this._Cinematics;
         }
     }
 }
