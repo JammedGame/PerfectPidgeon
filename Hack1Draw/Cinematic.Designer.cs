@@ -87,7 +87,7 @@
             // 
             // CinematicImage
             // 
-            this.CinematicImage.BackgroundImage = global::PerfectPidgeon.Draw.Properties.Resources._19104794_1398751953541584_660140607_o;
+            this.CinematicImage.BackgroundImage = global::PerfectPidgeon.Draw.Properties.Resources.cin00_00;
             this.CinematicImage.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.CinematicImage.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CinematicImage.Location = new System.Drawing.Point(0, 0);

@@ -17,7 +17,6 @@ namespace PerfectPidgeon.Draw
         public Color Environment = Color.White;
         public Bitmap Aim = global::PerfectPidgeon.Draw.Properties.Resources.aim;
         public Bitmap Back = global::PerfectPidgeon.Draw.Properties.Resources.earth1;
-        public Bitmap Clouds = global::PerfectPidgeon.Draw.Properties.Resources.clouds3;
         public List<SpriteSet> SpriteSets;
         public List<Bitmap> EffectArt;
         public List<Bitmap> PowerUpArt;

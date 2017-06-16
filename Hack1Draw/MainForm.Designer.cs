@@ -136,7 +136,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.Transparent;
-            this.panel2.BackgroundImage = global::PerfectPidgeon.Draw.Properties.Resources._19104794_1398751953541584_660140607_o;
+            this.panel2.BackgroundImage = global::PerfectPidgeon.Draw.Properties.Resources.cin00_00;
             this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.panel2.Controls.Add(this.panel1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Left;
@@ -147,7 +147,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackgroundImage = global::PerfectPidgeon.Draw.Properties.Resources._19104794_1398751953541584_660140607_o;
+            this.pictureBox1.BackgroundImage = global::PerfectPidgeon.Draw.Properties.Resources.cin00_00;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);

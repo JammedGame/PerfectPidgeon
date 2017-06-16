@@ -18,6 +18,7 @@ namespace PerfectPidgeonGameMechanic.Content
         private Dictionary<string, Weapon> _Weapons;
         private Dictionary<string, Projectile> _Projectiles;
         private Dictionary<string, Level> _Levels;
+        private Dictionary<string, Video> _Cinematics;
         public Player Pidgeon
         {
             get
@@ -102,6 +103,8 @@ namespace PerfectPidgeonGameMechanic.Content
                 _Levels = value;
             }
         }
+        public Dictionary<string, Video> Cinematics
+        { get => _Cinematics; set => _Cinematics = value; }
         public BaseDataPool()
         {
             Init();
@@ -1330,6 +1333,10 @@ namespace PerfectPidgeonGameMechanic.Content
             for (int i = 0; i < 20; i++) L.Enemies.Add(new Enemy(this._Enemies["TekitaiFighter"]));
             this._Levels.Add("LVL21", L);
             #endregion
+        }
+        private void InitCinematics()
+        {
+
         }
     }
 }

@@ -63,56 +63,6 @@ namespace PerfectPidgeon.Draw.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _19104794_1398751953541584_660140607_o {
-            get {
-                object obj = ResourceManager.GetObject("19104794_1398751953541584_660140607_o", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap _19113314_1399676160115830_671902572_n {
-            get {
-                object obj = ResourceManager.GetObject("19113314_1399676160115830_671902572_n", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap _19141513_1400613750022071_2009513361_n {
-            get {
-                object obj = ResourceManager.GetObject("_19141513_1400613750022071_2009513361_n", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap _19141553_1400638206686292_253717592_n {
-            get {
-                object obj = ResourceManager.GetObject("_19141553_1400638206686292_253717592_n", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap _19184004_1400613753355404_231690187_n {
-            get {
-                object obj = ResourceManager.GetObject("_19184004_1400613753355404_231690187_n", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap aim {
             get {
                 object obj = ResourceManager.GetObject("aim", resourceCulture);
@@ -133,66 +83,6 @@ namespace PerfectPidgeon.Draw.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap bad1 {
-            get {
-                object obj = ResourceManager.GetObject("bad1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap bad2 {
-            get {
-                object obj = ResourceManager.GetObject("bad2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap bad3 {
-            get {
-                object obj = ResourceManager.GetObject("bad3", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap bad4 {
-            get {
-                object obj = ResourceManager.GetObject("bad4", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap beam {
-            get {
-                object obj = ResourceManager.GetObject("beam", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap beam1 {
-            get {
-                object obj = ResourceManager.GetObject("beam1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap beam2 {
             get {
                 object obj = ResourceManager.GetObject("beam2", resourceCulture);
@@ -206,26 +96,6 @@ namespace PerfectPidgeon.Draw.Properties {
         internal static System.Drawing.Bitmap blast2 {
             get {
                 object obj = ResourceManager.GetObject("blast2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap boom {
-            get {
-                object obj = ResourceManager.GetObject("boom", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap boom1 {
-            get {
-                object obj = ResourceManager.GetObject("boom1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -283,9 +153,9 @@ namespace PerfectPidgeon.Draw.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap clouds {
+        internal static System.Drawing.Bitmap cin00_00 {
             get {
-                object obj = ResourceManager.GetObject("clouds", resourceCulture);
+                object obj = ResourceManager.GetObject("cin00_00", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -293,9 +163,9 @@ namespace PerfectPidgeon.Draw.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap clouds1 {
+        internal static System.Drawing.Bitmap cin00_01 {
             get {
-                object obj = ResourceManager.GetObject("clouds1", resourceCulture);
+                object obj = ResourceManager.GetObject("cin00_01", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -303,9 +173,9 @@ namespace PerfectPidgeon.Draw.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap clouds2 {
+        internal static System.Drawing.Bitmap cin00_02 {
             get {
-                object obj = ResourceManager.GetObject("clouds2", resourceCulture);
+                object obj = ResourceManager.GetObject("cin00_02", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -313,9 +183,39 @@ namespace PerfectPidgeon.Draw.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap clouds3 {
+        internal static System.Drawing.Bitmap cin00_03 {
             get {
-                object obj = ResourceManager.GetObject("clouds3", resourceCulture);
+                object obj = ResourceManager.GetObject("cin00_03", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap cin00_04 {
+            get {
+                object obj = ResourceManager.GetObject("cin00_04", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap cin00_05 {
+            get {
+                object obj = ResourceManager.GetObject("cin00_05", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap cin00_06 {
+            get {
+                object obj = ResourceManager.GetObject("cin00_06", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1013,46 +913,6 @@ namespace PerfectPidgeon.Draw.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap gohlub1 {
-            get {
-                object obj = ResourceManager.GetObject("gohlub1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap gohlub2 {
-            get {
-                object obj = ResourceManager.GetObject("gohlub2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap gohlub3 {
-            get {
-                object obj = ResourceManager.GetObject("gohlub3", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap gohlub4 {
-            get {
-                object obj = ResourceManager.GetObject("gohlub4", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap gun_def {
             get {
                 object obj = ResourceManager.GetObject("gun_def", resourceCulture);
@@ -1103,39 +963,9 @@ namespace PerfectPidgeon.Draw.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Health {
-            get {
-                object obj = ResourceManager.GetObject("Health", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Heavy {
-            get {
-                object obj = ResourceManager.GetObject("Heavy", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap ice {
             get {
                 object obj = ResourceManager.GetObject("ice", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Laser {
-            get {
-                object obj = ResourceManager.GetObject("Laser", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1323,16 +1153,6 @@ namespace PerfectPidgeon.Draw.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Plasma {
-            get {
-                object obj = ResourceManager.GetObject("Plasma", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap rocket1 {
             get {
                 object obj = ResourceManager.GetObject("rocket1", resourceCulture);
@@ -1373,16 +1193,6 @@ namespace PerfectPidgeon.Draw.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Speed {
-            get {
-                object obj = ResourceManager.GetObject("Speed", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap storm {
             get {
                 object obj = ResourceManager.GetObject("storm", resourceCulture);
@@ -1416,16 +1226,6 @@ namespace PerfectPidgeon.Draw.Properties {
         internal static System.Drawing.Bitmap UpHealth {
             get {
                 object obj = ResourceManager.GetObject("UpHealth", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap UpHeavy {
-            get {
-                object obj = ResourceManager.GetObject("UpHeavy", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -1486,96 +1286,6 @@ namespace PerfectPidgeon.Draw.Properties {
         internal static System.Drawing.Bitmap UpSpeed {
             get {
                 object obj = ResourceManager.GetObject("UpSpeed", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap z___0 {
-            get {
-                object obj = ResourceManager.GetObject("z___0", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap z__0 {
-            get {
-                object obj = ResourceManager.GetObject("z__0", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap z_0 {
-            get {
-                object obj = ResourceManager.GetObject("z_0", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap z_1 {
-            get {
-                object obj = ResourceManager.GetObject("z_1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap z_2 {
-            get {
-                object obj = ResourceManager.GetObject("z_2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap z0 {
-            get {
-                object obj = ResourceManager.GetObject("z0", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap z1 {
-            get {
-                object obj = ResourceManager.GetObject("z1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap z2 {
-            get {
-                object obj = ResourceManager.GetObject("z2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap z3 {
-            get {
-                object obj = ResourceManager.GetObject("z3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

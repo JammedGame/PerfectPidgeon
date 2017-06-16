@@ -29,20 +29,23 @@ namespace PerfectPidgeon.Draw
             this._CinematicTexts[6] = "Gen. Hard: \"A PERFECT WIDGET!!\"";
             this._CinematicTexts[7] = "Dr. Insane: \"Perfect Pidgeon, I'm on it.\"";
             this._CinematicImages = new Bitmap[8];
-            this._CinematicImages[0] = PerfectPidgeon.Draw.Properties.Resources._19104794_1398751953541584_660140607_o;
-            this._CinematicImages[1] = PerfectPidgeon.Draw.Properties.Resources._19141553_1400638206686292_253717592_n;
-            this._CinematicImages[2] = PerfectPidgeon.Draw.Properties.Resources._19141553_1400638206686292_253717592_n;
-            this._CinematicImages[3] = PerfectPidgeon.Draw.Properties.Resources._19184004_1400613753355404_231690187_n;
-            this._CinematicImages[4] = PerfectPidgeon.Draw.Properties.Resources._19184004_1400613753355404_231690187_n;
-            this._CinematicImages[5] = PerfectPidgeon.Draw.Properties.Resources._19184004_1400613753355404_231690187_n;
-            this._CinematicImages[6] = PerfectPidgeon.Draw.Properties.Resources._19184004_1400613753355404_231690187_n;
-            this._CinematicImages[7] = PerfectPidgeon.Draw.Properties.Resources._19141513_1400613750022071_2009513361_n;
+            this._CinematicImages[0] = PerfectPidgeon.Draw.Properties.Resources.cin00_00;
+            this._CinematicImages[1] = PerfectPidgeon.Draw.Properties.Resources.cin00_01;
+            this._CinematicImages[2] = PerfectPidgeon.Draw.Properties.Resources.cin00_02;
+            this._CinematicImages[3] = PerfectPidgeon.Draw.Properties.Resources.cin00_03;
+            this._CinematicImages[4] = PerfectPidgeon.Draw.Properties.Resources.cin00_03;
+            this._CinematicImages[5] = PerfectPidgeon.Draw.Properties.Resources.cin00_04;
+            this._CinematicImages[6] = PerfectPidgeon.Draw.Properties.Resources.cin00_05;
+            this._CinematicImages[7] = PerfectPidgeon.Draw.Properties.Resources.cin00_06;
         }
         public void SetMainForm(MainForm Main)
         {
             this._Main = Main;
         }
+        public void Play(string CinematicID)
+        {
 
+        }
         private void Continue_Click(object sender, EventArgs e)
         {
             this._Index++;
@@ -71,6 +74,27 @@ namespace PerfectPidgeon.Draw
             }
 
             return base.ProcessCmdKey(ref msg, keyData);
+        }
+    }
+    public class Video
+    {
+        private List<VideoEntry> _Entries;
+        public List<VideoEntry> Entries { get => _Entries; set => _Entries = value; }
+        public Video()
+        {
+            this._Entries = new List<VideoEntry>();
+        }
+    }
+    public class VideoEntry
+    {
+        private string _Text;
+        private Bitmap _Image;
+        public string Text { get => _Text; set => _Text = value; }
+        public Bitmap Image { get => _Image; set => _Image = value; }
+        public VideoEntry(string Text, Bitmap Image)
+        {
+            this._Text = Text;
+            this._Image = Image;
         }
     }
 }
