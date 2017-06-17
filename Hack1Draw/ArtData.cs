@@ -245,7 +245,7 @@ namespace PerfectPidgeon.Draw
             SpriteSetImages[0] = global::PerfectPidgeon.Draw.Properties.Resources.shuriken;
             Bullets.Add(new SpriteSet(SpriteSetImages, 0));
             SpriteSetImages = new Bitmap[1];
-            SpriteSetImages[0] = global::PerfectPidgeon.Draw.Properties.Resources.enm32_1_elipsa;
+            SpriteSetImages[0] = global::PerfectPidgeon.Draw.Properties.Resources.elipsa;
             Bullets.Add(new SpriteSet(SpriteSetImages, 0));
         }
         private void InitializeTileSets()

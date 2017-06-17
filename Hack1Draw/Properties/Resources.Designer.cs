@@ -313,6 +313,16 @@ namespace PerfectPidgeon.Draw.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap elipsa {
+            get {
+                object obj = ResourceManager.GetObject("elipsa", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap enm1_1 {
             get {
                 object obj = ResourceManager.GetObject("enm1_1", resourceCulture);

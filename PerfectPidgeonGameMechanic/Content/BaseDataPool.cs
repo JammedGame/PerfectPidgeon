@@ -416,10 +416,9 @@ namespace PerfectPidgeonGameMechanic.Content
             P.Health = 3000;
             P.MaxHealth = 3000;
             FollowerBehaviour FB = new FollowerBehaviour();
-            FB.Radius = 10000;
             FB.Rotate = true;
             FB.Sustainable = true;
-            FB.Offset = new Vertex();
+            FB.Offset = new Vertex(0, 0, 0);
             P.Behave = FB;
             this._Projectiles.Add("TekitaiSpinner", P);
         }
@@ -838,7 +837,9 @@ namespace PerfectPidgeonGameMechanic.Content
             E.MaxHealth = 1000;
             E.Speed = 2;
             E.Owner = 1;
-            E.Behave = B;
+            E.Behave = new Behaviour();
+            E.Behave.Sight = 10000;
+            E.Behave.Radius = 10000;
             E.Guns.Add(new Weapon(this._Weapons["TekitaiSpinnerHandle"]));
             this._Enemies.Add("TekitaiTwister", E);
             #endregion

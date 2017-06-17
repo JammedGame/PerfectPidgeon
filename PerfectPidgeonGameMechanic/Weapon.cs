@@ -137,6 +137,8 @@ namespace PerfectPidgeonGameMechanic
                 if(P.Behave.Type == BehaviourType.Follower)
                 {
                     ((FollowerBehaviour)(P.Behave)).Followed = Owner;
+                    Owner.Behave.Sight = 1000;
+                    Owner.Behave.Radius = 0;
                 }
             }
             return Projectiles;
