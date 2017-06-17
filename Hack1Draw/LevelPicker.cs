@@ -36,6 +36,7 @@ namespace PerfectPidgeon.Draw
             Cinematic CForm = Cinematic.Singleton;
             CForm.SetReturnForm(_MForm);
             CForm.SetCinematic(B.Tag.ToString());
+            _MForm.Hide();
             CForm.Show();
         }
         private void LevelPicker_Resize(object sender, EventArgs e)

@@ -59,8 +59,9 @@ namespace PerfectPidgeon.Draw
         private void FinishCinematic()
         {
             _ReturnForm.Tag = _Video.ReturnArgument;
-            _ReturnForm.Show();
             this.Hide();
+            _ReturnForm.Show();
+            
         }
         protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
         {
