@@ -18,6 +18,7 @@ namespace PerfectPidgeon.Draw
         {
             InitializeComponent();
             this.Picker.SetMainForm(this);
+            this.TestPicker.SetMainForm(this);
             this.LevelStart = new LevelInit(OnLevelStart);
             this.LevelContinue = new LevelInit(OnLevelContinue);
         }
@@ -50,6 +51,13 @@ namespace PerfectPidgeon.Draw
         private void MainForm_Resize(object sender, EventArgs e)
         {
             this.Picker.Size = new Size(this.ClientSize.Width - 360, this.ClientSize.Height - 110);
+            this.TestPicker.Size = new Size(this.ClientSize.Width - 360, this.ClientSize.Height - 110);
+        }
+
+        private void TestLevels_Click(object sender, EventArgs e)
+        {
+            this.TestPicker.Visible = true;
+            this.TestPicker.BringToFront();
         }
     }
 }

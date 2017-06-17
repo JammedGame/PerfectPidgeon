@@ -38,6 +38,8 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Picker = new PerfectPidgeon.Draw.LevelPicker();
+            this.TestPicker = new PerfectPidgeon.Draw.TestLevelPicker();
+            this.TestLevels = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Title)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -113,6 +115,7 @@
             this.panel1.BackColor = System.Drawing.Color.White;
             this.panel1.BackgroundImage = global::PerfectPidgeon.Draw.Properties.Resources.pidgeon;
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.panel1.Controls.Add(this.TestLevels);
             this.panel1.Controls.Add(this.Quit);
             this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.Title);
@@ -165,6 +168,27 @@
             this.Picker.TabIndex = 12;
             this.Picker.Visible = false;
             // 
+            // TestPicker
+            // 
+            this.TestPicker.Location = new System.Drawing.Point(300, 58);
+            this.TestPicker.Name = "TestPicker";
+            this.TestPicker.Size = new System.Drawing.Size(482, 530);
+            this.TestPicker.TabIndex = 13;
+            this.TestPicker.Visible = false;
+            // 
+            // TestLevels
+            // 
+            this.TestLevels.BackColor = System.Drawing.Color.Gainsboro;
+            this.TestLevels.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.TestLevels.Font = new System.Drawing.Font("Segoe UI Semibold", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TestLevels.Location = new System.Drawing.Point(0, 232);
+            this.TestLevels.Name = "TestLevels";
+            this.TestLevels.Size = new System.Drawing.Size(200, 52);
+            this.TestLevels.TabIndex = 10;
+            this.TestLevels.Text = "Test Levels";
+            this.TestLevels.UseVisualStyleBackColor = false;
+            this.TestLevels.Click += new System.EventHandler(this.TestLevels_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -172,6 +196,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(800, 600);
+            this.Controls.Add(this.TestPicker);
             this.Controls.Add(this.Picker);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.pictureBox1);
@@ -200,5 +225,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBox1;
         private LevelPicker Picker;
+        private System.Windows.Forms.Button TestLevels;
+        private TestLevelPicker TestPicker;
     }
 }

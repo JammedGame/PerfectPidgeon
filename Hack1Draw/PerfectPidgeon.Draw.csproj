@@ -96,6 +96,12 @@
       <DependentUpon>SettingsPanel.cs</DependentUpon>
     </Compile>
     <Compile Include="SpriteSet.cs" />
+    <Compile Include="TestLevelPicker.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="TestLevelPicker.Designer.cs">
+      <DependentUpon>TestLevelPicker.cs</DependentUpon>
+    </Compile>
     <Compile Include="Tile.cs" />
     <Compile Include="BackgroundGenerator\TiledBackgroundGenerator.cs" />
     <Compile Include="Vertex.cs" />
@@ -119,6 +125,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SettingsPanel.resx">
       <DependentUpon>SettingsPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestLevelPicker.resx">
+      <DependentUpon>TestLevelPicker.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

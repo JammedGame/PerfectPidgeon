@@ -865,17 +865,9 @@ namespace PerfectPidgeonGameMechanic.Content
             L.SpawnStrategy = 1;
             L.Back = new Background("Data\\Town2", BackgroundType.Tiled, 1);
             L.Enemies.Add(new Enemy(this._Enemies["ElvenMageIce"]));
-            this._Levels.Add("ElvenMageIce-Test", L);
-            L = new Level();
-            L.SpawnStrategy = 1;
-            L.Back = new Background("Data\\Town2", BackgroundType.Tiled, 1);
             L.Enemies.Add(new Enemy(this._Enemies["ElvenMageStorm"]));
-            this._Levels.Add("ElvenMageStorm-Test", L);
-            L = new Level();
-            L.SpawnStrategy = 1;
-            L.Back = new Background("Data\\Town2", BackgroundType.Tiled, 1);
             L.Enemies.Add(new Enemy(this._Enemies["ElvenMageFire"]));
-            this._Levels.Add("ElvenMageFire-Test", L);
+            this._Levels.Add("ElvenMage-Test", L);
             L = new Level();
             L.SpawnStrategy = 1;
             L.Back = new Background("Data\\Town2", BackgroundType.Tiled, 1);
@@ -894,16 +886,8 @@ namespace PerfectPidgeonGameMechanic.Content
             L = new Level();
             L.SpawnStrategy = 1;
             L.Back = new Background("Data\\Town4", BackgroundType.Tiled, 2);
-            L.Enemies.Add(new Enemy(this._Enemies["AlienCaptain"]));
-            this._Levels.Add("Japan-Test", L);
-            L = new Level();
-            L.SpawnStrategy = 1;
-            L.Back = new Background("Data\\Town1", BackgroundType.Tiled, 2);
-            L.Enemies.Add(new Enemy(this._Enemies["AlienBasic"]));
-            L.Enemies.Add(new Enemy(this._Enemies["AlienCaptain"]));
-            L.Enemies.Add(new Enemy(this._Enemies["AlienSpeeder"]));
-            L.Enemies.Add(new Enemy(this._Enemies["AlienBeamer"]));
-            this._Levels.Add("Alien-Test", L);
+            L.Enemies.Add(new Enemy(this._Enemies["TekitaiFighter"]));
+            this._Levels.Add("TekitaiFighter-Test", L);
             #endregion
             #region Alien
             L = new Level();
@@ -1325,6 +1309,8 @@ namespace PerfectPidgeonGameMechanic.Content
             L.Next = "LVL21";
             L.Back = new Background("Data\\Town3", BackgroundType.Tiled, 1);
             this._Levels.Add("LVL20", L);
+            #endregion
+            #region Tekitai
             L = new Level();
             L.MaxSpawns = 10;
             L.FinishCondition = 5;
