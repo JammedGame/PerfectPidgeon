@@ -153,6 +153,13 @@ namespace PerfectPidgeon.Draw
             SpriteSetImages[1] = global::PerfectPidgeon.Draw.Properties.Resources.enm25_2;
             SpriteSetImages[2] = global::PerfectPidgeon.Draw.Properties.Resources.enm25_3;
             SpriteSets.Add(new SpriteSet(SpriteSetImages, 0));
+            SpriteSetImages = new Bitmap[2];
+            SpriteSetImages[0] = global::PerfectPidgeon.Draw.Properties.Resources.enm26_1;
+            SpriteSetImages[1] = global::PerfectPidgeon.Draw.Properties.Resources.enm26_2;
+            SpriteSets.Add(new SpriteSet(SpriteSetImages, 0));
+            SpriteSetImages = new Bitmap[1];
+            SpriteSetImages[0] = global::PerfectPidgeon.Draw.Properties.Resources.enm27_1;
+            SpriteSets.Add(new SpriteSet(SpriteSetImages, 0));
 
             Bullets = new List<SpriteSet>();
             SpriteSetImages = new Bitmap[1];
@@ -168,7 +175,7 @@ namespace PerfectPidgeon.Draw
             SpriteSetImages[0] = global::PerfectPidgeon.Draw.Properties.Resources.bul_pla;
             Bullets.Add(new SpriteSet(SpriteSetImages, 0));
             SpriteSetImages = new Bitmap[1];
-            SpriteSetImages[0] = global::PerfectPidgeon.Draw.Properties.Resources.bul_pla;
+            SpriteSetImages[0] = global::PerfectPidgeon.Draw.Properties.Resources.arrow;
             Bullets.Add(new SpriteSet(SpriteSetImages, 0));
             SpriteSetImages = new Bitmap[1];
             SpriteSetImages[0] = global::PerfectPidgeon.Draw.Properties.Resources.bul_pla;
@@ -227,6 +234,9 @@ namespace PerfectPidgeon.Draw
             Bullets.Add(new SpriteSet(SpriteSetImages, 0));
             SpriteSetImages = new Bitmap[1];
             SpriteSetImages[0] = global::PerfectPidgeon.Draw.Properties.Resources.rocket1;
+            Bullets.Add(new SpriteSet(SpriteSetImages, 0));
+            SpriteSetImages = new Bitmap[1];
+            SpriteSetImages[0] = global::PerfectPidgeon.Draw.Properties.Resources.shuriken;
             Bullets.Add(new SpriteSet(SpriteSetImages, 0));
         }
         private void InitializeTileSets()

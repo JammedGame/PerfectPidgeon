@@ -177,6 +177,7 @@ namespace PerfectPidgeonGameMechanic.Content
             P.ArtIndex = 3;
             P.Type = ProjectileType.PidgeonPlazma;
             P.Speed = 6;
+            P.Spin = 10;
             P.Damage = 30;
             P.Health = 2000;
             P.MaxHealth = 2000;
@@ -385,6 +386,26 @@ namespace PerfectPidgeonGameMechanic.Content
             P.MaxHealth = 3000;
             P.Behave = B;
             this._Projectiles.Add("TekitaiSmallRocket", P);
+            P = new Projectile();
+            P.ArtIndex = 23;
+            P.Speed = 10;
+            P.Scale = 1.2;
+            P.Paint = Color.FromArgb(180,180,180);
+            P.Damage = 10;
+            P.Health = 5000;
+            P.MaxHealth = 5000;
+            P.Behave = B;
+            this._Projectiles.Add("TekitaiBurstRocket", P);
+            P = new Projectile();
+            P.ArtIndex = 24;
+            P.Speed = 5;
+            P.Spin = 1;
+            P.Scale = 0.5;
+            P.Damage = 20;
+            P.Health = 1000;
+            P.MaxHealth = 1000;
+            P.Behave = B2;
+            this._Projectiles.Add("TekitaiShuriken", P);
         }
         private void InitWeapons()
         {
@@ -528,6 +549,30 @@ namespace PerfectPidgeonGameMechanic.Content
             W.Location = new Vertex(0, 100, 0);
             W.Ammo = -1;
             this._Weapons.Add("TekitaiSmallRocket", W);
+            W = new Weapon();
+            W.FireRate = 5;
+            W.Type = this._Projectiles["TekitaiBurstRocket"];
+            W.Location = new Vertex(0, 80, 0);
+            W.Ammo = -1;
+            this._Weapons.Add("TekitaiTrigunCenter", W);
+            W = new Weapon();
+            W.FireRate = 5;
+            W.Type = this._Projectiles["TekitaiBurstRocket"];
+            W.Location = new Vertex(50, 60, 0);
+            W.Ammo = -1;
+            this._Weapons.Add("TekitaiTrigunLeft", W);
+            W = new Weapon();
+            W.FireRate = 5;
+            W.Type = this._Projectiles["TekitaiBurstRocket"];
+            W.Location = new Vertex(-50, 60, 0);
+            W.Ammo = -1;
+            this._Weapons.Add("TekitaiTrigunRight", W);
+            W = new Weapon();
+            W.FireRate = 100;
+            W.Type = this._Projectiles["TekitaiShuriken"];
+            W.Location = new Vertex(0, 60, 0);
+            W.Ammo = -1;
+            this._Weapons.Add("TekitaiShurikenLauncher", W);
 
             W = new Weapon();
             W.FireRate = 15;
@@ -554,6 +599,7 @@ namespace PerfectPidgeonGameMechanic.Content
 
             this._Enemies = new Dictionary<string, Enemy>();
             this._Bosses = new Dictionary<string, Boss>();
+            #region Alien
             E = new Enemy();
             E.ArtIndex = 2;
             E.Facing = 0;
@@ -612,9 +658,8 @@ namespace PerfectPidgeonGameMechanic.Content
             E.Behave = B;
             E.Guns.Add(new Weapon(this._Weapons["AlienMine"]));
             this._Enemies.Add("AlienMiner", E);
-
-            //Elves
-
+            #endregion
+            #region Elves
             E = new Enemy();
             E.ArtIndex = 7;
             E.Facing = 0;
@@ -716,56 +761,8 @@ namespace PerfectPidgeonGameMechanic.Content
             E.Behave = BDra;
             E.Guns.Add(new Weapon(this._Weapons["ElvenDragonBlaster"]));
             this._Enemies.Add("ElvenDragon", E);
-            E = new Enemy();
-            E.ArtIndex = 21;
-            E.Facing = 0;
-            E.Health = 3000;
-            E.MaxHealth = 3000;
-            E.Scale = 2.5;
-            E.Speed = 2;
-            E.Owner = 1;
-            E.Behave = BDra;
-            this._Enemies.Add("ElvenTiamatIce", E);
-            E = new Enemy();
-            E.ArtIndex = 22;
-            E.Facing = 0;
-            E.Health = 3000;
-            E.MaxHealth = 3000;
-            E.Scale = 2.5;
-            E.Speed = 2;
-            E.Owner = 1;
-            E.Behave = BDra;
-            this._Enemies.Add("ElvenTiamatFire", E);
-            E = new Enemy();
-            E.ArtIndex = 23;
-            E.Facing = 0;
-            E.Health = 3000;
-            E.MaxHealth = 3000;
-            E.Scale = 2.5;
-            E.Speed = 2;
-            E.Owner = 1;
-            E.Behave = BDra;
-            this._Enemies.Add("ElvenTiamatDrake", E);
-            E = new Enemy();
-            E.ArtIndex = 24;
-            E.Facing = 0;
-            E.Health = 3000;
-            E.MaxHealth = 3000;
-            E.Scale = 2.5;
-            E.Speed = 2;
-            E.Owner = 1;
-            E.Behave = BDra;
-            this._Enemies.Add("ElvenTiamatStorm", E);
-            E = new Enemy();
-            E.ArtIndex = 25;
-            E.Facing = 0;
-            E.Health = 3000;
-            E.MaxHealth = 3000;
-            E.Scale = 2.5;
-            E.Speed = 2;
-            E.Owner = 1;
-            E.Behave = BDra;
-            this._Enemies.Add("ElvenTiamatSummon", E);
+            #endregion
+            #region Tekitai
             E = new Enemy();
             E.ArtIndex = 26;
             E.Facing = 0;
@@ -777,6 +774,31 @@ namespace PerfectPidgeonGameMechanic.Content
             E.Behave = B;
             E.Guns.Add(new Weapon(this._Weapons["TekitaiSmallRocket"]));
             this._Enemies.Add("TekitaiFighter", E);
+            E = new Enemy();
+            E.ArtIndex = 27;
+            E.Facing = 0;
+            E.Health = 150;
+            E.MaxHealth = 150;
+            E.Speed = 1;
+            E.Owner = 1;
+            B = new Behaviour();
+            E.Behave = B;
+            E.Guns.Add(new Weapon(this._Weapons["TekitaiTrigunCenter"]));
+            E.Guns.Add(new Weapon(this._Weapons["TekitaiTrigunLeft"]));
+            E.Guns.Add(new Weapon(this._Weapons["TekitaiTrigunRight"]));
+            this._Enemies.Add("TekitaiTrigun", E);
+            E = new Enemy();
+            E.ArtIndex = 28;
+            E.Facing = 0;
+            E.Health = 30;
+            E.MaxHealth = 30;
+            E.Speed = 7;
+            E.Owner = 1;
+            B = new Behaviour();
+            E.Behave = B;
+            E.Guns.Add(new Weapon(this._Weapons["TekitaiShurikenLauncher"]));
+            this._Enemies.Add("TekitaiNinja", E);
+            #endregion
 
             InitBosses();
         }
@@ -888,6 +910,16 @@ namespace PerfectPidgeonGameMechanic.Content
             L.Back = new Background("Data\\Town4", BackgroundType.Tiled, 2);
             L.Enemies.Add(new Enemy(this._Enemies["TekitaiFighter"]));
             this._Levels.Add("TekitaiFighter-Test", L);
+            L = new Level();
+            L.SpawnStrategy = 1;
+            L.Back = new Background("Data\\Town4", BackgroundType.Tiled, 2);
+            L.Enemies.Add(new Enemy(this._Enemies["TekitaiNinja"]));
+            this._Levels.Add("TekitaiNinja-Test", L);
+            L = new Level();
+            L.SpawnStrategy = 1;
+            L.Back = new Background("Data\\Town4", BackgroundType.Tiled, 2);
+            L.Enemies.Add(new Enemy(this._Enemies["TekitaiTrigun"]));
+            this._Levels.Add("TekitaiTrigun-Test", L);
             #endregion
             #region Alien
             L = new Level();

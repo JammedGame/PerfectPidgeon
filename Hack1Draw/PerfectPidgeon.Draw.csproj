@@ -595,6 +595,42 @@
   <ItemGroup>
     <None Include="Resources\cin02_05.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enm26-1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enm26-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enm27-1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enm28-1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enm29-1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enm30-1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enm31-1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enm32-1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enm32-1_elipsa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\magic.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shuriken.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
