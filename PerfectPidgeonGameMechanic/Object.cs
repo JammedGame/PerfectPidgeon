@@ -156,7 +156,22 @@ namespace PerfectPidgeonGameMechanic
             this._Facing = Old._Facing;
             this._Location = new Vertex(Old._Location);
             this._Paint = Old._Paint;
-            this._Behave = new Behaviour(Old._Behave);
+            if (Old.Behave.Type == BehaviourType.Effective)
+            {
+                this._Behave = new EffectiveBehaviour((EffectiveBehaviour)Old._Behave);
+            }
+            else if (Old.Behave.Type == BehaviourType.Aux)
+            {
+                this._Behave = new AuxBehaviour((AuxBehaviour)Old._Behave);
+            }
+            else if (Old.Behave.Type == BehaviourType.Follower)
+            {
+                this._Behave = new FollowerBehaviour((FollowerBehaviour)Old._Behave, this);
+            }
+            else
+            {
+                this._Behave = new Behaviour(Old._Behave);
+            }
             this._Buffs = new List<Buff>();
             for (int i = 0; i < Old.Buffs.Count; i++) this._Buffs.Add(Old.Buffs[i]);
         }

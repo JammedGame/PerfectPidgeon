@@ -163,7 +163,7 @@
             this.pictureBox15.Size = new System.Drawing.Size(179, 150);
             this.pictureBox15.TabIndex = 33;
             this.pictureBox15.TabStop = false;
-            this.pictureBox15.Tag = "TekitaiFighter-Test";
+            this.pictureBox15.Tag = "TekitaiTwister-Test";
             this.pictureBox15.Click += new System.EventHandler(this.Level_Click);
             // 
             // pictureBox14
@@ -176,7 +176,7 @@
             this.pictureBox14.Size = new System.Drawing.Size(179, 150);
             this.pictureBox14.TabIndex = 32;
             this.pictureBox14.TabStop = false;
-            this.pictureBox14.Tag = "TekitaiFighter-Test";
+            this.pictureBox14.Tag = "TekitaiPolaroid-Test";
             this.pictureBox14.Click += new System.EventHandler(this.Level_Click);
             // 
             // pictureBox8

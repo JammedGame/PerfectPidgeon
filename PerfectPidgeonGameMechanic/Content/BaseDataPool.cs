@@ -177,7 +177,7 @@ namespace PerfectPidgeonGameMechanic.Content
             P.ArtIndex = 3;
             P.Type = ProjectileType.PidgeonPlazma;
             P.Speed = 6;
-            P.Spin = 10;
+            P.SpinRate = 15;
             P.Damage = 30;
             P.Health = 2000;
             P.MaxHealth = 2000;
@@ -399,13 +399,29 @@ namespace PerfectPidgeonGameMechanic.Content
             P = new Projectile();
             P.ArtIndex = 24;
             P.Speed = 5;
-            P.Spin = 1;
+            P.SpinRate = 5;
             P.Scale = 0.5;
             P.Damage = 20;
-            P.Health = 1000;
-            P.MaxHealth = 1000;
+            P.Health = 3000;
+            P.MaxHealth = 3000;
             P.Behave = B2;
             this._Projectiles.Add("TekitaiShuriken", P);
+            P = new Projectile();
+            P.ArtIndex = 25;
+            P.SpinRate = 10;
+            P.Scale = 1.8;
+            P.Overdrawn = true;
+            P.Damage = 10;
+            P.HitRadius = 250;
+            P.Health = 3000;
+            P.MaxHealth = 3000;
+            FollowerBehaviour FB = new FollowerBehaviour();
+            FB.Radius = 10000;
+            FB.Rotate = true;
+            FB.Sustainable = true;
+            FB.Offset = new Vertex();
+            P.Behave = FB;
+            this._Projectiles.Add("TekitaiSpinner", P);
         }
         private void InitWeapons()
         {
@@ -573,6 +589,12 @@ namespace PerfectPidgeonGameMechanic.Content
             W.Location = new Vertex(0, 60, 0);
             W.Ammo = -1;
             this._Weapons.Add("TekitaiShurikenLauncher", W);
+            W = new Weapon();
+            W.FireRate = 5;
+            W.Type = this._Projectiles["TekitaiSpinner"];
+            W.Location = new Vertex(0, 0, 0);
+            W.Ammo = 1;
+            this._Weapons.Add("TekitaiSpinnerHandle", W);
 
             W = new Weapon();
             W.FireRate = 15;
@@ -798,6 +820,27 @@ namespace PerfectPidgeonGameMechanic.Content
             E.Behave = B;
             E.Guns.Add(new Weapon(this._Weapons["TekitaiShurikenLauncher"]));
             this._Enemies.Add("TekitaiNinja", E);
+            E = new Enemy();
+            E.ArtIndex = 29;
+            E.Facing = 0;
+            E.Health = 200;
+            E.MaxHealth = 200;
+            E.Speed = 2;
+            E.Owner = 1;
+            EffectiveBehaviour Magnetic = new EffectiveBehaviour();
+            Magnetic.MagneticField = 80;
+            E.Behave = Magnetic;
+            this._Enemies.Add("TekitaiPolaroid", E);
+            E = new Enemy();
+            E.ArtIndex = 30;
+            E.Facing = 0;
+            E.Health = 1000;
+            E.MaxHealth = 1000;
+            E.Speed = 2;
+            E.Owner = 1;
+            E.Behave = B;
+            E.Guns.Add(new Weapon(this._Weapons["TekitaiSpinnerHandle"]));
+            this._Enemies.Add("TekitaiTwister", E);
             #endregion
 
             InitBosses();
@@ -920,6 +963,16 @@ namespace PerfectPidgeonGameMechanic.Content
             L.Back = new Background("Data\\Town4", BackgroundType.Tiled, 2);
             L.Enemies.Add(new Enemy(this._Enemies["TekitaiTrigun"]));
             this._Levels.Add("TekitaiTrigun-Test", L);
+            L = new Level();
+            L.SpawnStrategy = 1;
+            L.Back = new Background("Data\\Town4", BackgroundType.Tiled, 2);
+            L.Enemies.Add(new Enemy(this._Enemies["TekitaiPolaroid"]));
+            this._Levels.Add("TekitaiPolaroid-Test", L);
+            L = new Level();
+            L.SpawnStrategy = 1;
+            L.Back = new Background("Data\\Town4", BackgroundType.Tiled, 2);
+            L.Enemies.Add(new Enemy(this._Enemies["TekitaiTwister"]));
+            this._Levels.Add("TekitaiTwister-Test", L);
             #endregion
             #region Alien
             L = new Level();

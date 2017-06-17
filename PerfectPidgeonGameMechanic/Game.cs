@@ -161,7 +161,7 @@ namespace PerfectPidgeonGameMechanic
             if (TimeStamp % 100 == 0) Spawn();
             for (int i = 0; i < Projectiles.Count; i++)
             {
-                Projectiles[i].Spin += 5;
+                Projectiles[i].Spin += Projectiles[i].SpinRate;
             }
             CurrentPlayer.ApplyBuffs(TimeStamp);
             if (PlayerOnMove)
@@ -175,6 +175,13 @@ namespace PerfectPidgeonGameMechanic
             for (int i = 0; i < Projectiles.Count; i++)
             {
                 double Angle = 0;
+                if (Projectiles[i].Behave.Type == BehaviourType.Follower)
+                {
+                    FollowerBehaviour FB = Projectiles[i].Behave as FollowerBehaviour;
+                    Vertex Off = FB.Offset;
+                    if (FB.Rotate) Off = Off.RotateZ(FB.Followed.Facing);
+                    Projectiles[i].Location = FB.Followed.Location + Off;
+                }
                 if (Projectiles[i].Behave.Linear) Angle = Projectiles[i].Facing + 90;
                 else Angle = -DrawForm.GetAngleDegree(Projectiles[i].Location.ToPoint(), CurrentPlayer.Location.ToPoint()) + 90;
                 Vertex UnitVectorBase = new Vertex(1, 0);
@@ -229,6 +236,28 @@ namespace PerfectPidgeonGameMechanic
                 if (Sanctuary > 0) break;
                 if (Enemies[i].Location == null) continue;
                 Enemies[i].ApplyBuffs(TimeStamp);
+                if(Enemies[i].Behave.Type == BehaviourType.Follower)
+                {
+                    FollowerBehaviour FB = Enemies[i].Behave as FollowerBehaviour;
+                    Vertex Off = FB.Offset;
+                    if (FB.Rotate) Off = Off.RotateZ(FB.Followed.Facing);
+                    Enemies[i].Location = FB.Followed.Location + Off;
+                }
+                if (Enemies[i].Behave.Type == BehaviourType.Effective)
+                {
+                    EffectiveBehaviour EB = Enemies[i].Behave as EffectiveBehaviour;
+                    if (EB.MagneticField != 0)
+                    {
+                        if (Enemies[i].Behave.Type != BehaviourType.Follower)
+                        {
+                            Vertex UnitVectorBase = new Vertex(1, 0);
+                            double Angle = DrawForm.GetAngleDegree(Enemies[i].Location.ToPoint(), CurrentPlayer.Location.ToPoint());
+                            Vertex UnitVector = UnitVectorBase.RotateZ(Angle + 90);
+                            UnitVector.Y *= -1;
+                            CurrentPlayer.Location += UnitVector * (EB.MagneticField * (Enemies[i].ActiveSpeed / 100.0));
+                        }
+                    }
+                }
                 if (Vertex.Distance(Enemies[i].Location, CurrentPlayer.Location) < Enemies[i].Behave.Sight)
                 {
                     if (Vertex.Distance(Enemies[i].Location, CurrentPlayer.Location) > Enemies[i].Behave.Radius)
@@ -239,28 +268,44 @@ namespace PerfectPidgeonGameMechanic
                         UnitVector.Y *= -1;
                         Enemies[i].Location -= UnitVector * Enemies[i].ActiveSpeed;
                     }
-                    else if (TimeStamp % 5 == 0)
+                    else
                     {
-                        Enemies[i].Facing = -DrawForm.GetAngleDegree(Enemies[i].Location.ToPoint(), CurrentPlayer.Location.ToPoint());
-
-                        for (int j = 0; j < Enemies[i].Guns.Count; j++)
+                        if (Enemies[i].Behave.Type == BehaviourType.Effective)
                         {
-                            if (!Enemies[i].Guns[j].Active) continue;
-                            this._Projectiles.AddRange(Enemies[i].Guns[j].Shoot(Enemies[i], TimeStamp));
-                        }
-
-                        if(Enemies[i].Type == EnemyType.Grouped)
-                        {
-                            Grouped G = Enemies[i] as Grouped;
-                            for(int j = 0; j < G.Auxes.Count; j++)
+                            EffectiveBehaviour EB = Enemies[i].Behave as EffectiveBehaviour;
+                            if (EB.MagneticField != 0)
                             {
-                                if (G.Auxes[j].Location == null) continue;
-                                double Angle = DrawForm.GetAngleDegree((CurrentPlayer.Location).ToPoint(), Enemies[i].Location.ToPoint());
-                                Vertex Location = G.Location + G.Auxes[j].Location.RotateZ(-Angle);
-                                for (int k = 0; k < G.Auxes[j].Guns.Count; k++)
+                                Vertex UnitVectorBase = new Vertex(1, 0);
+                                double Angle = DrawForm.GetAngleDegree(Enemies[i].Location.ToPoint(), CurrentPlayer.Location.ToPoint());
+                                Vertex UnitVector = UnitVectorBase.RotateZ(Angle + 90);
+                                UnitVector.Y *= -1;
+                                CurrentPlayer.Location += UnitVector * (EB.MagneticField * (Enemies[i].ActiveSpeed / 100.0));
+                            }
+                        }
+                        if (TimeStamp % 5 == 0)
+                        {
+
+                            Enemies[i].Facing = -DrawForm.GetAngleDegree(Enemies[i].Location.ToPoint(), CurrentPlayer.Location.ToPoint());
+
+                            for (int j = 0; j < Enemies[i].Guns.Count; j++)
+                            {
+                                if (!Enemies[i].Guns[j].Active) continue;
+                                this._Projectiles.AddRange(Enemies[i].Guns[j].Shoot(Enemies[i], TimeStamp));
+                            }
+
+                            if (Enemies[i].Type == EnemyType.Grouped)
+                            {
+                                Grouped G = Enemies[i] as Grouped;
+                                for (int j = 0; j < G.Auxes.Count; j++)
                                 {
-                                    if (!G.Auxes[j].Guns[k].Active) continue;
-                                    this._Projectiles.AddRange(G.Auxes[j].Guns[k].Shoot(Enemies[i], TimeStamp, Location));
+                                    if (G.Auxes[j].Location == null) continue;
+                                    double Angle = DrawForm.GetAngleDegree((CurrentPlayer.Location).ToPoint(), Enemies[i].Location.ToPoint());
+                                    Vertex Location = G.Location + G.Auxes[j].Location.RotateZ(-Angle);
+                                    for (int k = 0; k < G.Auxes[j].Guns.Count; k++)
+                                    {
+                                        if (!G.Auxes[j].Guns[k].Active) continue;
+                                        this._Projectiles.AddRange(G.Auxes[j].Guns[k].Shoot(Enemies[i], TimeStamp, Location));
+                                    }
                                 }
                             }
                         }
@@ -284,6 +329,7 @@ namespace PerfectPidgeonGameMechanic
             List<int> ArtIndices = new List<int>();
             List<int> ImageIndices = new List<int>();
             List<int> Other = new List<int>();
+            List<int> Other2 = new List<int>();
             List<double> Angles = new List<double>();
             List<double> Sizes = new List<double>();
             List<Color> Colors = new List<Color>();
@@ -333,6 +379,7 @@ namespace PerfectPidgeonGameMechanic
             Locations = new List<Point>();
             Colors = new List<Color>();
             Other = new List<int>();
+            Other2 = new List<int>();
             for (int i = 0; i < Projectiles.Count; i++)
             {
                 if (Projectiles[i].Location != null)
@@ -343,13 +390,15 @@ namespace PerfectPidgeonGameMechanic
                     Angles.Add(Projectiles[i].Facing);
                     Sizes.Add(Projectiles[i].Scale);
                     Other.Add(Projectiles[i].Spin);
+                    if (Projectiles[i].Overdrawn) Other2.Add(1);
+                    else Other2.Add(0);
                     Colors.Add(Projectiles[i].Paint);
                     Locations.Add(Projectiles[i].Location.ToPoint());
                 }
             }
             for (int i = Projectiles.Count - 1; i >= 0; i--) if (!(Projectiles[i].Location != null)) Projectiles.RemoveAt(i);
             while (DForm.Data.Working) ;
-            DForm.Data.UpdateItems(GameDataType.Projectile, Indices.ToArray(), ArtIndices.ToArray(), ImageIndices.ToArray(), Other.ToArray(), Angles.ToArray(), Sizes.ToArray(), Locations.ToArray(), Colors.ToArray());
+            DForm.Data.UpdateItems(GameDataType.Projectile, Indices.ToArray(), ArtIndices.ToArray(), ImageIndices.ToArray(), Other.ToArray(), Other2.ToArray(), Angles.ToArray(), Sizes.ToArray(), Locations.ToArray(), Colors.ToArray());
             Indices = new List<int>();
             ArtIndices = new List<int>();
             ImageIndices = new List<int>();

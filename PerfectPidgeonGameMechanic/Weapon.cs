@@ -134,6 +134,10 @@ namespace PerfectPidgeonGameMechanic
                 P.Facing = Owner.ShootDirection();
                 if (this._Ammo != -1) Ammo--;
                 Projectiles.Add(P);
+                if(P.Behave.Type == BehaviourType.Follower)
+                {
+                    ((FollowerBehaviour)(P.Behave)).Followed = Owner;
+                }
             }
             return Projectiles;
         }

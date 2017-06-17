@@ -154,7 +154,90 @@ namespace PerfectPidgeon.Draw
                 {
                     Item NewItem = new Item(ArtIndex, Location, Facing, Size);
                     NewItem.ImageIndex = Other;
+                    NewItem.Other = Other;
                     NewItem.Paint = Paint;
+                    ProjectilesBuffer.Add(NewItem);
+                }
+            }
+            if (Type == GameDataType.Effect)
+            {
+                if (EffectsBuffer.Count > Index)
+                {
+                    EffectsBuffer[Index].ArtIndex = ArtIndex;
+                    EffectsBuffer[Index].ImageIndex = ImageIndex;
+                    EffectsBuffer[Index].Location = Location;
+                    EffectsBuffer[Index].Facing = Facing;
+                    EffectsBuffer[Index].Size = Size;
+                    EffectsBuffer[Index].Paint = Paint;
+                }
+                else EffectsBuffer.Add(new Item(ArtIndex, Location, Facing, Size));
+            }
+            if (Type == GameDataType.PowerUp)
+            {
+                if (PowerUpsBuffer.Count > Index)
+                {
+                    PowerUpsBuffer[Index].ArtIndex = ArtIndex;
+                    PowerUpsBuffer[Index].ImageIndex = ImageIndex;
+                    PowerUpsBuffer[Index].Location = Location;
+                    PowerUpsBuffer[Index].Facing = Facing;
+                    PowerUpsBuffer[Index].Size = Size;
+                    PowerUpsBuffer[Index].Paint = Paint;
+                }
+                else PowerUpsBuffer.Add(new Item(ArtIndex, Location, Facing, Size));
+            }
+        }
+        public void UpdateItem(GameDataType Type, int Index, int ArtIndex, int ImageIndex, int Other, int Other2, double Facing, double Size, Point Location, Color Paint)
+        {
+            if (Type == GameDataType.Player)
+            {
+                if (PlayersBuffer.Count > Index)
+                {
+                    PlayersBuffer[Index].ArtIndex = ArtIndex;
+                    //PlayersBuffer[Index].ImageIndex = ImageIndex;
+                    PlayersBuffer[Index].Location = Location;
+                    PlayersBuffer[Index].Size = Size;
+                    PlayersBuffer[Index].Other = Other;
+                    PlayersBuffer[Index].Paint = Paint;
+                }
+                else PlayersBuffer.Add(new Item(ArtIndex, Location, Facing, Size));
+            }
+            if (Type == GameDataType.Enemy)
+            {
+                if (NPCsBuffer.Count > Index)
+                {
+                    NPCsBuffer[Index].ArtIndex = ArtIndex;
+                    NPCsBuffer[Index].ImageIndex = ImageIndex;
+                    NPCsBuffer[Index].Location = Location;
+                    NPCsBuffer[Index].Facing = Facing;
+                    NPCsBuffer[Index].Size = Size;
+                    NPCsBuffer[Index].Paint = Paint;
+                }
+                else
+                {
+                    if (NPCs.Count > Index && NPCs[Index] != null) NPCsBuffer.Add(new Item(ArtIndex, Location, Facing, Size, NPCs[Index].ImageIndex));
+                    else NPCsBuffer.Add(new Item(ArtIndex, Location, Facing, Size));
+                }
+            }
+            if (Type == GameDataType.Projectile)
+            {
+                if (ProjectilesBuffer.Count > Index)
+                {
+                    ProjectilesBuffer[Index].AlternateOrder = Other2 == 1;
+                    ProjectilesBuffer[Index].ArtIndex = ArtIndex;
+                    ProjectilesBuffer[Index].ImageIndex = ImageIndex;
+                    ProjectilesBuffer[Index].Location = Location;
+                    ProjectilesBuffer[Index].Facing = Facing;
+                    ProjectilesBuffer[Index].Size = Size;
+                    ProjectilesBuffer[Index].Other = Other;
+                    ProjectilesBuffer[Index].Paint = Paint;
+                }
+                else
+                {
+                    Item NewItem = new Item(ArtIndex, Location, Facing, Size);
+                    NewItem.ImageIndex = Other;
+                    NewItem.Other = Other;
+                    NewItem.Paint = Paint;
+                    NewItem.AlternateOrder = Other2 == 1;
                     ProjectilesBuffer.Add(NewItem);
                 }
             }
@@ -192,6 +275,16 @@ namespace PerfectPidgeon.Draw
             for (int i = 0; i < Index.Length; i++)
             {
                 this.UpdateItem(Type, Index[i], ArtIndex[i], ImageIndex[i], Other[i], Facing[i], Size[i], Location[i], Paints[i]);
+            }
+            this.Working = false;
+        }
+        public void UpdateItems(GameDataType Type, int[] Index, int[] ArtIndex, int[] ImageIndex, int[] Other, int[] Other2, double[] Facing, double[] Size, Point[] Location, Color[] Paints)
+        {
+            if (this.Working) return;
+            this.Working = true;
+            for (int i = 0; i < Index.Length; i++)
+            {
+                this.UpdateItem(Type, Index[i], ArtIndex[i], ImageIndex[i], Other[i], Other2[i], Facing[i], Size[i], Location[i], Paints[i]);
             }
             this.Working = false;
         }

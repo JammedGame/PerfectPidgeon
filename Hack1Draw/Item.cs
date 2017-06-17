@@ -8,6 +8,7 @@ namespace PerfectPidgeon.Draw
 {
     public class Item
     {
+        private bool _AlternateOrder;
         private int _ArtIndex;
         private int _ImageIndex;
         private int _ImageIndexIncrement;
@@ -82,6 +83,7 @@ namespace PerfectPidgeon.Draw
                 _Paint = value;
             }
         }
+        public bool AlternateOrder { get => _AlternateOrder; set => _AlternateOrder = value; }
         public Item(int ArtIndex, Point Location, double Facing, double Size)
         {
             this._ArtIndex = ArtIndex;
