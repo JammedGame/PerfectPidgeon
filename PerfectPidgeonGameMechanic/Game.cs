@@ -119,8 +119,8 @@ namespace PerfectPidgeonGameMechanic
             }
 
             DForm.SetTitle(CLevel.Title);
-
-            if (CurrentPlayer == null)
+            DForm.ResetEnvironment();
+            if (CurrentPlayer == null || CurrentPlayer.Health == 0)
             {
                 CurrentPlayer = this._DataPool.Pidgeon;
             }

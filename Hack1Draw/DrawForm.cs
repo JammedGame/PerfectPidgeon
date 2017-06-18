@@ -248,5 +248,14 @@ namespace PerfectPidgeon.Draw
         {
             this.Title = Title;
         }
+        public void ResetEnvironment()
+        {
+            this.ArtData.Environment = Color.White;
+            if (Killemll != null)
+            {
+                Killemll.Stop();
+                Killemll.Enabled = false;
+            }
+        }
     }
 }
