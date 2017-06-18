@@ -61,7 +61,6 @@ namespace PerfectPidgeonGameMechanic
         {
             if(Active != null)
             {
-                int Index = -1;
                 for(int i = 0; i < this._Active.Entries.Count; i++)
                 {
                     if(this._Active.Entries[i].DesiredID == AuxCandidate.ID)

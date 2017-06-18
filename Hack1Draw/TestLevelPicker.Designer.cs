@@ -51,6 +51,7 @@
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox16 = new System.Windows.Forms.PictureBox();
             this.Container3.SuspendLayout();
             this.Container2.SuspendLayout();
             this.Container1.SuspendLayout();
@@ -69,6 +70,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
             this.SuspendLayout();
             // 
             // Container3
@@ -348,10 +350,24 @@
             this.pictureBox1.Tag = "AlienBasic-Test";
             this.pictureBox1.Click += new System.EventHandler(this.Level_Click);
             // 
+            // pictureBox16
+            // 
+            this.pictureBox16.BackgroundImage = global::PerfectPidgeon.Draw.Properties.Resources.enm25_1;
+            this.pictureBox16.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox16.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBox16.Location = new System.Drawing.Point(633, 20);
+            this.pictureBox16.Name = "pictureBox16";
+            this.pictureBox16.Size = new System.Drawing.Size(510, 150);
+            this.pictureBox16.TabIndex = 56;
+            this.pictureBox16.TabStop = false;
+            this.pictureBox16.Tag = "HellCrocopter-Test";
+            this.pictureBox16.Click += new System.EventHandler(this.Level_Click);
+            // 
             // TestLevelPicker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.pictureBox16);
             this.Controls.Add(this.Container3);
             this.Controls.Add(this.panel24);
             this.Controls.Add(this.Container2);
@@ -380,6 +396,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -409,5 +426,6 @@
         private System.Windows.Forms.PictureBox pictureBox14;
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.PictureBox pictureBox9;
+        private System.Windows.Forms.PictureBox pictureBox16;
     }
 }

@@ -974,6 +974,11 @@ namespace PerfectPidgeonGameMechanic.Content
             L.Back = new Background("Data\\Town4", BackgroundType.Tiled, 2);
             L.Enemies.Add(new Enemy(this._Enemies["TekitaiTwister"]));
             this._Levels.Add("TekitaiTwister-Test", L);
+            L = new Level();
+            L.SpawnStrategy = 1;
+            L.Back = new Background("Data\\Town5", BackgroundType.Tiled, 2);
+            L.Enemies.Add(new Enemy(this._Enemies["TekitaiTwister"]));
+            this._Levels.Add("HellCrocopter-Test", L);
             #endregion
             #region Alien
             L = new Level();
