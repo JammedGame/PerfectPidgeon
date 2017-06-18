@@ -120,7 +120,7 @@ namespace PerfectPidgeonGameMechanic
 
             DForm.SetTitle(CLevel.Title);
             DForm.ResetEnvironment();
-            if (CurrentPlayer == null || CurrentPlayer.Health == 0)
+            if (CurrentPlayer == null || CurrentPlayer.Health <= 0)
             {
                 CurrentPlayer = this._DataPool.Pidgeon;
             }
@@ -702,7 +702,7 @@ namespace PerfectPidgeonGameMechanic
             if (this._CurrentLevel.SpawnStrategy < 4)
             {
                 int OuterRadius = 3000;
-                int InnerRadius = 600;
+                int InnerRadius = 800;
                 if(this._CurrentLevel.SpawnStrategy == 1)
                 {
                     OuterRadius = 1200;
@@ -711,7 +711,7 @@ namespace PerfectPidgeonGameMechanic
                 else if (this._CurrentLevel.SpawnStrategy == 2)
                 {
                     OuterRadius = 1500;
-                    InnerRadius = 800;
+                    InnerRadius = 600;
                 }
                 Random Rand = new Random();
                 for (int i = 0; i < this._Enemies.Count; i++)

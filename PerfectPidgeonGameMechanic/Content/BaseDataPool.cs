@@ -990,7 +990,7 @@ namespace PerfectPidgeonGameMechanic.Content
             for (int i = 0; i < 20; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienBasic"]));
             this._Levels.Add("LVL01", L);
             L = new Level();
-            L.MaxSpawns = 12;
+            L.MaxSpawns = 8;
             L.FinishCondition = 6;
             L.Title = "1-2";
             L.Next = "LVL03";
@@ -1005,7 +1005,7 @@ namespace PerfectPidgeonGameMechanic.Content
             for (int i = 0; i < 1; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienCaptain"]));
             this._Levels.Add("LVL02", L);
             L = new Level();
-            L.MaxSpawns = 15;
+            L.MaxSpawns = 10;
             L.FinishCondition = 7;
             L.Title = "1-3";
             L.Next = "LVL04";
@@ -1022,7 +1022,7 @@ namespace PerfectPidgeonGameMechanic.Content
             for (int i = 0; i < 1; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienSpeeder"]));
             this._Levels.Add("LVL03", L);
             L = new Level();
-            L.MaxSpawns = 15;
+            L.MaxSpawns = 12;
             L.FinishCondition = 8;
             L.Title = "1-4";
             L.Next = "LVL05";
@@ -1041,7 +1041,7 @@ namespace PerfectPidgeonGameMechanic.Content
             for (int i = 0; i < 1; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienSpeeder"]));
             this._Levels.Add("LVL04", L);
             L = new Level();
-            L.MaxSpawns = 18;
+            L.MaxSpawns = 14;
             L.FinishCondition = 9;
             L.Title = "1-5";
             L.Next = "LVL06";
@@ -1060,7 +1060,7 @@ namespace PerfectPidgeonGameMechanic.Content
             for (int i = 0; i < 2; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienSpeeder"]));
             this._Levels.Add("LVL05", L);
             L = new Level();
-            L.MaxSpawns = 20;
+            L.MaxSpawns = 16;
             L.FinishCondition = 10;
             L.Title = "1-6";
             L.Next = "LVL07";
@@ -1081,7 +1081,7 @@ namespace PerfectPidgeonGameMechanic.Content
             for (int i = 0; i < 1; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienMiner"]));
             this._Levels.Add("LVL06", L);
             L = new Level();
-            L.MaxSpawns = 22;
+            L.MaxSpawns = 18;
             L.FinishCondition = 11;
             L.Title = "1-7";
             L.Next = "LVL08";
@@ -1104,7 +1104,7 @@ namespace PerfectPidgeonGameMechanic.Content
             for (int i = 0; i < 1; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienBeamer"]));
             this._Levels.Add("LVL07", L);
             L = new Level();
-            L.MaxSpawns = 24;
+            L.MaxSpawns = 20;
             L.FinishCondition = 12;
             L.Title = "1-8";
             L.Next = "LVL09";
@@ -1123,7 +1123,7 @@ namespace PerfectPidgeonGameMechanic.Content
             for (int i = 0; i < 2; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienBeamer"]));
             this._Levels.Add("LVL08", L);
             L = new Level();
-            L.MaxSpawns = 25;
+            L.MaxSpawns = 22;
             L.FinishCondition = 13;
             L.Title = "1-9";
             L.Next = "LVL11";
@@ -1152,7 +1152,7 @@ namespace PerfectPidgeonGameMechanic.Content
             L.Next = "LVL11";
             L.Back = new Background("Earth", BackgroundType.Static);
             L.LBoss = new Boss(this._Bosses["AlienMothership"]);
-            //for (int i = 0; i < 20; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienCaptain"]));
+            for (int i = 0; i < 20; i++) L.Enemies.Add(new Enemy(this._Enemies["AlienCaptain"]));
             this._Levels.Add("LVL10", L);
             #endregion
             #region Elven

@@ -33,3 +33,4 @@ C:\Users\Manojlo\Projects\PerfectPidgeon\Hack1Draw\obj\Debug\PerfectPidgeon.Draw
 C:\Users\Manojlo\Projects\PerfectPidgeon\Hack1Draw\obj\Debug\PerfectPidgeon.Draw.Cinematic.resources
 C:\Users\DeinVenteD\Projects\ShadySolutions\PerfectPidgeon\Hack1Draw\obj\Debug\PerfectPidgeon.Draw.Cinematic.resources
 C:\Users\DeinVenteD\Projects\ShadySolutions\PerfectPidgeon\Hack1Draw\obj\Debug\PerfectPidgeon.Draw.TestLevelPicker.resources
+C:\Users\Manojlo\Projects\PerfectPidgeon\Hack1Draw\obj\Debug\PerfectPidgeon.Draw.TestLevelPicker.resources
