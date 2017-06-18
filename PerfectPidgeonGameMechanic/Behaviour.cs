@@ -102,13 +102,16 @@ namespace PerfectPidgeonGameMechanic
     }
     public class AuxBehaviour : Behaviour
     {
+        private int _MergeChance;
+        public int MergeChance { get => _MergeChance; set => _MergeChance = value; }
         public AuxBehaviour() : base()
         {
             this.Type = BehaviourType.Aux;
+            this._MergeChance = 40;
         }
         public AuxBehaviour(AuxBehaviour Old) : base(Old)
         {
-
+            this._MergeChance = Old._MergeChance;
         }
     }
 }

@@ -22,6 +22,7 @@ namespace PerfectPidgeonGameMechanic
         private double _Facing;
         private double _ActiveScale;
         private double _ActiveSpeed;
+        private string _ID;
         private Vertex _Location;
         private Color _Paint;
         private Behaviour _Behave;
@@ -127,8 +128,10 @@ namespace PerfectPidgeonGameMechanic
         public int ActiveHitRadius { get => _ActiveHitRadius; set => _ActiveHitRadius = value; }
         public double ActiveScale { get => _ActiveScale; set => _ActiveScale = value; }
         public double ActiveSpeed { get => _ActiveSpeed; set => _ActiveSpeed = value; }
+        public string ID { get => _ID; set => _ID = value; }
         public Object()
         {
+            this._ID = "";
             this._Health = 100;
             this._MaxHealth = 100;
             this._ArtIndex = 0;
@@ -145,6 +148,7 @@ namespace PerfectPidgeonGameMechanic
         }
         public Object(Object Old)
         {
+            this._ID = Old._ID;
             this._Health = Old._Health;
             this._MaxHealth = Old._MaxHealth;
             this._ArtIndex = Old._ArtIndex;
