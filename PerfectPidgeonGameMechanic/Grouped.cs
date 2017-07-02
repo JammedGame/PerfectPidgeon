@@ -64,7 +64,27 @@ namespace PerfectPidgeonGameMechanic
         }
         public bool TryFindVariant(Enemy AuxCandidate)
         {
-            if(Active == null)
+            if (Active != null)
+            {
+                bool Current = false;
+                for(int i = 0; i < Active.Entries.Count; i++)
+                {
+                    if(Active.Entries[i].Filled)
+                    {
+                        if(Active.Entries[i].Entry == null)
+                        {
+                            Active.Entries[i].Filled = false;
+                            Active.Entries[i].Entry = null;
+                        }
+                        else
+                        {
+                            Current = true;
+                        }
+                    }
+                }
+                if (!Current) Active = null;
+            }
+            if (Active == null)
             {
                 List<GroupVariant> PossibleVariants = new List<GroupVariant>();
                 for (int i = 0; i < this._Variants.Count; i++)
@@ -92,6 +112,7 @@ namespace PerfectPidgeonGameMechanic
                     {
                         this._AuxCandidates.Add(AuxCandidate);
                         this._Active.Entries[i].Filled = true;
+                        this._Active.Entries[i].Entry = AuxCandidate;
                         AuxBehaviour AB = (AuxBehaviour)AuxCandidate.Behave;
                         AB.MergeTarget = this;
                         AB.Angle = this._Active.Entries[i].Angle;
@@ -106,6 +127,7 @@ namespace PerfectPidgeonGameMechanic
         {
             if (Math.Abs(Aux.Location.X - (this.Location.X + Offset.X)) < 10 && Math.Abs(Aux.Location.Y - (this.Location.Y + Offset.Y)) < 10)
             {
+                this._AuxCandidates.Remove(Aux);
                 AddAux(new Enemy(Aux), Offset, Angle);
                 return true;
             }
@@ -150,16 +172,19 @@ namespace PerfectPidgeonGameMechanic
         private double _Angle;
         private string _DesiredID;
         private Vertex _Offset;
+        private Enemy _Entry;
         public bool Filled { get => _Filled; set => _Filled = value; }
         public string DesiredID { get => _DesiredID; set => _DesiredID = value; }
         public Vertex Offset { get => _Offset; set => _Offset = value; }
         public double Angle { get => _Angle; set => _Angle = value; }
+        public Enemy Entry { get => _Entry; set => _Entry = value; }
         public GroupVariantEntry()
         {
             this._Filled = false;
             this._DesiredID = "";
             this._Angle = 0;
             this._Offset = new Vertex();
+            this._Entry = null;
         }
         public GroupVariantEntry(GroupVariantEntry Old)
         {
@@ -167,6 +192,7 @@ namespace PerfectPidgeonGameMechanic
             this._Angle = Old._Angle;
             this._DesiredID = Old._DesiredID;
             this._Offset = Old._Offset;
+            this._Entry = Old.Entry;
         }
     }
 }

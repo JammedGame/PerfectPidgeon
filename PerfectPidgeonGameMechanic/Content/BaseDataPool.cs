@@ -992,6 +992,10 @@ namespace PerfectPidgeonGameMechanic.Content
             L.Enemies.Add(new Grouped((Grouped)this._Enemies["TekitaiFighter"]));
             L.Enemies.Add(new Enemy(this._Enemies["TekitaiNinja"]));
             L.Enemies.Add(new Enemy(this._Enemies["TekitaiNinja"]));
+            L.Enemies.Add(new Enemy(this._Enemies["TekitaiNinja"]));
+            L.Enemies.Add(new Enemy(this._Enemies["TekitaiNinja"]));
+            L.Enemies.Add(new Enemy(this._Enemies["TekitaiNinja"]));
+            L.Enemies.Add(new Enemy(this._Enemies["TekitaiNinja"]));
             this._Levels.Add("TekitaiFighter-Test", L);
             L = new Level();
             L.SpawnStrategy = 1;
