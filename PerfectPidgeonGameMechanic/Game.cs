@@ -106,6 +106,7 @@ namespace PerfectPidgeonGameMechanic
             this._CurrentLevel = CLevel;
             if (CLevel.Back.Type == LevelData.BackgroundType.Static)
             {
+                DForm.ArtData.BackType = 0;
                 DForm.ArtData.SetBackground(CLevel.Back.Path);
             }
             else if (CLevel.Back.Type == LevelData.BackgroundType.Dynamic)
@@ -272,10 +273,14 @@ namespace PerfectPidgeonGameMechanic
                     {
                         AuxBehaviour AB = Enemies[i].Behave as AuxBehaviour;
                         Enemy Result = AB.Update(Enemies[i], Enemies);
-                        if (Result == null) Enemies[i].Location = null;
+                        if (Result == null)
+                        {
+                            Enemies[i].Location = null;
+                            continue;
+                        }
                     }
                 }
-                if (Enemies[i].Location != null && Vertex.Distance(Enemies[i].Location, CurrentPlayer.Location) < Enemies[i].Behave.Sight)
+                if (Vertex.Distance(Enemies[i].Location, CurrentPlayer.Location) < Enemies[i].Behave.Sight)
                 {
                     if (Enemies[i].Behave.Type == BehaviourType.Aux && ((AuxBehaviour)Enemies[i].Behave).MergeTarget != null && !((AuxBehaviour)Enemies[i].Behave).Merged)
                     {
@@ -286,7 +291,7 @@ namespace PerfectPidgeonGameMechanic
                         double Angle = DrawForm.GetAngleDegree(Enemies[i].Location.ToPoint(), MTV.ToPoint());
                         Vertex UnitVector = UnitVectorBase.RotateZ(Angle + 90);
                         UnitVector.Y *= -1;
-                        Enemies[i].Location -= UnitVector * Enemies[i].ActiveSpeed;
+                        Enemies[i].Location -= UnitVector * Enemies[i].CalculateSpeed();
                     }
                     else if (Vertex.Distance(Enemies[i].Location, CurrentPlayer.Location) > Enemies[i].Behave.Radius)
                     {
@@ -391,6 +396,7 @@ namespace PerfectPidgeonGameMechanic
                             Sizes.Add(GEnemy.Auxes[j].Scale);
                             double Angle = DrawForm.GetAngleDegree((CurrentPlayer.Location).ToPoint(), Enemies[i].Location.ToPoint());
                             Locations.Add((GEnemy.Location + GEnemy.Auxes[j].Location.RotateZ(-Angle)).ToPoint());
+                            Angle += GEnemy.Facings[j];
                             Angles.Add(Angle);
                             Index++;
                         }

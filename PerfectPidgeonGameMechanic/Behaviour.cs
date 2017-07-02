@@ -104,6 +104,7 @@ namespace PerfectPidgeonGameMechanic
     {
         private bool _Merged;
         private int _MergeChance;
+        private double _Angle;
         private Vertex _Offset;
         private Grouped _MergeTarget;
         private List<Grouped> _Ignored;
@@ -112,6 +113,7 @@ namespace PerfectPidgeonGameMechanic
         public Grouped MergeTarget { get => _MergeTarget; set => _MergeTarget = value; }
         public List<Grouped> Ignored { get => _Ignored; set => _Ignored = value; }
         public Vertex Offset { get => _Offset; set => _Offset = value; }
+        public double Angle { get => _Angle; set => _Angle = value; }
         public AuxBehaviour() : base()
         {
             this.Type = BehaviourType.Aux;
@@ -158,8 +160,11 @@ namespace PerfectPidgeonGameMechanic
                     {
                         _MergeTarget = null;
                     }
-                    this._Merged = this._MergeTarget.Attach(ThisEnemy, this._Offset);
-                    if (this._Merged) return null;
+                    else
+                    {
+                        this._Merged = this._MergeTarget.Attach(ThisEnemy, this._Offset, this._Angle);
+                        if (this._Merged) return null;
+                    }
                 }
                 else
                 {

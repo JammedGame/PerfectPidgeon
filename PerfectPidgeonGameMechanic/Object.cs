@@ -220,5 +220,9 @@ namespace PerfectPidgeonGameMechanic
         {
             return this._Facing;
         }
+        public virtual double CalculateSpeed()
+        {
+            return this._ActiveSpeed;
+        }
     }
 }

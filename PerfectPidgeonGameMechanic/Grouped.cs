@@ -54,12 +54,13 @@ namespace PerfectPidgeonGameMechanic
             for (int i = 0; i < Old._Variants.Count; i++) this._Variants.Add(new GroupVariant(Old._Variants[i]));
             this._AuxCandidates = new List<Enemy>();
         }
-        public void AddAux(Enemy Aux, Vertex Offset)
+        public void AddAux(Enemy Aux, Vertex Offset, double Angle)
         {
             Aux.Type = EnemyType.Aux;
             Aux.Location = Offset;
             this.Offsets.Add(Offset);
             this.Auxes.Add(Aux);
+            this.Facings.Add(Angle);
         }
         public bool TryFindVariant(Enemy AuxCandidate)
         {
@@ -93,6 +94,7 @@ namespace PerfectPidgeonGameMechanic
                         this._Active.Entries[i].Filled = true;
                         AuxBehaviour AB = (AuxBehaviour)AuxCandidate.Behave;
                         AB.MergeTarget = this;
+                        AB.Angle = this._Active.Entries[i].Angle;
                         AB.Offset = this._Active.Entries[i].Offset;
                         return true;
                     }
@@ -100,14 +102,29 @@ namespace PerfectPidgeonGameMechanic
             }
             return false;
         }
-        public bool Attach(Enemy Aux, Vertex Offset)
+        public bool Attach(Enemy Aux, Vertex Offset, double Angle)
         {
             if (Math.Abs(Aux.Location.X - (this.Location.X + Offset.X)) < 10 && Math.Abs(Aux.Location.Y - (this.Location.Y + Offset.Y)) < 10)
             {
-                AddAux(new Enemy(Aux), Offset);
+                AddAux(new Enemy(Aux), Offset, Angle);
                 return true;
             }
             return false;
+        }
+        public override double CalculateSpeed()
+        {
+            double NewSpeed = 0;
+            int SpeedModifiers = 1;
+            NewSpeed += this.ActiveSpeed;
+            for(int i = 0; i < this.Auxes.Count; i++)
+            {
+                if(Auxes[i] != null)
+                {
+                    NewSpeed += Auxes[i].ActiveSpeed;
+                    SpeedModifiers++;
+                }
+            }
+            return NewSpeed / SpeedModifiers;
         }
     }
     public class GroupVariant
@@ -130,20 +147,24 @@ namespace PerfectPidgeonGameMechanic
     public class GroupVariantEntry
     {
         private bool _Filled;
+        private double _Angle;
         private string _DesiredID;
         private Vertex _Offset;
         public bool Filled { get => _Filled; set => _Filled = value; }
         public string DesiredID { get => _DesiredID; set => _DesiredID = value; }
         public Vertex Offset { get => _Offset; set => _Offset = value; }
+        public double Angle { get => _Angle; set => _Angle = value; }
         public GroupVariantEntry()
         {
             this._Filled = false;
             this._DesiredID = "";
+            this._Angle = 0;
             this._Offset = new Vertex();
         }
         public GroupVariantEntry(GroupVariantEntry Old)
         {
             this.Filled = Old._Filled;
+            this._Angle = Old._Angle;
             this._DesiredID = Old._DesiredID;
             this._Offset = Old._Offset;
         }

@@ -148,7 +148,7 @@ namespace PerfectPidgeon.Draw
                     {
                         if (this._Data.Projectiles[i].Location.Y - this._Data.Players[this._Data.CurrentPlayer].Location.Y < _GLD.Height * 1.5)
                         {
-                            GL.Translate((this._Data.Projectiles[i].Location.X - this._Data.Players[this._Data.CurrentPlayer].Location.X)*_Aspect, (this._Data.Projectiles[i].Location.Y - this._Data.Players[this._Data.CurrentPlayer].Location.Y)*_Aspect, 0);
+                            GL.Translate((this._Data.Projectiles[i].Location.X - this._Data.Players[this._Data.CurrentPlayer].Location.X) * _Aspect, (this._Data.Projectiles[i].Location.Y - this._Data.Players[this._Data.CurrentPlayer].Location.Y) * _Aspect, 0);
                             GL.Translate(_GLD.Width / 2, _GLD.Height / 2, 0);
                             GL.Rotate(-this._Data.Projectiles[i].Facing + this._Data.Projectiles[i].Other + 180, 0, 0, -1);
                             GL.Color3(this._Data.Projectiles[i].Paint);
@@ -158,7 +158,7 @@ namespace PerfectPidgeon.Draw
                     }
                 }
             }
-            catch { };
+            catch { }
 
             try
             {
@@ -189,7 +189,7 @@ namespace PerfectPidgeon.Draw
             }
             catch { }
 
-            
+
             {
                 GL.Color3(this._ArtData.Environment);
                 for (int i = 0; i < this._Data.NPCs.Count; i++)
@@ -201,14 +201,15 @@ namespace PerfectPidgeon.Draw
                             GL.Translate((this._Data.NPCs[i].Location.X - this._Data.Players[this._Data.CurrentPlayer].Location.X) * _Aspect, (this._Data.NPCs[i].Location.Y - this._Data.Players[this._Data.CurrentPlayer].Location.Y)*_Aspect, 0);
                             GL.Translate(_GLD.Width / 2, _GLD.Height / 2, 0);
                             GL.Rotate(this._Data.NPCs[i].Facing, 0, 0, -1);
-                            DrawImageCentered((int)(this._ArtData.SpriteSets[this._Data.NPCs[i].ArtIndex].Images[this._Data.NPCs[i].ImageIndex].Width * this._Data.NPCs[i].Size * _Aspect) / 2, (int)(this._ArtData.SpriteSets[this._Data.NPCs[i].ArtIndex].Images[this._Data.NPCs[i].ImageIndex].Height * this._Data.NPCs[i].Size * _Aspect) / 2, this._ArtData.SpriteSets[this._Data.NPCs[i].ArtIndex].Images[this._Data.NPCs[i].ImageIndex]);
+                            int ImgIndex = this._Data.NPCs[i].ImageIndex;
+                            if (this._ArtData.SpriteSets[this._Data.NPCs[i].ArtIndex].Images.Count() <= ImgIndex) ImgIndex = this._ArtData.SpriteSets[this._Data.NPCs[i].ArtIndex].Images.Count() - 1;
+                            DrawImageCentered((int)(this._ArtData.SpriteSets[this._Data.NPCs[i].ArtIndex].Images[ImgIndex].Width * this._Data.NPCs[i].Size * _Aspect) / 2, (int)(this._ArtData.SpriteSets[this._Data.NPCs[i].ArtIndex].Images[ImgIndex].Height * this._Data.NPCs[i].Size * _Aspect) / 2, this._ArtData.SpriteSets[this._Data.NPCs[i].ArtIndex].Images[ImgIndex]);
                             GL.LoadIdentity();
                         }
                     }
                 }
             }
 
-            try
             {
                 GL.Color3(Color.Black);
                 for (int i = 0; i < this._Data.Projectiles.Count; i++)
@@ -228,7 +229,6 @@ namespace PerfectPidgeon.Draw
                     }
                 }
             }
-            catch { };
 
             GL.Color3(this._ArtData.Environment);
             if (this._Data.PowerUps != null)
