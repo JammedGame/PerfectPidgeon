@@ -102,16 +102,74 @@ namespace PerfectPidgeonGameMechanic
     }
     public class AuxBehaviour : Behaviour
     {
+        private bool _Merged;
         private int _MergeChance;
+        private Vertex _Offset;
+        private Grouped _MergeTarget;
+        private List<Grouped> _Ignored;
+        public bool Merged { get => _Merged; set => _Merged = value; }
         public int MergeChance { get => _MergeChance; set => _MergeChance = value; }
+        public Grouped MergeTarget { get => _MergeTarget; set => _MergeTarget = value; }
+        public List<Grouped> Ignored { get => _Ignored; set => _Ignored = value; }
+        public Vertex Offset { get => _Offset; set => _Offset = value; }
         public AuxBehaviour() : base()
         {
             this.Type = BehaviourType.Aux;
             this._MergeChance = 40;
+            this._Merged = false;
+            this._MergeTarget = null;
+            this._MergeChance = 60;
+            this._Offset = new Vertex();
+            this._Ignored = new List<Grouped>();
         }
         public AuxBehaviour(AuxBehaviour Old) : base(Old)
         {
+            this.Type = BehaviourType.Aux;
             this._MergeChance = Old._MergeChance;
+            this._Merged = false;
+            this._MergeTarget = null;
+            this._Offset = new Vertex();
+            this._MergeChance = Old.MergeChance;
+            this._Ignored = new List<Grouped>();
+        }
+        public Enemy Update(Enemy ThisEnemy, List<Enemy> Enemies)
+        {
+            if(Merged)
+            {
+                if(_MergeTarget.Location == null && ThisEnemy.Location != null)
+                {
+                    return ThisEnemy;
+                }
+            }
+            else
+            {
+                if (this._MergeTarget != null)
+                {
+
+                }
+                else
+                {
+                    for (int i = 0; i < Enemies.Count; i++)
+                    {
+                        if (Enemies[i].Type == EnemyType.Grouped)
+                        {
+                            Grouped GE = (Grouped)Enemies[i];
+                            Random R = new Random();
+                            int Result = R.Next(0, 100);
+                            if (Result < this._MergeChance)
+                            {
+                                bool Find = GE.TryFindVariant(ThisEnemy);
+                                if (Find)
+                                {
+                                    return null;
+                                }
+                            }
+                            else this._Ignored.Add(GE);
+                        }
+                    }
+                    return ThisEnemy;
+                }
+            }
         }
     }
 }

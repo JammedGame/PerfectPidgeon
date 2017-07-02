@@ -63,13 +63,22 @@ namespace PerfectPidgeonGameMechanic
         {
             if(Active == null)
             {
-                List<GroupVariant> _PossibleVariants;
+                List<GroupVariant> PossibleVariants = new List<GroupVariant>();
                 for (int i = 0; i < this._Variants.Count; i++)
                 {
                     for (int j = 0; j < this._Variants[i].Entries.Count; j++)
                     {
-                        //if()
+                        if(this._Variants[i].Entries[j].DesiredID == AuxCandidate.ID)
+                        {
+                            PossibleVariants.Add(this._Variants[i]);
+                        }
                     }
+                }
+                if(PossibleVariants.Count > 0)
+                {
+                    Random R = new Random();
+                    int Choice = R.Next(0, PossibleVariants.Count);
+                    Active = PossibleVariants[Choice];
                 }
             }
             if(Active != null)
@@ -80,14 +89,19 @@ namespace PerfectPidgeonGameMechanic
                     {
                         this._AuxCandidates.Add(AuxCandidate);
                         this._Active.Entries[i].Filled = true;
+                        AuxBehaviour AB = (AuxBehaviour)AuxCandidate.Behave;
+                        AB.MergeTarget = this;
+                        AB.Offset = this._Active.Entries[i].Offset;
+                        return true;
                     }
                 }
             }
             return false;
         }
-        public void Attach()
+        public bool Attach(Enemy Aux)
         {
-
+            if (Math.Abs(Aux.Location.X - (this.Location.X + 0)) < 10) return true;
+            return false;
         }
     }
     public class GroupVariant
