@@ -130,7 +130,15 @@ namespace PerfectPidgeonGameMechanic
             this._EnemyPool = new List<Enemy>();
             for (int i = 0; i < CLevel.Enemies.Count; i++)
             {
-                Enemy E = new Enemy(CLevel.Enemies[i]);
+                Enemy E = null;
+                if (CLevel.Enemies[i].Type == EnemyType.Grouped)
+                {
+                    E = new Grouped((Grouped)CLevel.Enemies[i]);
+                }
+                else
+                {
+                    E = new Enemy(CLevel.Enemies[i]);
+                }
                 this._EnemyPool.Add(E);
             }
             if (CLevel.LBoss != null)
@@ -258,9 +266,29 @@ namespace PerfectPidgeonGameMechanic
                         }
                     }
                 }
-                if (Vertex.Distance(Enemies[i].Location, CurrentPlayer.Location) < Enemies[i].Behave.Sight)
+                if (Enemies[i].Behave.Type == BehaviourType.Aux)
                 {
-                    if (Vertex.Distance(Enemies[i].Location, CurrentPlayer.Location) > Enemies[i].Behave.Radius)
+                    if (Enemies[i].ID != "")
+                    {
+                        AuxBehaviour AB = Enemies[i].Behave as AuxBehaviour;
+                        Enemy Result = AB.Update(Enemies[i], Enemies);
+                        if (Result == null) Enemies[i].Location = null;
+                    }
+                }
+                if (Enemies[i].Location != null && Vertex.Distance(Enemies[i].Location, CurrentPlayer.Location) < Enemies[i].Behave.Sight)
+                {
+                    if (Enemies[i].Behave.Type == BehaviourType.Aux && ((AuxBehaviour)Enemies[i].Behave).MergeTarget != null && !((AuxBehaviour)Enemies[i].Behave).Merged)
+                    {
+                        AuxBehaviour AB = ((AuxBehaviour)Enemies[i].Behave);
+                        Vertex MTV = AB.MergeTarget.Location;
+                        MTV = new Vertex(MTV.X + AB.Offset.X, MTV.Y + AB.Offset.Y, 0);
+                        Vertex UnitVectorBase = new Vertex(1, 0);
+                        double Angle = DrawForm.GetAngleDegree(Enemies[i].Location.ToPoint(), MTV.ToPoint());
+                        Vertex UnitVector = UnitVectorBase.RotateZ(Angle + 90);
+                        UnitVector.Y *= -1;
+                        Enemies[i].Location -= UnitVector * Enemies[i].ActiveSpeed;
+                    }
+                    else if (Vertex.Distance(Enemies[i].Location, CurrentPlayer.Location) > Enemies[i].Behave.Radius)
                     {
                         Vertex UnitVectorBase = new Vertex(1, 0);
                         double Angle = DrawForm.GetAngleDegree(Enemies[i].Location.ToPoint(), CurrentPlayer.Location.ToPoint());
@@ -351,6 +379,7 @@ namespace PerfectPidgeonGameMechanic
                     if(Enemies[i].Type == EnemyType.Grouped)
                     {
                         Grouped GEnemy = Enemies[i] as Grouped;
+                        if (GEnemy == null) continue;
                         for(int j = 0; j < GEnemy.Auxes.Count; j++)
                         {
                             if (GEnemy.Auxes[j].Location == null) continue;
@@ -586,6 +615,7 @@ namespace PerfectPidgeonGameMechanic
                 if (Enemies[i].Location != null && Enemies[i].Type == EnemyType.Grouped)
                 {
                     Grouped G = Enemies[i] as Grouped;
+                    if (G == null) continue;
                     for (int k = 0; k < G.Auxes.Count; k++)
                     {
                         for (int j = Projectiles.Count - 1; j >= 0; j--)

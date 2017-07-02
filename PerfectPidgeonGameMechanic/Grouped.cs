@@ -38,6 +38,7 @@ namespace PerfectPidgeonGameMechanic
             this._Offsets = new List<Vertex>();
             this._Active = null;
             this._Variants = new List<GroupVariant>();
+            this._AuxCandidates = new List<Enemy>();
         }
         public Grouped(Grouped Old) : base(Old)
         {
@@ -51,6 +52,7 @@ namespace PerfectPidgeonGameMechanic
             if(Old._Active != null) this._Active = new GroupVariant(Old._Active);
             this._Variants = new List<GroupVariant>();
             for (int i = 0; i < Old._Variants.Count; i++) this._Variants.Add(new GroupVariant(Old._Variants[i]));
+            this._AuxCandidates = new List<Enemy>();
         }
         public void AddAux(Enemy Aux, Vertex Offset)
         {
@@ -98,9 +100,13 @@ namespace PerfectPidgeonGameMechanic
             }
             return false;
         }
-        public bool Attach(Enemy Aux)
+        public bool Attach(Enemy Aux, Vertex Offset)
         {
-            if (Math.Abs(Aux.Location.X - (this.Location.X + 0)) < 10) return true;
+            if (Math.Abs(Aux.Location.X - (this.Location.X + Offset.X)) < 10 && Math.Abs(Aux.Location.Y - (this.Location.Y + Offset.Y)) < 10)
+            {
+                AddAux(new Enemy(Aux), Offset);
+                return true;
+            }
             return false;
         }
     }

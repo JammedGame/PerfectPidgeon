@@ -134,41 +134,56 @@ namespace PerfectPidgeonGameMechanic
         }
         public Enemy Update(Enemy ThisEnemy, List<Enemy> Enemies)
         {
+            if(ThisEnemy.Type == EnemyType.Grouped)
+            {
+                Grouped GE = (Grouped)ThisEnemy;
+                if (GE.AuxCandidates.Count > 0) return ThisEnemy;
+            }
             if(Merged)
             {
-                if(_MergeTarget.Location == null && ThisEnemy.Location != null)
+                if (_MergeTarget.Location == null && ThisEnemy.Location != null)
                 {
+                    _MergeTarget = null;
+                    _Merged = false;
+                    ThisEnemy.Type = EnemyType.Grouped;
                     return ThisEnemy;
                 }
+                else return null;
             }
             else
             {
                 if (this._MergeTarget != null)
                 {
-
+                    if (_MergeTarget.Location == null && ThisEnemy.Location != null)
+                    {
+                        _MergeTarget = null;
+                    }
+                    this._Merged = this._MergeTarget.Attach(ThisEnemy, this._Offset);
+                    if (this._Merged) return null;
                 }
                 else
                 {
                     for (int i = 0; i < Enemies.Count; i++)
                     {
+                        if (Enemies[i] == ThisEnemy) continue;
                         if (Enemies[i].Type == EnemyType.Grouped)
                         {
                             Grouped GE = (Grouped)Enemies[i];
+                            if (GE == null) continue;
+                            if (this._Ignored.Contains(GE)) continue;
                             Random R = new Random();
                             int Result = R.Next(0, 100);
                             if (Result < this._MergeChance)
                             {
                                 bool Find = GE.TryFindVariant(ThisEnemy);
-                                if (Find)
-                                {
-                                    return null;
-                                }
+                                if (Find) ThisEnemy.Type = EnemyType.Aux;
+                                break;
                             }
                             else this._Ignored.Add(GE);
                         }
                     }
-                    return ThisEnemy;
                 }
+                return ThisEnemy;
             }
         }
     }

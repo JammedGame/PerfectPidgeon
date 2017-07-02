@@ -615,6 +615,7 @@ namespace PerfectPidgeonGameMechanic.Content
             //Aliens
 
             Enemy E;
+            Grouped GE;
             Behaviour B;
             Boss BO;
 
@@ -784,17 +785,28 @@ namespace PerfectPidgeonGameMechanic.Content
             this._Enemies.Add("ElvenDragon", E);
             #endregion
             #region Tekitai
-            E = new Enemy();
-            E.ArtIndex = 26;
-            E.Facing = 0;
-            E.Health = 120;
-            E.MaxHealth = 120;
-            E.Speed = 4;
-            E.Owner = 1;
-            B = new Behaviour();
-            E.Behave = B;
-            E.Guns.Add(new Weapon(this._Weapons["TekitaiSmallRocket"]));
-            this._Enemies.Add("TekitaiFighter", E);
+            GE = new Grouped();
+            GE.ArtIndex = 26;
+            GE.Facing = 0;
+            GE.Health = 120;
+            GE.MaxHealth = 120;
+            GE.Speed = 4;
+            GE.Owner = 1;
+            AuxBehaviour AB = new AuxBehaviour();
+            AB.MergeChance = 40;
+            GE.Behave = AB;
+            GroupVariant GV = new GroupVariant();
+            GroupVariantEntry GVE = new GroupVariantEntry();
+            GVE.DesiredID = "TekitaiShurikenLauncher";
+            GVE.Offset = new Vertex(50, 0, 0);
+            GV.Entries.Add(GVE);
+            GVE = new GroupVariantEntry();
+            GVE.DesiredID = "TekitaiShurikenLauncher";
+            GVE.Offset = new Vertex(-50, 0, 0);
+            GV.Entries.Add(GVE);
+            GE.Variants.Add(GV);
+            GE.Guns.Add(new Weapon(this._Weapons["TekitaiSmallRocket"]));
+            this._Enemies.Add("TekitaiFighter", GE);
             E = new Enemy();
             E.ArtIndex = 27;
             E.Facing = 0;
@@ -815,8 +827,10 @@ namespace PerfectPidgeonGameMechanic.Content
             E.MaxHealth = 30;
             E.Speed = 7;
             E.Owner = 1;
-            B = new Behaviour();
-            E.Behave = B;
+            E.ID = "TekitaiShurikenLauncher";
+            AB = new AuxBehaviour();
+            AB.MergeChance = 100;
+            E.Behave = AB;
             E.Guns.Add(new Weapon(this._Weapons["TekitaiShurikenLauncher"]));
             this._Enemies.Add("TekitaiNinja", E);
             E = new Enemy();
@@ -952,7 +966,9 @@ namespace PerfectPidgeonGameMechanic.Content
             L = new Level();
             L.SpawnStrategy = 1;
             L.Back = new Background("Data\\Town4", BackgroundType.Tiled, 2);
-            L.Enemies.Add(new Enemy(this._Enemies["TekitaiFighter"]));
+            L.Enemies.Add(new Grouped((Grouped)this._Enemies["TekitaiFighter"]));
+            L.Enemies.Add(new Enemy(this._Enemies["TekitaiNinja"]));
+            L.Enemies.Add(new Enemy(this._Enemies["TekitaiNinja"]));
             this._Levels.Add("TekitaiFighter-Test", L);
             L = new Level();
             L.SpawnStrategy = 1;
