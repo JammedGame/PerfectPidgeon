@@ -11,6 +11,7 @@ namespace PerfectPidgeonGameMechanic
         private int _DependantInvincibility;
         private List<Vertex> _Offsets;
         private List<Enemy> _Auxes;
+        private List<Enemy> _AuxCandidates;
         private List<double> _Facings;
         private GroupVariant _Active;
         private List<GroupVariant> _Variants;
@@ -23,6 +24,7 @@ namespace PerfectPidgeonGameMechanic
                 return _Auxes;
             }
         }
+        public List<Enemy> AuxCandidates { get => _AuxCandidates; set => _AuxCandidates = value; }
         public List<double> Facings { get => _Facings; set => _Facings = value; }
         public int DependantInvincibility { get => _DependantInvincibility; set => _DependantInvincibility = value; }
         public GroupVariant Active { get => _Active; set => _Active = value; }
@@ -59,24 +61,33 @@ namespace PerfectPidgeonGameMechanic
         }
         public bool TryFindVariant(Enemy AuxCandidate)
         {
-            if(Active != null)
+            if(Active == null)
             {
-                for(int i = 0; i < this._Active.Entries.Count; i++)
+                List<GroupVariant> _PossibleVariants;
+                for (int i = 0; i < this._Variants.Count; i++)
                 {
-                    if(this._Active.Entries[i].DesiredID == AuxCandidate.ID)
+                    for (int j = 0; j < this._Variants[i].Entries.Count; j++)
                     {
-
+                        //if()
                     }
                 }
             }
-            else
+            if(Active != null)
             {
-                for (int i = 0; i < this._Variants.Count; i++)
+                for (int i = 0; i < this._Active.Entries.Count; i++)
                 {
-
+                    if (!this._Active.Entries[i].Filled && this._Active.Entries[i].DesiredID == AuxCandidate.ID)
+                    {
+                        this._AuxCandidates.Add(AuxCandidate);
+                        this._Active.Entries[i].Filled = true;
+                    }
                 }
             }
             return false;
+        }
+        public void Attach()
+        {
+
         }
     }
     public class GroupVariant
