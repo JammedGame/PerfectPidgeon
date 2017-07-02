@@ -634,6 +634,105 @@
   <ItemGroup>
     <None Include="Resources\elipsa.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enm33_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enm33_1_elipsa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enm34_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enm34_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enm34_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enm35_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enm35_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enm35_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enm36_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enm36_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enm36_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enm36_4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enm36_5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enm37_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enm37_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enm37_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enm37_4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enm38_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enm38_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enm39_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enm39_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enm39_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enm40_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enm40_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enm40_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enm41_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enm41_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enm41_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\enm42_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\snake1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\snake2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\snake3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\golub naslovna.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

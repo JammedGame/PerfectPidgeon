@@ -421,6 +421,31 @@ namespace PerfectPidgeonGameMechanic.Content
             FB.Offset = new Vertex(0, 0, 0);
             P.Behave = FB;
             this._Projectiles.Add("TekitaiSpinner", P);
+            P = new Projectile();
+            P.ArtIndex = 26;
+            P.SpinRate = 10;
+            P.Scale = 1;
+            P.Overdrawn = true;
+            P.Damage = 1;
+            P.HitRadius = 200;
+            P.Health = 100;
+            P.MaxHealth = 100;
+            FB = new FollowerBehaviour();
+            FB.Rotate = true;
+            FB.Sustainable = true;
+            FB.Offset = new Vertex(0, 0, 0);
+            P.Behave = FB;
+            this._Projectiles.Add("AustraliaSpinner", P);
+            P = new Projectile();
+            P.ArtIndex = 0;
+            P.Speed = 10;
+            P.Damage = 10;
+            P.Health = 2000;
+            P.MaxHealth = 2000;
+            P.Paint = Color.Black;
+            P.Scale = 0.5;
+            P.Behave = B;
+            this._Projectiles.Add("AustraliaRock", P);
         }
         private void InitWeapons()
         {
@@ -594,6 +619,18 @@ namespace PerfectPidgeonGameMechanic.Content
             W.Location = new Vertex(0, 0, 0);
             W.Ammo = 1;
             this._Weapons.Add("TekitaiSpinnerHandle", W);
+            W = new Weapon();
+            W.FireRate = 5;
+            W.Type = this._Projectiles["AustraliaSpinner"];
+            W.Location = new Vertex(0, 0, 0);
+            W.Ammo = 1;
+            this._Weapons.Add("AustraliaSpinnerHandle", W);
+            W = new Weapon();
+            W.FireRate = 25;
+            W.Type = this._Projectiles["AustraliaRock"];
+            W.Location = new Vertex(0, 0, 0);
+            W.Ammo = 1;
+            this._Weapons.Add("AustraliaSling", W);
 
             W = new Weapon();
             W.FireRate = 15;
@@ -838,6 +875,10 @@ namespace PerfectPidgeonGameMechanic.Content
             GVE.Offset = new Vertex(-285, 15, 0);
             GVE.Angle = 90;
             GV.Entries.Add(GVE);
+            GVE = new GroupVariantEntry();
+            GVE.DesiredID = "TekitaiPolaroid";
+            GVE.Offset = new Vertex(0, 100, 0);
+            GV.Entries.Add(GVE);
             GE.Variants.Add(GV);
             GE.Guns.Add(new Weapon(this._Weapons["TekitaiTrigunCenter"]));
             GE.Guns.Add(new Weapon(this._Weapons["TekitaiTrigunLeft"]));
@@ -863,9 +904,13 @@ namespace PerfectPidgeonGameMechanic.Content
             E.MaxHealth = 200;
             E.Speed = 2;
             E.Owner = 1;
+            E.ID = "TekitaiPolaroid";
             EffectiveBehaviour Magnetic = new EffectiveBehaviour();
             Magnetic.MagneticField = 80;
-            E.Behave = Magnetic;
+            AB = new AuxBehaviour();
+            AB.MergeChance = 100;
+            E.Behave = AB;
+            E.AdditionalBehaviour = Magnetic;
             this._Enemies.Add("TekitaiPolaroid", E);
             E = new Enemy();
             E.ArtIndex = 30;
@@ -880,7 +925,20 @@ namespace PerfectPidgeonGameMechanic.Content
             E.Guns.Add(new Weapon(this._Weapons["TekitaiSpinnerHandle"]));
             this._Enemies.Add("TekitaiTwister", E);
             #endregion
-
+            #region Australia
+            E = new Enemy();
+            E.ArtIndex = 31;
+            E.Facing = 0;
+            E.Health = 100;
+            E.MaxHealth = 100;
+            E.Scale = 0.5;
+            E.Speed = 4;
+            E.Owner = 1;
+            E.Behave = new Behaviour();
+            E.Guns.Add(new Weapon(this._Weapons["AustraliaSpinnerHandle"]));
+            E.Guns.Add(new Weapon(this._Weapons["AustraliaSling"]));
+            this._Enemies.Add("AustraliaCrocopter", E);
+            #endregion
             InitBosses();
         }
         private void InitBosses()
@@ -951,7 +1009,7 @@ namespace PerfectPidgeonGameMechanic.Content
             this._Levels.Add("AlienSpeeder-Test", L);
             L = new Level();
             L.SpawnStrategy = 1;
-            L.Back = new Background("Data\\Town1", BackgroundType.Static);
+            L.Back = new Background("Earth", BackgroundType.Static);
             L.Enemies.Add(new Enemy(this._Enemies["AlienBeamer"]));
             this._Levels.Add("AlienBeamer-Test", L);
             L = new Level();
@@ -990,12 +1048,6 @@ namespace PerfectPidgeonGameMechanic.Content
             L.SpawnStrategy = 1;
             L.Back = new Background("Data\\Town4", BackgroundType.Tiled, 2);
             L.Enemies.Add(new Grouped((Grouped)this._Enemies["TekitaiFighter"]));
-            L.Enemies.Add(new Enemy(this._Enemies["TekitaiNinja"]));
-            L.Enemies.Add(new Enemy(this._Enemies["TekitaiNinja"]));
-            L.Enemies.Add(new Enemy(this._Enemies["TekitaiNinja"]));
-            L.Enemies.Add(new Enemy(this._Enemies["TekitaiNinja"]));
-            L.Enemies.Add(new Enemy(this._Enemies["TekitaiNinja"]));
-            L.Enemies.Add(new Enemy(this._Enemies["TekitaiNinja"]));
             this._Levels.Add("TekitaiFighter-Test", L);
             L = new Level();
             L.SpawnStrategy = 1;
@@ -1010,7 +1062,7 @@ namespace PerfectPidgeonGameMechanic.Content
             L.Enemies.Add(new Grouped((Grouped)this._Enemies["TekitaiFighter"]));
             L.Enemies.Add(new Enemy(this._Enemies["TekitaiNinja"]));
             L.Enemies.Add(new Enemy(this._Enemies["TekitaiNinja"]));
-            //L.Enemies.Add(new Enemy(this._Enemies["TekitaiPolaroid"]));
+            L.Enemies.Add(new Enemy(this._Enemies["TekitaiPolaroid"]));
             this._Levels.Add("TekitaiTrigun-Test", L);
             L = new Level();
             L.SpawnStrategy = 1;
@@ -1025,8 +1077,8 @@ namespace PerfectPidgeonGameMechanic.Content
             L = new Level();
             L.SpawnStrategy = 1;
             L.Back = new Background("Data\\Town5", BackgroundType.Tiled, 2);
-            L.Enemies.Add(new Enemy(this._Enemies["TekitaiTwister"]));
-            this._Levels.Add("HellCrocopter-Test", L);
+            L.Enemies.Add(new Enemy(this._Enemies["AustraliaCrocopter"]));
+            this._Levels.Add("AustraliaCrocopter-Test", L);
             #endregion
             #region Alien
             L = new Level();

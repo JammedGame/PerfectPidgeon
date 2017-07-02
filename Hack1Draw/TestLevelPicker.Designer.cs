@@ -36,6 +36,12 @@
             this.panel12 = new System.Windows.Forms.Panel();
             this.panel13 = new System.Windows.Forms.Panel();
             this.Container1 = new System.Windows.Forms.Panel();
+            this.Container4 = new System.Windows.Forms.Panel();
+            this.pictureBox16 = new System.Windows.Forms.PictureBox();
+            this.pictureBox17 = new System.Windows.Forms.PictureBox();
+            this.pictureBox18 = new System.Windows.Forms.PictureBox();
+            this.pictureBox19 = new System.Windows.Forms.PictureBox();
+            this.pictureBox20 = new System.Windows.Forms.PictureBox();
             this.pictureBox15 = new System.Windows.Forms.PictureBox();
             this.pictureBox14 = new System.Windows.Forms.PictureBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
@@ -51,10 +57,15 @@
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox16 = new System.Windows.Forms.PictureBox();
             this.Container3.SuspendLayout();
             this.Container2.SuspendLayout();
             this.Container1.SuspendLayout();
+            this.Container4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
@@ -70,7 +81,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).BeginInit();
             this.SuspendLayout();
             // 
             // Container3
@@ -144,8 +154,8 @@
             // Container1
             // 
             this.Container1.AutoScroll = true;
-            this.Container1.Controls.Add(this.pictureBox7);
             this.Container1.Controls.Add(this.pictureBox6);
+            this.Container1.Controls.Add(this.pictureBox7);
             this.Container1.Controls.Add(this.pictureBox5);
             this.Container1.Controls.Add(this.pictureBox4);
             this.Container1.Controls.Add(this.pictureBox1);
@@ -154,6 +164,85 @@
             this.Container1.Name = "Container1";
             this.Container1.Size = new System.Drawing.Size(192, 592);
             this.Container1.TabIndex = 48;
+            // 
+            // Container4
+            // 
+            this.Container4.AutoScroll = true;
+            this.Container4.Controls.Add(this.pictureBox16);
+            this.Container4.Controls.Add(this.pictureBox17);
+            this.Container4.Controls.Add(this.pictureBox18);
+            this.Container4.Controls.Add(this.pictureBox19);
+            this.Container4.Controls.Add(this.pictureBox20);
+            this.Container4.Dock = System.Windows.Forms.DockStyle.Left;
+            this.Container4.Location = new System.Drawing.Point(633, 20);
+            this.Container4.Name = "Container4";
+            this.Container4.Size = new System.Drawing.Size(196, 592);
+            this.Container4.TabIndex = 56;
+            // 
+            // pictureBox16
+            // 
+            this.pictureBox16.BackgroundImage = global::PerfectPidgeon.Draw.Properties.Resources.enm42_1;
+            this.pictureBox16.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox16.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBox16.Location = new System.Drawing.Point(0, 600);
+            this.pictureBox16.Name = "pictureBox16";
+            this.pictureBox16.Size = new System.Drawing.Size(179, 150);
+            this.pictureBox16.TabIndex = 33;
+            this.pictureBox16.TabStop = false;
+            this.pictureBox16.Tag = "AustraliaDutchman-Test";
+            this.pictureBox16.Click += new System.EventHandler(this.Level_Click);
+            // 
+            // pictureBox17
+            // 
+            this.pictureBox17.BackgroundImage = global::PerfectPidgeon.Draw.Properties.Resources.enm40_1;
+            this.pictureBox17.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox17.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBox17.Location = new System.Drawing.Point(0, 450);
+            this.pictureBox17.Name = "pictureBox17";
+            this.pictureBox17.Size = new System.Drawing.Size(179, 150);
+            this.pictureBox17.TabIndex = 32;
+            this.pictureBox17.TabStop = false;
+            this.pictureBox17.Tag = "AustraliaChickenPirate-Test";
+            this.pictureBox17.Click += new System.EventHandler(this.Level_Click);
+            // 
+            // pictureBox18
+            // 
+            this.pictureBox18.BackgroundImage = global::PerfectPidgeon.Draw.Properties.Resources.enm35_1;
+            this.pictureBox18.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox18.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBox18.Location = new System.Drawing.Point(0, 300);
+            this.pictureBox18.Name = "pictureBox18";
+            this.pictureBox18.Size = new System.Drawing.Size(179, 150);
+            this.pictureBox18.TabIndex = 30;
+            this.pictureBox18.TabStop = false;
+            this.pictureBox18.Tag = "AustraliaPlatyzard-Test";
+            this.pictureBox18.Click += new System.EventHandler(this.Level_Click);
+            // 
+            // pictureBox19
+            // 
+            this.pictureBox19.BackgroundImage = global::PerfectPidgeon.Draw.Properties.Resources.enm34_1;
+            this.pictureBox19.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox19.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBox19.Location = new System.Drawing.Point(0, 150);
+            this.pictureBox19.Name = "pictureBox19";
+            this.pictureBox19.Size = new System.Drawing.Size(179, 150);
+            this.pictureBox19.TabIndex = 31;
+            this.pictureBox19.TabStop = false;
+            this.pictureBox19.Tag = "AustraliaBangaroo-Test";
+            this.pictureBox19.Click += new System.EventHandler(this.Level_Click);
+            // 
+            // pictureBox20
+            // 
+            this.pictureBox20.BackgroundImage = global::PerfectPidgeon.Draw.Properties.Resources.enm33_1;
+            this.pictureBox20.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox20.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBox20.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox20.Name = "pictureBox20";
+            this.pictureBox20.Size = new System.Drawing.Size(179, 150);
+            this.pictureBox20.TabIndex = 29;
+            this.pictureBox20.TabStop = false;
+            this.pictureBox20.Tag = "AustraliaCrocopter-Test";
+            this.pictureBox20.Click += new System.EventHandler(this.Level_Click);
             // 
             // pictureBox15
             // 
@@ -290,7 +379,7 @@
             this.pictureBox7.BackgroundImage = global::PerfectPidgeon.Draw.Properties.Resources.enm5_1;
             this.pictureBox7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureBox7.Location = new System.Drawing.Point(0, 600);
+            this.pictureBox7.Location = new System.Drawing.Point(0, 450);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(175, 150);
             this.pictureBox7.TabIndex = 7;
@@ -303,7 +392,7 @@
             this.pictureBox6.BackgroundImage = global::PerfectPidgeon.Draw.Properties.Resources.enm4_1;
             this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox6.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureBox6.Location = new System.Drawing.Point(0, 450);
+            this.pictureBox6.Location = new System.Drawing.Point(0, 600);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(175, 150);
             this.pictureBox6.TabIndex = 6;
@@ -350,24 +439,11 @@
             this.pictureBox1.Tag = "AlienBasic-Test";
             this.pictureBox1.Click += new System.EventHandler(this.Level_Click);
             // 
-            // pictureBox16
-            // 
-            this.pictureBox16.BackgroundImage = global::PerfectPidgeon.Draw.Properties.Resources.enm25_1;
-            this.pictureBox16.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox16.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pictureBox16.Location = new System.Drawing.Point(633, 20);
-            this.pictureBox16.Name = "pictureBox16";
-            this.pictureBox16.Size = new System.Drawing.Size(510, 150);
-            this.pictureBox16.TabIndex = 56;
-            this.pictureBox16.TabStop = false;
-            this.pictureBox16.Tag = "HellCrocopter-Test";
-            this.pictureBox16.Click += new System.EventHandler(this.Level_Click);
-            // 
             // TestLevelPicker
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.pictureBox16);
+            this.Controls.Add(this.Container4);
             this.Controls.Add(this.Container3);
             this.Controls.Add(this.panel24);
             this.Controls.Add(this.Container2);
@@ -381,6 +457,12 @@
             this.Container3.ResumeLayout(false);
             this.Container2.ResumeLayout(false);
             this.Container1.ResumeLayout(false);
+            this.Container4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox17)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox18)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox19)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox15)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox14)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
@@ -396,7 +478,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox16)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -426,6 +507,11 @@
         private System.Windows.Forms.PictureBox pictureBox14;
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.PictureBox pictureBox9;
+        private System.Windows.Forms.Panel Container4;
         private System.Windows.Forms.PictureBox pictureBox16;
+        private System.Windows.Forms.PictureBox pictureBox17;
+        private System.Windows.Forms.PictureBox pictureBox18;
+        private System.Windows.Forms.PictureBox pictureBox19;
+        private System.Windows.Forms.PictureBox pictureBox20;
     }
 }

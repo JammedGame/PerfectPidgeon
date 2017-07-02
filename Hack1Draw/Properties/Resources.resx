@@ -544,4 +544,103 @@
   <data name="shuriken" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\shuriken.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="back" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\golub naslovna.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm33_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm33_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm33_1_elipsa" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm33_1_elipsa.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm34_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm34_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm34_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm34_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm34_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm34_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm35_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm35_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm35_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm35_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm35_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm35_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm36_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm36_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm36_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm36_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm36_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm36_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm36_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm36_4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm36_5" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm36_5.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm37_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm37_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm37_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm37_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm37_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm37_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm37_4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm37_4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm38_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm38_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm38_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm38_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm39_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm39_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm39_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm39_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm39_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm39_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm40_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm40_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm40_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm40_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm40_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm40_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm41_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm41_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm41_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm41_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm41_3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm41_3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="enm42_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\enm42_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="snake1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\snake1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="snake2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\snake2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="snake3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\snake3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

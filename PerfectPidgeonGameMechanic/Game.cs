@@ -189,7 +189,12 @@ namespace PerfectPidgeonGameMechanic
                     FollowerBehaviour FB = Projectiles[i].Behave as FollowerBehaviour;
                     Vertex Off = FB.Offset;
                     if (FB.Rotate) Off = Off.RotateZ(FB.Followed.Facing);
-                    Projectiles[i].Location = FB.Followed.Location + Off;
+                    if (FB.Followed.Location == null)
+                    {
+                        Projectiles[i].Location = null;
+                        continue;
+                    }
+                    else Projectiles[i].Location = FB.Followed.Location + Off;
                 }
                 if (Projectiles[i].Behave.Linear) Angle = Projectiles[i].Facing + 90;
                 else Angle = -DrawForm.GetAngleDegree(Projectiles[i].Location.ToPoint(), CurrentPlayer.Location.ToPoint()) + 90;
@@ -252,9 +257,11 @@ namespace PerfectPidgeonGameMechanic
                     if (FB.Rotate) Off = Off.RotateZ(FB.Followed.Facing);
                     Enemies[i].Location = FB.Followed.Location + Off;
                 }
-                if (Enemies[i].Behave.Type == BehaviourType.Effective)
+                if (Enemies[i].Behave.Type == BehaviourType.Effective || (Enemies[i].AdditionalBehaviour != null && Enemies[i].AdditionalBehaviour.Type == BehaviourType.Effective))
                 {
-                    EffectiveBehaviour EB = Enemies[i].Behave as EffectiveBehaviour;
+                    EffectiveBehaviour EB = null;
+                    if(Enemies[i].Behave.Type == BehaviourType.Effective) EB = Enemies[i].Behave as EffectiveBehaviour;
+                    else if (Enemies[i].AdditionalBehaviour.Type == BehaviourType.Effective) EB = Enemies[i].AdditionalBehaviour as EffectiveBehaviour;
                     if (EB.MagneticField != 0)
                     {
                         if (Enemies[i].Behave.Type != BehaviourType.Follower)
@@ -332,6 +339,23 @@ namespace PerfectPidgeonGameMechanic
                                 for (int j = 0; j < G.Auxes.Count; j++)
                                 {
                                     if (G.Auxes[j].Location == null) continue;
+                                    if (G.Auxes[j].Behave.Type == BehaviourType.Effective || (Enemies[i].AdditionalBehaviour != null && G.Auxes[j].AdditionalBehaviour.Type == BehaviourType.Effective))
+                                    {
+                                        EffectiveBehaviour EB = null;
+                                        if (Enemies[i].Behave.Type == BehaviourType.Effective) EB = G.Auxes[j].Behave as EffectiveBehaviour;
+                                        else if (Enemies[i].AdditionalBehaviour.Type == BehaviourType.Effective) EB = G.Auxes[j].AdditionalBehaviour as EffectiveBehaviour;
+                                        if (EB.MagneticField != 0)
+                                        {
+                                            if (Enemies[i].Behave.Type != BehaviourType.Follower)
+                                            {
+                                                Vertex UnitVectorBase = new Vertex(1, 0);
+                                                double Angle1 = DrawForm.GetAngleDegree(Enemies[i].Location.ToPoint(), CurrentPlayer.Location.ToPoint());
+                                                Vertex UnitVector = UnitVectorBase.RotateZ(Angle1 + 90);
+                                                UnitVector.Y *= -1;
+                                                CurrentPlayer.Location += UnitVector * (EB.MagneticField * (G.Auxes[j].ActiveSpeed / 100.0));
+                                            }
+                                        }
+                                    }
                                     double Angle = DrawForm.GetAngleDegree((CurrentPlayer.Location).ToPoint(), Enemies[i].Location.ToPoint());
                                     Vertex Location = G.Location + G.Auxes[j].Location.RotateZ(-Angle);
                                     for (int k = 0; k < G.Auxes[j].Guns.Count; k++)
